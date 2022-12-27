@@ -4,6 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Devantler.Commons.StringHelpers</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>devantler</Authors>
+    <Company>Devantler Software</Company>
+    <PackageDescription>A collection of classes, extensions, and methods for working with strings.</PackageDescription>
+    <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
   </PropertyGroup>
 
 </Project>

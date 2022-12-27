@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2367A101-C6C2-4B11-B414-94D1AF3CA1C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devantler.Commons.StringHelpers", "src\Devantler.Commons.StringHelpers\Devantler.Commons.StringHelpers.csproj", "{DE2D1045-2983-4437-B14C-5EBD3E92EB89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C09810BB-563B-4A90-85E6-C1FD4EAC6193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devantler.Commons.StringHelpers.Test", "test\Devantler.Commons.StringHelpers.Test\Devantler.Commons.StringHelpers.Test.csproj", "{266ECBB2-7A57-4773-B260-FE979BF19D5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE2D1045-2983-4437-B14C-5EBD3E92EB89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE2D1045-2983-4437-B14C-5EBD3E92EB89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE2D1045-2983-4437-B14C-5EBD3E92EB89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE2D1045-2983-4437-B14C-5EBD3E92EB89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266ECBB2-7A57-4773-B260-FE979BF19D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266ECBB2-7A57-4773-B260-FE979BF19D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266ECBB2-7A57-4773-B260-FE979BF19D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266ECBB2-7A57-4773-B260-FE979BF19D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE2D1045-2983-4437-B14C-5EBD3E92EB89} = {2367A101-C6C2-4B11-B414-94D1AF3CA1C5}
+		{266ECBB2-7A57-4773-B260-FE979BF19D5C} = {C09810BB-563B-4A90-85E6-C1FD4EAC6193}
+	EndGlobalSection
+EndGlobal

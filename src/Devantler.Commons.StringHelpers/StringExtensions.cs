@@ -22,7 +22,7 @@ public static class StringExtensions
 
     public static string ToPascalCase(this string text)
     {
-        var matches = RegexLibrary.WordsRegex().Matches(text);
+        var matches = RegexLibrary.WordsRegex.Matches(text);
 
         var textInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
         var builder = new StringBuilder();

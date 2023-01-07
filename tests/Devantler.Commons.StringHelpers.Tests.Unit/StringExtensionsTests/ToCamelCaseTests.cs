@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Devantler.Commons.StringHelpers.Test.StringExtensionsTests;
+namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 
 public class ToCamelCaseTests
 {

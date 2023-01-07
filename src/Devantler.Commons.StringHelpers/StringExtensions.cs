@@ -5,7 +5,7 @@ namespace Devantler.Commons.StringHelpers;
 
 public static class StringExtensions
 {
-    public static string IndentBy(this string text, int spaces = 4)
+    public static string Indent(this string text, int spaces = 4)
     {
         var builder = new StringBuilder();
         var lines = text.Split(Environment.NewLine.ToCharArray());
@@ -35,7 +35,7 @@ public static class StringExtensions
     {
         var pascalCase = text.ToPascalCase();
 
-        return pascalCase.Substring(0, 1).ToLower() + pascalCase.Substring(1);
+        return pascalCase[..1].ToLower() + pascalCase[1..];
     }
 
     public static string ToPlural(this string text)

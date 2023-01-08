@@ -22,5 +22,5 @@ jobs:
       - name: Upload Code Coverage to CodeCov
         uses: codecov/codecov-action@v3
         with:
-          files: test/**/TestResults/**/coverage.cobertura.xml
+          files: tests/**/TestResults/**/coverage.cobertura.xml
           fail_ci_if_error: true

@@ -3,7 +3,7 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 public class ToPluralTests
 {
     [Fact]
-    public void ToPlural_WithSingleWord_ReturnsPlural()
+    public void ToPlural_GivenSingleWord_ReturnsPlural()
     {
         //Arrange
         const string text = "test";
@@ -17,7 +17,7 @@ public class ToPluralTests
     }
 
     [Fact]
-    public void ToPlural_WithSingleWordEndingWithS_ReturnsPlural()
+    public void ToPlural_GivenSingleWordEndingWithS_ReturnsPlural()
     {
         //Arrange
         const string TEXT = "glass";

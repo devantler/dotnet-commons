@@ -3,7 +3,7 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 public class ToPascalCaseTests
 {
     [Fact]
-    public void ToPascalCase_WithSingleWord_ReturnsPascalCase()
+    public void ToPascalCase_GivenSingleWord_ReturnsPascalCase()
     {
         const string TEXT = "test";
         const string expected = "Test";
@@ -12,7 +12,7 @@ public class ToPascalCaseTests
     }
 
     [Fact]
-    public void ToPascalCase_WithMultipleWords_ReturnsPascalCase()
+    public void ToPascalCase_GivenMultipleWords_ReturnsPascalCase()
     {
         const string TEXT = "this is a test";
         const string expected = "ThisIsATest";
@@ -21,7 +21,7 @@ public class ToPascalCaseTests
     }
 
     [Fact]
-    public void ToPascalCase_WithCamelCase_ReturnsPascalCase()
+    public void ToPascalCase_GivenCamelCase_ReturnsPascalCase()
     {
         const string TEXT = "thisIsATest";
         const string expected = "ThisIsATest";
@@ -30,7 +30,7 @@ public class ToPascalCaseTests
     }
 
     [Fact]
-    public void ToPascalCase_WithSnakeCase_ReturnsPascalCase()
+    public void ToPascalCase_GivenSnakeCase_ReturnsPascalCase()
     {
         const string TEXT = "this_is_a_test";
         const string expected = "ThisIsATest";
@@ -39,7 +39,7 @@ public class ToPascalCaseTests
     }
 
     [Fact]
-    public void ToPascalCase_WithKebabCase_ReturnsPascalCase()
+    public void ToPascalCase_GivenKebabCase_ReturnsPascalCase()
     {
         const string TEXT = "this-is-a-test";
         const string expected = "ThisIsATest";

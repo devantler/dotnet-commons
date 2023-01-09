@@ -3,7 +3,7 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 public class ToKebabCaseTests
 {
     [Fact]
-    public void ToKebabCase_WithCamelCase_ReturnsKebabCase()
+    public void ToKebabCase_GivenCamelCase_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";
@@ -16,7 +16,7 @@ public class ToKebabCaseTests
     }
 
     [Fact]
-    public void ToKebabCase_WithPascalCase_ReturnsKebabCase()
+    public void ToKebabCase_GivenPascalCase_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";
@@ -29,7 +29,7 @@ public class ToKebabCaseTests
     }
 
     [Fact]
-    public void ToKebabCase_WithSnakeCase_ReturnsKebabCase()
+    public void ToKebabCase_GivenSnakeCase_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";
@@ -42,7 +42,7 @@ public class ToKebabCaseTests
     }
 
     [Fact]
-    public void ToKebabCase_WithMacroCase_ReturnsKebabCase()
+    public void ToKebabCase_GivenMacroCase_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";
@@ -55,7 +55,7 @@ public class ToKebabCaseTests
     }
 
     [Fact]
-    public void ToKebabCase_WithTrainCase_ReturnsKebabCase()
+    public void ToKebabCase_GivenTrainCase_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";
@@ -68,7 +68,7 @@ public class ToKebabCaseTests
     }
 
     [Fact]
-    public void ToKebabCase_WithPlainText_ReturnsKebabCase()
+    public void ToKebabCase_GivenPlainText_ReturnsKebabCase()
     {
         //Arrange
         const string expected = "this-is-a-test";

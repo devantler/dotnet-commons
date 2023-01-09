@@ -1,5 +1,3 @@
-using FluentAssertions;
-
 namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 
 public class ToPluralTests

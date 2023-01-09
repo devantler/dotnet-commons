@@ -39,4 +39,23 @@ public static class StringExtensions
 
     public static string ToPlural(this string text) =>
         text.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? text + "es" : text + "s";
+
+    public static string ToKebabCase(this string text)
+    {
+        text = RegexLibrary.NonAlphanumericRegex.Replace(text, "-");
+
+        text = RegexLibrary.SpaceRegex.Replace(text, "-");
+
+        text = RegexLibrary.MultipleDashesRegex.Replace(text, "-");
+
+        text = RegexLibrary.TrailingDashesRegex.Replace(text, string.Empty);
+
+        text = text.StartsWith("-") ? text.Substring(1) : text;
+
+        text = RegexLibrary.CamelCaseRegex.Replace(text, "$1-$2");
+
+        text = RegexLibrary.PascalCaseRegex.Replace(text, "$1-$2");
+
+        return text.ToLower();
+    }
 }

@@ -1,6 +1,6 @@
 # .NET Commons
 
-A collection of .NET libraries that can be used for common tasks in .NET applications.
+This repository contains a collection of .NET libraries that can be used for everyday tasks in .NET applications.
 
 ## Libraries
 

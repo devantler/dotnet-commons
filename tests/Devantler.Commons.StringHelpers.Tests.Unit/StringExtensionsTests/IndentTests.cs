@@ -3,7 +3,7 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 public class IndentTests
 {
     [Fact]
-    public void Indent_WithMultiLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
+    public void Indent_GivenMultiLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
     {
         //Arrange
         const string expected =
@@ -24,7 +24,7 @@ public class IndentTests
     }
 
     [Fact]
-    public void Indent_WithMultiLineTextAndStringInterpolation_IndentsBySpecifiedSpaces()
+    public void Indent_GivenMultiLineTextAndStringInterpolation_IndentsBySpecifiedSpaces()
     {
         const string expected =
             """
@@ -40,7 +40,7 @@ public class IndentTests
     }
 
     [Fact]
-    public void Indent_WithMultiLineText_IndentsByFourSpaces()
+    public void Indent_GivenMultiLineText_IndentsByFourSpaces()
     {
         const string expected =
             """
@@ -57,7 +57,7 @@ public class IndentTests
     }
 
     [Fact]
-    public void Indent_WithNegativeSpacesArgument_ThrowsArgumentOutOfRangeException()
+    public void Indent_GivenNegativeSpacesArgument_ThrowsArgumentOutOfRangeException()
     {
         //Arrange/Act
         Action action = () => "this is a test".Indent(-1);
@@ -67,7 +67,7 @@ public class IndentTests
     }
 
     [Fact]
-    public void Indent_WithSingleLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
+    public void Indent_GivenSingleLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
     {
         //Arrange
         const string expected = "    this is a test";
@@ -80,7 +80,7 @@ public class IndentTests
     }
 
     [Fact]
-    public void Indent_WithSingleLineText_IndentsByFourSpaces()
+    public void Indent_GivenSingleLineText_IndentsByFourSpaces()
     {
         const string expected = "    this is a test";
         string actual = "this is a test".Indent();

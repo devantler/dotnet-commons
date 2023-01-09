@@ -5,69 +5,85 @@ public class IndentTests
     [Fact]
     public void Indent_WithMultiLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
     {
-        const string EXPECTED =
+        //Arrange
+        const string expected =
             """
                 first line
                 second line
             """;
-        var actual =
+
+        //Act
+        string actual =
             """
             first line
             second line
             """.Indent(4);
-        Assert.Equal(EXPECTED, actual);
+
+        //Assert
+        _ = expected.Should().Be(actual);
     }
 
     [Fact]
     public void Indent_WithMultiLineTextAndStringInterpolation_IndentsBySpecifiedSpaces()
     {
-        const string EXPECTED =
+        const string expected =
             """
                 first line
                     second line
             """;
-        var actual =
+        string actual =
             $$"""
             first line
             {{"second line".Indent(4)}}
             """.Indent(4);
-        Assert.Equal(EXPECTED, actual);
+        _ = expected.Should().Be(actual);
     }
 
     [Fact]
     public void Indent_WithMultiLineText_IndentsByFourSpaces()
     {
-        const string EXPECTED =
+        const string expected =
             """
                 first line
                 second line
             """;
-        var actual =
+        string actual =
             """
             first line
             second line
             """.Indent();
 
-        Assert.Equal(EXPECTED, actual);
+        _ = expected.Should().Be(actual);
     }
 
     [Fact]
-    public void Indent_WithNegativeSpacesArgument_ThrowsArgumentOutOfRangeException() =>
-        Assert.Throws<ArgumentOutOfRangeException>(() => "this is a test".Indent(-1));
+    public void Indent_WithNegativeSpacesArgument_ThrowsArgumentOutOfRangeException()
+    {
+        //Arrange/Act
+        Action action = () => "this is a test".Indent(-1);
+
+        //Assert
+        _ = action.Should().Throw<ArgumentOutOfRangeException>();
+    }
 
     [Fact]
     public void Indent_WithSingleLineTextAndSpacesArgument_IndentsBySpecifiedSpaces()
     {
-        const string EXPECTED = "    this is a test";
-        var actual = "this is a test".Indent(4);
-        Assert.Equal(EXPECTED, actual);
+        //Arrange
+        const string expected = "    this is a test";
+
+        //Act
+        string actual = "this is a test".Indent(4);
+
+        //Assert
+        _ = expected.Should().Be(actual);
     }
 
     [Fact]
     public void Indent_WithSingleLineText_IndentsByFourSpaces()
     {
-        const string EXPECTED = "    this is a test";
-        var actual = "this is a test".Indent();
-        Assert.Equal(EXPECTED, actual);
+        const string expected = "    this is a test";
+        string actual = "this is a test".Indent();
+        _ = expected.Should().Be(actual);
     }
 }

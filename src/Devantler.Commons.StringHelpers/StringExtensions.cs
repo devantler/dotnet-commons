@@ -21,41 +21,42 @@ public static class StringExtensions
 
     public static string ToPascalCase(this string text)
     {
-        MatchCollection matches = RegexLibrary.WordsRegex.Matches(text);
+        //Check if PascalCase
 
-        System.Globalization.TextInfo textInfo = Thread.CurrentThread.CurrentCulture.TextInfo;
-        StringBuilder builder = new();
-        foreach (Match match in matches.Cast<Match>())
-            _ = builder.Append(textInfo.ToTitleCase(match.Value.ToLower()));
-        return builder.ToString();
+        if (RegexLibrary.PascalCaseRegex.IsMatch(text))
+            return text;
+        else if (RegexLibrary.CamelCaseRegex.IsMatch(text))
+            return text[..1].ToUpper() + text[1..];
+
+        return RegexLibrary.WordsRegex.Matches(text)
+            .Select(m => m.Value)
+            .Aggregate(new StringBuilder(), (sb, s) => sb.Append(s[..1].ToUpper()).Append(s[1..].ToLower()))
+            .ToString();
     }
 
     public static string ToCamelCase(this string text)
     {
-        string pascalCase = text.ToPascalCase();
+        if (RegexLibrary.CamelCaseRegex.IsMatch(text))
+            return text;
 
-        return pascalCase.Substring(0, 1).ToLower() + pascalCase.Substring(1);
+        text = text.ToPascalCase();
+
+        return text[..1].ToLower() + text[1..];
+    }
+
+    public static string ToKebabCase(this string text)
+    {
+        if (RegexLibrary.KebabCaseRegex.IsMatch(text))
+            return text;
+
+        text = text.ToPascalCase();
+
+        return RegexLibrary.WordsRegex.Matches(text)
+            .Select(m => m.Value)
+            .Aggregate(new StringBuilder(), (sb, s) => sb.Append(s.ToLower()).Append('-'))
+            .ToString()[..^1];
     }
 
     public static string ToPlural(this string text) =>
         text.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? text + "es" : text + "s";
-
-    public static string ToKebabCase(this string text)
-    {
-        text = RegexLibrary.NonAlphanumericRegex.Replace(text, "-");
-
-        text = RegexLibrary.SpaceRegex.Replace(text, "-");
-
-        text = RegexLibrary.MultipleDashesRegex.Replace(text, "-");
-
-        text = RegexLibrary.TrailingDashesRegex.Replace(text, string.Empty);
-
-        text = text.StartsWith("-") ? text.Substring(1) : text;
-
-        text = RegexLibrary.CamelCaseRegex.Replace(text, "$1-$2");
-
-        text = RegexLibrary.PascalCaseRegex.Replace(text, "$1-$2");
-
-        return text.ToLower();
-    }
 }

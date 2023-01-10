@@ -2,48 +2,23 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 
 public class ToPascalCaseTests
 {
-    [Fact]
-    public void ToPascalCase_GivenSingleWord_ReturnsPascalCase()
+    [Theory]
+    [InlineData("this-is-a-test")]
+    [InlineData("this_is_a_test")]
+    [InlineData("THIS_IS_A_TEST")]
+    [InlineData("THIS-IS-A-TEST")]
+    [InlineData("This is a test")]
+    [InlineData("ThisIsATest")]
+    [InlineData("thisIsATest")]
+    public void ReturnsToPascalCase(string text)
     {
-        const string TEXT = "test";
-        const string expected = "Test";
-        string actual = TEXT.ToPascalCase();
-        _ = expected.Should().Be(actual);
-    }
-
-    [Fact]
-    public void ToPascalCase_GivenMultipleWords_ReturnsPascalCase()
-    {
-        const string TEXT = "this is a test";
+        //Arrange
         const string expected = "ThisIsATest";
-        string actual = TEXT.ToPascalCase();
-        _ = expected.Should().Be(actual);
-    }
 
-    [Fact]
-    public void ToPascalCase_GivenCamelCase_ReturnsPascalCase()
-    {
-        const string TEXT = "thisIsATest";
-        const string expected = "ThisIsATest";
-        string actual = TEXT.ToPascalCase();
-        _ = expected.Should().Be(actual);
-    }
+        //Act
+        string actual = text.ToPascalCase();
 
-    [Fact]
-    public void ToPascalCase_GivenSnakeCase_ReturnsPascalCase()
-    {
-        const string TEXT = "this_is_a_test";
-        const string expected = "ThisIsATest";
-        string actual = TEXT.ToPascalCase();
-        _ = expected.Should().Be(actual);
-    }
-
-    [Fact]
-    public void ToPascalCase_GivenKebabCase_ReturnsPascalCase()
-    {
-        const string TEXT = "this-is-a-test";
-        const string expected = "ThisIsATest";
-        string actual = TEXT.ToPascalCase();
-        _ = expected.Should().Be(actual);
+        //Assert
+        _ = actual.Should().Be(expected);
     }
 }

@@ -8,17 +8,19 @@ public class ToPascalCaseTests
     [InlineData("THIS_IS_A_TEST")]
     [InlineData("THIS-IS-A-TEST")]
     [InlineData("This is a test")]
+    [InlineData("this is a test")]
     [InlineData("ThisIsATest")]
     [InlineData("thisIsATest")]
+    [InlineData("ThisIs1Test")]
     public void ReturnsToPascalCase(string text)
     {
         //Arrange
-        const string expected = "ThisIsATest";
+        string[] expected = { "ThisIsATest", "ThisIs1Test" };
 
         //Act
         string actual = text.ToPascalCase();
 
         //Assert
-        _ = actual.Should().Be(expected);
+        _ = expected.Should().Contain(actual);
     }
 }

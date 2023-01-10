@@ -21,17 +21,19 @@ public static class StringExtensions
 
     public static string ToPascalCase(this string text)
     {
-        //Check if PascalCase
-
         if (RegexLibrary.PascalCaseRegex.IsMatch(text))
             return text;
         else if (RegexLibrary.CamelCaseRegex.IsMatch(text))
             return text[..1].ToUpper() + text[1..];
 
-        return RegexLibrary.WordsRegex.Matches(text)
-            .Select(m => m.Value)
-            .Aggregate(new StringBuilder(), (sb, s) => sb.Append(s[..1].ToUpper()).Append(s[1..].ToLower()))
-            .ToString();
+        text = RegexLibrary.WordsRegex
+            .Replace(text, m => m.Value[..1].ToUpper() + m.Value[1..].ToLower());
+
+        text = RegexLibrary.NonAlphanumericRegex.Replace(text, string.Empty);
+
+        text = RegexLibrary.WhitespaceRegex.Replace(text, string.Empty);
+
+        return text;
     }
 
     public static string ToCamelCase(this string text)

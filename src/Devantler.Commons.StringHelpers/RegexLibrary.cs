@@ -5,7 +5,7 @@ namespace Devantler.Commons.StringHelpers;
 public static class RegexLibrary
 {
     public static Regex NonAlphanumericRegex { get; set; } = new Regex("[^a-zA-Z0-9]");
-    public static Regex SpaceRegex { get; set; } = new Regex(@"\s+");
+    public static Regex WhitespaceRegex { get; set; } = new Regex(@"\s+");
     public static Regex FromLowerCaseChangeRegex { get; set; } = new Regex("([a-z])([A-Z])");
     public static Regex FromUpperCaseChangeRegex { get; set; } = new Regex("([A-Z])([a-z])");
     public static Regex MultipleDashesRegex { get; set; } = new Regex("-{2,}");

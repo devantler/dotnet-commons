@@ -1,0 +1,35 @@
+﻿using System;
+
+namespace Namespace
+
+/// <summary>
+/// Class documentation block
+/// </summary>
+public class ClassName {
+    /// <summary>
+    /// Field documentation block 0
+    /// </summary>
+    public string fieldName0 = "Hello World";
+
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 = "Hello World";
+
+    /// <summary>
+    /// Constructor documentation block 0
+    /// </summary>
+    public ClassName()
+    {
+        Console.WriteLine("Hello World!");
+    }
+
+    /// <summary>
+    /// Method documentation block 0
+    /// </summary>
+    /// <param name="parameterName"></param>
+    public string Method0(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}

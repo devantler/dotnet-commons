@@ -1,16 +1,30 @@
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Devantler.Commons.StringHelpers;
 
+/// <summary>
+/// Provides extension methods for <see cref="string"/>.
+/// </summary>
 public static class StringExtensions
 {
-    public static string Indent(this string text, int spaces = 4)
+    /// <summary>
+    /// Indents a string by the specified number of spaces. Or four spaces if no argument is provided.
+    /// </summary>
+    /// <param name="text"></param>
+    /// <param name="spaces"></param>
+    /// <param name="ignoreFirstLine"></param>
+    public static string Indent(this string text, int spaces = 4, bool ignoreFirstLine = false)
     {
         StringBuilder builder = new();
         string[] lines = text.Split(Environment.NewLine.ToCharArray());
         for (int i = 0; i < text.Split(Environment.NewLine.ToCharArray()).Length; i++)
         {
+            if (i == 0 && ignoreFirstLine)
+            {
+                _ = builder.AppendLine(lines[i]);
+                continue;
+            }
+
             _ = i < lines.Length - 1
                 ? builder.Append(new string(' ', spaces)).AppendLine(lines[i])
                 : builder.Append(new string(' ', spaces)).Append(lines[i]);
@@ -19,11 +33,15 @@ public static class StringExtensions
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Converts a string to PascalCase.
+    /// </summary>
+    /// <param name="text"></param>
     public static string ToPascalCase(this string text)
     {
-        if (RegexLibrary.PascalCaseRegex.IsMatch(text))
+        if (RegexLibrary.PascalCaseWithDigitsRegex.IsMatch(text))
             return text;
-        else if (RegexLibrary.CamelCaseRegex.IsMatch(text))
+        else if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
             return text[..1].ToUpper() + text[1..];
 
         text = RegexLibrary.WordsRegex
@@ -36,9 +54,13 @@ public static class StringExtensions
         return text;
     }
 
+    /// <summary>
+    /// Converts a string to camelCase.
+    /// </summary>
+    /// <param name="text"></param>
     public static string ToCamelCase(this string text)
     {
-        if (RegexLibrary.CamelCaseRegex.IsMatch(text))
+        if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
             return text;
 
         text = text.ToPascalCase();
@@ -46,6 +68,10 @@ public static class StringExtensions
         return text[..1].ToLower() + text[1..];
     }
 
+    /// <summary>
+    /// Converts a string to kebab-case.
+    /// </summary>
+    /// <param name="text"></param>
     public static string ToKebabCase(this string text)
     {
         if (RegexLibrary.KebabCaseRegex.IsMatch(text))
@@ -59,6 +85,10 @@ public static class StringExtensions
             .ToString()[..^1];
     }
 
-    public static string ToPlural(this string text) =>
-        text.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? text + "es" : text + "s";
+    /// <summary>
+    /// Converts a word to plural.
+    /// </summary>
+    /// <param name="word"></param>
+    public static string ToPlural(this string word) =>
+        word.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? word + "es" : word + "s";
 }

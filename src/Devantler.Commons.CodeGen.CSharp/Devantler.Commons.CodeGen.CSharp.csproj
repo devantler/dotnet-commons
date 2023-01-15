@@ -8,12 +8,17 @@
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <PackageId>Devantler.Commons.StringHelpers</PackageId>
-    <Version>0.0.10</Version>
+    <PackageId>Devantler.Commons.CodeGen.CSharp</PackageId>
+    <Version>0.0.1</Version>
     <Authors>devantler</Authors>
     <Company>Devantler Software</Company>
-    <PackageDescription>A collection of classes, extensions, and methods for working with strings.</PackageDescription>
+    <PackageDescription>A code generator that can generate CSharp code.</PackageDescription>
     <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Devantler.Commons.CodeGen.Core/Devantler.Commons.CodeGen.Core.csproj" />
+    <ProjectReference Include="../Devantler.Commons.StringHelpers/Devantler.Commons.StringHelpers.csproj" />
+  </ItemGroup>
 
 </Project>

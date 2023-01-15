@@ -1,0 +1,21 @@
+﻿namespace Namespace
+
+/// <summary>
+/// Interface documentation block
+/// </summary>
+public interface InterfaceName
+{
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 = "Hello World";
+
+    /// <summary>
+    /// Method documentation block 0
+    /// </summary>
+    /// <param name="parameterName"></param>
+    public string Method0(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}

@@ -2,6 +2,9 @@ name: Pack and push
 on:
   push:
     branches: [main]
+    paths:
+      - "src/**"
+      - ".github/workflows/pack-and-push.yaml"
 
 env:
   NUGET_FEED: https://nuget.pkg.github.com/devantler/index.json

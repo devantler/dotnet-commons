@@ -7,6 +7,7 @@ public static class TestCases
     public static IEnumerable<object[]> ValidCases =>
         new List<object[]>
         {
+            new object[] { nameof(CSharpCodeCollectionFactory.CreateEmptyCSharpCodeCollectionStub), CSharpCodeCollectionFactory.CreateEmptyCSharpCodeCollectionStub()},
             new object[] { nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyClass), CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyClass() },
             new object[] { nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers), CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers() },
             new object[] { nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers), CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers() },
@@ -16,8 +17,5 @@ public static class TestCases
         };
 
     public static IEnumerable<object[]> InvalidCases =>
-        new List<object[]>
-        {
-            new object[] { CSharpCodeCollectionFactory.CreateEmptyCSharpCodeCollectionStub()}
-        };
+        new List<object[]>();
 }

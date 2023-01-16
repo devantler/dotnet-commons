@@ -1,0 +1,12 @@
+{{ include 'namespace.sbn-cs' namespace }}
+
+{{~ if doc_block }}{{ include 'doc_block.sbn-cs' doc_block }}{{ end ~}}
+public interface {{ name }}
+{
+    {{~ for property in properties ~}}
+    {{ include 'property.sbn-cs' property }}
+    {{~ end ~}}
+    {{~ for method in methods ~}}
+    {{ include 'method.sbn-cs' method }}
+    {{~ end ~}}
+}

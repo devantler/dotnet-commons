@@ -1,31 +1,27 @@
 ﻿using System;
-
-namespace Namespace
+namespace Namespace;
 
 /// <summary>
 /// Class documentation block
 /// </summary>
-public class ClassName {
+public class ClassName
+{
     /// <summary>
     /// Field documentation block 0
     /// </summary>
     public string fieldName0 = "Hello World";
-
     /// <summary>
     /// Field documentation block 1
     /// </summary>
     public string fieldName1 = "Hello World";
-
     /// <summary>
     /// Property documentation block 0
     /// </summary>
-    public string Property0 = "Hello World";
-
+    public string Property0 { get; set; } = "Hello World";
     /// <summary>
     /// Property documentation block 1
     /// </summary>
-    public string Property1 = "Hello World";
-
+    public string Property1 { get; set; } = "Hello World";
     /// <summary>
     /// Constructor documentation block 0
     /// </summary>
@@ -33,7 +29,6 @@ public class ClassName {
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Constructor documentation block 1
     /// </summary>
@@ -41,20 +36,18 @@ public class ClassName {
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Method documentation block 0
     /// </summary>
-    /// <param name="parameterName"></param>
+    /// <param name="parameterName">a parameter</param>
     public string Method0(string parameterName)
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Method documentation block 1
     /// </summary>
-    /// <param name="parameterName"></param>
+    /// <param name="parameterName">a parameter</param>
     public string Method1(string parameterName)
     {
         Console.WriteLine("Hello World!");

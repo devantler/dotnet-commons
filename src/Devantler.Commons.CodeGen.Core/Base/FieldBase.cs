@@ -5,7 +5,7 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for fields.
 /// </summary>
-public abstract class FieldBase : IClassMember
+public abstract class FieldBase : IField
 {
     /// <summary>
     /// The visibility of the field.
@@ -27,7 +27,7 @@ public abstract class FieldBase : IClassMember
     /// <summary>
     /// The documentation block for the field.
     /// </summary>
-    public DocumentationBlockBase? DocumentationBlock { get; set; }
+    public abstract DocBlockBase? DocBlock { get; }
 
     /// <summary>
     /// Creates a new field.
@@ -43,9 +43,4 @@ public abstract class FieldBase : IClassMember
         Name = name;
         Value = value;
     }
-
-    /// <summary>
-    /// Compiles the field.
-    /// </summary>
-    public abstract string Compile();
 }

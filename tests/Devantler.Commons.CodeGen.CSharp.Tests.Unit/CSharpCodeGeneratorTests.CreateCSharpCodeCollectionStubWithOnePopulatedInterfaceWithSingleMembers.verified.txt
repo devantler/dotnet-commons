@@ -1,4 +1,4 @@
-﻿namespace Namespace
+﻿namespace Namespace;
 
 /// <summary>
 /// Interface documentation block
@@ -8,8 +8,7 @@ public interface InterfaceName
     /// <summary>
     /// Property documentation block 0
     /// </summary>
-    public string Property0 = "Hello World";
-
+    public string Property0 { get; set; } = "Hello World";
     /// <summary>
     /// Method documentation block 0
     /// </summary>

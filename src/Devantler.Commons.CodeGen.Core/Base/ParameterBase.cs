@@ -5,7 +5,7 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for parameters.
 /// </summary>
-public abstract class ParameterBase : ICompilable
+public abstract class ParameterBase : IParameter
 {
     /// <summary>
     /// The type of the parameter.
@@ -26,9 +26,4 @@ public abstract class ParameterBase : ICompilable
         Type = type;
         Name = name;
     }
-
-    /// <summary>
-    /// Compiles the parameter.
-    /// </summary>
-    public abstract string Compile();
 }

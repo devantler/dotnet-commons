@@ -5,7 +5,7 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for interfaces.
 /// </summary>
-public abstract class InterfaceBase : ICompilableUnit
+public abstract class InterfaceBase : IInterface
 {
     /// <summary>
     /// The name of the interface.
@@ -15,18 +15,14 @@ public abstract class InterfaceBase : ICompilableUnit
     /// The namespace of the interface.
     /// </summary>
     public string Namespace { get; }
-    /// <summary>
-    /// The documentation block describing the interface.
-    /// </summary>
-    public DocumentationBlockBase? DocumentationBlock { get; set; }
-    /// <summary>
-    /// A list of usings in the interface.
-    /// </summary>
-    public List<string> Usings { get; set; } = new List<string>();
-    /// <summary>
-    /// The members of the interface.
-    /// </summary>
-    public List<IInterfaceMember> Members { get; set; } = new List<IInterfaceMember>();
+    /// <inheritdoc/>
+    public abstract IDocBlock? DocBlock { get; }
+    /// <inheritdoc/>
+    public List<IImport> Imports { get; } = new();
+    /// <inheritdoc/>
+    public List<IProperty> Properties { get; } = new();
+    /// <inheritdoc/>
+    public List<IMethod> Methods { get; } = new();
 
     /// <summary>
     /// Creates a new interface.
@@ -38,27 +34,25 @@ public abstract class InterfaceBase : ICompilableUnit
         Name = name;
         Namespace = @namespace;
     }
-    /// <summary>
-    /// Adds a using to the interface.
-    /// </summary>
-    /// <param name="using"></param>
-    public InterfaceBase AddUsing(string @using)
-    {
-        Usings.Add(@using);
-        return this;
-    }
 
-    /// <summary>
-    /// Adds a member to the interface.
-    /// </summary>
-    /// <param name="member"></param>
-    public InterfaceBase AddMember(IInterfaceMember member)
+    /// <inheritdoc/>
+    public IInterface AddImport(IImport import)
     {
-        Members.Add(member);
+        Imports.Add(import);
         return this;
     }
-    /// <summary>
-    /// Compiles the interface.
-    /// </summary>
+    /// <inheritdoc/>
+    public IInterface AddProperty(IProperty property)
+    {
+        Properties.Add(property);
+        return this;
+    }
+    /// <inheritdoc/>
+    public IInterface AddMethod(IMethod method)
+    {
+        Methods.Add(method);
+        return this;
+    }
+    /// <inheritdoc/>
     public abstract string Compile();
 }

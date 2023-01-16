@@ -12,7 +12,7 @@
     <Version>0.0.1</Version>
     <Authors>devantler</Authors>
     <Company>Devantler Software</Company>
-    <PackageDescription>A mapper to maps Avro Schemas to a Code Collection that can be generated.</PackageDescription>
+    <PackageDescription>A mapper to maps Avro Schemas to a compilation that can be generated.</PackageDescription>
     <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
   </PropertyGroup>
 

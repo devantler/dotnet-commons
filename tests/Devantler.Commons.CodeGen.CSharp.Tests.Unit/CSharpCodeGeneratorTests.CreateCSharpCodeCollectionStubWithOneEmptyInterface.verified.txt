@@ -1,9 +1,8 @@
-﻿namespace Namespace
+﻿namespace Namespace;
 
 /// <summary>
 /// Interface documentation block
 /// </summary>
 public interface InterfaceName
 {
-
 }

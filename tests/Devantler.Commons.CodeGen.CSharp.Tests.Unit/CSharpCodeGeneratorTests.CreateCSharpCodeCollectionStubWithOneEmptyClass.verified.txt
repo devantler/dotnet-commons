@@ -1,8 +1,8 @@
-﻿namespace Namespace
+﻿namespace Namespace;
 
 /// <summary>
 /// Class documentation block
 /// </summary>
-public class ClassName {
-
+public class ClassName
+{
 }

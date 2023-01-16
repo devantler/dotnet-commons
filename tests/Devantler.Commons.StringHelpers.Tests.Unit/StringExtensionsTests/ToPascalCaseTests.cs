@@ -3,6 +3,7 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 public class ToPascalCaseTests
 {
     [Theory, AutoData]
+    [MemberData(nameof(TestCases.CasingTests), MemberType = typeof(TestCases))]
     public void ReturnsToPascalCase(string text)
     {
         //Act

@@ -1,0 +1,56 @@
+name: Code Scanning - Action
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    #        ┌───────────── minute (0 - 59)
+    #        │  ┌───────────── hour (0 - 23)
+    #        │  │ ┌───────────── day of the month (1 - 31)
+    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        *  * * * *
+    - cron: "30 1 * * 0"
+
+env:
+  DOTNET_VERSION: 7.0.x
+  NUGET_FEED: https://nuget.pkg.github.com/devantler/index.json
+  NUGET_USER: devantler
+
+jobs:
+  CodeQL-Build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: csharp
+
+      - name: Setup .NET SDK v${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v3.0.3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Add NuGet Source
+        run: dotnet nuget add source --username $NUGET_USER --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "${{ env.NUGET_FEED }}"
+
+      - name: Install dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2

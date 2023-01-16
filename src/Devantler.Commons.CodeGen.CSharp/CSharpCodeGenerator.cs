@@ -6,8 +6,8 @@ namespace Devantler.Commons.CodeGen.CSharp;
 /// <summary>
 /// A code generator for C#.
 /// </summary>
-public class CSharpCodeGenerator : ICodeGenerator<CSharpCodeCollection>
+public class CSharpCodeGenerator : ICodeGenerator<CSharpCompilation>
 {
     /// <inheritdoc/>
-    public Dictionary<string, string> Generate(CSharpCodeCollection codeBase) => codeBase.Compile();
+    public Dictionary<string, string> Generate(CSharpCompilation compilation) => compilation.Compile();
 }

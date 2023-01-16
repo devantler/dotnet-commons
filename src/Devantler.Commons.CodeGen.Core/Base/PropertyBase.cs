@@ -5,7 +5,7 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for properties.
 /// </summary>
-public abstract class PropertyBase : IClassMember, IInterfaceMember
+public abstract class PropertyBase : IProperty
 {
     /// <summary>
     /// The visibility of the property.
@@ -26,7 +26,7 @@ public abstract class PropertyBase : IClassMember, IInterfaceMember
     /// <summary>
     /// The documentation block for the property.
     /// </summary>
-    public DocumentationBlockBase? DocumentationBlock { get; set; }
+    public abstract DocBlockBase? DocBlock { get; }
 
     /// <summary>
     /// Creates a new property.
@@ -42,9 +42,4 @@ public abstract class PropertyBase : IClassMember, IInterfaceMember
         Name = name;
         Value = value;
     }
-
-    /// <summary>
-    /// Compiles the property.
-    /// </summary>
-    public abstract string Compile();
 }

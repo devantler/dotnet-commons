@@ -5,28 +5,31 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for classes.
 /// </summary>
-public abstract class ClassBase : ICompilableUnit
+public abstract class ClassBase : IClass
 {
-    /// <summary>
-    /// The name of the class.
-    /// </summary>
+    /// <inheritdoc/>
     public string Name { get; set; }
-    /// <summary>
-    /// The namespace the class resides in.
-    /// </summary>
+
+    /// <inheritdoc/>
     public string Namespace { get; }
-    /// <summary>
-    /// A list of usings in the class.
-    /// </summary>
-    public List<string> Usings { get; set; } = new List<string>();
-    /// <summary>
-    /// A list of compilable elements in the class.
-    /// </summary>
-    public List<IClassMember> Members { get; set; } = new List<IClassMember>();
-    /// <summary>
-    /// The documentation block of the class.
-    /// </summary>
-    public DocumentationBlockBase? DocumentationBlock { get; set; }
+
+    /// <inheritdoc/>
+    public abstract IDocBlock? DocBlock { get; }
+
+    /// <inheritdoc/>
+    public List<IField> Fields { get; } = new();
+
+    /// <inheritdoc/>
+    public List<IProperty> Properties { get; } = new();
+
+    /// <inheritdoc/>
+    public List<IConstructor> Constructors { get; } = new();
+
+    /// <inheritdoc/>
+    public List<IMethod> Methods { get; } = new();
+
+    /// <inheritdoc/>
+    public List<IImport> Imports { get; } = new();
 
     /// <summary>
     /// Creates a new class.
@@ -39,28 +42,41 @@ public abstract class ClassBase : ICompilableUnit
         Namespace = @namespace;
     }
 
-    /// <summary>
-    /// Adds a member to the class.
-    /// </summary>
-    /// <param name="member"></param>
-    public ClassBase AddMember(IClassMember member)
+    /// <inheritdoc/>
+    public IClass AddImport(IImport import)
     {
-        Members.Add(member);
+        Imports.Add(import);
         return this;
     }
 
-    /// <summary>
-    /// Adds a using to the class.
-    /// </summary>
-    /// <param name="using"></param>
-    public ClassBase AddUsing(string @using)
+    /// <inheritdoc/>
+    public IClass AddField(IField field)
     {
-        Usings.Add(@using);
+        Fields.Add(field);
         return this;
     }
 
-    /// <summary>
-    /// Compiles the class.
-    /// </summary>
+    /// <inheritdoc/>
+    public IClass AddProperty(IProperty property)
+    {
+        Properties.Add(property);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IClass AddConstructor(IConstructor constructor)
+    {
+        Constructors.Add(constructor);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IClass AddMethod(IMethod method)
+    {
+        Methods.Add(method);
+        return this;
+    }
+
+    /// <inheritdoc/>
     public abstract string Compile();
 }

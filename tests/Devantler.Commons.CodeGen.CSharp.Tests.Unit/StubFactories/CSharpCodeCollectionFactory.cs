@@ -5,69 +5,69 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 static class CSharpCodeCollectionFactory
 {
-    internal static CSharpCodeCollection CreateEmptyCSharpCodeCollectionStub() => new();
+    internal static CSharpCompilation CreateEmptyCSharpCodeCollectionStub() => new();
 
-    internal static CSharpCodeCollection CreateCSharpCodeCollectionStubWithOneEmptyClass()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOneEmptyClass()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         ClassBase @class = new CSharpClass("ClassName", "Namespace", "Class documentation block");
 
-        codeCollection.AddCompilableUnit(@class);
+        _ = compilation.AddClass(@class);
 
-        return codeCollection;
+        return compilation;
     }
 
-    internal static CSharpCodeCollection CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         ClassBase @class = CSharpClassFactory.CreateCSharpClass(1, 1, 1, 1, true);
 
-        codeCollection.AddCompilableUnit(@class);
+        _ = compilation.AddClass(@class);
 
-        return codeCollection;
+        return compilation;
     }
 
-    internal static CSharpCodeCollection CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         ClassBase @class = CSharpClassFactory.CreateCSharpClass(2, 2, 2, 2, true);
 
-        codeCollection.AddCompilableUnit(@class);
+        _ = compilation.AddClass(@class);
 
-        return codeCollection;
+        return compilation;
     }
 
     internal static object CreateCSharpCodeCollectionStubWithOneEmptyInterface()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         InterfaceBase @interface = new CSharpInterface("InterfaceName", "Namespace", "Interface documentation block");
 
-        codeCollection.AddCompilableUnit(@interface);
+        _ = compilation.AddInterface(@interface);
 
-        return codeCollection;
+        return compilation;
     }
     internal static object CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         InterfaceBase @interface = CSharpInterfaceFactory.CreateCSharpInterface(1, 1, true);
 
-        codeCollection.AddCompilableUnit(@interface);
+        _ = compilation.AddInterface(@interface);
 
-        return codeCollection;
+        return compilation;
     }
     internal static object CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers()
     {
-        var codeCollection = new CSharpCodeCollection();
+        var compilation = new CSharpCompilation();
 
         InterfaceBase @interface = CSharpInterfaceFactory.CreateCSharpInterface(2, 2, true);
 
-        codeCollection.AddCompilableUnit(@interface);
+        _ = compilation.AddInterface(@interface);
 
-        return codeCollection;
+        return compilation;
     }
 }

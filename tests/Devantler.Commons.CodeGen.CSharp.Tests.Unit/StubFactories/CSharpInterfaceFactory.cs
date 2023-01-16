@@ -1,4 +1,5 @@
 using Devantler.Commons.CodeGen.Core.Base;
+using Devantler.Commons.CodeGen.Core.Interfaces;
 using Devantler.Commons.CodeGen.CSharp.Models;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
@@ -9,16 +10,20 @@ public static class CSharpInterfaceFactory
     {
         var @interface = new CSharpInterface("InterfaceName", "Namespace", withDocumentation ? "Interface documentation block" : null);
 
-        _ = @interface.AddUsing("System");
+        _ = @interface.AddImport(new CSharpUsing("System"));
 
         for (int i = 0; i < numberOfProperties; i++)
         {
-            _ = @interface.AddMember(new CSharpProperty(Visibility.Public, "string", $"Property{i}", "\"Hello World\"", withDocumentation ? $"Property documentation block {i}" : null));
+            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "string", $"Property{i}", "\"Hello World\"", withDocumentation ? $"Property documentation block {i}" : null));
         }
 
         for (int i = 0; i < numberOfMethods; i++)
         {
-            _ = @interface.AddMember(new CSharpMethod(Visibility.Public, "string", $"Method{i}", "Console.WriteLine(\"Hello World!\");", withDocumentation ? new CSharpDocumentationBlock($"Method documentation block {i}") { Parameters = new List<string> { "parameterName" } } : null) { Parameters = new List<ParameterBase> { new CSharpParameter("string", "parameterName") } });
+            IDocBlock? documentationBlock = (withDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null)?
+                .AddParameter(new CSharpDocBlockParameter("parameterName"));
+            IMethod method = new CSharpMethod(Visibility.Public, "string", $"Method{i}", "Console.WriteLine(\"Hello World!\");", documentationBlock)
+                .AddParameter(new CSharpParameter("string", "parameterName"));
+            _ = @interface.AddMethod(method);
         }
 
         return @interface;

@@ -1,0 +1,6 @@
+/// <summary>
+/// {{ $1.summary }}
+/// </summary>
+{{~ for parameter in $1.parameters ~}}
+/// {{ include 'doc_block_parameter.sbn-cs' parameter }}
+{{~ end ~}}

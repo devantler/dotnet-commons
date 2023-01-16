@@ -15,7 +15,4 @@ public class CSharpParameter : ParameterBase
     public CSharpParameter(string type, string name) : base(type, name)
     {
     }
-
-    /// <inheritdoc/>
-    public override string Compile() => $"{Type} {Name}";
 }

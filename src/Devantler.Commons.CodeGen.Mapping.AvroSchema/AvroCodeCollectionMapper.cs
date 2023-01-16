@@ -7,16 +7,16 @@ using Devantler.Commons.CodeGen.CSharp.Models;
 namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
 /// <summary>
-/// A mapper for mapping an Avro schema to a code collections.
+/// A mapper for mapping an Avro schema to a compilations.
 /// </summary>
-public class AvroCodeCollectionMapper : ICodeCollectionMapper<Schema>
+public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
 {
     /// <inheritdoc/>
-    public ICodeCollection Map(Schema obj, Language language)
+    public ICompilation Map(Schema obj, Language language)
     {
-        ICodeCollection codeCollection = language switch
+        ICompilation compilation = language switch
         {
-            Language.CSharp => new CSharpCodeCollection(),
+            Language.CSharp => new CSharpCompilation(),
             Language.Java => throw new NotImplementedException(),
             _ => throw new NotSupportedException($"The language {language} is not supported.")
         };
@@ -30,7 +30,7 @@ public class AvroCodeCollectionMapper : ICodeCollectionMapper<Schema>
 
                     foreach (Field field in recordSchema.Fields)
                     {
-                        _ = @class.AddMember(new CSharpProperty(
+                        _ = @class.AddProperty(new CSharpProperty(
                                 Visibility.Public,
                                 field.Schema.Name,
                                 field.Name,
@@ -39,24 +39,24 @@ public class AvroCodeCollectionMapper : ICodeCollectionMapper<Schema>
                         );
                     }
 
-                    codeCollection.AddCompilableUnit(@class);
+                    _ = compilation.AddClass(@class);
                     break;
                 case EnumSchema enumSchema:
                     CSharpEnum @enum = new(enumSchema.Name, enumSchema.Namespace, enumSchema.Documentation);
 
-                    foreach (string? symbol in enumSchema.Symbols)
+                    for (int i = 0; i < enumSchema.Symbols.Count; i++)
                     {
-                        @enum.AddValue(symbol);
+                        _ = @enum.AddValue(new CSharpEnumValue(enumSchema.Symbols[i], i.ToString()));
                     }
 
-                    codeCollection.AddCompilableUnit(@enum);
+                    _ = compilation.AddEnum(@enum);
                     break;
                 default:
                     continue;
             }
         }
 
-        return codeCollection;
+        return compilation;
     }
 
     List<Schema> GetFlattenedSchemas(Schema rootSchema)

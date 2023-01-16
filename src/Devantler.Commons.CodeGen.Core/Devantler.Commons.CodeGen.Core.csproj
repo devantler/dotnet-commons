@@ -16,4 +16,8 @@
     <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Scriban" Version="5.5.2" />
+  </ItemGroup>
+
 </Project>

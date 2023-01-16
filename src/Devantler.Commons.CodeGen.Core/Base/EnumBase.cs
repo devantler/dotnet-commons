@@ -5,27 +5,25 @@ namespace Devantler.Commons.CodeGen.Core.Base;
 /// <summary>
 /// A base class for enums.
 /// </summary>
-public abstract class EnumBase : ICompilableUnit
+public abstract class EnumBase : IEnum
 {
-    /// <summary>
-    /// The name of the enumeration.
-    /// </summary>
+    /// <inheritdoc/>
     public string Name { get; set; }
-    /// <summary>
-    /// The namespace the enumeration resides in.
-    /// </summary>
+
+    /// <inheritdoc/>
     public string Namespace { get; }
-    /// <summary>
-    /// The documentation block describing the enumeration.
-    /// </summary>
-    public DocumentationBlockBase? DocumentationBlock { get; set; }
-    /// <summary>
-    /// The values and their documentation in the enumeration.
-    /// </summary>
-    public Dictionary<string, DocumentationBlockBase?> Values { get; set; } = new Dictionary<string, DocumentationBlockBase?>();
+
+    /// <inheritdoc/>
+    public abstract IDocBlock? DocBlock { get; }
+
+    /// <inheritdoc/>
+    public List<IImport> Imports { get; } = new();
+
+    /// <inheritdoc/>
+    public List<IEnumValue> Values { get; } = new();
 
     /// <summary>
-    /// Creates a new enum.
+    /// Creates a new enumeration.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
@@ -35,15 +33,20 @@ public abstract class EnumBase : ICompilableUnit
         Namespace = @namespace;
     }
 
-    /// <summary>
-    /// Adds a value to the enumeration.
-    /// </summary>
-    /// <param name="value"></param>
-    /// <param name="documentationBlock"></param>
-    public void AddValue(string value, DocumentationBlockBase? documentationBlock = default) => Values.Add(value, documentationBlock);
+    /// <inheritdoc/>
+    public IEnum AddImport(IImport import)
+    {
+        Imports.Add(import);
+        return this;
+    }
 
-    /// <summary>
-    /// Compiles the enumeration.
-    /// </summary>
+    /// <inheritdoc/>
+    public IEnum AddValue(IEnumValue value)
+    {
+        Values.Add(value);
+        return this;
+    }
+
+    /// <inheritdoc/>
     public abstract string Compile();
 }

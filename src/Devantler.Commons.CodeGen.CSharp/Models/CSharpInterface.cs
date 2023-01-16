@@ -1,6 +1,8 @@
-using System.Text;
+using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.StringHelpers;
+using Devantler.Commons.CodeGen.Core.Interfaces;
+using Scriban;
+using Scriban.Runtime;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
@@ -9,6 +11,8 @@ namespace Devantler.Commons.CodeGen.CSharp.Models;
 /// </summary>
 public class CSharpInterface : InterfaceBase
 {
+    /// <inheritdoc/>
+    public override IDocBlock? DocBlock { get; }
     /// <summary>
     /// Creates a new interface.
     /// </summary>
@@ -18,42 +22,21 @@ public class CSharpInterface : InterfaceBase
     public CSharpInterface(string name, string @namespace, string? documentation = default) : base(name, @namespace)
     {
         if (!string.IsNullOrWhiteSpace(documentation))
-            DocumentationBlock = new CSharpDocumentationBlock(documentation);
+            DocBlock = new CSharpDocBlock(documentation);
     }
 
     /// <inheritdoc/>
-    public override string Compile() =>
-        $$"""
-        namespace {{Namespace}}
-
-        {{DocumentationBlock?.Compile()}}
-        public interface {{Name.ToPascalCase()}}
-        {
-        {{AddMembers()}}
-        }
-        """;
-
-    string AddMembers()
+    public override string Compile()
     {
-        StringBuilder builder = new();
-        for (int i = 0; i < Members.Count; i++)
+        var context = new TemplateContext
         {
-            if (i == 0)
-            {
-                _ = builder.AppendLine(Members[i].Compile().Indent());
-                _ = builder.AppendLine();
-            }
-            else if (i < Members.Count - 1)
-            {
-                _ = builder.AppendLine(Members[i].Compile().Indent());
-                _ = builder.AppendLine();
-            }
-            else
-            {
-                _ = builder.Append(Members[i].Compile().Indent());
-            }
-        }
-
-        return builder.ToString();
+            TemplateLoader = new TemplateLoader(),
+        };
+        var script = new ScriptObject();
+        script.Import(this);
+        context.PushGlobal(script);
+        const string filePath = "templates/interface.sbn-cs";
+        var template = Template.Parse(File.ReadAllText(filePath), filePath);
+        return template.Render(context);
     }
 }

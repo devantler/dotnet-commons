@@ -17,8 +17,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Using Include="Devantler.Commons.StringHelpers" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="../Devantler.Commons.CodeGen.Core/Devantler.Commons.CodeGen.Core.csproj" />
     <ProjectReference Include="../Devantler.Commons.StringHelpers/Devantler.Commons.StringHelpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="templates/**" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

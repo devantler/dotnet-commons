@@ -1,5 +1,8 @@
+using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.StringHelpers;
+using Devantler.Commons.CodeGen.Core.Interfaces;
+using Scriban;
+using Scriban.Runtime;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
@@ -8,27 +11,34 @@ namespace Devantler.Commons.CodeGen.CSharp.Models;
 /// </summary>
 public class CSharpEnum : EnumBase
 {
+    /// <inheritdoc/>
+    public override IDocBlock? DocBlock { get; }
+
     /// <summary>
-    /// Creates a new enum.
+    /// Creates a new enumeration.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
     /// <param name="documentation"></param>
-    public CSharpEnum(string name, string @namespace, string? documentation = default) : base(name, @namespace)
+    public CSharpEnum(string name, string @namespace, string? documentation) : base(name, @namespace)
     {
-        if (!string.IsNullOrWhiteSpace(documentation))
-            DocumentationBlock = new CSharpDocumentationBlock(documentation);
+        DocBlock = documentation != null
+            ? new CSharpDocBlock(documentation)
+            : null;
     }
 
     /// <inheritdoc/>
-    public override string Compile() =>
-        $$"""
-        namespace {{Namespace}}
-
-        {{DocumentationBlock?.Compile()}}
-        public enum {{Name.ToPascalCase()}}
+    public override string Compile()
+    {
+        var context = new TemplateContext
         {
-            {{string.Join($",{Environment.NewLine}", Values.Select(v => v))}}
-        }
-        """;
+            TemplateLoader = new TemplateLoader(),
+        };
+        var script = new ScriptObject();
+        script.Import(this);
+        context.PushGlobal(script);
+        const string filePath = "templates/enum.sbn-cs";
+        var template = Template.Parse(File.ReadAllText(filePath), filePath);
+        return template.Render(context);
+    }
 }

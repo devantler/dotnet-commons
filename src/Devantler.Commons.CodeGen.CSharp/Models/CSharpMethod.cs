@@ -1,4 +1,5 @@
 using Devantler.Commons.CodeGen.Core.Base;
+using Devantler.Commons.CodeGen.Core.Interfaces;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
@@ -11,21 +12,11 @@ public class CSharpMethod : MethodBase
     /// Creates a new method.
     /// </summary>
     /// <param name="visibility"></param>
-    /// <param name="returnType"></param>
+    /// <param name="type"></param>
     /// <param name="name"></param>
     /// <param name="body"></param>
     /// <param name="documentationBlock"></param>
-    public CSharpMethod(Visibility visibility, string returnType, string name, string? body = null, DocumentationBlockBase? documentationBlock = null) : base(visibility, returnType, name, body, documentationBlock)
+    public CSharpMethod(Visibility visibility, string type, string name, string? body = null, IDocBlock? documentationBlock = null) : base(visibility, type, name, body, documentationBlock)
     {
     }
-
-    /// <inheritdoc/>
-    public override string Compile() =>
-        $$"""
-        {{DocumentationBlock?.Compile()}}
-        {{Visibility.ToString().ToLower()}} {{ReturnType}} {{Name}}({{string.Join(", ", Parameters.Select(p => p.Compile()))}})
-        {
-            {{Body}}
-        }
-        """;
 }

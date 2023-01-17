@@ -16,7 +16,7 @@ public abstract class ConstructorBase : IConstructor
     /// <inheritdoc/>
     public DocBlockBase? DocBlock { get; }
     /// <inheritdoc/>
-    public List<IDocBlockParameter> Parameters { get; } = new();
+    public List<IParameter> Parameters { get; } = new();
 
     /// <summary>
     /// Creates a new constructor.
@@ -31,5 +31,12 @@ public abstract class ConstructorBase : IConstructor
         Name = name;
         Body = body;
         DocBlock = documentationBlock;
+    }
+
+    /// <inheritdoc/>
+    public IConstructor AddParameter(IParameter parameter)
+    {
+        Parameters.Add(parameter);
+        return this;
     }
 }

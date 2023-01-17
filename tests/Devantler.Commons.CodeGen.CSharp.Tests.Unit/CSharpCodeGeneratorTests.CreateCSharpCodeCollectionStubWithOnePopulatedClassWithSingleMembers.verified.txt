@@ -17,6 +17,7 @@ public class ClassName
     /// <summary>
     /// Constructor documentation block 0
     /// </summary>
+    /// <param name="parameterName">a parameter</param>
     public ClassName()
     {
         Console.WriteLine("Hello World!");

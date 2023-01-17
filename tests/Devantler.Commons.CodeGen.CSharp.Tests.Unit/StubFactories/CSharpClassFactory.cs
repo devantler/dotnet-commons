@@ -23,7 +23,11 @@ public static class CSharpClassFactory
 
         for (int i = 0; i < numberOfConstructors; i++)
         {
-            _ = @class.AddConstructor(new CSharpConstructor(Visibility.Public, "ClassName", "Console.WriteLine(\"Hello World!\");", withDocumentation ? new CSharpDocBlock($"Constructor documentation block {i}") : null));
+            CSharpDocBlock? documentationBlock = withDocumentation ? new CSharpDocBlock($"Constructor documentation block {i}") : null;
+            _ = (documentationBlock?.AddParameter(new CSharpDocBlockParameter("parameterName", "a parameter")));
+            var constructor = new CSharpConstructor(Visibility.Public, "ClassName", "Console.WriteLine(\"Hello World!\");", documentationBlock);
+            _ = constructor.AddParameter(new CSharpParameter("string", "parameterName"));
+            _ = @class.AddConstructor(new CSharpConstructor(Visibility.Public, "ClassName", "Console.WriteLine(\"Hello World!\");", documentationBlock));
         }
 
         for (int i = 0; i < numberOfMethods; i++)

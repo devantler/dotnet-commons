@@ -30,15 +30,11 @@ public interface IConstructor
     /// <summary>
     /// The parameters accepted by the constructor.
     /// </summary>
-    public List<IDocBlockParameter> Parameters { get; }
+    public List<IParameter> Parameters { get; }
 
     /// <summary>
     /// Adds a parameter to the constructor.
     /// </summary>
     /// <param name="parameter"></param>
-    public IConstructor AddParameter(IDocBlockParameter parameter)
-    {
-        Parameters.Add(parameter);
-        return this;
-    }
+    public IConstructor AddParameter(IParameter parameter);
 }

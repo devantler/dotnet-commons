@@ -9,59 +9,59 @@ public static class TestCases
         {
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory.CreateEmptyCSharpCodeCollectionStub),
-                CSharpCodeCollectionFactory.CreateEmptyCSharpCodeCollectionStub()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_Empty",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 0, 0, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyClass),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyClass()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyClass",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 0, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory
-                    .CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithSingleMembers()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyInterface",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 0, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory
-                    .CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedClassWithMultipleMembers()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyEnum",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 0, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyInterface),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyInterface()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneMember",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory
-                    .CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMember",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory
-                    .CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMember",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, false)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyEnum),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOneEmptyEnum()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneMemberAndDocumentation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, true)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithSingleValue),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithSingleValue()
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMemberAndDocumentation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, true)
             },
             new object[]
             {
-                nameof(CSharpCodeCollectionFactory
-                    .CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithMultipleValues),
-                CSharpCodeCollectionFactory.CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithMultipleValues()
-            }
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMemberAndDocumentation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true)
+            },
+            new object[]
+            {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_MultipleTypesWithMultipleMembersAndDocumentation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 1, 1, 2, true)
+            },
         };
 
     public static IEnumerable<object[]> InvalidCases =>

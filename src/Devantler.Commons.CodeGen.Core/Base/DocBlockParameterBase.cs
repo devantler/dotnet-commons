@@ -3,17 +3,12 @@ using Devantler.Commons.CodeGen.Core.Interfaces;
 namespace Devantler.Commons.CodeGen.Core.Base;
 
 /// <summary>
-/// A base class for documentation block parameters.
+///     A base class for documentation block parameters.
 /// </summary>
 public abstract class DocBlockParameterBase : IDocBlockParameter
 {
-    /// <inheritdoc/>
-    public string Name { get; }
-    /// <inheritdoc/>
-    public string? Description { get; }
-
     /// <summary>
-    /// Creates a new documentation block parameter.
+    ///     Creates a new documentation block parameter.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="description"></param>
@@ -22,4 +17,10 @@ public abstract class DocBlockParameterBase : IDocBlockParameter
         Name = name;
         Description = description;
     }
+
+    /// <inheritdoc />
+    public string Name { get; }
+
+    /// <inheritdoc />
+    public string? Description { get; }
 }

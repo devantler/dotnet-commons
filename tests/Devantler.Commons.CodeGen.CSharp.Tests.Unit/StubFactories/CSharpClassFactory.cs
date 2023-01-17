@@ -5,36 +5,48 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 public static class CSharpClassFactory
 {
-    public static CSharpClass CreateCSharpClass(int numberOfFields, int numberOfProperties, int numberOfConstructors, int numberOfMethods, bool withDocumentation)
+    public static CSharpClass CreateCSharpClass(int numberOfFields, int numberOfProperties, int numberOfConstructors,
+        int numberOfMethods, bool withDocumentation)
     {
-        var @class = new CSharpClass("ClassName", "Namespace", withDocumentation ? "Class documentation block" : null);
-
-        _ = @class.AddImport(new CSharpUsing("System"));
+        string? classDocumentation = withDocumentation ? "Class documentation block" : null;
+        var @class = new CSharpClass("ClassName", "Namespace", classDocumentation);
+        var @using = new CSharpUsing("System");
+        _ = @class.AddImport(@using);
 
         for (int i = 0; i < numberOfFields; i++)
         {
-            _ = @class.AddField(new CSharpField(Visibility.Public, "string", $"FieldName{i}", "\"Hello World\"", withDocumentation ? $"Field documentation block {i}" : null));
+            string? documentation = withDocumentation ? $"Field documentation block {i}" : null;
+            var field = new CSharpField(Visibility.Public, "string", $"FieldName{i}", "\"Hello World\"", documentation);
+            _ = @class.AddField(field);
         }
 
         for (int i = 0; i < numberOfProperties; i++)
         {
-            _ = @class.AddProperty(new CSharpProperty(Visibility.Public, "string", $"Property{i}", "\"Hello World\"", withDocumentation ? $"Property documentation block {i}" : null));
+            string? documentation = withDocumentation ? $"Property documentation block {i}" : null;
+            var property = new CSharpProperty(Visibility.Public, "string", $"Property{i}", "\"Hello World\"",
+                documentation);
+            _ = @class.AddProperty(property);
         }
 
         for (int i = 0; i < numberOfConstructors; i++)
         {
-            CSharpDocBlock? documentationBlock = withDocumentation ? new CSharpDocBlock($"Constructor documentation block {i}") : null;
-            _ = (documentationBlock?.AddParameter(new CSharpDocBlockParameter("parameterName", "a parameter")));
-            var constructor = new CSharpConstructor(Visibility.Public, "ClassName", "Console.WriteLine(\"Hello World!\");", documentationBlock);
-            _ = constructor.AddParameter(new CSharpParameter("string", "parameterName"));
-            _ = @class.AddConstructor(new CSharpConstructor(Visibility.Public, "ClassName", "Console.WriteLine(\"Hello World!\");", documentationBlock));
+            var documentationBlock =
+                withDocumentation ? new CSharpDocBlock($"Constructor documentation block {i}") : null;
+            var documentationParameter = new CSharpDocBlockParameter("parameterName", "a parameter");
+            _ = documentationBlock?.AddParameter(documentationParameter);
+            var constructor = new CSharpConstructor(Visibility.Public, "ClassName",
+                "Console.WriteLine(\"Hello World!\");", documentationBlock);
+            var parameter = new CSharpParameter("string", "parameterName");
+            _ = constructor.AddParameter(parameter);
+            _ = @class.AddConstructor(constructor);
         }
 
         for (int i = 0; i < numberOfMethods; i++)
         {
-            CSharpDocBlock? documentationBlock = withDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null;
-            _ = (documentationBlock?.AddParameter(new CSharpDocBlockParameter("parameterName", "a parameter")));
-            var method = new CSharpMethod(Visibility.Public, "string", $"Method{i}", "Console.WriteLine(\"Hello World!\");", documentationBlock);
+            var documentationBlock = withDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null;
+            _ = documentationBlock?.AddParameter(new CSharpDocBlockParameter("parameterName", "a parameter"));
+            var method = new CSharpMethod(Visibility.Public, "string", $"Method{i}",
+                "Console.WriteLine(\"Hello World!\");", documentationBlock);
             _ = method.AddParameter(new CSharpParameter("string", "parameterName"));
             _ = @class.AddMethod(method);
         }

@@ -3,12 +3,12 @@ using System.Text;
 namespace Devantler.Commons.StringHelpers;
 
 /// <summary>
-/// Provides extension methods for <see cref="string"/>.
+///     Provides extension methods for <see cref="string" />.
 /// </summary>
 public static class StringExtensions
 {
     /// <summary>
-    /// Indents a string by the specified number of spaces. Or four spaces if no argument is provided.
+    ///     Indents a string by the specified number of spaces. Or four spaces if no argument is provided.
     /// </summary>
     /// <param name="text"></param>
     /// <param name="spaces"></param>
@@ -34,14 +34,14 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts a string to PascalCase.
+    ///     Converts a string to PascalCase.
     /// </summary>
     /// <param name="text"></param>
     public static string ToPascalCase(this string text)
     {
         if (RegexLibrary.PascalCaseWithDigitsRegex.IsMatch(text))
             return text;
-        else if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
+        if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
             return text[..1].ToUpper() + text[1..];
 
         text = RegexLibrary.WordsRegex
@@ -55,7 +55,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts a string to camelCase.
+    ///     Converts a string to camelCase.
     /// </summary>
     /// <param name="text"></param>
     public static string ToCamelCase(this string text)
@@ -69,7 +69,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts a string to kebab-case.
+    ///     Converts a string to kebab-case.
     /// </summary>
     /// <param name="text"></param>
     public static string ToKebabCase(this string text)
@@ -86,7 +86,7 @@ public static class StringExtensions
     }
 
     /// <summary>
-    /// Converts a word to plural.
+    ///     Converts a word to plural.
     /// </summary>
     /// <param name="word"></param>
     public static string ToPlural(this string word) =>

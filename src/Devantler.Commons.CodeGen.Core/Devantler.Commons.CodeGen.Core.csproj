@@ -1,23 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
-    <Version>0.0.1</Version>
-    <Authors>devantler</Authors>
-    <Company>Devantler Software</Company>
-    <PackageDescription>Core files used to build code generators and code collection mappers.</PackageDescription>
-    <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
-  </PropertyGroup>
+        <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>devantler</Authors>
+        <Company>Devantler Software</Company>
+        <PackageDescription>Core files used to build code generators and code collection mappers.</PackageDescription>
+        <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Scriban" Version="5.5.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Scriban" Version="5.5.2"/>
+    </ItemGroup>
 
 </Project>

@@ -7,11 +7,11 @@ using Devantler.Commons.CodeGen.CSharp.Models;
 namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
 /// <summary>
-/// A mapper for mapping an Avro schema to a compilations.
+///     A mapper for mapping an Avro schema to a compilations.
 /// </summary>
 public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public ICompilation Map(Schema obj, Language language)
     {
         ICompilation compilation = language switch
@@ -21,14 +21,14 @@ public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
             _ => throw new NotSupportedException($"The language {language} is not supported.")
         };
 
-        foreach (Schema schema in GetFlattenedSchemas(obj))
+        foreach (var schema in GetFlattenedSchemas(obj))
         {
             switch (schema)
             {
                 case RecordSchema recordSchema:
                     CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
 
-                    foreach (Field field in recordSchema.Fields)
+                    foreach (var field in recordSchema.Fields)
                     {
                         _ = @class.AddProperty(new CSharpProperty(
                                 Visibility.Public,
@@ -45,9 +45,7 @@ public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
                     CSharpEnum @enum = new(enumSchema.Name, enumSchema.Namespace, enumSchema.Documentation);
 
                     for (int i = 0; i < enumSchema.Symbols.Count; i++)
-                    {
                         _ = @enum.AddValue(new CSharpEnumValue(enumSchema.Symbols[i], i.ToString()));
-                    }
 
                     _ = compilation.AddEnum(@enum);
                     break;
@@ -66,17 +64,11 @@ public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
             List<Schema> schemas = new();
 
             if (schema is RecordSchema recordSchema)
-            {
                 schemas.Add(recordSchema);
-            }
             else if (schema is EnumSchema enumSchema)
-            {
                 schemas.Add(enumSchema);
-            }
             else if (schema is UnionSchema unionSchema)
-            {
                 schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(Flatten));
-            }
             return schemas;
         }
 

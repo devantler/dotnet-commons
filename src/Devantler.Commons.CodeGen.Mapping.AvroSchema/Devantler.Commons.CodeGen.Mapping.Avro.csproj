@@ -1,27 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <PackageId>Devantler.Commons.CodeGen.Mapping.Avro</PackageId>
-    <Version>0.0.1</Version>
-    <Authors>devantler</Authors>
-    <Company>Devantler Software</Company>
-    <PackageDescription>A mapper to maps Avro Schemas to a compilation that can be generated.</PackageDescription>
-    <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
-  </PropertyGroup>
+        <PackageId>Devantler.Commons.CodeGen.Mapping.Avro</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>devantler</Authors>
+        <Company>Devantler Software</Company>
+        <PackageDescription>A mapper to maps Avro Schemas to a compilation that can be generated.</PackageDescription>
+        <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Devantler.Commons.CodeGen.CSharp\Devantler.Commons.CodeGen.CSharp.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Devantler.Commons.CodeGen.CSharp\Devantler.Commons.CodeGen.CSharp.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Apache.Avro" Version="1.11.1" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Apache.Avro" Version="1.11.1"/>
+    </ItemGroup>
 
 </Project>

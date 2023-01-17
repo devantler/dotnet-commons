@@ -7,14 +7,12 @@ using Scriban.Runtime;
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
 /// <summary>
-/// A model representing a C# interface.
+///     A model representing a C# interface.
 /// </summary>
 public class CSharpInterface : InterfaceBase
 {
-    /// <inheritdoc/>
-    public override IDocBlock? DocBlock { get; }
     /// <summary>
-    /// Creates a new interface.
+    ///     Creates a new interface.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
@@ -25,12 +23,15 @@ public class CSharpInterface : InterfaceBase
             DocBlock = new CSharpDocBlock(documentation);
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
+    public override IDocBlock? DocBlock { get; }
+
+    /// <inheritdoc />
     public override string Compile()
     {
         var context = new TemplateContext
         {
-            TemplateLoader = new TemplateLoader(),
+            TemplateLoader = new TemplateLoader()
         };
         var script = new ScriptObject();
         script.Import(this);

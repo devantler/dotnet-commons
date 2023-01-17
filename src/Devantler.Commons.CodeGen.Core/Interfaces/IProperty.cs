@@ -3,32 +3,32 @@ using Devantler.Commons.CodeGen.Core.Base;
 namespace Devantler.Commons.CodeGen.Core.Interfaces;
 
 /// <summary>
-/// An interface representing a property.
+///     An interface representing a property.
 /// </summary>
 public interface IProperty
 {
     /// <summary>
-    /// The visibility of the property.
+    ///     The visibility of the property.
     /// </summary>
     public Visibility Visibility { get; }
 
     /// <summary>
-    /// The type of the property.
+    ///     The type of the property.
     /// </summary>
     public string Type { get; }
 
     /// <summary>
-    /// The name of the property.
+    ///     The name of the property.
     /// </summary>
     public string Name { get; }
 
     /// <summary>
-    /// The value of the property.
+    ///     The value of the property.
     /// </summary>
     public string? Value { get; }
 
     /// <summary>
-    /// The documentation block for the property.
+    ///     The documentation block for the property.
     /// </summary>
     public DocBlockBase? DocBlock { get; }
 }

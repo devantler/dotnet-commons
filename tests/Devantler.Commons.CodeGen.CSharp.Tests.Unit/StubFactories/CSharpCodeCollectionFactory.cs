@@ -50,6 +50,7 @@ static class CSharpCodeCollectionFactory
 
         return compilation;
     }
+
     internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers()
     {
         var compilation = new CSharpCompilation();
@@ -60,6 +61,7 @@ static class CSharpCodeCollectionFactory
 
         return compilation;
     }
+
     internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers()
     {
         var compilation = new CSharpCompilation();

@@ -3,12 +3,12 @@ using Devantler.Commons.CodeGen.Core.Base;
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
 /// <summary>
-/// A model representing a C# enum value.
+///     A model representing a C# enum value.
 /// </summary>
 public class CSharpEnumValue : EnumValueBase
 {
     /// <summary>
-    /// Creates a new enum value.
+    ///     Creates a new enum value.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="value"></param>

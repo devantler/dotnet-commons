@@ -7,15 +7,12 @@ using Scriban.Runtime;
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
 /// <summary>
-/// A model representing a C# class.
+///     A model representing a C# class.
 /// </summary>
 public class CSharpClass : ClassBase
 {
-    /// <inheritdoc/>
-    public override IDocBlock? DocBlock { get; }
-
     /// <summary>
-    /// Creates a new class.
+    ///     Creates a new class.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
@@ -26,12 +23,15 @@ public class CSharpClass : ClassBase
             DocBlock = new CSharpDocBlock(documentation);
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
+    public override IDocBlock? DocBlock { get; }
+
+    /// <inheritdoc />
     public override string Compile()
     {
         var context = new TemplateContext
         {
-            TemplateLoader = new TemplateLoader(),
+            TemplateLoader = new TemplateLoader()
         };
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);

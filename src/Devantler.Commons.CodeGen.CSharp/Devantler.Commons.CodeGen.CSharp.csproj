@@ -1,32 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-    <PackageId>Devantler.Commons.CodeGen.CSharp</PackageId>
-    <Version>0.0.1</Version>
-    <Authors>devantler</Authors>
-    <Company>Devantler Software</Company>
-    <PackageDescription>A code generator that can generate CSharp code.</PackageDescription>
-    <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
-  </PropertyGroup>
+        <PackageId>Devantler.Commons.CodeGen.CSharp</PackageId>
+        <Version>0.0.1</Version>
+        <Authors>devantler</Authors>
+        <Company>Devantler Software</Company>
+        <PackageDescription>A code generator that can generate CSharp code.</PackageDescription>
+        <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Using Include="Devantler.Commons.StringHelpers" />
-  </ItemGroup>
+    <ItemGroup>
+        <Using Include="Devantler.Commons.StringHelpers"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="../Devantler.Commons.CodeGen.Core/Devantler.Commons.CodeGen.Core.csproj" />
-    <ProjectReference Include="../Devantler.Commons.StringHelpers/Devantler.Commons.StringHelpers.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="../Devantler.Commons.CodeGen.Core/Devantler.Commons.CodeGen.Core.csproj"/>
+        <ProjectReference Include="../Devantler.Commons.StringHelpers/Devantler.Commons.StringHelpers.csproj"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="templates/**" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="templates/**" CopyToOutputDirectory="PreserveNewest"/>
+    </ItemGroup>
 
 </Project>

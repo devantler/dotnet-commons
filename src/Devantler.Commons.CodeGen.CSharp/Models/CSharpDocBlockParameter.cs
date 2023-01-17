@@ -3,12 +3,12 @@ using Devantler.Commons.CodeGen.Core.Base;
 namespace Devantler.Commons.CodeGen.CSharp.Models;
 
 /// <summary>
-/// A model representing a C# documentation block parameter.
+///     A model representing a C# documentation block parameter.
 /// </summary>
 public class CSharpDocBlockParameter : DocBlockParameterBase
 {
     /// <summary>
-    /// Creates a new documentation block parameter.
+    ///     Creates a new documentation block parameter.
     /// </summary>
     /// <param name="name"></param>
     /// <param name="description"></param>

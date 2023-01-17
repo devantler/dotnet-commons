@@ -4,10 +4,10 @@ using Devantler.Commons.CodeGen.CSharp.Models;
 namespace Devantler.Commons.CodeGen.CSharp;
 
 /// <summary>
-/// A code generator for C#.
+///     A code generator for C#.
 /// </summary>
 public class CSharpCodeGenerator : ICodeGenerator<CSharpCompilation>
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public Dictionary<string, string> Generate(CSharpCompilation compilation) => compilation.Compile();
 }

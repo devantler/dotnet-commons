@@ -3,35 +3,40 @@ using Devantler.Commons.CodeGen.Core.Interfaces;
 namespace Devantler.Commons.CodeGen.Core.Base;
 
 /// <summary>
-/// A base class for compilations.
+///     A base class for compilations.
 /// </summary>
 public abstract class CompilationBase : ICompilation
 {
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public List<IInterface> Interfaces { get; } = new();
-    /// <inheritdoc/>
+
+    /// <inheritdoc />
     public List<IClass> Classes { get; } = new();
-    /// <inheritdoc/>
+
+    /// <inheritdoc />
     public List<IEnum> Enums { get; } = new();
-    /// <inheritdoc/>
+
+    /// <inheritdoc />
     public ICompilation AddClass(IClass @class)
     {
         Classes.Add(@class);
         return this;
     }
-    /// <inheritdoc/>
+
+    /// <inheritdoc />
     public ICompilation AddEnum(IEnum @enum)
     {
         Enums.Add(@enum);
         return this;
     }
-    /// <inheritdoc/>
+
+    /// <inheritdoc />
     public ICompilation AddInterface(IInterface @interface)
     {
         Interfaces.Add(@interface);
         return this;
     }
 
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public abstract Dictionary<string, string> Compile();
 }

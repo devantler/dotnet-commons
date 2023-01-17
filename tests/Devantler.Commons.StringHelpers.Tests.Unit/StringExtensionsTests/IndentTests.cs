@@ -4,7 +4,8 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
 
 public class IndentTests
 {
-    [Theory, AutoData]
+    [Theory]
+    [AutoData]
     public void GivenSingleLineTextAndPositiveIndentSize_IndentsBySpecifiedSpaces(string text, int indentSize)
     {
         //Act
@@ -31,7 +32,8 @@ public class IndentTests
         _ = actual.Should().EndWith("    second line");
     }
 
-    [Theory, InlineAutoData(
+    [Theory]
+    [InlineAutoData(
         """
         first line
         second line
@@ -43,10 +45,12 @@ public class IndentTests
         string actual = multiLineText.Indent(indentSize);
 
         //Assert
-        _ = actual.Split(Environment.NewLine).Should().OnlyContain(line => line.StartsWith(new string(' ', indentSize)));
+        _ = actual.Split(Environment.NewLine).Should()
+            .OnlyContain(line => line.StartsWith(new string(' ', indentSize)));
     }
 
-    [Theory, AutoData]
+    [Theory]
+    [AutoData]
     public void GivenSingleLineTextAndNegativeIndentSize_Throws([Range(-100, -1)] int indentSize)
     {
         //Act

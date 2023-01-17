@@ -40,7 +40,7 @@ static class CSharpCodeCollectionFactory
         return compilation;
     }
 
-    internal static object CreateCSharpCodeCollectionStubWithOneEmptyInterface()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOneEmptyInterface()
     {
         var compilation = new CSharpCompilation();
 
@@ -50,7 +50,7 @@ static class CSharpCodeCollectionFactory
 
         return compilation;
     }
-    internal static object CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithSingleMembers()
     {
         var compilation = new CSharpCompilation();
 
@@ -60,13 +60,46 @@ static class CSharpCodeCollectionFactory
 
         return compilation;
     }
-    internal static object CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers()
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedInterfaceWithMultipleMembers()
     {
         var compilation = new CSharpCompilation();
 
         InterfaceBase @interface = CSharpInterfaceFactory.CreateCSharpInterface(2, 2, true);
 
         _ = compilation.AddInterface(@interface);
+
+        return compilation;
+    }
+
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOneEmptyEnum()
+    {
+        var compilation = new CSharpCompilation();
+
+        EnumBase @enum = new CSharpEnum("EnumName", "Namespace", "Enum documentation block");
+
+        _ = compilation.AddEnum(@enum);
+
+        return compilation;
+    }
+
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithSingleValue()
+    {
+        var compilation = new CSharpCompilation();
+
+        EnumBase @enum = CSharpEnumFactory.CreateCSharpEnum(1);
+
+        _ = compilation.AddEnum(@enum);
+
+        return compilation;
+    }
+
+    internal static CSharpCompilation CreateCSharpCodeCollectionStubWithOnePopulatedEnumWithMultipleValues()
+    {
+        var compilation = new CSharpCompilation();
+
+        EnumBase @enum = CSharpEnumFactory.CreateCSharpEnum(2);
+
+        _ = compilation.AddEnum(@enum);
 
         return compilation;
     }

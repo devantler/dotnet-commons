@@ -22,6 +22,4 @@ public abstract class DocBlockParameterBase : IDocBlockParameter
         Name = name;
         Description = description;
     }
-    /// <inheritdoc/>
-    public abstract string Template { get; }
 }

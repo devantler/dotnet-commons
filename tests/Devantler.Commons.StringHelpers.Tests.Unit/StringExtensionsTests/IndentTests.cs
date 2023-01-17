@@ -14,6 +14,23 @@ public class IndentTests
         _ = actual.Should().StartWith(new string(' ', indentSize));
     }
 
+    [Fact]
+    public void GivenMultiLineTextAndIgnoreFirstLine_IgnoresFirstLine()
+    {
+        //Arrange
+        const string multiLineText = """
+        first line
+        second line
+        """;
+
+        //Act
+        string actual = multiLineText.Indent(4, true);
+
+        //Assert
+        _ = actual.Should().StartWith("first line");
+        _ = actual.Should().EndWith("    second line");
+    }
+
     [Theory, InlineAutoData(
         """
         first line

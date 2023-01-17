@@ -9,6 +9,8 @@ public static class CSharpEnumFactory
     {
         var @enum = new CSharpEnum("EnumName", "Namespace", "Enum documentation block");
 
+        _ = @enum.AddImport(new CSharpUsing("System"));
+
         for (int i = 0; i < numberOfValues; i++)
         {
             var value = new CSharpEnumValue($"Value{i}", i.ToString(CultureInfo.CurrentCulture));

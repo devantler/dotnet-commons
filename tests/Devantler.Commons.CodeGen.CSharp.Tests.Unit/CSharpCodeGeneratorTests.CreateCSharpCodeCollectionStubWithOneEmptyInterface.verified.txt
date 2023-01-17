@@ -4,5 +4,4 @@
 /// Interface documentation block
 /// </summary>
 public interface InterfaceName
-{
-}
+{}

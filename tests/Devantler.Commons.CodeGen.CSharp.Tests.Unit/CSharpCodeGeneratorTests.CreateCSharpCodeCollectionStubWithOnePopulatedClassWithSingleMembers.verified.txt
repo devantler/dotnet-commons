@@ -10,18 +10,21 @@ public class ClassName
     /// Field documentation block 0
     /// </summary>
     public string fieldName0 = "Hello World";
-    /// <summary>
-    /// Property documentation block 0
-    /// </summary>
-    public string Property0 { get; set; } = "Hello World";
+
     /// <summary>
     /// Constructor documentation block 0
     /// </summary>
     /// <param name="parameterName">a parameter</param>
-    public ClassName()
+    public ClassName(string parameterName)
     {
         Console.WriteLine("Hello World!");
     }
+
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 { get; set; } = "Hello World";
+
     /// <summary>
     /// Method documentation block 0
     /// </summary>

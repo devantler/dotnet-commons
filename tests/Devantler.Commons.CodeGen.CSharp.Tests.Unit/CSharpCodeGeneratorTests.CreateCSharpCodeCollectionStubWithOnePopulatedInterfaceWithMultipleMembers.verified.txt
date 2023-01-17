@@ -9,10 +9,12 @@ public interface InterfaceName
     /// Property documentation block 0
     /// </summary>
     public string Property0 { get; set; } = "Hello World";
+
     /// <summary>
     /// Property documentation block 1
     /// </summary>
     public string Property1 { get; set; } = "Hello World";
+
     /// <summary>
     /// Method documentation block 0
     /// </summary>
@@ -21,6 +23,7 @@ public interface InterfaceName
     {
         Console.WriteLine("Hello World!");
     }
+
     /// <summary>
     /// Method documentation block 1
     /// </summary>

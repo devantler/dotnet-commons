@@ -4,5 +4,4 @@
 /// Class documentation block
 /// </summary>
 public class ClassName
-{
-}
+{}

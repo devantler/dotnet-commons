@@ -15,7 +15,4 @@ public class CSharpDocBlockParameter : DocBlockParameterBase
     public CSharpDocBlockParameter(string name, string? description = default) : base(name, description)
     {
     }
-
-    /// <inheritdoc/>
-    public override string Template => "<param name=\"{{ name }}\">{{ description }}</param>";
 }

@@ -45,6 +45,10 @@ public static class TestCases
                         new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 7, doc: "Test documentation", defaultValue: new byte[1]),
                     }, doc: "Test documentation"),
                 }), Language.CSharp
+            },
+            new object[]
+            {
+                EnumSchema.Create("TestEnum", new List<string> { "Test1", "Test2", "Test3" }, doc: "Test documentation"), Language.CSharp
             }
         };
 }

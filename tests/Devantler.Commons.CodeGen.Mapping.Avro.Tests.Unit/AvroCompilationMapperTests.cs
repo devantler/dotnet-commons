@@ -9,7 +9,7 @@ public class AvroCompilationMapperTests
 {
     [Theory]
     [MemberData(nameof(TestCases.ValidCases), MemberType = typeof(TestCases))]
-    public Task Map_WithValidSchema_ReturnsValidCompilation(Schema schema, Language language)
+    public Task Map_GivenValidSchema_ReturnsValidCompilation(Schema schema, Language language)
     {
         // Arrange
         var mapper = new AvroCompilationMapper();
@@ -20,5 +20,19 @@ public class AvroCompilationMapperTests
         // Assert
         var options = new JsonSerializerOptions { WriteIndented = true };
         return Verify(JsonSerializer.Serialize(compilation, options)).UseMethodName(schema.Tag.ToString());
+    }
+
+    [Fact]
+    public void Map_GivenUnsupportedLanguage_ThrowsNotSupportedException()
+    {
+        // Arrange
+        const Language language = (Language)999;
+        var mapper = new AvroCompilationMapper();
+
+        // Act
+        var action = () => mapper.Map(RecordSchema.Create("EmptyShema", new List<Field>()), language);
+
+        // Assert
+        _ = action.Should().Throw<NotSupportedException>();
     }
 }

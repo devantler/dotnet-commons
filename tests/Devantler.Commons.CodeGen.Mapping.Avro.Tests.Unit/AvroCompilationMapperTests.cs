@@ -18,8 +18,7 @@ public class AvroCompilationMapperTests
         var compilation = mapper.Map(schema, language);
 
         // Assert
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        return Verify(JsonSerializer.Serialize(compilation, options)).UseMethodName(schema.Tag.ToString());
+        return Verify(compilation).UseMethodName(schema.Tag.ToString());
     }
 
     [Fact]

@@ -8,10 +8,5 @@ public enum Language
     /// <summary>
     ///     C# - A programming language developed by Microsoft.
     /// </summary>
-    CSharp = 0,
-
-    /// <summary>
-    ///     Java - A programming language developed by Oracle.
-    /// </summary>
-    Java = 1
+    CSharp = 0
 }

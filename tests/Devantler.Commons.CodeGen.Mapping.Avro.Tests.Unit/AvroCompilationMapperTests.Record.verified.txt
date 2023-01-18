@@ -1,0 +1,83 @@
+﻿{
+  "Interfaces": [],
+  "Classes": [
+    {
+      "Fields": [],
+      "Properties": [
+        {
+          "Visibility": 0,
+          "Type": "int",
+          "Name": "IntField",
+          "Value": "0",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "string",
+          "Name": "StringField",
+          "Value": "i am a string",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "boolean",
+          "Name": "BooleanField",
+          "Value": "False",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "double",
+          "Name": "DoubleField",
+          "Value": "1.5",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "float",
+          "Name": "FloatField",
+          "Value": "1.5",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "long",
+          "Name": "LongField",
+          "Value": "10",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        },
+        {
+          "Visibility": 0,
+          "Type": "bytes",
+          "Name": "BytesField",
+          "Value": "new byte[1]",
+          "DocBlock": {
+            "Summary": "Test documentation",
+            "Parameters": []
+          }
+        }
+      ],
+      "Constructors": [],
+      "Methods": []
+    }
+  ],
+  "Enums": []
+}

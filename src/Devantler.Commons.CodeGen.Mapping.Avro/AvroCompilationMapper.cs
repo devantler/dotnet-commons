@@ -9,7 +9,7 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro;
 /// <summary>
 ///     A mapper for mapping an Avro schema to a compilations.
 /// </summary>
-public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
+public class AvroCompilationMapper : ICompilationMapper<Schema>
 {
     /// <inheritdoc />
     public ICompilation Map(Schema obj, Language language)
@@ -17,7 +17,6 @@ public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
         ICompilation compilation = language switch
         {
             Language.CSharp => new CSharpCompilation(),
-            Language.Java => throw new NotImplementedException(),
             _ => throw new NotSupportedException($"The language {language} is not supported.")
         };
 
@@ -34,6 +33,7 @@ public class AvroCodeCollectionMapper : ICompilationMapper<Schema>
                                 Visibility.Public,
                                 field.Schema.Name,
                                 field.Name,
+                                field.DefaultValue?.ToObject<string>(),
                                 field.Documentation
                             )
                         );

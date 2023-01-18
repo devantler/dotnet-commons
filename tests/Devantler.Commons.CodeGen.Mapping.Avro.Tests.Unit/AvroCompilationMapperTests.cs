@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Avro;
 using Devantler.Commons.CodeGen.Core;
 

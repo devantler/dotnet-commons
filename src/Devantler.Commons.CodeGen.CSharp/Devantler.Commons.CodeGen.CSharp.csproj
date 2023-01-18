@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.CSharp</PackageId>
-        <Version>0.0.2</Version>
+        <Version>0.0.3</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageDescription>A code generator that can generate CSharp code.</PackageDescription>
@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="templates/**" CopyToOutputDirectory="PreserveNewest"/>
+        <Content Include="templates/**" Pack="true" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>

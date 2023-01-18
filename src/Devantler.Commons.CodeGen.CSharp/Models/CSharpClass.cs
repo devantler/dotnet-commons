@@ -36,7 +36,7 @@ public class CSharpClass : ClassBase
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);
         context.PushGlobal(scriptObject);
-        const string filePath = "templates/class.sbn-cs";
+        string filePath = Directory.GetCurrentDirectory() + "/templates/class.sbn-cs";
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

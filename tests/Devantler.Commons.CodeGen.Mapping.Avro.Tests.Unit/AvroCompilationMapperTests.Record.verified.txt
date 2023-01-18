@@ -1,83 +1,68 @@
 ﻿{
-  "Interfaces": [],
-  "Classes": [
+  Classes: [
     {
-      "Fields": [],
-      "Properties": [
+      DocBlock: {
+        Summary: Test documentation
+      },
+      Name: RecordSchema,
+      Properties: [
         {
-          "Visibility": 0,
-          "Type": "int",
-          "Name": "IntField",
-          "Value": "0",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: int,
+          Name: IntField,
+          Value: 0
         },
         {
-          "Visibility": 0,
-          "Type": "string",
-          "Name": "StringField",
-          "Value": "i am a string",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: string,
+          Name: StringField,
+          Value: i am a string
         },
         {
-          "Visibility": 0,
-          "Type": "boolean",
-          "Name": "BooleanField",
-          "Value": "False",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: boolean,
+          Name: BooleanField,
+          Value: False
         },
         {
-          "Visibility": 0,
-          "Type": "double",
-          "Name": "DoubleField",
-          "Value": "1.5",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: double,
+          Name: DoubleField,
+          Value: 1.5
         },
         {
-          "Visibility": 0,
-          "Type": "float",
-          "Name": "FloatField",
-          "Value": "1.5",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: float,
+          Name: FloatField,
+          Value: 1.5
         },
         {
-          "Visibility": 0,
-          "Type": "long",
-          "Name": "LongField",
-          "Value": "10",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: long,
+          Name: LongField,
+          Value: 10
         },
         {
-          "Visibility": 0,
-          "Type": "bytes",
-          "Name": "BytesField",
-          "Value": "new byte[1]",
-          "DocBlock": {
-            "Summary": "Test documentation",
-            "Parameters": []
-          }
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: bytes,
+          Name: BytesField,
+          Value: new byte[1]
         }
-      ],
-      "Constructors": [],
-      "Methods": []
+      ]
     }
-  ],
-  "Enums": []
+  ]
 }

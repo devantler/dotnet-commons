@@ -1,0 +1,132 @@
+﻿{
+  Classes: [
+    {
+      DocBlock: {
+        Summary: Test documentation
+      },
+      Name: TestRecord1,
+      Properties: [
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: int,
+          Name: IntField,
+          Value: 0
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: string,
+          Name: StringField,
+          Value: i am a string
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: boolean,
+          Name: BooleanField,
+          Value: False
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: double,
+          Name: DoubleField,
+          Value: 1.5
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: float,
+          Name: FloatField,
+          Value: 1.5
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: long,
+          Name: LongField,
+          Value: 10
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: bytes,
+          Name: BytesField,
+          Value: new byte[1]
+        }
+      ]
+    },
+    {
+      DocBlock: {
+        Summary: Test documentation
+      },
+      Name: TestRecord2,
+      Properties: [
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: int,
+          Name: IntField,
+          Value: 0
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: string,
+          Name: StringField,
+          Value: Test
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: boolean,
+          Name: BooleanField,
+          Value: False
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: double,
+          Name: DoubleField,
+          Value: 0
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: float,
+          Name: FloatField,
+          Value: 0
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: long,
+          Name: LongField,
+          Value: 0
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: bytes,
+          Name: BytesField,
+          Value: AA==
+        }
+      ]
+    }
+  ]
+}

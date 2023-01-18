@@ -35,5 +35,6 @@ public interface IType<T>
     /// <summary>
     ///     Compiles the type.
     /// </summary>
-    public string Compile();
+    /// <param name="assemblyPath"></param>
+    public string Compile(string? assemblyPath = default);
 }

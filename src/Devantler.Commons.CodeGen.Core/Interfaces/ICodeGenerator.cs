@@ -10,6 +10,7 @@ public interface ICodeGenerator<T> where T : ICompilation
     ///     Generates code from the given code base.
     /// </summary>
     /// <param name="compilation"></param>
+    /// <param name="assemblyPath"></param>
     /// <returns>Dictionary&lt;fileName, code&gt;</returns>
-    public Dictionary<string, string> Generate(T compilation);
+    public Dictionary<string, string> Generate(T compilation, string? assemblyPath = default);
 }

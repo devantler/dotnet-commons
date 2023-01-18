@@ -27,7 +27,7 @@ public class CSharpClass : ClassBase
     public override IDocBlock? DocBlock { get; }
 
     /// <inheritdoc />
-    public override string Compile()
+    public override string Compile(string? assemblyPath = default)
     {
         var context = new TemplateContext
         {
@@ -36,7 +36,10 @@ public class CSharpClass : ClassBase
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);
         context.PushGlobal(scriptObject);
-        string filePath = Directory.GetCurrentDirectory() + "/templates/class.sbn-cs";
+        const string classTemplatePath = "templates/class.sbn-cs";
+        string filePath = !string.IsNullOrEmpty(assemblyPath) ?
+            $"{assemblyPath}/{classTemplatePath}" :
+            classTemplatePath;
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

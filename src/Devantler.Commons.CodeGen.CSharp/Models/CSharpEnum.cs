@@ -26,7 +26,7 @@ public class CSharpEnum : EnumBase
     public override IDocBlock? DocBlock { get; }
 
     /// <inheritdoc />
-    public override string Compile()
+    public override string Compile(string? assemblyPath = default)
     {
         var context = new TemplateContext
         {
@@ -35,7 +35,10 @@ public class CSharpEnum : EnumBase
         var script = new ScriptObject();
         script.Import(this);
         context.PushGlobal(script);
-        string filePath = Directory.GetCurrentDirectory() + "/templates/enum.sbn-cs";
+        const string enumerationTemplatePath = "templates/enum.sbn-cs";
+        string filePath = !string.IsNullOrEmpty(assemblyPath) ?
+            $"{assemblyPath}/{enumerationTemplatePath}" :
+            enumerationTemplatePath;
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

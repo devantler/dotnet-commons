@@ -27,7 +27,7 @@ public class CSharpInterface : InterfaceBase
     public override IDocBlock? DocBlock { get; }
 
     /// <inheritdoc />
-    public override string Compile()
+    public override string Compile(string? assemblyPath = default)
     {
         var context = new TemplateContext
         {
@@ -36,7 +36,10 @@ public class CSharpInterface : InterfaceBase
         var script = new ScriptObject();
         script.Import(this);
         context.PushGlobal(script);
-        string filePath = Directory.GetCurrentDirectory() + "/templates/interface.sbn-cs";
+        const string interfaceTemplatePath = "templates/interface.sbn-cs";
+        string filePath = !string.IsNullOrEmpty(assemblyPath) ?
+            $"{assemblyPath}/{interfaceTemplatePath}" :
+            interfaceTemplatePath;
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

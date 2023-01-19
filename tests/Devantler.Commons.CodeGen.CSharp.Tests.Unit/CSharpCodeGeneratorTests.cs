@@ -19,18 +19,4 @@ public class CSharpCodeGeneratorTests
         // Assert
         return Verify(result).UseMethodName(testName);
     }
-
-    // [Theory]
-    // [MemberData(nameof(TestCases.InvalidCases), MemberType = typeof(TestCases))]
-    // public void Generate_GivenInvalidCSharpCodeCollection_Throws(CSharpCompilation compilation)
-    // {
-    //     // Arrange
-    //     var codeGenerator = new CSharpCodeGenerator();
-
-    //     // Act
-    //     Action action = () => codeGenerator.Generate(compilation);
-
-    //     // Assert
-    //     _ = action.Should().Throw<InvalidOperationException>();
-    // }
 }

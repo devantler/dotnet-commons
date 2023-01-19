@@ -1,16 +1,23 @@
 {{- for using in imports ~}}
 {{ include 'using.sbn-cs' using }}
 {{~ end ~}}
-{{~ if namespace ~}}
-{{ include 'namespace.sbn-cs' namespace }}
-{{~ end ~}}
+{{~ if namespace != "" ~}}
+{{~ if imports ~}}
 
-{{~ if doc_block }}{{ include 'doc_block.sbn-cs' doc_block }}{{ end ~}}
+{{~ end ~}}
+{{ include 'namespace.sbn-cs' namespace }}
+{{~ end }}
+{{~ if doc_block ~}}
+{{ include 'doc_block.sbn-cs' doc_block }}
+{{- end ~}}
 public class {{ name }}
 {
-{{- for field in fields }}
+{{~ for field in fields ~}}
     {{ include 'field.sbn-cs' field }}
-{{ end ~}}
+{{~ if ! for.last ~}}
+
+{{~ end ~}}
+{{~ end ~}}
 {{- for constructor in constructors }}
     {{ include 'constructor.sbn-cs' constructor }}
 {{ end ~}}

@@ -6,9 +6,9 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 public static class CSharpInterfaceFactory
 {
     public static CSharpInterface CreateCSharpInterface(int numberOfProperties, int numberOfMethods,
-        bool withDocumentation)
+        bool hasNamespaces, bool withDocumentation)
     {
-        var @interface = new CSharpInterface("InterfaceName", "Namespace",
+        var @interface = new CSharpInterface("InterfaceName", hasNamespaces ? "Namespace" : "",
             withDocumentation ? "Interface documentation block" : null);
 
         _ = @interface.AddImport(new CSharpUsing("System"));

@@ -1,4 +1,6 @@
-﻿namespace Namespace;
+﻿using System;
+
+namespace Namespace;
 
 /// <summary>
 /// Interface documentation block

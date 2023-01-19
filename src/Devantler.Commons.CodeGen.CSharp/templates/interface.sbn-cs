@@ -1,13 +1,23 @@
-{{~ if namespace ~}}
-{{ include 'namespace.sbn-cs' namespace }}
+{{- for using in imports ~}}
+{{ include 'using.sbn-cs' using }}
 {{~ end ~}}
+{{~ if namespace != "" ~}}
+{{~ if imports ~}}
 
-{{~ if doc_block }}{{ include 'doc_block.sbn-cs' doc_block }}{{ end ~}}
+{{~ end ~}}
+{{ include 'namespace.sbn-cs' namespace }}
+{{~ end }}
+{{~ if doc_block ~}}
+{{ include 'doc_block.sbn-cs' doc_block }}
+{{- end ~}}
 public interface {{ name }}
 {
-{{- for property in properties }}
+{{~ for property in properties ~}}
     {{ include 'property.sbn-cs' property }}
-{{ end ~}}
+{{~ if ! for.last ~}}
+
+{{~ end ~}}
+{{~ end ~}}
 {{- for method in methods }}
     {{ include 'method.sbn-cs' method }}
 {{ end ~}}

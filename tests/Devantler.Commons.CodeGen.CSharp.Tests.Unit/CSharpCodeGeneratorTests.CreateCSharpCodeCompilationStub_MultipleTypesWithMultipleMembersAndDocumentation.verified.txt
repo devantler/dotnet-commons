@@ -1,4 +1,6 @@
-﻿namespace Namespace;
+﻿using System;
+
+namespace Namespace;
 
 /// <summary>
 /// Interface documentation block
@@ -35,6 +37,7 @@ public interface InterfaceName
 }
 
 using System;
+
 namespace Namespace;
 
 /// <summary>
@@ -100,8 +103,12 @@ public class ClassName
 }
 
 using System;
+
 namespace Namespace;
 
+/// <summary>
+/// Enum documentation block
+/// </summary>
 public enum EnumName
 {
   Value0 = 0,

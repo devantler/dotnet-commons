@@ -10,58 +10,58 @@ public static class TestCases
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_Empty",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 0, 0, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 0, 0, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyClass",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 0, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 0, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyInterface",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 0, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 0, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyEnum",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 0, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 0, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, true, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, true, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneMemberAndDocumentation",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, true)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, true, true)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMemberAndDocumentation",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, true)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, true, true)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMemberAndDocumentation",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true, true)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_MultipleTypesWithMultipleMembersAndDocumentation",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 1, 1, 2, true)
-            },
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 1, 1, 2, true, true)
+            }
         };
 
     public static IEnumerable<object[]> InvalidCases =>

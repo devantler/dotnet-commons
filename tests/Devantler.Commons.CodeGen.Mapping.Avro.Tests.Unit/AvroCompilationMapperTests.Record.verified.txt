@@ -58,7 +58,15 @@
           DocBlock: {
             Summary: Test documentation
           },
-          Type: bytes,
+          Type: object?,
+          Name: NullField,
+          Value: null!
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: bytes[],
           Name: BytesField,
           Value: new byte[1]
         }

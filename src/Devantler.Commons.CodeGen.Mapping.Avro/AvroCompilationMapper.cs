@@ -31,14 +31,18 @@ public class AvroCompilationMapper : ICompilationMapper<Schema>
                     {
                         _ = @class.AddProperty(new CSharpProperty(
                                 Visibility.Public,
-                                field.Schema.Name,
+                                field.Schema.Tag switch
+                                {
+                                    Schema.Type.Null => "object?",
+                                    Schema.Type.Bytes => $"{field.Schema.Name}[]",
+                                    _ => field.Schema.Name
+                                },
                                 field.Name,
                                 field.DefaultValue?.ToObject<string>(),
                                 field.Documentation
                             )
                         );
                     }
-
                     _ = compilation.AddClass(@class);
                     break;
                 case EnumSchema enumSchema:

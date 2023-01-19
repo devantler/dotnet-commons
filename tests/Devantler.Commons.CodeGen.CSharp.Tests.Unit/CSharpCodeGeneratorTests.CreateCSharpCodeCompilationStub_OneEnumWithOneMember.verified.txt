@@ -1,11 +1,8 @@
 ﻿using System;
-
-namespace Namespace;
-
 /// <summary>
 /// Enum documentation block
 /// </summary>
 public enum EnumName
 {
-  Value0 = 0
+    Value0 = 0
 }

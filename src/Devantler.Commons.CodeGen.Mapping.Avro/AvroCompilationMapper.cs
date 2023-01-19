@@ -34,7 +34,8 @@ public class AvroCompilationMapper : ICompilationMapper<Schema>
                                 field.Schema.Tag switch
                                 {
                                     Schema.Type.Null => "object?",
-                                    Schema.Type.Bytes => $"{field.Schema.Name}[]",
+                                    Schema.Type.Bytes => "byte[]",
+                                    Schema.Type.Boolean => "bool",
                                     _ => field.Schema.Name
                                 },
                                 field.Name,

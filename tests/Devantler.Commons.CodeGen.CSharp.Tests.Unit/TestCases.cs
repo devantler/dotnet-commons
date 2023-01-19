@@ -30,17 +30,17 @@ public static class TestCases
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, true, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 1, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, true, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, false, false)
             },
             new object[]
             {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMember",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true, false)
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, false, false)
             },
             new object[]
             {

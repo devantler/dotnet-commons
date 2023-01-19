@@ -1,7 +1,5 @@
 ﻿using System;
-
 namespace Namespace;
-
 /// <summary>
 /// Interface documentation block
 /// </summary>
@@ -11,12 +9,10 @@ public interface InterfaceName
     /// Property documentation block 0
     /// </summary>
     public string Property0 { get; set; } = "Hello World";
-
     /// <summary>
     /// Property documentation block 1
     /// </summary>
     public string Property1 { get; set; } = "Hello World";
-
     /// <summary>
     /// Method documentation block 0
     /// </summary>
@@ -25,7 +21,6 @@ public interface InterfaceName
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Method documentation block 1
     /// </summary>
@@ -37,9 +32,7 @@ public interface InterfaceName
 }
 
 using System;
-
 namespace Namespace;
-
 /// <summary>
 /// Class documentation block
 /// </summary>
@@ -49,12 +42,10 @@ public class ClassName
     /// Field documentation block 0
     /// </summary>
     public string fieldName0 = "Hello World";
-
     /// <summary>
     /// Field documentation block 1
     /// </summary>
     public string fieldName1 = "Hello World";
-
     /// <summary>
     /// Constructor documentation block 0
     /// </summary>
@@ -63,7 +54,6 @@ public class ClassName
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Constructor documentation block 1
     /// </summary>
@@ -72,17 +62,14 @@ public class ClassName
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Property documentation block 0
     /// </summary>
     public string Property0 { get; set; } = "Hello World";
-
     /// <summary>
     /// Property documentation block 1
     /// </summary>
     public string Property1 { get; set; } = "Hello World";
-
     /// <summary>
     /// Method documentation block 0
     /// </summary>
@@ -91,7 +78,6 @@ public class ClassName
     {
         Console.WriteLine("Hello World!");
     }
-
     /// <summary>
     /// Method documentation block 1
     /// </summary>
@@ -103,14 +89,12 @@ public class ClassName
 }
 
 using System;
-
 namespace Namespace;
-
 /// <summary>
 /// Enum documentation block
 /// </summary>
 public enum EnumName
 {
-  Value0 = 0,
-  Value1 = 1
+    Value0 = 0,
+    Value1 = 1
 }

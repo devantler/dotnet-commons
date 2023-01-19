@@ -1,13 +1,9 @@
 ﻿using System;
-
-namespace Namespace;
-
 public interface InterfaceName
 {
     public string Property0 { get; set; } = "Hello World";
-
     public string Method0(string parameterName)
     {
-      Console.WriteLine("Hello World!");
+        Console.WriteLine("Hello World!");
     }
 }

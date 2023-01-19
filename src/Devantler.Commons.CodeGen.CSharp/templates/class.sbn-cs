@@ -2,11 +2,8 @@
 {{ include 'using.sbn-cs' using }}
 {{~ end ~}}
 {{~ if !(namespace | string.empty) ~}}
-{{~ if imports ~}}
-
-{{~ end ~}}
 {{ include 'namespace.sbn-cs' namespace }}
-{{~ end }}
+{{~ end ~}}
 {{~ if doc_block ~}}
 {{ include 'doc_block.sbn-cs' doc_block }}
 {{- end ~}}
@@ -14,17 +11,14 @@ public class {{ name }}
 {
 {{~ for field in fields ~}}
     {{ include 'field.sbn-cs' field }}
-{{~ if ! for.last ~}}
-
 {{~ end ~}}
-{{~ end ~}}
-{{- for constructor in constructors }}
+{{~ for constructor in constructors ~}}
     {{ include 'constructor.sbn-cs' constructor }}
-{{ end ~}}
-{{- for property in properties }}
+{{~ end ~}}
+{{~ for property in properties ~}}
     {{ include 'property.sbn-cs' property }}
-{{ end ~}}
-{{- for method in methods }}
+{{~ end ~}}
+{{~ for method in methods ~}}
     {{ include 'method.sbn-cs' method }}
-{{ end ~}}
+{{~ end ~}}
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-
 /// <summary>
 /// Enum documentation block
 /// </summary>

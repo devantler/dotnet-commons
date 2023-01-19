@@ -3,5 +3,5 @@ namespace Namespace;
 
 public enum EnumName
 {
-  Value0 = 0
+    Value0 = 0
 }

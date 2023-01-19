@@ -8,26 +8,26 @@ namespace Devantler.Commons.CodeGen.CSharp.Models;
 public class CSharpCompilation : CompilationBase
 {
     /// <inheritdoc />
-    public override Dictionary<string, string> Compile(string? assemblyPath = default)
+    public override Dictionary<string, string> Compile()
     {
         {
             var result = new Dictionary<string, string>();
 
             foreach (var @interface in Interfaces)
             {
-                string code = @interface.Compile(assemblyPath);
+                string code = @interface.Compile();
                 result.Add($"{@interface.Name}.cs", code);
             }
 
             foreach (var @class in Classes)
             {
-                string code = @class.Compile(assemblyPath);
+                string code = @class.Compile();
                 result.Add($"{@class.Name}.cs", code);
             }
 
             foreach (var @enum in Enums)
             {
-                string code = @enum.Compile(assemblyPath);
+                string code = @enum.Compile();
                 result.Add($"{@enum.Name}.cs", code);
             }
 

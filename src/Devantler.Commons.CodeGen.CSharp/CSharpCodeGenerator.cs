@@ -9,5 +9,5 @@ namespace Devantler.Commons.CodeGen.CSharp;
 public class CSharpCodeGenerator : ICodeGenerator<CSharpCompilation>
 {
     /// <inheritdoc />
-    public Dictionary<string, string> Generate(CSharpCompilation compilation, string? assemblyPath = default) => compilation.Compile(assemblyPath);
+    public Dictionary<string, string> Generate(CSharpCompilation compilation) => compilation.Compile();
 }

@@ -48,5 +48,5 @@ public abstract class EnumBase : IEnum
     }
 
     /// <inheritdoc />
-    public abstract string Compile(string? assemblyPath = default);
+    public abstract string Compile();
 }

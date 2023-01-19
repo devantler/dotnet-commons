@@ -6,10 +6,10 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 public static class CSharpClassFactory
 {
     public static CSharpClass CreateCSharpClass(int numberOfFields, int numberOfProperties, int numberOfConstructors,
-        int numberOfMethods, bool withDocumentation)
+        int numberOfMethods, bool hasNamespaces, bool withDocumentation)
     {
         string? classDocumentation = withDocumentation ? "Class documentation block" : null;
-        var @class = new CSharpClass("ClassName", "Namespace", classDocumentation);
+        var @class = new CSharpClass("ClassName", hasNamespaces ? "Namespace" : "", classDocumentation);
         var @using = new CSharpUsing("System");
         _ = @class.AddImport(@using);
 

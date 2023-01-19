@@ -1,4 +1,5 @@
-﻿namespace Namespace;
+﻿using System;
 
 public interface InterfaceName
-{}
+{
+}

@@ -1,4 +1,6 @@
+{{~ if namespace ~}}
 {{ include 'namespace.sbn-cs' namespace }}
+{{~ end ~}}
 
 {{~ if doc_block }}{{ include 'doc_block.sbn-cs' doc_block }}{{ end ~}}
 public interface {{ name }}

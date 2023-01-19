@@ -78,5 +78,5 @@ public abstract class ClassBase : IClass
     }
 
     /// <inheritdoc />
-    public abstract string Compile(string? assemblyPath = default);
+    public abstract string Compile();
 }

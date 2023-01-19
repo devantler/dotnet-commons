@@ -62,5 +62,5 @@ public abstract class InterfaceBase : IInterface
     }
 
     /// <inheritdoc />
-    public abstract string Compile(string? assemblyPath = default);
+    public abstract string Compile();
 }

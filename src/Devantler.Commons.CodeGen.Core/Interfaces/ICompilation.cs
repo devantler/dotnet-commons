@@ -41,7 +41,6 @@ public interface ICompilation
     /// <summary>
     ///     Compiles the compilation.
     /// </summary>
-    /// <param name="assemblyPath"></param>
     /// <exception cref="InvalidOperationException"></exception>
-    public Dictionary<string, string> Compile(string? assemblyPath = default);
+    public Dictionary<string, string> Compile();
 }

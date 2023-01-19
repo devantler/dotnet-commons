@@ -18,7 +18,8 @@ public static class TestCases
                     new Field(PrimitiveSchema.Create(Schema.Type.Double), "DoubleField", 4, doc: "Test documentation", defaultValue: 1.5),
                     new Field(PrimitiveSchema.Create(Schema.Type.Float), "FloatField", 5, doc: "Test documentation", defaultValue: 1.5f),
                     new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 10L),
-                    new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 7, doc: "Test documentation", defaultValue: "new byte[1]"),
+                    new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
+                    new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
                 }, doc: "Test documentation"), Language.CSharp
             },
             new object[]
@@ -32,7 +33,8 @@ public static class TestCases
                         new Field(PrimitiveSchema.Create(Schema.Type.Double), "DoubleField", 4, doc: "Test documentation", defaultValue: 1.5),
                         new Field(PrimitiveSchema.Create(Schema.Type.Float), "FloatField", 5, doc: "Test documentation", defaultValue: 1.5f),
                         new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 10L),
-                        new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 7, doc: "Test documentation", defaultValue: "new byte[1]"),
+                        new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
+                        new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
                     }, doc: "Test documentation"),
                     RecordSchema.Create("TestRecord2", new List<Field>
                     {
@@ -42,7 +44,8 @@ public static class TestCases
                         new Field(PrimitiveSchema.Create(Schema.Type.Double), "DoubleField", 4, doc: "Test documentation", defaultValue: 0.0),
                         new Field(PrimitiveSchema.Create(Schema.Type.Float), "FloatField", 5, doc: "Test documentation", defaultValue: 0.0f),
                         new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 0L),
-                        new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 7, doc: "Test documentation", defaultValue: new byte[1]),
+                        new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
+                        new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
                     }, doc: "Test documentation"),
                 }), Language.CSharp
             },

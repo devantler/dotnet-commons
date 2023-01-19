@@ -7,6 +7,19 @@ namespace Devantler.Commons.CodeGen.Core.Tests.Unit;
 public class TemplateLoaderTests
 {
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
+    public void GetPath_GivenTemplateName_ReturnsValidPath(TemplateContext context, SourceSpan sourceSpan)
+    {
+        // Arrange
+        var sut = new TemplateLoader();
+
+        // Act
+        string result = sut.GetPath(context, sourceSpan, "test-template.sbn");
+
+        // Assert
+        _ = result.Should().Be($"{Directory.GetCurrentDirectory()}/templates/test-template.sbn");
+    }
+
+    [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
     public void Load_GivenValidPath_ReturnsFileContents(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange

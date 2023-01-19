@@ -58,7 +58,7 @@
           DocBlock: {
             Summary: Test documentation
           },
-          Type: bytes,
+          Type: bytes[],
           Name: BytesField,
           Value: new byte[1]
         }
@@ -122,7 +122,7 @@
           DocBlock: {
             Summary: Test documentation
           },
-          Type: bytes,
+          Type: bytes[],
           Name: BytesField,
           Value: AA==
         }

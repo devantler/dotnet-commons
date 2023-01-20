@@ -36,7 +36,7 @@ public class CSharpInterface : InterfaceBase
         var script = new ScriptObject();
         script.Import(this);
         context.PushGlobal(script);
-        const string filePath = "templates/interface.sbn-cs";
+        string filePath = $"{Directory.GetCurrentDirectory()}/templates/interface.sbn-cs";
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

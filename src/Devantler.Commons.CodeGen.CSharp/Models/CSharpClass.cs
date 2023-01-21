@@ -2,6 +2,7 @@ using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
 using Scriban;
+using Scriban.Parsing;
 using Scriban.Runtime;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
@@ -29,6 +30,7 @@ public class CSharpClass : ClassBase
     /// <inheritdoc />
     public override string Compile()
     {
+        var templateLoader = new TemplateLoader();
         var context = new TemplateContext
         {
             TemplateLoader = new TemplateLoader()
@@ -36,7 +38,7 @@ public class CSharpClass : ClassBase
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);
         context.PushGlobal(scriptObject);
-        string filePath = $"{Directory.GetCurrentDirectory()}/templates/class.sbn-cs";
+        string filePath = templateLoader.GetPath(context, new SourceSpan(), "class.sbn-cs");
         var template = Template.Parse(File.ReadAllText(filePath), filePath);
         return template.Render(context);
     }

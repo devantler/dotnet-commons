@@ -1,8 +1,7 @@
-using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
+using Devantler.Commons.CodeGen.CSharp.Templates;
 using Scriban;
-using Scriban.Parsing;
 using Scriban.Runtime;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
@@ -30,16 +29,15 @@ public class CSharpClass : ClassBase
     /// <inheritdoc />
     public override string Compile()
     {
-        var templateLoader = new TemplateLoader();
+        var templateLoader = new CSharpTemplateLoader();
         var context = new TemplateContext
         {
-            TemplateLoader = new TemplateLoader()
+            TemplateLoader = new CSharpTemplateLoader()
         };
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);
         context.PushGlobal(scriptObject);
-        string filePath = templateLoader.GetPath(context, new SourceSpan(), "class.sbn-cs");
-        var template = Template.Parse(File.ReadAllText(filePath), filePath);
+        var template = Template.Parse(CSharpClassTemplate.GetTemplate());
         return template.Render(context);
     }
 }

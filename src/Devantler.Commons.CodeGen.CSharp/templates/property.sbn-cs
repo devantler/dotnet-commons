@@ -1,2 +1,0 @@
-{{~ if property.doc_block }}{{ include 'doc_block.sbn-cs' property.doc_block }}{{ end ~}}
-{{ property.visibility | string.downcase }} {{ property.type }} {{ property.name }} { get; set; }{{ if property.value != null }} = {{ property.value }};{{ end }}

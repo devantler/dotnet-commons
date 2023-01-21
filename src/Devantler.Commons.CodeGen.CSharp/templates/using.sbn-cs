@@ -1,1 +1,0 @@
-using {{ if $1.alias != null }}{{ $1.alias }} = {{ end }}{{ $1.name}};

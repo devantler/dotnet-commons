@@ -1,8 +1,7 @@
-using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
+using Devantler.Commons.CodeGen.CSharp.Templates;
 using Scriban;
-using Scriban.Parsing;
 using Scriban.Runtime;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
@@ -29,7 +28,7 @@ public class CSharpEnum : EnumBase
     /// <inheritdoc />
     public override string Compile()
     {
-        var templateLoader = new TemplateLoader();
+        var templateLoader = new CSharpTemplateLoader();
         var context = new TemplateContext
         {
             TemplateLoader = templateLoader
@@ -37,8 +36,7 @@ public class CSharpEnum : EnumBase
         var script = new ScriptObject();
         script.Import(this);
         context.PushGlobal(script);
-        string filePath = templateLoader.GetPath(context, new SourceSpan(), "enum.sbn-cs");
-        var template = Template.Parse(File.ReadAllText(filePath), filePath);
+        var template = Template.Parse(CSharpEnumTemplate.GetTemplate());
         return template.Render(context);
     }
 }

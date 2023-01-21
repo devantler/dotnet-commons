@@ -1,3 +1,4 @@
+using System.Linq;
 using Devantler.Commons.CodeGen.Core.Base;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;
@@ -16,19 +17,19 @@ public class CSharpCompilation : CompilationBase
             foreach (var @interface in Interfaces)
             {
                 string code = @interface.Compile();
-                result.Add($"{@interface.Name}.cs", code);
+                result.Add($"{@interface.Name}.g.cs", code);
             }
 
             foreach (var @class in Classes)
             {
                 string code = @class.Compile();
-                result.Add($"{@class.Name}.cs", code);
+                result.Add($"{@class.Name}.g.cs", code);
             }
 
             foreach (var @enum in Enums)
             {
                 string code = @enum.Compile();
-                result.Add($"{@enum.Name}.cs", code);
+                result.Add($"{@enum.Name}.g.cs", code);
             }
 
             return result;

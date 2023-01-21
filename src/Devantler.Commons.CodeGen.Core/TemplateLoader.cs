@@ -1,4 +1,3 @@
-using System.Reflection;
 using Scriban;
 using Scriban.Parsing;
 using Scriban.Runtime;
@@ -12,7 +11,7 @@ public class TemplateLoader : ITemplateLoader
 {
     /// <inheritdoc />
     public string GetPath(TemplateContext context, SourceSpan callerSpan, string templateName) =>
-        Path.Combine($"{Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)}/templates", templateName);
+        Path.Combine($"{Directory.GetCurrentDirectory()}/templates", templateName);
 
     /// <inheritdoc />
     public string Load(TemplateContext context, SourceSpan callerSpan, string templatePath) =>

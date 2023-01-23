@@ -95,6 +95,6 @@ namespace Namespace;
 /// </summary>
 public enum EnumName
 {
-    Value0 = 0,
+    Value0,
     Value1 = 1
 }

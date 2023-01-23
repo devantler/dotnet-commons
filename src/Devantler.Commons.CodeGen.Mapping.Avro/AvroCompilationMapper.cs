@@ -50,7 +50,7 @@ public class AvroCompilationMapper : ICompilationMapper<Schema>
                     CSharpEnum @enum = new(enumSchema.Name, enumSchema.Namespace, enumSchema.Documentation);
 
                     for (int i = 0; i < enumSchema.Symbols.Count; i++)
-                        _ = @enum.AddValue(new CSharpEnumValue(enumSchema.Symbols[i], i.ToString()));
+                        _ = @enum.AddValue(new CSharpEnumSymbol(enumSchema.Symbols[i], i.ToString()));
 
                     _ = compilation.AddEnum(@enum);
                     break;

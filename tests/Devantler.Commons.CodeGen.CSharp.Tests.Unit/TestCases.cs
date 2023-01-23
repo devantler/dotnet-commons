@@ -39,7 +39,7 @@ public static class TestCases
             },
             new object[]
             {
-                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMember",
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneSymbol",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, false, false)
             },
             new object[]
@@ -54,7 +54,7 @@ public static class TestCases
             },
             new object[]
             {
-                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneMemberAndDocumentation",
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEnumWithOneSymbolAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 0, 1, 1, true, true)
             },
             new object[]

@@ -21,7 +21,7 @@ public static class CSharpEnumTemplate
     public enum {{ name }}
     {
     {{~ for value in values ~}}
-        {{ include 'enum_value' value }}{{ if !for.last }},{{ end }}
+        {{ include 'enum_symbol' value }}{{ if !for.last }},{{ end }}
     {{~ end ~}}
     }
     """;

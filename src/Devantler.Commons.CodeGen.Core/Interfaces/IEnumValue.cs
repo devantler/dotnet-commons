@@ -13,5 +13,5 @@ public interface IEnumValue
     /// <summary>
     ///     The value of the enum.
     /// </summary>
-    public string Value { get; }
+    public string? Value { get; }
 }

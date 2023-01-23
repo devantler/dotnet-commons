@@ -18,9 +18,15 @@ public abstract class EnumValueBase : IEnumValue
         Value = value;
     }
 
+    /// <summary>
+    ///     Creates a new enum value.
+    /// </summary>
+    /// <param name="name"></param>
+    protected EnumValueBase(string name) => Name = name;
+
     /// <inheritdoc />
     public string Name { get; }
 
     /// <inheritdoc />
-    public string Value { get; }
+    public string? Value { get; }
 }

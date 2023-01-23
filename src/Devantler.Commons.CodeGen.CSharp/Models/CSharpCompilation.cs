@@ -1,4 +1,3 @@
-using System.Linq;
 using Devantler.Commons.CodeGen.Core.Base;
 
 namespace Devantler.Commons.CodeGen.CSharp.Models;

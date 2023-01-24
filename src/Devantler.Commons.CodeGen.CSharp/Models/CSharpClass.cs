@@ -43,7 +43,7 @@ public class CSharpClass : ClassBase
     /// <summary>
     /// The template for a C# class.
     /// </summary>
-    public static string Template =
+    public static string Template =>
         """
         {{- for using in imports ~}}
         {{ include 'using' using }}

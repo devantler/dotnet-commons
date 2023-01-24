@@ -14,4 +14,17 @@ public class CSharpDocBlock : DocBlockBase
     public CSharpDocBlock(string summary) : base(summary)
     {
     }
+
+    /// <summary>
+    /// The template for a C# documentation block.
+    /// </summary>
+    public static string Template =>
+        """
+        /// <summary>
+        /// {{ $1.summary }}
+        /// </summary>
+        {{~ for parameter in $1.parameters ~}}
+        /// {{ include 'doc_block_parameter' parameter }}
+        {{~ end ~}}
+        """;
 }

@@ -7,7 +7,7 @@ namespace Devantler.Commons.CodeGen.Core.Interfaces;
 public interface ICompilationMapper<T>
 {
     /// <summary>
-    ///     Maps the given object to a compilation.
+    ///     Maps the given object to a compilation containing models.
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="language"></param>

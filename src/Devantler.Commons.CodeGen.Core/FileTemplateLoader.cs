@@ -7,7 +7,7 @@ namespace Devantler.Commons.CodeGen.Core;
 /// <summary>
 ///     A very simple ITemplateLoader loading directly from the disk, without any checks...etc.
 /// </summary>
-public class TemplateLoader : ITemplateLoader
+public class FileTemplateLoader : ITemplateLoader
 {
     /// <inheritdoc />
     public string GetPath(TemplateContext context, SourceSpan callerSpan, string templateName) =>

@@ -23,4 +23,9 @@ public class CSharpEnumSymbol : EnumValueBase
     public CSharpEnumSymbol(string name) : base(name)
     {
     }
+
+    public static string Template =>
+        """
+        {{ $1.name }}{{ if !($1.value | string.empty) }} = {{ $1.value }}{{ end }}
+        """;
 }

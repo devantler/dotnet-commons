@@ -4,13 +4,13 @@ using Scriban.Parsing;
 
 namespace Devantler.Commons.CodeGen.Core.Tests.Unit;
 
-public class TemplateLoaderTests
+public class FileTemplateLoaderTests
 {
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
     public void GetPath_GivenTemplateName_ReturnsValidPath(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange
-        var sut = new TemplateLoader();
+        var sut = new FileTemplateLoader();
 
         // Act
         string result = sut.GetPath(context, sourceSpan, "test-template.sbn");
@@ -23,7 +23,7 @@ public class TemplateLoaderTests
     public void Load_GivenValidPath_ReturnsFileContents(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange
-        var sut = new TemplateLoader();
+        var sut = new FileTemplateLoader();
         string path = $"{Directory.GetCurrentDirectory()}/templates/test-template.sbn";
 
         // Act
@@ -37,7 +37,7 @@ public class TemplateLoaderTests
     public void Load_GivenInvalidPath_ThrowsFileNotFoundException(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange
-        var sut = new TemplateLoader();
+        var sut = new FileTemplateLoader();
         string path = $"{Directory.GetCurrentDirectory()}/templates/invalid-template.sbn";
 
         // Act
@@ -51,7 +51,7 @@ public class TemplateLoaderTests
     public async Task LoadAsync_GivenValidPath_ReturnsFileContents(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange
-        var sut = new TemplateLoader();
+        var sut = new FileTemplateLoader();
         string path = $"{Directory.GetCurrentDirectory()}/templates/test-template.sbn";
 
         // Act
@@ -65,7 +65,7 @@ public class TemplateLoaderTests
     public void LoadAsync_GivenInvalidPath_ThrowsFileNotFoundException(TemplateContext context, SourceSpan sourceSpan)
     {
         // Arrange
-        var sut = new TemplateLoader();
+        var sut = new FileTemplateLoader();
         string path = $"{Directory.GetCurrentDirectory()}/templates/invalid-template.sbn";
 
         // Act

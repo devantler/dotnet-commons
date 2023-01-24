@@ -6,6 +6,10 @@ namespace Devantler.Commons.CodeGen.Core.Interfaces;
 public interface IClass : IType<IClass>
 {
     /// <summary>
+    /// The implemented interfaces.
+    /// </summary>
+    public List<IInterface> Implementations { get; }
+    /// <summary>
     ///     The fields on the class.
     /// </summary>
     public List<IField> Fields { get; }
@@ -24,6 +28,13 @@ public interface IClass : IType<IClass>
     ///     The methods provided by the class.
     /// </summary>
     public List<IMethod> Methods { get; }
+
+    /// <summary>
+    /// Adds an implementation to the class.
+    /// </summary>
+    /// <param name="implementation"></param>
+    /// <returns></returns>
+    public IClass AddImplementation(IInterface implementation);
 
     /// <summary>
     ///     Adds a field to the class.

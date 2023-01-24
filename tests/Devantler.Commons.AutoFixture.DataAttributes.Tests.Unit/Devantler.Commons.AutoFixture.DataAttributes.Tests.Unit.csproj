@@ -36,12 +36,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Devantler.Commons.CodeGen.CSharp\Devantler.Commons.CodeGen.CSharp.csproj" />
         <ProjectReference Include="..\..\src\Devantler.Commons.AutoFixture.DataAttributes\Devantler.Commons.AutoFixture.DataAttributes.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <AdditionalFiles Include="BannedSymbols.txt" />
     </ItemGroup>
 
 </Project>

@@ -15,4 +15,7 @@ public class CSharpDocBlockParameter : DocBlockParameterBase
     public CSharpDocBlockParameter(string name, string? description = default) : base(name, description)
     {
     }
+
+    public static string Template =>
+        """<param name="{{ $1.name }}">{{ $1.description }}</param>""";
 }

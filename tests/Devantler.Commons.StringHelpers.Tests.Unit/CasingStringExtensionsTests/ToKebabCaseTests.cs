@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.StringExtensionsTests;
+namespace Devantler.Commons.StringHelpers.Tests.Unit.CasingStringExtensionsTests;
 
 public class ToKebabCaseTests
 {

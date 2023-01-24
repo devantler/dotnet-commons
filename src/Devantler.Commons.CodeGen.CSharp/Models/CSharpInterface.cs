@@ -1,6 +1,5 @@
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
-using Devantler.Commons.CodeGen.CSharp.Templates;
 using Scriban;
 using Scriban.Runtime;
 
@@ -37,7 +36,29 @@ public class CSharpInterface : InterfaceBase
         var script = new ScriptObject();
         script.Import(this);
         context.PushGlobal(script);
-        var template = Template.Parse(CSharpInterfaceTemplate.GetTemplate());
+        var template = Scriban.Template.Parse(Template);
         return template.Render(context);
     }
+
+    public static string Template =>
+        """
+        {{- for using in imports ~}}
+        {{ include 'using' using }}
+        {{~ end ~}}
+        {{~ if !(namespace | string.empty) ~}}
+        namespace {{ namespace }};
+        {{~ end ~}}
+        {{~ if doc_block ~}}
+        {{ include 'doc_block' doc_block }}
+        {{- end ~}}
+        public interface {{ name }}
+        {
+        {{~ for property in properties ~}}
+            {{ include 'property' property }}
+        {{~ end ~}}
+        {{~ for method in methods ~}}
+            {{ include 'method' method }}
+        {{~ end ~}}
+        }
+        """;
 }

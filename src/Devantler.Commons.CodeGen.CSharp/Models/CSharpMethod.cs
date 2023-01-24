@@ -20,4 +20,13 @@ public class CSharpMethod : MethodBase
         IDocBlock? documentationBlock = null) : base(visibility, type, name, body, documentationBlock)
     {
     }
+
+    public static string Template =>
+        """
+        {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
+        {{ $1.visibility | string.downcase }} {{ $1.type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {
+        {{~ }}    {{ $1.body }}
+        }
+        """;
 }

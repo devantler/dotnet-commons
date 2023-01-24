@@ -1,15 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-  <ItemGroup>
-    <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.17.0" />
-    <PackageReference Include="AutoFixture.Xunit2" Version="4.17.0" />
-    <PackageReference Include="AutoFixture" Version="4.17.0" />
-    <PackageReference Include="NSubstitute" Version="4.4.0" />
-  </ItemGroup>
+        <PackageId>Devantler.Commons.AutoFixture.DataAttributes</PackageId>
+        <Version>0.1.0</Version>
+        <Authors>devantler</Authors>
+        <Company>Devantler Software</Company>
+        <PackageDescription>Common AutoFixture data attributes for Xunit and NSubstitute.</PackageDescription>
+        <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoFixture.AutoNSubstitute" Version="4.17.0" />
+        <PackageReference Include="AutoFixture.Xunit2" Version="4.17.0" />
+        <PackageReference Include="AutoFixture" Version="4.17.0" />
+        <PackageReference Include="NSubstitute" Version="4.4.0" />
+    </ItemGroup>
 </Project>

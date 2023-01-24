@@ -42,10 +42,20 @@ public abstract class ClassBase : IClass
     /// <inheritdoc />
     public List<IImport> Imports { get; } = new();
 
+    /// <inheritdoc/>
+    public List<IInterface> Implementations { get; } = new();
+
     /// <inheritdoc />
     public IClass AddImport(IImport import)
     {
         Imports.Add(import);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public IClass AddImplementation(IInterface implementation)
+    {
+        Implementations.Add(implementation);
         return this;
     }
 

@@ -1,6 +1,5 @@
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
-using Devantler.Commons.CodeGen.CSharp.Templates;
 using Scriban;
 using Scriban.Runtime;
 
@@ -37,7 +36,48 @@ public class CSharpClass : ClassBase
         var scriptObject = new ScriptObject();
         scriptObject.Import(this);
         context.PushGlobal(scriptObject);
-        var template = Template.Parse(CSharpClassTemplate.GetTemplate());
+        var template = Scriban.Template.Parse(Template);
         return template.Render(context);
     }
+
+    /// <summary>
+    /// The template for a C# class.
+    /// </summary>
+    public static string Template =
+        """
+        {{- for using in imports ~}}
+        {{ include 'using' using }}
+        {{~ end ~}}
+        {{~ if !(namespace | string.empty) ~}}
+        namespace {{ namespace }};
+        {{~ end ~}}
+        {{~ if doc_block ~}}
+        {{ include 'doc_block' doc_block }}
+        {{- end ~}}
+        public class {{ name }}{{ if implementations | array.size > 0 ~}} : {{~ for implementation in implementations ~}}{{ implementation.name }}{{~ if !loop.last ~}}, {{~ end ~}}{{~ end ~}}{{~ end }}
+        {
+        {{~ for field in fields ~}}
+            {{ include 'field' field }}
+        {{~ end ~}}
+        {{~ for constructor in constructors ~}}
+            {{ include 'constructor' constructor }}
+        {{~ end ~}}
+        {{~ for implementation in implementations ~}}
+            {{~ for property in implementation.properties ~}}
+            {{ include 'property' property }}
+            {{~ end ~}}
+        {{~ end ~}}
+        {{~ for property in properties ~}}
+            {{ include 'property' property }}
+        {{~ end ~}}
+        {{~ for implementation in implementations ~}}
+            {{~ for method in implementation.methods ~}}
+            {{ include 'method' method }}
+            {{~ end ~}}
+        {{~ end ~}}
+        {{~ for method in methods ~}}
+            {{ include 'method' method }}
+        {{~ end ~}}
+        }
+        """;
 }

@@ -11,7 +11,7 @@ public class AvroCompilationMapperTests
     public Task Map_GivenValidSchema_ReturnsValidCompilation(Schema schema, Language language)
     {
         // Arrange
-        var mapper = new AvroCompilationMapper();
+        var mapper = new AvroModelsCompilationMapper();
 
         // Act
         var compilation = mapper.Map(schema, language);
@@ -25,7 +25,7 @@ public class AvroCompilationMapperTests
     {
         // Arrange
         const Language language = (Language)999;
-        var mapper = new AvroCompilationMapper();
+        var mapper = new AvroModelsCompilationMapper();
 
         // Act
         var action = () => mapper.Map(RecordSchema.Create("EmptyShema", new List<Field>()), language);

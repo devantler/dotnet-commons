@@ -15,4 +15,6 @@ public class CSharpParameter : ParameterBase
     public CSharpParameter(string type, string name) : base(type, name)
     {
     }
+
+    public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
 }

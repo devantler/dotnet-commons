@@ -15,4 +15,9 @@ public class CSharpUsing : ImportBase
     public CSharpUsing(string name, string? alias = null) : base(name, alias)
     {
     }
+
+    /// <summary>
+    /// The template for a C# using.
+    /// </summary>
+    public static string Template => "using {{ if $1.alias != null }}{{ $1.alias }} = {{ end }}{{ $1.name}};";
 }

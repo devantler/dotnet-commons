@@ -34,6 +34,11 @@ public static class TestCases
             },
             new object[]
             {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneImplementation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(0, 1, 0, 0, false, false, true)
+            },
+            new object[]
+            {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneMember",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(1, 0, 0, 1, false, false)
             },

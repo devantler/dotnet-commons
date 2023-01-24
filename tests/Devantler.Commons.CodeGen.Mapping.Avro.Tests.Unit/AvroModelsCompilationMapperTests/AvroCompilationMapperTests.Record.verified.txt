@@ -10,7 +10,7 @@
           DocBlock: {
             Summary: The unique identifier of the entity.
           },
-          Type: string,
+          Type: Guid,
           Name: Id
         },
         {

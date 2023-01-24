@@ -14,7 +14,7 @@ public interface IType<T>
     /// <summary>
     ///     The namespace of the type.
     /// </summary>
-    public string Namespace { get; }
+    public string Namespace { get; set; }
 
     /// <summary>
     ///     Documentation for the type.

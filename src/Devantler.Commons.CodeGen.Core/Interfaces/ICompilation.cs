@@ -42,5 +42,5 @@ public interface ICompilation
     ///     Compiles the compilation.
     /// </summary>
     /// <exception cref="InvalidOperationException"></exception>
-    public Dictionary<string, string> Compile();
+    public Dictionary<string, string> Compile(CodeGenerationOptions? options = null);
 }

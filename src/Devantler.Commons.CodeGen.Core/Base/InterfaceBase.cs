@@ -26,7 +26,7 @@ public abstract class InterfaceBase : IInterface
     /// <summary>
     ///     The namespace of the interface.
     /// </summary>
-    public string Namespace { get; }
+    public string Namespace { get; set; }
 
     /// <inheritdoc />
     public abstract IDocBlock? DocBlock { get; }

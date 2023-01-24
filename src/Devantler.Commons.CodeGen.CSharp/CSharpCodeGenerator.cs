@@ -1,3 +1,4 @@
+using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Interfaces;
 
 namespace Devantler.Commons.CodeGen.CSharp;
@@ -8,5 +9,10 @@ namespace Devantler.Commons.CodeGen.CSharp;
 public class CSharpCodeGenerator : ICodeGenerator
 {
     /// <inheritdoc />
-    public Dictionary<string, string> Generate(ICompilation compilation) => compilation.Compile();
+    public Dictionary<string, string> Generate(ICompilation compilation, Action<CodeGenerationOptions>? action = null)
+    {
+        var options = new CodeGenerationOptions();
+        action?.Invoke(options);
+        return compilation.Compile(options);
+    }
 }

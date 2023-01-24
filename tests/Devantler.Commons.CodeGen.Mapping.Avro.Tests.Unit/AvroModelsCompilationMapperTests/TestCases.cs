@@ -1,7 +1,7 @@
 using Avro;
 using Devantler.Commons.CodeGen.Core;
 
-namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
+namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.AvroModelsCompilationMapperTests;
 
 public static class TestCases
 {

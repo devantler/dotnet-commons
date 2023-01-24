@@ -65,7 +65,7 @@ public static class AvroCSharpCompilationMapper
             CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
 
             CSharpInterface @interface = new("IEntity", recordSchema.Namespace);
-            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "string", "Id", null, "The unique identifier of the entity."));
+            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", "null!", "The unique identifier of the entity."));
             _ = @class.AddImplementation(@interface);
 
             foreach (var field in recordSchema.Fields)

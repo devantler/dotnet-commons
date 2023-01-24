@@ -1,5 +1,0 @@
-﻿namespace Namespace;
-
-public enum EnumName
-{
-}

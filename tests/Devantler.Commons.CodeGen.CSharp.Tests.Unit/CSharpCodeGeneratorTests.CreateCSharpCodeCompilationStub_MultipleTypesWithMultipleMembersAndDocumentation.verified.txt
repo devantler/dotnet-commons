@@ -1,9 +1,8 @@
 ﻿using System;
-namespace Namespace;
 /// <summary>
 /// Interface documentation block
 /// </summary>
-public interface InterfaceName
+public interface InterfaceName0
 {
     /// <summary>
     /// Property documentation block 0
@@ -32,11 +31,42 @@ public interface InterfaceName
 }
 
 using System;
-namespace Namespace;
+/// <summary>
+/// Interface documentation block
+/// </summary>
+public interface InterfaceName1
+{
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 { get; set; } = "Hello World";
+    /// <summary>
+    /// Property documentation block 1
+    /// </summary>
+    public string Property1 { get; set; } = "Hello World";
+    /// <summary>
+    /// Method documentation block 0
+    /// </summary>
+    /// <param name="parameterName"></param>
+    public string Method0(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+    /// <summary>
+    /// Method documentation block 1
+    /// </summary>
+    /// <param name="parameterName"></param>
+    public string Method1(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
+
+using System;
 /// <summary>
 /// Class documentation block
 /// </summary>
-public class ClassName
+public class ClassName0
 {
     /// <summary>
     /// Field documentation block 0
@@ -89,11 +119,76 @@ public class ClassName
 }
 
 using System;
-namespace Namespace;
+/// <summary>
+/// Class documentation block
+/// </summary>
+public class ClassName1
+{
+    /// <summary>
+    /// Field documentation block 0
+    /// </summary>
+    public string fieldName0 = "Hello World";
+    /// <summary>
+    /// Field documentation block 1
+    /// </summary>
+    public string fieldName1 = "Hello World";
+    /// <summary>
+    /// Constructor documentation block 0
+    /// </summary>
+    /// <param name="parameterName">a parameter</param>
+    public ClassName(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+    /// <summary>
+    /// Constructor documentation block 1
+    /// </summary>
+    /// <param name="parameterName">a parameter</param>
+    public ClassName(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 { get; set; } = "Hello World";
+    /// <summary>
+    /// Property documentation block 1
+    /// </summary>
+    public string Property1 { get; set; } = "Hello World";
+    /// <summary>
+    /// Method documentation block 0
+    /// </summary>
+    /// <param name="parameterName">a parameter</param>
+    public string Method0(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+    /// <summary>
+    /// Method documentation block 1
+    /// </summary>
+    /// <param name="parameterName">a parameter</param>
+    public string Method1(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}
+
+using System;
 /// <summary>
 /// Enum documentation block
 /// </summary>
-public enum EnumName
+public enum EnumName0
+{
+    Value0,
+    Value1 = 1
+}
+
+using System;
+/// <summary>
+/// Enum documentation block
+/// </summary>
+public enum EnumName1
 {
     Value0,
     Value1 = 1

@@ -1,5 +1,3 @@
-using System.Xml.Serialization;
-
 namespace Devantler.Commons.CodeGen.Core.Interfaces;
 
 /// <summary>
@@ -11,6 +9,7 @@ public interface ICodeGenerator
     ///     Generates code from the given code base.
     /// </summary>
     /// <param name="compilation"></param>
+    /// <param name="options"></param>
     /// <returns>Dictionary&lt;fileName, code&gt;</returns>
     public Dictionary<string, string> Generate(ICompilation compilation, Action<CodeGenerationOptions>? options = null);
 }

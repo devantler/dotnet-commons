@@ -5,23 +5,25 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 public static class CSharpInterfaceFactory
 {
-    public static CSharpInterface CreateCSharpInterface(int numberOfProperties, int numberOfMethods,
-        bool hasNamespaces, bool withDocumentation)
+    public static CSharpInterface CreateCSharpInterface(CSharpInterfaceOptions options, int index)
     {
-        var @interface = new CSharpInterface("InterfaceName", hasNamespaces ? "Namespace" : "",
-            withDocumentation ? "Interface documentation block" : null);
+        var @interface = new CSharpInterface(
+            $"InterfaceName{index}",
+            options.IncludeNamespace ? "Namespace" : "",
+            options.IncludeDocumentation ? "Interface documentation block" : null
+        );
 
         _ = @interface.AddImport(new CSharpUsing("System"));
 
-        for (int i = 0; i < numberOfProperties; i++)
+        for (int i = 0; i < options.PropertiesCount; i++)
         {
             _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "string", $"Property{i}",
-                "\"Hello World\"", withDocumentation ? $"Property documentation block {i}" : null));
+                "\"Hello World\"", options.IncludeDocumentation ? $"Property documentation block {i}" : null));
         }
 
-        for (int i = 0; i < numberOfMethods; i++)
+        for (int i = 0; i < options.MethodsCount; i++)
         {
-            var documentationBlock = (withDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null)?
+            var documentationBlock = (options.IncludeDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null)?
                 .AddParameter(new CSharpDocBlockParameter("parameterName"));
             var method = new CSharpMethod(Visibility.Public, "string", $"Method{i}",
                     "Console.WriteLine(\"Hello World!\");", documentationBlock)

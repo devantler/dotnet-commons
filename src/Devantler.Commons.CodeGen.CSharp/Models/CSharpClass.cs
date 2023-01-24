@@ -54,7 +54,7 @@ public class CSharpClass : ClassBase
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public class {{ name }}{{ if implementations | array.size > 0 ~}} : {{~ for implementation in implementations ~}}{{ implementation.name }}{{~ if !for.last ~}}, {{~ end ~}}{{~ end ~}}{{~ end }}
+        public class {{ name }}{{ if implementations | array.size > 0 }} : {{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
         {{~ for field in fields ~}}
             {{ include 'field' field }}

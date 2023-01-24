@@ -5,7 +5,7 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 static class CSharpCodeCompilationFactory
 {
-    internal static CSharpCompilation CreateCSharpCodeCompilationStub(int numberOfInterfaces, int numberOfClasses, int numberOfEnums, int numberOfMembers, bool hasNamespaces, bool hasDocumentation)
+    internal static CSharpCompilation CreateCSharpCodeCompilationStub(int numberOfInterfaces, int numberOfClasses, int numberOfEnums, int numberOfMembers, bool hasNamespaces, bool hasDocumentation, bool? hasImplementation = null)
     {
         var compilation = new CSharpCompilation();
 
@@ -18,7 +18,7 @@ static class CSharpCodeCompilationFactory
 
         for (int i = 0; i < numberOfClasses; i++)
         {
-            ClassBase @class = CSharpClassFactory.CreateCSharpClass(numberOfMembers, numberOfMembers, numberOfMembers, numberOfMembers, hasNamespaces, hasDocumentation);
+            ClassBase @class = CSharpClassFactory.CreateCSharpClass(numberOfMembers, numberOfMembers, numberOfMembers, numberOfMembers, hasNamespaces, hasDocumentation, hasImplementation);
 
             _ = compilation.AddClass(@class);
         }

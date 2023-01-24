@@ -24,13 +24,14 @@ public static class AvroCSharpCompilationMapper
                 case RecordSchema recordSchema:
                     CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
 
-                    if (!recordSchema.Fields.Any(x => x.Name == "Id"))
-                    {
-                        var idProperty = new CSharpProperty(Visibility.Public, "string", "Id", null, "The unique identifier of the entity.");
-                        _ = @class.AddProperty(idProperty);
-                    }
+                    var idProperty = new CSharpProperty(Visibility.Public, "Guid", "Id", null, "The unique identifier of the entity.");
+                    _ = @class.AddProperty(idProperty);
+
                     foreach (var field in recordSchema.Fields)
                     {
+                        if (field.Name == "Id")
+                            continue;
+
                         _ = @class.AddProperty(field);
                     }
                     _ = compilation.AddClass(@class);
@@ -70,6 +71,9 @@ public static class AvroCSharpCompilationMapper
 
             foreach (var field in recordSchema.Fields)
             {
+                if (field.Name == "Id")
+                    continue;
+
                 _ = @class.AddProperty(field);
             }
             _ = compilation.AddClass(@class);

@@ -38,5 +38,5 @@ public abstract class CompilationBase : ICompilation
     }
 
     /// <inheritdoc />
-    public abstract Dictionary<string, string> Compile();
+    public abstract Dictionary<string, string> Compile(CodeGenerationOptions? options = null);
 }

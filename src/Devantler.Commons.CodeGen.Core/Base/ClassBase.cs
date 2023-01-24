@@ -22,7 +22,7 @@ public abstract class ClassBase : IClass
     public string Name { get; set; }
 
     /// <inheritdoc />
-    public string Namespace { get; }
+    public string Namespace { get; set; }
 
     /// <inheritdoc />
     public abstract IDocBlock? DocBlock { get; }

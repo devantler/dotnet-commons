@@ -79,8 +79,9 @@
               DocBlock: {
                 Summary: The unique identifier of the entity.
               },
-              Type: string,
-              Name: Id
+              Type: Guid,
+              Name: Id,
+              Value: null!
             }
           ]
         }

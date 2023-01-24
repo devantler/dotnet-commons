@@ -4,7 +4,7 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord1,
+      Name: TestRecord1Entity,
       Properties: [
         {
           DocBlock: {
@@ -91,7 +91,7 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord2,
+      Name: TestRecord2Entity,
       Properties: [
         {
           DocBlock: {

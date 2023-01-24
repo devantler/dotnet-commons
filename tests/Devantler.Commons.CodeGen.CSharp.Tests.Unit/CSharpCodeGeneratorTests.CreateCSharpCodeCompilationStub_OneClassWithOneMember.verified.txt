@@ -1,5 +1,5 @@
 ﻿using System;
-public class ClassName
+public class ClassName0
 {
     public string fieldName0 = "Hello World";
     public ClassName(string parameterName)

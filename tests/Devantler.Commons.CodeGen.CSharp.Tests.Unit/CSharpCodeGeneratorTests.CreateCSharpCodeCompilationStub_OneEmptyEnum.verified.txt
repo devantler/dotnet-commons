@@ -2,6 +2,6 @@
 /// <summary>
 /// Enum documentation block
 /// </summary>
-public enum EnumName
+public enum EnumName0
 {
 }

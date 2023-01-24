@@ -1,9 +1,8 @@
 ﻿using System;
-namespace Namespace;
 /// <summary>
 /// Interface documentation block
 /// </summary>
-public interface InterfaceName
+public interface InterfaceName0
 {
     /// <summary>
     /// Property documentation block 0

@@ -63,7 +63,7 @@ public static class AvroCSharpCompilationMapper
             if (schema is not RecordSchema recordSchema)
                 continue;
 
-            CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
+            CSharpClass @class = new($"{recordSchema.Name}Entity", recordSchema.Namespace, recordSchema.Documentation);
 
             CSharpInterface @interface = new("IEntity", recordSchema.Namespace);
             _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", "null!", "The unique identifier of the entity."));

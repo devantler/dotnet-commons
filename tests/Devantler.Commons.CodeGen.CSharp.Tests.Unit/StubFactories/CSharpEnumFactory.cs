@@ -5,13 +5,13 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 public static class CSharpEnumFactory
 {
-    internal static CSharpEnum CreateCSharpEnum(int numberOfSymbols, bool hasNamespaces)
+    internal static CSharpEnum CreateCSharpEnum(CSharpEnumOptions options, int index)
     {
-        var @enum = new CSharpEnum("EnumName", hasNamespaces ? "Namespace" : "", "Enum documentation block");
+        var @enum = new CSharpEnum($"EnumName{index}", options.IncludeNamespace ? "Namespace" : "", "Enum documentation block");
 
         _ = @enum.AddImport(new CSharpUsing("System"));
 
-        for (int i = 0; i < numberOfSymbols; i++)
+        for (int i = 0; i < options.SymbolsCount; i++)
         {
             var symbol = (i % 2 == 0)
                 ? new CSharpEnumSymbol($"Value{i}")

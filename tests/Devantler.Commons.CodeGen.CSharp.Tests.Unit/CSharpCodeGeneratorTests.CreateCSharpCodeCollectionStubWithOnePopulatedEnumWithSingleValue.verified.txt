@@ -1,7 +1,0 @@
-﻿using System;
-namespace Namespace;
-
-public enum EnumName
-{
-    Value0 = 0
-}

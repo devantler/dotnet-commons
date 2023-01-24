@@ -4,7 +4,7 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: RecordSchema,
+      Name: RecordSchemaEntity,
       Properties: [
         {
           DocBlock: {

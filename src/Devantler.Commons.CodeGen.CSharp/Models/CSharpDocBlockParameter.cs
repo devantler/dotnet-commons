@@ -16,6 +16,9 @@ public class CSharpDocBlockParameter : DocBlockParameterBase
     {
     }
 
+    /// <summary>
+    /// The template for a C# documentation block parameter.
+    /// </summary>
     public static string Template =>
         """<param name="{{ $1.name }}">{{ $1.description }}</param>""";
 }

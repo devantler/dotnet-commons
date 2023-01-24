@@ -40,6 +40,9 @@ public class CSharpInterface : InterfaceBase
         return template.Render(context);
     }
 
+    /// <summary>
+    /// The template for a C# interface.
+    /// </summary>
     public static string Template =>
         """
         {{- for using in imports ~}}

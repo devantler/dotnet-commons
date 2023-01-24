@@ -13,6 +13,9 @@ public class CSharpConstructor : ConstructorBase
     {
     }
 
+    /// <summary>
+    /// The template for a C# constructor.
+    /// </summary>
     public static string Template =>
         """
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}

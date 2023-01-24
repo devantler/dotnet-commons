@@ -21,6 +21,9 @@ public class CSharpMethod : MethodBase
     {
     }
 
+    /// <summary>
+    /// The template for a C# method.
+    /// </summary>
     public static string Template =>
         """
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}

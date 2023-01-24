@@ -39,6 +39,9 @@ public class CSharpEnum : EnumBase
         return template.Render(context);
     }
 
+    /// <summary>
+    /// The template for a C# enum.
+    /// </summary>
     public static string Template =>
         """
         {{- for using in imports ~}}

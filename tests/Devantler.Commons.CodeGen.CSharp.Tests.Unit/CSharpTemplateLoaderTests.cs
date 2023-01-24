@@ -19,5 +19,4 @@ public class CSharpTemplateLoaderTests
         // Assert
         _ = template.Should().NotBeEmpty();
     }
-
 }

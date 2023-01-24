@@ -16,5 +16,8 @@ public class CSharpParameter : ParameterBase
     {
     }
 
+    /// <summary>
+    /// The template for a C# parameter.
+    /// </summary>
     public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
 }

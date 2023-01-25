@@ -69,21 +69,13 @@
           Type: byte[],
           Name: BytesField,
           Value: new byte[1]
-        }
-      ],
-      Implementations: [
+        },
         {
-          Name: IEntity,
-          Properties: [
-            {
-              DocBlock: {
-                Summary: The unique identifier of the entity.
-              },
-              Type: Guid,
-              Name: Id,
-              Value: null!
-            }
-          ]
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: List<string>,
+          Name: StringArrayField
         }
       ]
     }

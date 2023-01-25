@@ -4,15 +4,8 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord1,
+      Name: TestRecord1Entity,
       Properties: [
-        {
-          DocBlock: {
-            Summary: The unique identifier of the entity.
-          },
-          Type: Guid,
-          Name: Id
-        },
         {
           DocBlock: {
             Summary: Test documentation
@@ -76,6 +69,13 @@
           Type: byte[],
           Name: BytesField,
           Value: new byte[1]
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: List<string>,
+          Name: StringArrayField
         }
       ]
     },
@@ -83,15 +83,8 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord2,
+      Name: TestRecord2Entity,
       Properties: [
-        {
-          DocBlock: {
-            Summary: The unique identifier of the entity.
-          },
-          Type: Guid,
-          Name: Id
-        },
         {
           DocBlock: {
             Summary: Test documentation
@@ -155,6 +148,13 @@
           Type: byte[],
           Name: BytesField,
           Value: new byte[1]
+        },
+        {
+          DocBlock: {
+            Summary: Test documentation
+          },
+          Type: List<string>,
+          Name: StringArrayField
         }
       ]
     }

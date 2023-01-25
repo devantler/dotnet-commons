@@ -1,7 +1,8 @@
 using Avro;
 using Devantler.Commons.CodeGen.Core;
+using Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
-namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.AvroModelsCompilationMapperTests;
+namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.Mappers.AvroModelsCompilationMapperTests;
 
 [UsesVerify]
 public class AvroCompilationMapperTests

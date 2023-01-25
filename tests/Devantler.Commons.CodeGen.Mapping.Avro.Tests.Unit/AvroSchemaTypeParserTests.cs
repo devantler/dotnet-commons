@@ -6,7 +6,7 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 public class AvroSchemaTypeParserTests
 {
     [Theory, MemberData(nameof(TestCases.ValidCases), MemberType = typeof(TestCases))]
-    public void Parse_GivenSupportedSchemaTypeAndLanguage_ReturnsParsedValue(Field field, Language language, string expected)
+    public void Parse_GivenValidFieldAndLanguage_ReturnsParsedValue(Field field, Language language, string expected)
     {
         // Act
         string actual = AvroSchemaTypeParser.Parse(field, field.Schema.Tag, language);

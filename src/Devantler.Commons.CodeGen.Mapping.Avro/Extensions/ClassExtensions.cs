@@ -1,4 +1,5 @@
 using Avro;
+using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
 using Devantler.Commons.CodeGen.CSharp.Models;
@@ -20,13 +21,7 @@ public static class ClassExtensions
         return @class.AddProperty(
             new CSharpProperty(
                 Visibility.Public,
-                field.Schema.Tag switch
-                {
-                    Schema.Type.Null => "object?",
-                    Schema.Type.Bytes => "byte[]",
-                    Schema.Type.Boolean => "bool",
-                    _ => field.Schema.Name
-                },
+                AvroSchemaTypeParser.Parse(field, field.Schema.Tag, Language.CSharp),
                 field.Name,
                 field.DefaultValue?.ToObject<string>(),
                 field.Documentation

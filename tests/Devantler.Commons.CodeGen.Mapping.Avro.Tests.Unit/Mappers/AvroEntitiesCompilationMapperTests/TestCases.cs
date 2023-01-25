@@ -1,7 +1,7 @@
 using Avro;
 using Devantler.Commons.CodeGen.Core;
 
-namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.AvroModelsCompilationMapperTests;
+namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.Mappers.AvroEntitiesCompilationMapperTests;
 
 public static class TestCases
 {
@@ -20,6 +20,7 @@ public static class TestCases
                     new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 10L),
                     new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
                     new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
+                    new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 9, doc: "Test documentation"),
                 }, doc: "Test documentation"), Language.CSharp
             },
             new object[]
@@ -35,6 +36,7 @@ public static class TestCases
                         new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 10L),
                         new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
                         new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
+                        new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 9, doc: "Test documentation"),
                     }, doc: "Test documentation"),
                     RecordSchema.Create("TestRecord2", new List<Field>
                     {
@@ -46,12 +48,9 @@ public static class TestCases
                         new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 6, doc: "Test documentation", defaultValue: 0L),
                         new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 7, doc: "Test documentation", defaultValue: "null!"),
                         new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 8, doc: "Test documentation", defaultValue: "new byte[1]"),
+                        new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 9, doc: "Test documentation"),
                     }, doc: "Test documentation"),
                 }), Language.CSharp
-            },
-            new object[]
-            {
-                EnumSchema.Create("TestEnum", new List<string> { "Test1", "Test2", "Test3" }, doc: "Test documentation"), Language.CSharp
             }
         };
 }

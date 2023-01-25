@@ -17,4 +17,14 @@ public static class TestCases
             new object[] { new Field(PrimitiveSchema.Create(Schema.Type.String), "StringField", 0), Language.CSharp, "string"},
             new object[] { new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 0), Language.CSharp, "List<string>"}
         };
+
+    public static IEnumerable<object[]> InvalidCases =>
+        new List<object[]>
+        {
+            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 0), (Language)999},
+            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 0), (Language)999},
+            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Boolean), "BooleanField", 0), (Language)999},
+            new object[] { new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 0), (Language)999},
+            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Logical), "LogicalField", 0), (Language)999},
+        };
 }

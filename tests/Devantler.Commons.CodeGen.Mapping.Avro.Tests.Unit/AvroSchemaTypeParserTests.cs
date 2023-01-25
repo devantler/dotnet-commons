@@ -14,4 +14,14 @@ public class AvroSchemaTypeParserTests
         // Assert
         _ = actual.Should().Be(expected);
     }
+
+    [Theory, MemberData(nameof(TestCases.InvalidCases), MemberType = typeof(TestCases))]
+    public void Parse_GivenInvalidFieldOrLanguage_ThrowsNotSupportedException(Field field, Language language)
+    {
+        // Act
+        Action actual = () => AvroSchemaTypeParser.Parse(field, field.Schema.Tag, language);
+
+        // Assert
+        _ = actual.Should().Throw<NotSupportedException>();
+    }
 }

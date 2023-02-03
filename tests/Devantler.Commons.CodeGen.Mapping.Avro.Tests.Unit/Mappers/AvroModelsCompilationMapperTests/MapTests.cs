@@ -1,11 +1,11 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.Mappers.AvroModelsCompilationMapperTests;
 
 [UsesVerify]
-public class AvroCompilationMapperTests
+public class MapTests
 {
     [Theory]
     [MemberData(nameof(TestCases.ValidCases), MemberType = typeof(TestCases))]
@@ -18,7 +18,7 @@ public class AvroCompilationMapperTests
         var compilation = mapper.Map(schema, language);
 
         // Assert
-        return Verify(compilation).UseMethodName(schema.Tag.ToString());
+        return Verify(compilation).UseMethodName(schema.GetType().Name);
     }
 
     [Fact]
@@ -29,7 +29,8 @@ public class AvroCompilationMapperTests
         var mapper = new AvroModelsCompilationMapper();
 
         // Act
-        var action = () => mapper.Map(RecordSchema.Create("EmptyShema", new List<Field>()), language);
+        var schemaBuilder = new SchemaBuilder();
+        var action = () => mapper.Map(schemaBuilder.BuildSchema<RecordSchema>(), language);
 
         // Assert
         _ = action.Should().Throw<NotSupportedException>();

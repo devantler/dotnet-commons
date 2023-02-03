@@ -12,7 +12,7 @@ public abstract class InterfaceBase : IInterface
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
-    protected InterfaceBase(string name, string @namespace)
+    protected InterfaceBase(string name, string? @namespace = default)
     {
         Name = name;
         Namespace = @namespace;
@@ -26,7 +26,7 @@ public abstract class InterfaceBase : IInterface
     /// <summary>
     ///     The namespace of the interface.
     /// </summary>
-    public string Namespace { get; set; }
+    public string? Namespace { get; set; }
 
     /// <inheritdoc />
     public abstract IDocBlock? DocBlock { get; }

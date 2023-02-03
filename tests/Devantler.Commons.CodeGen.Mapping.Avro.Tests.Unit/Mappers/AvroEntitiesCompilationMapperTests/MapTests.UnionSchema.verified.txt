@@ -20,7 +20,7 @@
           },
           Type: string,
           Name: StringField,
-          Value: i am a string
+          Value: string
         },
         {
           DocBlock: {
@@ -59,8 +59,7 @@
             Summary: Test documentation
           },
           Type: object?,
-          Name: NullField,
-          Value: null!
+          Name: NullField
         },
         {
           DocBlock: {
@@ -68,7 +67,7 @@
           },
           Type: byte[],
           Name: BytesField,
-          Value: new byte[1]
+          Value: System.Byte[]
         },
         {
           DocBlock: {
@@ -99,7 +98,7 @@
           },
           Type: string,
           Name: StringField,
-          Value: Test
+          Value: string
         },
         {
           DocBlock: {
@@ -115,7 +114,7 @@
           },
           Type: double,
           Name: DoubleField,
-          Value: 0
+          Value: 1.5
         },
         {
           DocBlock: {
@@ -123,7 +122,7 @@
           },
           Type: float,
           Name: FloatField,
-          Value: 0
+          Value: 1.5
         },
         {
           DocBlock: {
@@ -131,15 +130,14 @@
           },
           Type: long,
           Name: LongField,
-          Value: 0
+          Value: 10
         },
         {
           DocBlock: {
             Summary: Test documentation
           },
           Type: object?,
-          Name: NullField,
-          Value: null!
+          Name: NullField
         },
         {
           DocBlock: {
@@ -147,7 +145,7 @@
           },
           Type: byte[],
           Name: BytesField,
-          Value: new byte[1]
+          Value: System.Byte[]
         },
         {
           DocBlock: {

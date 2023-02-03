@@ -1,4 +1,4 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
@@ -7,24 +7,24 @@ public static class TestCases
 {
     public static IEnumerable<object[]> ValidCases =>
         new List<object[]> {
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 0), Language.CSharp, "object?"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Boolean), "BooleanField", 0), Language.CSharp, "bool"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Int), "IntField", 0), Language.CSharp, "int"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Long), "LongField", 0), Language.CSharp, "long"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Float), "FloatField", 0), Language.CSharp, "float"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Double), "DoubleField", 0), Language.CSharp, "double"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 0), Language.CSharp, "byte[]"},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.String), "StringField", 0), Language.CSharp, "string"},
-            new object[] { new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 0), Language.CSharp, "List<string>"}
+            new object[] { new RecordField("NullField", new NullSchema()), Language.CSharp, "object?"},
+            new object[] { new RecordField("BooleanField", new BooleanSchema()), Language.CSharp, "bool"},
+            new object[] { new RecordField("IntField", new IntSchema()), Language.CSharp, "int"},
+            new object[] { new RecordField("LongField", new LongSchema()), Language.CSharp, "long"},
+            new object[] { new RecordField("FloatField", new FloatSchema()), Language.CSharp, "float"},
+            new object[] { new RecordField("DoubleField", new DoubleSchema()), Language.CSharp, "double"},
+            new object[] { new RecordField("BytesField", new BytesSchema()), Language.CSharp, "byte[]"},
+            new object[] { new RecordField("StringField", new StringSchema()), Language.CSharp, "string"},
+            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "List<string>"}
         };
 
     public static IEnumerable<object[]> InvalidCases =>
         new List<object[]>
         {
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Null), "NullField", 0), (Language)999},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Bytes), "BytesField", 0), (Language)999},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Boolean), "BooleanField", 0), (Language)999},
-            new object[] { new Field(ArraySchema.Create(PrimitiveSchema.Create(Schema.Type.String)), "StringArrayField", 0), (Language)999},
-            new object[] { new Field(PrimitiveSchema.Create(Schema.Type.Logical), "LogicalField", 0), (Language)999},
+            new object [] { new RecordField("NullField", new NullSchema()), (Language)999},
+            new object [] { new RecordField("BooleanField", new BooleanSchema()), (Language)999},
+            new object [] { new RecordField("BytesField", new BytesSchema()), (Language)999},
+            new object [] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), (Language)999},
+            new object [] { new RecordField("LogicalField", new IntSchema{ LogicalType = new DateLogicalType()}), (Language)999},
         };
 }

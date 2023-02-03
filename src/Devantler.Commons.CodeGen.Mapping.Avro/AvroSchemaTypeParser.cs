@@ -1,45 +1,70 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
 /// <summary>
-/// A class containing methods for parsing <see cref="Schema.Type"/> to other representations.
+/// A class containing methods for parsing <see cref="Schema"/> types to strings.
 /// </summary>
 public static class AvroSchemaTypeParser
 {
     /// <summary>
-    /// Parses an <see cref="Schema.Type"/> to a string representation.
+    /// Parses the given <see cref="RecordField"/> to a string representation.
     /// </summary>
     /// <param name="field"></param>
     /// <param name="schemaType"></param>
     /// <param name="language"></param>
-    public static string Parse(Field field, Schema.Type schemaType, Language language)
+    /// <returns></returns>
+    public static string Parse(RecordField field, Schema schemaType, Language language)
     {
         return schemaType switch
         {
-            Schema.Type.Null => language switch
+            IntSchema => language switch
+            {
+                Language.CSharp => "int",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            LongSchema => language switch
+            {
+                Language.CSharp => "long",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            FloatSchema => language switch
+            {
+                Language.CSharp => "float",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            DoubleSchema => language switch
+            {
+                Language.CSharp => "double",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            StringSchema => language switch
+            {
+                Language.CSharp => "string",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            NullSchema => language switch
             {
                 Language.CSharp => "object?",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            Schema.Type.Bytes => language switch
+            BytesSchema => language switch
             {
                 Language.CSharp => "byte[]",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            Schema.Type.Boolean => language switch
+            BooleanSchema => language switch
             {
                 Language.CSharp => "bool",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            Schema.Type.Array => language switch
+            ArraySchema => language switch
             {
-                Language.CSharp => $"List<{((ArraySchema)field.Schema).ItemSchema.Name}>",
+                Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            Schema.Type.Logical => throw new NotSupportedException("Logical types are not supported in the Apache.Avro C# library yet."),
-            _ => field.Schema.Name
+            _ => field.Type.ToString()
         };
     }
 }

@@ -4,7 +4,7 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: RecordSchema,
+      Name: RecordSchemaEntity,
       Properties: [
         {
           DocBlock: {
@@ -20,7 +20,7 @@
           },
           Type: string,
           Name: StringField,
-          Value: i am a string
+          Value: string
         },
         {
           DocBlock: {
@@ -59,8 +59,7 @@
             Summary: Test documentation
           },
           Type: object?,
-          Name: NullField,
-          Value: null!
+          Name: NullField
         },
         {
           DocBlock: {
@@ -68,7 +67,7 @@
           },
           Type: byte[],
           Name: BytesField,
-          Value: new byte[1]
+          Value: System.Byte[]
         },
         {
           DocBlock: {

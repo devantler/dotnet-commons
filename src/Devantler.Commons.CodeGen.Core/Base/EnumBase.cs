@@ -12,7 +12,7 @@ public abstract class EnumBase : IEnum
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
-    protected EnumBase(string name, string @namespace)
+    protected EnumBase(string name, string? @namespace)
     {
         Name = name;
         Namespace = @namespace;
@@ -22,7 +22,7 @@ public abstract class EnumBase : IEnum
     public string Name { get; set; }
 
     /// <inheritdoc />
-    public string Namespace { get; set; }
+    public string? Namespace { get; set; }
 
     /// <inheritdoc />
     public abstract IDocBlock? DocBlock { get; }

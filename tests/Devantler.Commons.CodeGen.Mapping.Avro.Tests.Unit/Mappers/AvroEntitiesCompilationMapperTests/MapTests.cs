@@ -1,4 +1,4 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
@@ -18,7 +18,7 @@ public class MapTests
         var compilation = mapper.Map(schema, language);
 
         // Assert
-        return Verify(compilation).UseMethodName(schema.Tag.ToString());
+        return Verify(compilation).UseMethodName(schema.GetType().Name);
     }
 
     [Fact]
@@ -29,7 +29,8 @@ public class MapTests
         var mapper = new AvroEntitiesCompilationMapper();
 
         // Act
-        var action = () => mapper.Map(RecordSchema.Create("EmptyShema", new List<Field>()), language);
+        var schemaBuilder = new SchemaBuilder();
+        var action = () => mapper.Map(schemaBuilder.BuildSchema<RecordSchema>(), language);
 
         // Assert
         _ = action.Should().Throw<NotSupportedException>();

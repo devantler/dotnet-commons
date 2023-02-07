@@ -1,4 +1,4 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
@@ -12,18 +12,18 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 public static class ClassExtensions
 {
     /// <summary>
-    /// Adds a property to a class given an <see cref="Field"/>.
+    /// Adds a property to a class given an <see cref="RecordField"/>.
     /// </summary>
     /// <param name="class"></param>
     /// <param name="field"></param>
-    public static IClass AddProperty(this IClass @class, Field field)
+    public static IClass AddProperty(this IClass @class, RecordField field)
     {
         return @class.AddProperty(
             new CSharpProperty(
                 Visibility.Public,
-                AvroSchemaTypeParser.Parse(field, field.Schema.Tag, Language.CSharp),
+                AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp),
                 field.Name,
-                field.DefaultValue?.ToObject<string>(),
+                field.Default?.ToObject<object>()?.ToString(),
                 field.Documentation
             )
         );

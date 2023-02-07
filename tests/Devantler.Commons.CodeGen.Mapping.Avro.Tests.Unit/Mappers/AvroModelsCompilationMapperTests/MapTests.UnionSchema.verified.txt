@@ -4,7 +4,7 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord1Entity,
+      Name: UnionRecordSchema1,
       Properties: [
         {
           DocBlock: {
@@ -20,7 +20,7 @@
           },
           Type: string,
           Name: StringField,
-          Value: i am a string
+          Value: string
         },
         {
           DocBlock: {
@@ -59,8 +59,7 @@
             Summary: Test documentation
           },
           Type: object?,
-          Name: NullField,
-          Value: null!
+          Name: NullField
         },
         {
           DocBlock: {
@@ -68,7 +67,7 @@
           },
           Type: byte[],
           Name: BytesField,
-          Value: new byte[1]
+          Value: System.Byte[]
         },
         {
           DocBlock: {
@@ -83,78 +82,33 @@
       DocBlock: {
         Summary: Test documentation
       },
-      Name: TestRecord2Entity,
+      Name: UnionRecordSchema2,
       Properties: [
         {
           DocBlock: {
             Summary: Test documentation
           },
-          Type: int,
-          Name: IntField,
+          Type: TestEnum,
+          Name: EnumField
+        }
+      ]
+    }
+  ],
+  Enums: [
+    {
+      Name: TestEnum,
+      Values: [
+        {
+          Name: Test1,
           Value: 0
         },
         {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: string,
-          Name: StringField,
-          Value: Test
+          Name: Test2,
+          Value: 1
         },
         {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: bool,
-          Name: BooleanField,
-          Value: False
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: double,
-          Name: DoubleField,
-          Value: 0
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: float,
-          Name: FloatField,
-          Value: 0
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: long,
-          Name: LongField,
-          Value: 0
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: object?,
-          Name: NullField,
-          Value: null!
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: byte[],
-          Name: BytesField,
-          Value: new byte[1]
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: List<string>,
-          Name: StringArrayField
+          Name: Test3,
+          Value: 2
         }
       ]
     }

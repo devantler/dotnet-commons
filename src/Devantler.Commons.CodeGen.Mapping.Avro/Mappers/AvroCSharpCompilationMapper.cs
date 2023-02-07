@@ -1,4 +1,4 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.CSharp.Models;
 using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 
@@ -33,8 +33,9 @@ public static class AvroCSharpCompilationMapper
                 case EnumSchema enumSchema:
                     CSharpEnum @enum = new(enumSchema.Name, enumSchema.Namespace, enumSchema.Documentation);
 
-                    for (int i = 0; i < enumSchema.Symbols.Count; i++)
-                        _ = @enum.AddValue(new CSharpEnumSymbol(enumSchema.Symbols[i], i.ToString()));
+                    var symbols = enumSchema.Symbols.ToList();
+                    for (int i = 0; i < symbols.Count; i++)
+                        _ = @enum.AddValue(new CSharpEnumSymbol(symbols[i], i.ToString()));
 
                     _ = compilation.AddEnum(@enum);
                     break;

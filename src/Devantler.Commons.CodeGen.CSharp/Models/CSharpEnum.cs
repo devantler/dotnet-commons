@@ -16,7 +16,7 @@ public class CSharpEnum : EnumBase
     /// <param name="name"></param>
     /// <param name="namespace"></param>
     /// <param name="documentation"></param>
-    public CSharpEnum(string name, string @namespace, string? documentation) : base(name, @namespace) =>
+    public CSharpEnum(string name, string? @namespace = default, string? documentation = default) : base(name, @namespace) =>
         DocBlock = documentation != null
             ? new CSharpDocBlock(documentation)
             : null;

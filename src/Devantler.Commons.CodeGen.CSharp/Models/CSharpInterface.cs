@@ -16,7 +16,7 @@ public class CSharpInterface : InterfaceBase
     /// <param name="name"></param>
     /// <param name="namespace"></param>
     /// <param name="documentation"></param>
-    public CSharpInterface(string name, string @namespace, string? documentation = default) : base(name, @namespace)
+    public CSharpInterface(string name, string? @namespace = default, string? documentation = default) : base(name, @namespace)
     {
         if (!string.IsNullOrWhiteSpace(documentation))
             DocBlock = new CSharpDocBlock(documentation);

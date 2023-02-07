@@ -12,7 +12,7 @@ public abstract class ClassBase : IClass
     /// </summary>
     /// <param name="name"></param>
     /// <param name="namespace"></param>
-    protected ClassBase(string name, string @namespace)
+    protected ClassBase(string name, string? @namespace = null)
     {
         Name = name;
         Namespace = @namespace;
@@ -22,7 +22,7 @@ public abstract class ClassBase : IClass
     public string Name { get; set; }
 
     /// <inheritdoc />
-    public string Namespace { get; set; }
+    public string? Namespace { get; set; }
 
     /// <inheritdoc />
     public abstract IDocBlock? DocBlock { get; }

@@ -16,7 +16,7 @@ public class CSharpClass : ClassBase
     /// <param name="name"></param>
     /// <param name="namespace"></param>
     /// <param name="documentation"></param>
-    public CSharpClass(string name, string @namespace, string? documentation) : base(name, @namespace)
+    public CSharpClass(string name, string? @namespace = null, string? documentation = null) : base(name, @namespace)
     {
         if (!string.IsNullOrWhiteSpace(documentation))
             DocBlock = new CSharpDocBlock(documentation);

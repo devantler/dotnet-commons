@@ -1,4 +1,4 @@
-using Avro;
+using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Interfaces;
 

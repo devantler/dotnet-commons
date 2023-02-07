@@ -15,6 +15,7 @@ public static class TestCases
             new object[] { new RecordField("DoubleField", new DoubleSchema()), Language.CSharp, "double"},
             new object[] { new RecordField("BytesField", new BytesSchema()), Language.CSharp, "byte[]"},
             new object[] { new RecordField("StringField", new StringSchema()), Language.CSharp, "string"},
+            new object[] { new RecordField("EnumField", new EnumSchema("TestEnum")), Language.CSharp, "TestEnum"},
             new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "List<string>"}
         };
 
@@ -30,6 +31,6 @@ public static class TestCases
             new object [] { new RecordField("FloatField", new FloatSchema()), (Language)999},
             new object [] { new RecordField("DoubleField", new DoubleSchema()), (Language)999},
             new object [] { new RecordField("StringField", new StringSchema()), (Language)999},
-            new object [] { new RecordField("UnsupportedField", new UnsupportedSchema()), Language.CSharp, "unsupported"},
+            new object [] { new RecordField("UnsupportedField", new UnsupportedSchema()), (Language)999}
         };
 }

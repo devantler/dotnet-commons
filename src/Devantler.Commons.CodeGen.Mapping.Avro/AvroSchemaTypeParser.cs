@@ -64,7 +64,7 @@ public static class AvroSchemaTypeParser
                 Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            _ => field.Type.ToString()
+            _ => throw new NotSupportedException($"Schema type {schemaType.GetType().Name} is not supported."),
         };
     }
 }

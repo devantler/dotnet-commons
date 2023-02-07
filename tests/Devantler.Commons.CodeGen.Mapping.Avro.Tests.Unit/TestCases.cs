@@ -31,6 +31,7 @@ public static class TestCases
             new object [] { new RecordField("FloatField", new FloatSchema()), (Language)999},
             new object [] { new RecordField("DoubleField", new DoubleSchema()), (Language)999},
             new object [] { new RecordField("StringField", new StringSchema()), (Language)999},
+            new object [] { new RecordField("EnumField", new EnumSchema("TestEnum")), (Language)999},
             new object [] { new RecordField("UnsupportedField", new UnsupportedSchema()), (Language)999}
         };
 }

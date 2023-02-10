@@ -1,13 +1,13 @@
 namespace Devantler.Commons.CodeGen.Core.Interfaces;
 
 /// <summary>
-///     An interface for mapping some object to a compilation.
+/// An interface for mapping an object to code compilation.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface ICompilationMapper<T>
 {
     /// <summary>
-    ///     Maps the given object to a compilation containing models.
+    /// Maps given object to a code compilation for a specified language.
     /// </summary>
     /// <param name="obj"></param>
     /// <param name="language"></param>

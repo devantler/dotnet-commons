@@ -1,6 +1,8 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Interfaces;
+using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
@@ -14,8 +16,27 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
     {
         return language switch
         {
-            Language.CSharp => AvroCSharpCompilationMapper.MapToCSharpEntities(rootSchema),
+            Language.CSharp => MapToCSharp(rootSchema),
             _ => throw new NotSupportedException($"The language {language} is not supported.")
         };
+    }
+
+    CSharpCompilation MapToCSharp(Schema rootSchema)
+    {
+        var compilation = new CSharpCompilation();
+        foreach (var schema in rootSchema.Flatten())
+        {
+            if (schema is not RecordSchema recordSchema)
+                continue;
+
+            CSharpClass @class = new($"{recordSchema.Name}Entity", recordSchema.Namespace, recordSchema.Documentation);
+
+            foreach (var field in recordSchema.Fields)
+            {
+                _ = @class.AddProperty(field, Target.Entity);
+            }
+            _ = compilation.AddClass(@class);
+        }
+        return compilation;
     }
 }

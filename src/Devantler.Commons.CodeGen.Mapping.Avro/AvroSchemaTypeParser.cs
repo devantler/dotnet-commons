@@ -64,6 +64,11 @@ public static class AvroSchemaTypeParser
                 Language.CSharp => ((EnumSchema)schemaType).Name,
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
+            RecordSchema => language switch
+            {
+                Language.CSharp => ((RecordSchema)schemaType).Name,
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
             ArraySchema => language switch
             {
                 Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language)}>",

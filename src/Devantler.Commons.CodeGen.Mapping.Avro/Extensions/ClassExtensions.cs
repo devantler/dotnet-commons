@@ -16,12 +16,13 @@ public static class ClassExtensions
     /// </summary>
     /// <param name="class"></param>
     /// <param name="field"></param>
-    public static IClass AddProperty(this IClass @class, RecordField field)
+    /// <param name="target"></param>
+    public static IClass AddProperty(this IClass @class, RecordField field, Target target = Target.Model)
     {
         return @class.AddProperty(
             new CSharpProperty(
                 Visibility.Public,
-                AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp),
+                AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, target),
                 field.Name,
                 field.Default?.ToObject<object>()?.ToString(),
                 field.Documentation

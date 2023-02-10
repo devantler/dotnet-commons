@@ -14,8 +14,8 @@ public static class AvroSchemaTypeParser
     /// <param name="field"></param>
     /// <param name="schemaType"></param>
     /// <param name="language"></param>
-    /// <returns></returns>
-    public static string Parse(RecordField field, Schema schemaType, Language language)
+    /// <param name="target"></param>
+    public static string Parse(RecordField field, Schema schemaType, Language language, Target target)
     {
         return schemaType switch
         {
@@ -66,12 +66,16 @@ public static class AvroSchemaTypeParser
             },
             RecordSchema => language switch
             {
-                Language.CSharp => ((RecordSchema)schemaType).Name,
+                Language.CSharp => target switch
+                {
+                    Target.Model => ((RecordSchema)schemaType).Name,
+                    _ => $"{((RecordSchema)schemaType).Name}{target}",
+                },
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             ArraySchema => language switch
             {
-                Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language)}>",
+                Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language, target)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             _ => throw new NotSupportedException($"Schema type {schemaType.GetType().Name} is not supported."),

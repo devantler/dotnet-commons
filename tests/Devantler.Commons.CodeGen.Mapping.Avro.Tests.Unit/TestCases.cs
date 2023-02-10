@@ -16,6 +16,7 @@ public static class TestCases
             new object[] { new RecordField("BytesField", new BytesSchema()), Language.CSharp, "byte[]"},
             new object[] { new RecordField("StringField", new StringSchema()), Language.CSharp, "string"},
             new object[] { new RecordField("EnumField", new EnumSchema("TestEnum")), Language.CSharp, "TestEnum"},
+            new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, "TestRecord"},
             new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "List<string>"}
         };
 

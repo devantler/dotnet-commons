@@ -35,8 +35,8 @@ public class CSharpField : FieldBase
         {{~ end ~}}
         {{~ if $1.doc_block != null }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
         {{ $1.visibility | string.downcase }} {{ $1.type }} {{ $1.name }}{{ if $1.value != null }} = {{ $1.value }}{{ end }};
-        {{~ if $1.type | string.ends_with "?" ~}}
+        {{~ if $1.type | string.ends_with "?" -}}
         #nullable disable
-        {{~ end ~}}
+        {{- end ~}}
         """;
 }

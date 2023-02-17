@@ -56,28 +56,28 @@ public class CSharpClass : ClassBase
         {{- end ~}}
         public class {{ name }}{{ if implementations | array.size > 0 }} : {{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
-        {{~ for field in fields ~}}
+            {{~ for field in fields ~}}
             {{ include 'field' field }}
-        {{~ end ~}}
-        {{~ for constructor in constructors ~}}
+            {{~ end ~}}
+            {{~ for constructor in constructors ~}}
             {{ include 'constructor' constructor }}
-        {{~ end ~}}
-        {{~ for implementation in implementations ~}}
+            {{~ end ~}}
+            {{~ for implementation in implementations ~}}
             {{~ for property in implementation.properties ~}}
             {{ include 'property' property }}
             {{~ end ~}}
-        {{~ end ~}}
-        {{~ for property in properties ~}}
+            {{~ end ~}}
+            {{~ for property in properties ~}}
             {{ include 'property' property }}
-        {{~ end ~}}
-        {{~ for implementation in implementations ~}}
+            {{~ end ~}}
+            {{~ for implementation in implementations ~}}
             {{~ for method in implementation.methods ~}}
             {{ include 'method' method }}
             {{~ end ~}}
-        {{~ end ~}}
-        {{~ for method in methods ~}}
+            {{~ end ~}}
+            {{~ for method in methods ~}}
             {{ include 'method' method }}
-        {{~ end ~}}
+            {{~ end ~}}
         }
         """;
 }

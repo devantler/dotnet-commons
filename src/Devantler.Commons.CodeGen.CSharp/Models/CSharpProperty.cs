@@ -35,8 +35,8 @@ public class CSharpProperty : PropertyBase
         {{~ end ~}}
         {{~ if property.doc_block }}{{ include 'doc_block' property.doc_block }}{{ end ~}}
         {{ property.visibility | string.downcase }} {{ property.type }} {{ property.name }} { get; set; }{{ if property.value != null }} = {{ property.value }};{{ end }}
-        {{~ if property.type | string.ends_with "?" ~}}
+        {{~ if property.type | string.ends_with "?" -}}
         #nullable disable
-        {{~ end ~}}
+        {{- end ~}}
         """;
 }

@@ -4,7 +4,6 @@ public interface InterfaceName0
     #nullable enable
     public string? Property0 { get; set; } = "Hello World";
     #nullable disable
-
     public string Method0(string parameterName)
     {
         Console.WriteLine("Hello World!");

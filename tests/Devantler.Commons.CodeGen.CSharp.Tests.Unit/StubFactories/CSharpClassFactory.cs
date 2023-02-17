@@ -21,14 +21,14 @@ public static class CSharpClassFactory
         for (int i = 0; i < options.FieldsCount; i++)
         {
             string? documentation = options.IncludeDocumentation ? $"Field documentation block {i}" : null;
-            var field = new CSharpField(Visibility.Public, "string", $"FieldName{i}", "\"Hello World\"", documentation);
+            var field = new CSharpField(Visibility.Public, options.Nullables ? "string?" : "string", $"FieldName{i}", "\"Hello World\"", documentation);
             _ = @class.AddField(field);
         }
 
         for (int i = 0; i < options.PropertiesCount; i++)
         {
             string? documentation = options.IncludeDocumentation ? $"Property documentation block {i}" : null;
-            var property = new CSharpProperty(Visibility.Public, "string", $"Property{i}", "\"Hello World\"",
+            var property = new CSharpProperty(Visibility.Public, options.Nullables ? "string?" : "string", $"Property{i}", "\"Hello World\"",
                 documentation);
             _ = @class.AddProperty(property);
         }

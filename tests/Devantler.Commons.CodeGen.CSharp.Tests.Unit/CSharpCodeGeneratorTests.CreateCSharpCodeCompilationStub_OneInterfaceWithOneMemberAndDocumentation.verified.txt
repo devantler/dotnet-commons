@@ -8,6 +8,7 @@ public interface InterfaceName0
     /// Property documentation block 0
     /// </summary>
     public string Property0 { get; set; } = "Hello World";
+
     /// <summary>
     /// Method documentation block 0
     /// </summary>

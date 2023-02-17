@@ -6,5 +6,6 @@ public class CSharpClassOptions : OptionsBase
     public int MethodsCount { get; set; }
     public int ConstructorsCount { get; set; }
     public int FieldsCount { get; set; }
+    public bool Nullables { get; set; }
     public bool IncludeImplementation { get; set; }
 }

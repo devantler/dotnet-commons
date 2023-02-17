@@ -17,7 +17,7 @@ public static class CSharpInterfaceFactory
 
         for (int i = 0; i < options.PropertiesCount; i++)
         {
-            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, "string", $"Property{i}",
+            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, options.Nullables ? "string?" : "string", $"Property{i}",
                 "\"Hello World\"", options.IncludeDocumentation ? $"Property documentation block {i}" : null));
         }
 

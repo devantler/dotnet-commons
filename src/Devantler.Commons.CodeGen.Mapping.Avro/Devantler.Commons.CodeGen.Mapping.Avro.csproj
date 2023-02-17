@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Mapping.Avro</PackageId>
-        <Version>0.1.14</Version>
+        <Version>0.1.15</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageDescription>A mapper to map Avro Schemas to a compilation that can be generated.</PackageDescription>

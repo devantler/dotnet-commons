@@ -22,9 +22,9 @@ public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
-    public List<IParameter> Parameters { get; } = new();
+    public List<IConstructorParameter> Parameters { get; } = new();
     /// <inheritdoc/>
-    public CSharpConstructor AddParameter(IParameter parameter)
+    public CSharpConstructor AddParameter(IConstructorParameter parameter)
     {
         Parameters.Add(parameter);
         return this;
@@ -42,14 +42,13 @@ public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
             DocBlock = docBlock;
         return this;
     }
-
     /// <summary>
     /// The template for a C# constructor.
     /// </summary>
     public static string Template =>
         """
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
-        {{- $1.visibility | string.downcase }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{- $1.visibility | string.downcase }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }}){{ if $1.parameters | array.map 'is_base_parameter' | array.contains true }} : base({{ for parameter in $1.parameters }}{{ if parameter.is_base_parameter }}{{ parameter.name }}{{ if !for.last }}, {{ end }}{{ end }}{{ end }}){{ end }}
         {
         {{~ }}    {{ $1.body }}
         }

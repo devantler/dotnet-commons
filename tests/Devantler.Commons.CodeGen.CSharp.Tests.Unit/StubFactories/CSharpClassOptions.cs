@@ -8,4 +8,5 @@ public class CSharpClassOptions : OptionsBase
     public int FieldsCount { get; set; }
     public bool Nullables { get; set; }
     public bool IncludeImplementation { get; set; }
+    public bool IncludeBaseClass { get; set; }
 }

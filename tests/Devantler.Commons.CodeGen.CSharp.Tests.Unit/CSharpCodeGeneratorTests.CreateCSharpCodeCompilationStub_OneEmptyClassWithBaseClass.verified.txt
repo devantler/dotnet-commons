@@ -1,0 +1,5 @@
+﻿using BaseClassNamespace;
+using System;
+public class ClassName0 : BaseClass
+{
+}

@@ -45,6 +45,9 @@ public abstract class ClassBase : IClass
     /// <inheritdoc/>
     public List<IInterface> Implementations { get; } = new();
 
+    /// <inheritdoc/>
+    public IClass? BaseClass { get; set; }
+
     /// <inheritdoc />
     public IClass AddImport(IImport import)
     {

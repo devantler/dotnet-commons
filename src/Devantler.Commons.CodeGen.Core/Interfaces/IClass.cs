@@ -30,6 +30,11 @@ public interface IClass : IType<IClass>
     public List<IMethod> Methods { get; }
 
     /// <summary>
+    /// The base class implemented by the class.
+    /// </summary>
+    public IClass? BaseClass { get; set; }
+
+    /// <summary>
     /// Adds an implementation to the class.
     /// </summary>
     /// <param name="implementation"></param>

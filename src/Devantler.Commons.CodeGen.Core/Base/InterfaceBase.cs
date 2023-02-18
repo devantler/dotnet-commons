@@ -29,7 +29,7 @@ public abstract class InterfaceBase : IInterface
     public string? Namespace { get; set; }
 
     /// <inheritdoc />
-    public abstract IDocBlock? DocBlock { get; }
+    public abstract IDocBlock? DocBlock { get; set; }
 
     /// <inheritdoc />
     public List<IImport> Imports { get; } = new();
@@ -63,4 +63,22 @@ public abstract class InterfaceBase : IInterface
 
     /// <inheritdoc />
     public abstract string Compile();
+    /// <inheritdoc/>
+    public IInterface SetName(string name)
+    {
+        Name = name;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IInterface SetNamespace(string? @namespace)
+    {
+        Namespace = @namespace;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IInterface SetDocBlock(IDocBlock? docBlock)
+    {
+        DocBlock = docBlock;
+        return this;
+    }
 }

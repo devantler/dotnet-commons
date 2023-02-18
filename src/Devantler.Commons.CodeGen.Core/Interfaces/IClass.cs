@@ -35,6 +35,13 @@ public interface IClass : IType<IClass>
     public IClass? BaseClass { get; set; }
 
     /// <summary>
+    /// Sets the base class of the class.
+    /// </summary>
+    /// <param name="class"></param>
+    /// <returns></returns>
+    public IClass SetBaseClass(IClass? @class);
+
+    /// <summary>
     /// Adds an implementation to the class.
     /// </summary>
     /// <param name="implementation"></param>

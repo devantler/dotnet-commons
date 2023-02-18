@@ -27,6 +27,23 @@ public interface IType<T>
     public List<IImport> Imports { get; }
 
     /// <summary>
+    /// Sets the name of the type.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public T SetName(string name);
+
+    /// <summary>
+    /// Sets the namespace of the type.
+    /// </summary>
+    public T SetNamespace(string? @namespace);
+
+    /// <summary>
+    /// Sets the documentation block of the type.
+    /// </summary>
+    public T SetDocBlock(IDocBlock? docBlock);
+
+    /// <summary>
     ///     Adds an import to the type.
     /// </summary>
     /// <param name="import"></param>

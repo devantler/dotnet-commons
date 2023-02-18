@@ -1,5 +1,4 @@
 using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.Core.Interfaces;
 using Scriban;
 using Scriban.Runtime;
 
@@ -21,9 +20,6 @@ public class CSharpClass : ClassBase
         if (!string.IsNullOrWhiteSpace(documentation))
             DocBlock = new CSharpDocBlock(documentation);
     }
-
-    /// <inheritdoc />
-    public override IDocBlock? DocBlock { get; }
 
     /// <inheritdoc />
     public override string Compile()

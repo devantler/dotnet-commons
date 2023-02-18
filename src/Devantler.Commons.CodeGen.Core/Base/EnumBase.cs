@@ -25,7 +25,7 @@ public abstract class EnumBase : IEnum
     public string? Namespace { get; set; }
 
     /// <inheritdoc />
-    public abstract IDocBlock? DocBlock { get; }
+    public abstract IDocBlock? DocBlock { get; set; }
 
     /// <inheritdoc />
     public List<IImport> Imports { get; } = new();
@@ -49,4 +49,22 @@ public abstract class EnumBase : IEnum
 
     /// <inheritdoc />
     public abstract string Compile();
+    /// <inheritdoc/>
+    public IEnum SetDocBlock(IDocBlock? docBlock)
+    {
+        DocBlock = docBlock;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IEnum SetName(string name)
+    {
+        Name = name;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IEnum SetNamespace(string? @namespace)
+    {
+        Namespace = @namespace;
+        return this;
+    }
 }

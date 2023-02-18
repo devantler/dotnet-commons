@@ -32,7 +32,7 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
 
             CSharpClass @class = new($"{recordSchema.Name}Entity", recordSchema.Namespace, recordSchema.Documentation);
 
-            @class.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", documentation: "The unique identifier of the entity."));
+            _ = @class.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", documentation: "The unique identifier of the entity."));
             foreach (var field in recordSchema.Fields)
             {
                 if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))

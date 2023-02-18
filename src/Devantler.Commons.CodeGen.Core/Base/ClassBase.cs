@@ -25,7 +25,7 @@ public abstract class ClassBase : IClass
     public string? Namespace { get; set; }
 
     /// <inheritdoc />
-    public abstract IDocBlock? DocBlock { get; }
+    public IDocBlock? DocBlock { get; set; }
 
     /// <inheritdoc />
     public List<IField> Fields { get; } = new();
@@ -92,4 +92,28 @@ public abstract class ClassBase : IClass
 
     /// <inheritdoc />
     public abstract string Compile();
+    /// <inheritdoc/>
+    public IClass SetBaseClass(IClass? @class)
+    {
+        BaseClass = @class;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IClass SetName(string name)
+    {
+        Name = name;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IClass SetNamespace(string? @namespace)
+    {
+        Namespace = @namespace;
+        return this;
+    }
+    /// <inheritdoc/>
+    public IClass SetDocBlock(IDocBlock? docBlock)
+    {
+        DocBlock = docBlock;
+        return this;
+    }
 }

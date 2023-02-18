@@ -16,9 +16,8 @@ public static class CSharpClassFactory
         _ = @class.AddImport(@using);
 
         if (options.IncludeBaseClass)
-        {
             @class.BaseClass = new CSharpClass("BaseClass").SetNamespace("BaseClassNamespace");
-        }
+
         if (options.IncludeImplementation)
         {
             var implementation = new CSharpInterface("IInterface");
@@ -40,17 +39,6 @@ public static class CSharpClassFactory
             _ = @class.AddField(field);
         }
 
-        for (int i = 0; i < options.PropertiesCount; i++)
-        {
-            var property = new CSharpProperty(options.Nullables ? "string?" : "string", $"Property{i}")
-                .SetValue("\"Hello World\"");
-
-            if (options.IncludeDocumentation)
-                _ = property.SetDocBlock(new CSharpDocBlock($"Property documentation block {i}"));
-
-            _ = @class.AddProperty(property);
-        }
-
         for (int i = 0; i < options.ConstructorsCount; i++)
         {
             var constructor = new CSharpConstructor("ClassName")
@@ -64,9 +52,24 @@ public static class CSharpClassFactory
                 );
             }
 
-            var parameter = new CSharpParameter("string", "parameterName");
+            var parameter = new CSharpConstructorParameter("string", "parameterName");
+
+            if (options.IncludeBaseClass)
+                _ = parameter.SetIsBaseParameter(true);
+
             _ = constructor.AddParameter(parameter);
             _ = @class.AddConstructor(constructor);
+        }
+
+        for (int i = 0; i < options.PropertiesCount; i++)
+        {
+            var property = new CSharpProperty(options.Nullables ? "string?" : "string", $"Property{i}")
+                .SetValue("\"Hello World\"");
+
+            if (options.IncludeDocumentation)
+                _ = property.SetDocBlock(new CSharpDocBlock($"Property documentation block {i}"));
+
+            _ = @class.AddProperty(property);
         }
 
         for (int i = 0; i < options.MethodsCount; i++)

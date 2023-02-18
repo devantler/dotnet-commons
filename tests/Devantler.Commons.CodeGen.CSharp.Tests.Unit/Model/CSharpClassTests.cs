@@ -4,6 +4,7 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.Model;
 
 public class CSharpClassTests
 {
+    [Fact]
     public void SetBaseClass_GivenBaseClass_SetsBaseClass()
     {
         // Arrange
@@ -13,6 +14,7 @@ public class CSharpClassTests
         _ = sut.SetBaseClass(new CSharpClass("BaseClass"));
 
         // Assert
-        _ = sut.BaseClass.Should().Be("BaseClass");
+        _ = sut.BaseClass.Should().NotBeNull();
+        _ = sut.BaseClass!.Name.Should().Be("BaseClass");
     }
 }

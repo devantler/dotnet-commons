@@ -26,6 +26,7 @@ public static class TestCases
                     classOptionsAction: options => {
                         options.Count = 1;
                         options.IncludeBaseClass = true;
+                        options.ConstructorsCount = 1;
                     }
                 )
             },

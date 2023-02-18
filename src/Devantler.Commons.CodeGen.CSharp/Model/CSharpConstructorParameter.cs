@@ -5,14 +5,14 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# parameter.
 /// </summary>
-public class CSharpParameter : IFluentParameter<CSharpParameter>
+public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpConstructorParameter>
 {
     /// <summary>
     /// Creates a new C# parameter.
     /// </summary>
     /// <param name="type"></param>
     /// <param name="name"></param>
-    public CSharpParameter(string type, string name)
+    public CSharpConstructorParameter(string type, string name)
     {
         Name = name;
         Type = type;
@@ -23,6 +23,12 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     public string Name { get; set; }
     /// <inheritdoc/>
     public bool IsBaseParameter { get; set; }
+    /// <inheritdoc/>
+    public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter)
+    {
+        IsBaseParameter = isBaseParameter;
+        return this;
+    }
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>

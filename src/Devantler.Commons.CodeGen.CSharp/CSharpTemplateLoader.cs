@@ -1,4 +1,4 @@
-using Devantler.Commons.CodeGen.Core;
+using Devantler.Commons.CodeGen.Core.TemplateLoaders;
 using Scriban;
 using Scriban.Parsing;
 

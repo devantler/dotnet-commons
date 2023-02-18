@@ -2,7 +2,7 @@ using Scriban;
 using Scriban.Parsing;
 using Scriban.Runtime;
 
-namespace Devantler.Commons.CodeGen.Core;
+namespace Devantler.Commons.CodeGen.Core.TemplateLoaders;
 
 /// <summary>
 ///     A very simple ITemplateLoader loading directly from the disk, without any checks...etc.

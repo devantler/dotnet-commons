@@ -1,5 +1,4 @@
-using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.CSharp.Model;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
@@ -7,44 +6,64 @@ public static class CSharpClassFactory
 {
     public static CSharpClass CreateCSharpClass(CSharpClassOptions options, int index)
     {
-        string? classDocumentation = options.IncludeDocumentation ? "Class documentation block" : null;
-        var @class = new CSharpClass($"ClassName{index}", options.IncludeNamespace ? "Namespace" : "", classDocumentation);
+        var @class = new CSharpClass($"ClassName{index}")
+            .SetNamespace(options.IncludeNamespace ? "Namespace" : "");
+
+        if (options.IncludeDocumentation)
+            _ = @class.SetDocBlock(new CSharpDocBlock("Class documentation block"));
+
         var @using = new CSharpUsing("System");
         _ = @class.AddImport(@using);
 
         if (options.IncludeBaseClass)
         {
-            @class.BaseClass = new CSharpClass("BaseClass", "BaseClassNamespace", null);
+            @class.BaseClass = new CSharpClass("BaseClass").SetNamespace("BaseClassNamespace");
         }
         if (options.IncludeImplementation)
         {
-            var implementation = new CSharpInterface("IInterface", options.IncludeNamespace ? "Namespace" : "", null);
+            var implementation = new CSharpInterface("IInterface");
+
+            if (options.IncludeNamespace)
+                _ = implementation.SetNamespace("Namespace");
+
             _ = @class.AddImplementation(implementation);
         }
 
         for (int i = 0; i < options.FieldsCount; i++)
         {
-            string? documentation = options.IncludeDocumentation ? $"Field documentation block {i}" : null;
-            var field = new CSharpField(Visibility.Public, options.Nullables ? "string?" : "string", $"FieldName{i}", "\"Hello World\"", documentation);
+            var field = new CSharpField(options.Nullables ? "string?" : "string", $"fieldName{i}")
+                .SetValue("\"Hello World\"");
+
+            if (options.IncludeDocumentation)
+                _ = field.SetDocBlock(new CSharpDocBlock($"Field documentation block {i}"));
+
             _ = @class.AddField(field);
         }
 
         for (int i = 0; i < options.PropertiesCount; i++)
         {
-            string? documentation = options.IncludeDocumentation ? $"Property documentation block {i}" : null;
-            var property = new CSharpProperty(Visibility.Public, options.Nullables ? "string?" : "string", $"Property{i}", "\"Hello World\"",
-                documentation);
+            var property = new CSharpProperty(options.Nullables ? "string?" : "string", $"Property{i}")
+                .SetValue("\"Hello World\"");
+
+            if (options.IncludeDocumentation)
+                _ = property.SetDocBlock(new CSharpDocBlock($"Property documentation block {i}"));
+
             _ = @class.AddProperty(property);
         }
 
         for (int i = 0; i < options.ConstructorsCount; i++)
         {
-            var documentationBlock =
-                options.IncludeDocumentation ? new CSharpDocBlock($"Constructor documentation block {i}") : null;
-            var documentationParameter = new CSharpDocBlockParameter("parameterName", "a parameter");
-            _ = documentationBlock?.AddParameter(documentationParameter);
-            var constructor = new CSharpConstructor(Visibility.Public, "ClassName",
-                "Console.WriteLine(\"Hello World!\");", documentationBlock);
+            var constructor = new CSharpConstructor("ClassName")
+                .SetBody("Console.WriteLine(\"Hello World!\");");
+
+            if (options.IncludeDocumentation)
+            {
+                _ = constructor.SetDocBlock(
+                    new CSharpDocBlock($"Constructor documentation block {i}")
+                        .AddParameter(new CSharpDocBlockParameter("parameterName").SetDescription("a parameter"))
+                );
+            }
+
             var parameter = new CSharpParameter("string", "parameterName");
             _ = constructor.AddParameter(parameter);
             _ = @class.AddConstructor(constructor);
@@ -52,10 +71,17 @@ public static class CSharpClassFactory
 
         for (int i = 0; i < options.MethodsCount; i++)
         {
-            var documentationBlock = options.IncludeDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null;
-            _ = documentationBlock?.AddParameter(new CSharpDocBlockParameter("parameterName", "a parameter"));
-            var method = new CSharpMethod(Visibility.Public, "string", $"Method{i}",
-                "Console.WriteLine(\"Hello World!\");", documentationBlock);
+            var method = new CSharpMethod("string", $"Method{i}")
+                .SetBody("Console.WriteLine(\"Hello World!\");");
+
+            if (options.IncludeDocumentation)
+            {
+                _ = method.SetDocBlock(
+                    new CSharpDocBlock($"Method documentation block {i}")
+                        .AddParameter(new CSharpDocBlockParameter("parameterName").SetDescription("a parameter"))
+                );
+            }
+
             _ = method.AddParameter(new CSharpParameter("string", "parameterName"));
             _ = @class.AddMethod(method);
         }

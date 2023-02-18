@@ -11,7 +11,7 @@ public class CSharpTemplateLoader : InMemoryTemplateLoaderBase
 {
     /// <inheritdoc />
     public override string GetPath(TemplateContext context, SourceSpan callerSpan, string templateName) =>
-        $"Devantler.Commons.CodeGen.CSharp.Models.CSharp{templateName.ToPascalCase()}";
+        $"Devantler.Commons.CodeGen.CSharp.Model.CSharp{templateName.ToPascalCase()}";
 
     /// <inheritdoc/>
     public override string Load(TemplateContext context, SourceSpan callerSpan, string templatePath)

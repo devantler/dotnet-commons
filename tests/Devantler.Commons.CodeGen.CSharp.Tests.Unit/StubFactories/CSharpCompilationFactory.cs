@@ -1,5 +1,4 @@
-using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.CSharp.Model;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
@@ -24,23 +23,22 @@ static class CSharpCodeCompilationFactory
 
         for (int i = 0; i < interfaceOptions.Count; i++)
         {
-            InterfaceBase @interface = CSharpInterfaceFactory.CreateCSharpInterface(interfaceOptions, i);
-
-            _ = compilation.AddInterface(@interface);
+            var @interface = CSharpInterfaceFactory.CreateCSharpInterface(interfaceOptions, i);
+            _ = compilation.AddType(@interface);
         }
 
         for (int i = 0; i < classOptions.Count; i++)
         {
-            ClassBase @class = CSharpClassFactory.CreateCSharpClass(classOptions, i);
+            var @class = CSharpClassFactory.CreateCSharpClass(classOptions, i);
 
-            _ = compilation.AddClass(@class);
+            _ = compilation.AddType(@class);
         }
 
         for (int i = 0; i < enumOptions.Count; i++)
         {
-            EnumBase @enum = CSharpEnumFactory.CreateCSharpEnum(enumOptions, i);
+            var @enum = CSharpEnumFactory.CreateCSharpEnum(enumOptions, i);
 
-            _ = compilation.AddEnum(@enum);
+            _ = compilation.AddType(@enum);
         }
 
         return compilation;

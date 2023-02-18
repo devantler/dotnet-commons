@@ -1,89 +1,82 @@
 ﻿{
-  Classes: [
+  Types: [
     {
+      Properties: [
+        {
+          Type: Guid,
+          Name: Id,
+          DocBlock: {
+            Summary: The unique identifier for the record.
+          }
+        },
+        {
+          Type: int,
+          Name: IntField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: string,
+          Name: StringField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: bool,
+          Name: BooleanField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: double,
+          Name: DoubleField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: float,
+          Name: FloatField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: long,
+          Name: LongField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: object?,
+          Name: NullField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: byte[],
+          Name: BytesField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: List<string>,
+          Name: StringArrayField,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        }
+      ],
       Name: RecordSchema,
       DocBlock: {
         Summary: Test documentation
-      },
-      Properties: [
-        {
-          DocBlock: {
-            Summary: The unique identifier of the entity.
-          },
-          Type: Guid,
-          Name: Id
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: int,
-          Name: IntField,
-          Value: 0
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: string,
-          Name: StringField,
-          Value: string
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: bool,
-          Name: BooleanField,
-          Value: False
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: double,
-          Name: DoubleField,
-          Value: 1.5
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: float,
-          Name: FloatField,
-          Value: 1.5
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: long,
-          Name: LongField,
-          Value: 10
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: object?,
-          Name: NullField
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: byte[],
-          Name: BytesField,
-          Value: System.Byte[]
-        },
-        {
-          DocBlock: {
-            Summary: Test documentation
-          },
-          Type: List<string>,
-          Name: StringArrayField
-        }
-      ]
+      }
     }
   ]
 }

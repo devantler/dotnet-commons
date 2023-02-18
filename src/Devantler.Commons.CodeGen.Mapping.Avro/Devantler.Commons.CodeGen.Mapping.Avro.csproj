@@ -17,7 +17,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Devantler.Commons.CodeGen.CSharp\Devantler.Commons.CodeGen.CSharp.csproj"/>
+        <ProjectReference Include="..\Devantler.Commons.CodeGen.CSharp\Devantler.Commons.CodeGen.CSharp.csproj" />
+        <ProjectReference Include="..\Devantler.Commons.CodeGen.Mapping.Core\Devantler.Commons.CodeGen.Mapping.Core.csproj" />
     </ItemGroup>
 
     <ItemGroup>

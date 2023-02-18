@@ -1,4 +1,4 @@
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.CSharp.Model;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit;
 

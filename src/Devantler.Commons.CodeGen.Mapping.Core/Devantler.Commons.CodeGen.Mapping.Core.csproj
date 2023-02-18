@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <PackageId>Devantler.Commons.CodeGen.Mapping.Core</PackageId>
+    <Version>0.1.18</Version>
+    <Authors>devantler</Authors>
+    <Company>Devantler Software</Company>
+    <PackageDescription>Core files used to map Schemas to a compilation that can be generated.</PackageDescription>
+    <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Devantler.Commons.CodeGen.Core\Devantler.Commons.CodeGen.Core.csproj" />
+  </ItemGroup>
+</Project>

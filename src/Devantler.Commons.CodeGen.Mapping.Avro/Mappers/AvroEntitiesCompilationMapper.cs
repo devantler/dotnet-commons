@@ -1,8 +1,8 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.Core.Interfaces;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.Core.Mapping.Core;
+using Devantler.Commons.CodeGen.Core.Model;
+using Devantler.Commons.CodeGen.CSharp.Model;
 using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
@@ -30,17 +30,33 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
             if (schema is not RecordSchema recordSchema)
                 continue;
 
-            CSharpClass @class = new($"{recordSchema.Name}Entity", recordSchema.Namespace, recordSchema.Documentation);
+            var @class = new CSharpClass($"{recordSchema.Name}Entity")
+                .SetNamespace(recordSchema.Namespace)
+                .AddProperty(
+                    new CSharpProperty("Id", "Guid")
+                        .SetDocBlock(new CSharpDocBlock("The unique identifier for this entity."))
+                );
 
-            _ = @class.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", documentation: "The unique identifier of the entity."));
+            if (!string.IsNullOrEmpty(recordSchema.Documentation))
+                _ = @class.SetDocBlock(new CSharpDocBlock(recordSchema.Documentation));
+
             foreach (var field in recordSchema.Fields)
             {
                 if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                _ = @class.AddProperty(field, Target.Entity);
+                var property = new CSharpProperty(field.Name, AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Entity));
+
+                string? propertyValue = field.Default?.ToObject<object>()?.ToString();
+                if (!string.IsNullOrEmpty(propertyValue))
+                    _ = property.SetValue(propertyValue);
+
+                if (!string.IsNullOrEmpty(field.Documentation))
+                    _ = property.SetDocBlock(new CSharpDocBlock(field.Documentation));
+
+                _ = @class.AddProperty(property);
             }
-            _ = compilation.AddClass(@class);
+            _ = compilation.AddType(@class);
         }
         return compilation;
     }

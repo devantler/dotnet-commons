@@ -1,5 +1,6 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
+using Devantler.Commons.CodeGen.Core.Base;
 using Devantler.Commons.CodeGen.Core.Interfaces;
 using Devantler.Commons.CodeGen.CSharp.Models;
 using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
@@ -31,8 +32,12 @@ public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
                 case RecordSchema recordSchema:
                     CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
 
+                    _ = @class.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", documentation: "The unique identifier of the entity."));
                     foreach (var field in recordSchema.Fields)
                     {
+                        if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))
+                            continue;
+
                         _ = @class.AddProperty(field);
                     }
 

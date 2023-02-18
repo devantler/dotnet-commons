@@ -12,6 +12,10 @@ public static class CSharpClassFactory
         var @using = new CSharpUsing("System");
         _ = @class.AddImport(@using);
 
+        if (options.IncludeBaseClass)
+        {
+            @class.BaseClass = new CSharpClass("BaseClass", "BaseClassNamespace", null);
+        }
         if (options.IncludeImplementation)
         {
             var implementation = new CSharpInterface("IInterface", options.IncludeNamespace ? "Namespace" : "", null);

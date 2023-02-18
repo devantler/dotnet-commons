@@ -45,6 +45,9 @@ public class CSharpClass : ClassBase
     /// </summary>
     public static string Template =>
         """
+        {{~ if !(base_class?.namespace | string.empty)  ~}}
+        using {{ base_class.namespace }};
+        {{~ end ~}}
         {{- for using in imports ~}}
         {{ include 'using' using }}
         {{~ end ~}}
@@ -54,7 +57,7 @@ public class CSharpClass : ClassBase
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public class {{ name }}{{ if implementations | array.size > 0 }} : {{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
+        public class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ if base_class }}{{ base_class.name }}{{ if implementations | array.size > 0 }}, {{ end }}{{ end }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
             {{~ for field in fields ~}}
             {{ include 'field' field }}

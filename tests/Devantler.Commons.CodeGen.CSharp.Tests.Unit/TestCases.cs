@@ -21,6 +21,16 @@ public static class TestCases
             },
             new object[]
             {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyClassWithBaseClass",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: options => {
+                        options.Count = 1;
+                        options.IncludeBaseClass = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyInterface",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: options => options.Count = 1

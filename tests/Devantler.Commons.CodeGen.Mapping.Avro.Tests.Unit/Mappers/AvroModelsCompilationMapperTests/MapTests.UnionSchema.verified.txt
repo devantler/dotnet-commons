@@ -1,10 +1,10 @@
 ﻿{
   Classes: [
     {
+      Name: UnionRecordSchema1,
       DocBlock: {
         Summary: Test documentation
       },
-      Name: UnionRecordSchema1,
       Properties: [
         {
           DocBlock: {
@@ -86,10 +86,10 @@
       ]
     },
     {
+      Name: UnionRecordSchema2,
       DocBlock: {
         Summary: Test documentation
       },
-      Name: UnionRecordSchema2,
       Properties: [
         {
           DocBlock: {

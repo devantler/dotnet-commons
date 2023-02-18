@@ -25,7 +25,7 @@ public abstract class EnumBase : IEnum
     public string? Namespace { get; set; }
 
     /// <inheritdoc />
-    public abstract IDocBlock? DocBlock { get; set; }
+    public IDocBlock? DocBlock { get; set; }
 
     /// <inheritdoc />
     public List<IImport> Imports { get; } = new();

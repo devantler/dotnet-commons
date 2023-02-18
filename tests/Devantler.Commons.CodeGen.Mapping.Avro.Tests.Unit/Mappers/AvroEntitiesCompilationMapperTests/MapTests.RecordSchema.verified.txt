@@ -1,10 +1,10 @@
 ﻿{
   Classes: [
     {
+      Name: RecordSchemaEntity,
       DocBlock: {
         Summary: Test documentation
       },
-      Name: RecordSchemaEntity,
       Properties: [
         {
           DocBlock: {

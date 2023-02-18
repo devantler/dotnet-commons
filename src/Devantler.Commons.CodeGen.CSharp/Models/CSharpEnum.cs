@@ -22,9 +22,6 @@ public class CSharpEnum : EnumBase
             : null;
 
     /// <inheritdoc />
-    public override IDocBlock? DocBlock { get; }
-
-    /// <inheritdoc />
     public override string Compile()
     {
         var templateLoader = new CSharpTemplateLoader();

@@ -8,6 +8,13 @@
       Properties: [
         {
           DocBlock: {
+            Summary: The unique identifier of the entity.
+          },
+          Type: Guid,
+          Name: Id
+        },
+        {
+          DocBlock: {
             Summary: Test documentation
           },
           Type: int,
@@ -84,6 +91,13 @@
       },
       Name: UnionRecordSchema2Entity,
       Properties: [
+        {
+          DocBlock: {
+            Summary: The unique identifier of the entity.
+          },
+          Type: Guid,
+          Name: Id
+        },
         {
           DocBlock: {
             Summary: Test documentation

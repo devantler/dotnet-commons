@@ -11,7 +11,7 @@ public interface IFluentConstructor<T> : IConstructor where T : IConstructor
     /// Adds a parameter to the constructor.
     /// </summary>
     /// <param name="parameter"></param>
-    public T AddParameter(IParameter parameter);
+    public T AddParameter(IConstructorParameter parameter);
 
     /// <summary>
     /// Sets the body of the constructor.

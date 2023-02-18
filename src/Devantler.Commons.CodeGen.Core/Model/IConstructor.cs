@@ -28,5 +28,5 @@ public interface IConstructor
     /// <summary>
     ///     The parameters accepted by the constructor.
     /// </summary>
-    public List<IParameter> Parameters { get; }
+    public List<IConstructorParameter> Parameters { get; }
 }

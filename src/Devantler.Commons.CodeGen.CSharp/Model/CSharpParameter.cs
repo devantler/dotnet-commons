@@ -1,11 +1,11 @@
-using Devantler.Commons.CodeGen.Core.Model;
+using Devantler.Commons.CodeGen.Core.FluentModel;
 
 namespace Devantler.Commons.CodeGen.CSharp.Model;
 
 /// <summary>
 ///     A model representing a C# parameter.
 /// </summary>
-public class CSharpParameter : IParameter
+public class CSharpParameter : IFluentConstructorParameter<CSharpParameter>
 {
     /// <summary>
     /// Creates a new C# parameter.
@@ -21,8 +21,17 @@ public class CSharpParameter : IParameter
     public string Type { get; set; }
     /// <inheritdoc/>
     public string Name { get; set; }
+    /// <inheritdoc/>
+    public bool IsBaseParameter { get; set; }
+    /// <inheritdoc/>
+    public CSharpParameter SetIsBaseParameter(bool isBaseParameter)
+    {
+        IsBaseParameter = isBaseParameter;
+        return this;
+    }
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>
     public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
+
 }

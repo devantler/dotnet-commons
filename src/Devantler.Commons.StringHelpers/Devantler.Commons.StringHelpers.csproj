@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.StringHelpers</PackageId>
-        <Version>0.1.15</Version>
+        <Version>0.1.16</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageDescription>A collection of classes, extensions, and methods for working with strings.</PackageDescription>

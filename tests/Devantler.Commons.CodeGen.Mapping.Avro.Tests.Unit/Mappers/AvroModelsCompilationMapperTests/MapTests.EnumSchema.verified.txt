@@ -1,7 +1,6 @@
 ﻿{
-  Enums: [
+  Types: [
     {
-      Name: TestEnum,
       Values: [
         {
           Name: Test1,
@@ -15,7 +14,8 @@
           Name: Test3,
           Value: 2
         }
-      ]
+      ],
+      Name: TestEnum
     }
   ]
 }

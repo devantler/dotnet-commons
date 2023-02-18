@@ -1,5 +1,5 @@
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Core.Interfaces;
+using Devantler.Commons.CodeGen.Core.Model;
 
 namespace Devantler.Commons.CodeGen.CSharp;
 

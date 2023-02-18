@@ -1,4 +1,5 @@
 using Devantler.Commons.AutoFixture.DataAttributes;
+using Devantler.Commons.CodeGen.Core.TemplateLoaders;
 using Scriban;
 using Scriban.Parsing;
 

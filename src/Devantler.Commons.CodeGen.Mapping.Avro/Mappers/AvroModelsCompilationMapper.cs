@@ -1,9 +1,10 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.Core.Interfaces;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.Core.Mapping.Core;
+using Devantler.Commons.CodeGen.Core.Model;
+using Devantler.Commons.CodeGen.CSharp.Model;
 using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
+using Devantler.Commons.StringHelpers;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
@@ -30,27 +31,46 @@ public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
             switch (schema)
             {
                 case RecordSchema recordSchema:
-                    CSharpClass @class = new(recordSchema.Name, recordSchema.Namespace, recordSchema.Documentation);
+                    var @class = new CSharpClass(recordSchema.Name)
+                        .SetNamespace(recordSchema.Namespace)
+                        .AddProperty(
+                            new CSharpProperty("Guid", "Id")
+                                .SetDocBlock(new CSharpDocBlock("The unique identifier for the record."))
+                        );
 
-                    _ = @class.AddProperty(new CSharpProperty(Visibility.Public, "Guid", "Id", documentation: "The unique identifier of the entity."));
+                    if (recordSchema.Documentation != null)
+                        _ = @class.SetDocBlock(new CSharpDocBlock(recordSchema.Documentation));
+
                     foreach (var field in recordSchema.Fields)
                     {
                         if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))
                             continue;
 
-                        _ = @class.AddProperty(field);
+                        var property = new CSharpProperty(
+                            AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Model), field.Name.ToPascalCase()
+                        );
+
+                        if (field.Documentation != null)
+                            _ = property.SetDocBlock(new CSharpDocBlock(field.Documentation));
+
+                        _ = @class.AddProperty(property);
+
                     }
 
-                    _ = compilation.AddClass(@class);
+                    _ = compilation.AddType(@class);
                     break;
                 case EnumSchema enumSchema:
-                    CSharpEnum @enum = new(enumSchema.Name, enumSchema.Namespace, enumSchema.Documentation);
+                    var @enum = new CSharpEnum(enumSchema.Name)
+                        .SetNamespace(enumSchema.Namespace);
+
+                    if (enumSchema.Documentation != null)
+                        _ = @enum.SetDocBlock(new CSharpDocBlock(enumSchema.Documentation));
 
                     var symbols = enumSchema.Symbols.ToList();
                     for (int i = 0; i < symbols.Count; i++)
-                        _ = @enum.AddValue(new CSharpEnumSymbol(symbols[i], i.ToString()));
+                        _ = @enum.AddValue(new CSharpEnumSymbol(symbols[i]).SetValue(i));
 
-                    _ = compilation.AddEnum(@enum);
+                    _ = compilation.AddType(@enum);
                     break;
                 default:
                     continue;

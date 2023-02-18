@@ -1,7 +1,4 @@
 ﻿using System;
-/// <summary>
-/// Enum documentation block
-/// </summary>
 public enum EnumName0
 {
     Value0

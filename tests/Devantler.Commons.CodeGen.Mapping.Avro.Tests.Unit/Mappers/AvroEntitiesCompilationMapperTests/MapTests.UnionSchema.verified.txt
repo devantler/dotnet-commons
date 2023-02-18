@@ -1,111 +1,111 @@
 ﻿{
-  Classes: [
+  Types: [
     {
-      DocBlock: {
-        Summary: Test documentation
-      },
-      Name: UnionRecordSchema1Entity,
       Properties: [
         {
+          Type: Id,
+          Name: Guid,
           DocBlock: {
-            Summary: The unique identifier of the entity.
-          },
-          Type: Guid,
-          Name: Id
+            Summary: The unique identifier for this entity.
+          }
         },
         {
+          Type: IntField,
+          Name: int,
+          Value: 0,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: int,
-          Name: IntField,
-          Value: 0
+          }
         },
         {
+          Type: StringField,
+          Name: string,
+          Value: string,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: string,
-          Name: StringField,
-          Value: string
+          }
         },
         {
+          Type: BooleanField,
+          Name: bool,
+          Value: False,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: bool,
-          Name: BooleanField,
-          Value: False
+          }
         },
         {
+          Type: DoubleField,
+          Name: double,
+          Value: 1.5,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: double,
-          Name: DoubleField,
-          Value: 1.5
+          }
         },
         {
+          Type: FloatField,
+          Name: float,
+          Value: 1.5,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: float,
-          Name: FloatField,
-          Value: 1.5
+          }
         },
         {
+          Type: LongField,
+          Name: long,
+          Value: 10,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: long,
-          Name: LongField,
-          Value: 10
+          }
         },
         {
+          Type: NullField,
+          Name: object?,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: object?,
-          Name: NullField
+          }
         },
         {
+          Type: BytesField,
+          Name: byte[],
+          Value: System.Byte[],
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: byte[],
-          Name: BytesField,
-          Value: System.Byte[]
+          }
         },
         {
+          Type: StringArrayField,
+          Name: List<string>,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: List<string>,
-          Name: StringArrayField
+          }
         }
-      ]
+      ],
+      Name: UnionRecordSchema1Entity,
+      DocBlock: {
+        Summary: Test documentation
+      }
     },
     {
-      DocBlock: {
-        Summary: Test documentation
-      },
-      Name: UnionRecordSchema2Entity,
       Properties: [
         {
+          Type: Id,
+          Name: Guid,
           DocBlock: {
-            Summary: The unique identifier of the entity.
-          },
-          Type: Guid,
-          Name: Id
+            Summary: The unique identifier for this entity.
+          }
         },
         {
+          Type: EnumField,
+          Name: TestEnum,
           DocBlock: {
             Summary: Test documentation
-          },
-          Type: TestEnum,
-          Name: EnumField
+          }
         }
-      ]
+      ],
+      Name: UnionRecordSchema2Entity,
+      DocBlock: {
+        Summary: Test documentation
+      }
     }
   ]
 }

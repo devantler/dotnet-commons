@@ -1,5 +1,5 @@
 using Devantler.Commons.AutoFixture.DataAttributes;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.CSharp.Model;
 using Scriban;
 using Scriban.Parsing;
 

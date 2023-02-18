@@ -1,5 +1,4 @@
-using Devantler.Commons.CodeGen.Core.Base;
-using Devantler.Commons.CodeGen.CSharp.Models;
+using Devantler.Commons.CodeGen.CSharp.Model;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
@@ -7,27 +6,37 @@ public static class CSharpInterfaceFactory
 {
     public static CSharpInterface CreateCSharpInterface(CSharpInterfaceOptions options, int index)
     {
-        var @interface = new CSharpInterface(
-            $"InterfaceName{index}",
-            options.IncludeNamespace ? "Namespace" : "",
-            options.IncludeDocumentation ? "Interface documentation block" : null
-        );
+        var @interface = new CSharpInterface($"InterfaceName{index}")
+            .SetNamespace(options.IncludeNamespace ? "Namespace" : "");
+
+        if (options.IncludeDocumentation)
+            _ = @interface.SetDocBlock(new CSharpDocBlock("Interface documentation block"));
 
         _ = @interface.AddImport(new CSharpUsing("System"));
 
         for (int i = 0; i < options.PropertiesCount; i++)
         {
-            _ = @interface.AddProperty(new CSharpProperty(Visibility.Public, options.Nullables ? "string?" : "string", $"Property{i}",
-                "\"Hello World\"", options.IncludeDocumentation ? $"Property documentation block {i}" : null));
+            var property = new CSharpProperty(options.Nullables ? "string?" : "string", $"Property{i}")
+                    .SetValue("\"Hello World\"");
+
+            if (options.IncludeDocumentation)
+                _ = property.SetDocBlock(new CSharpDocBlock($"Property documentation block {i}"));
+
+            _ = @interface.AddProperty(property);
         }
 
         for (int i = 0; i < options.MethodsCount; i++)
         {
-            var documentationBlock = (options.IncludeDocumentation ? new CSharpDocBlock($"Method documentation block {i}") : null)?
-                .AddParameter(new CSharpDocBlockParameter("parameterName"));
-            var method = new CSharpMethod(Visibility.Public, "string", $"Method{i}",
-                    "Console.WriteLine(\"Hello World!\");", documentationBlock)
+            var method = new CSharpMethod("string", $"Method{i}")
+                .SetBody("Console.WriteLine(\"Hello World!\");")
                 .AddParameter(new CSharpParameter("string", "parameterName"));
+
+            if (options.IncludeDocumentation)
+            {
+                _ = method.SetDocBlock(
+                    new CSharpDocBlock($"Method documentation block {i}")
+                        .AddParameter(new CSharpDocBlockParameter("parameterName")));
+            }
             _ = @interface.AddMethod(method);
         }
 

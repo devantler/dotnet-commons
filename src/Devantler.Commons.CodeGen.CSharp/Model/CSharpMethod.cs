@@ -19,7 +19,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         Name = name;
     }
     /// <inheritdoc/>
-    public Visibility Visibility => Visibility.Public;
+    public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
@@ -42,6 +42,13 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     public CSharpMethod AddStatement(string statement)
     {
         Statements.Add(statement);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpMethod SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
         return this;
     }
     /// <inheritdoc/>

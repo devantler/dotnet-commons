@@ -23,6 +23,12 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     public T AddStatement(string statement);
 
     /// <summary>
+    /// Sets the visibility of the method.
+    /// </summary>
+    /// <param name="visibility"></param>
+    public T SetVisibility(Visibility visibility);
+
+    /// <summary>
     /// Sets the documentation block of the method.
     /// </summary>
     /// <param name="docBlock"></param>

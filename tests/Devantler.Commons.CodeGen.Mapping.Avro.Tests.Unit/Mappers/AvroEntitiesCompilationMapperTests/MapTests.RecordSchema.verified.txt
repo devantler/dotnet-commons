@@ -5,6 +5,7 @@
         {
           Type: Id,
           Name: Guid,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: The unique identifier for this entity.
           }
@@ -13,6 +14,7 @@
           Type: IntField,
           Name: int,
           Value: 0,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -21,6 +23,7 @@
           Type: StringField,
           Name: string,
           Value: string,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -29,6 +32,7 @@
           Type: BooleanField,
           Name: bool,
           Value: False,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -37,6 +41,7 @@
           Type: DoubleField,
           Name: double,
           Value: 1.5,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -45,6 +50,7 @@
           Type: FloatField,
           Name: float,
           Value: 1.5,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -53,6 +59,7 @@
           Type: LongField,
           Name: long,
           Value: 10,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -60,6 +67,7 @@
         {
           Type: NullField,
           Name: object?,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -68,6 +76,7 @@
           Type: BytesField,
           Name: byte[],
           Value: System.Byte[],
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -75,6 +84,7 @@
         {
           Type: StringArrayField,
           Name: List<string>,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }

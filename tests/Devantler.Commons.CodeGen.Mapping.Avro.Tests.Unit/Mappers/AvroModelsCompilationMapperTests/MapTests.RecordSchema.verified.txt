@@ -5,6 +5,7 @@
         {
           Type: Guid,
           Name: Id,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: The unique identifier for the record.
           }
@@ -12,6 +13,7 @@
         {
           Type: int,
           Name: IntField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -19,6 +21,7 @@
         {
           Type: string,
           Name: StringField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -26,6 +29,7 @@
         {
           Type: bool,
           Name: BooleanField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -33,6 +37,7 @@
         {
           Type: double,
           Name: DoubleField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -40,6 +45,7 @@
         {
           Type: float,
           Name: FloatField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -47,6 +53,7 @@
         {
           Type: long,
           Name: LongField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -54,6 +61,7 @@
         {
           Type: object?,
           Name: NullField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -61,6 +69,7 @@
         {
           Type: byte[],
           Name: BytesField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
@@ -68,6 +77,7 @@
         {
           Type: List<string>,
           Name: StringArrayField,
+          IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }

@@ -61,6 +61,22 @@ public static class TestCases
             },
             new object[]
             {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneExpressionBodiedMember",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: options =>
+                    {
+                        options.Count = 1;
+                        options.FieldsCount = 1;
+                        options.ConstructorsCount = 1;
+                        options.PropertiesCount = 1;
+                        options.ExpressionBodiedMembers = true;
+                        options.MethodsCount = 1;
+                        options.Nullables = false;
+                    }
+                )
+            },
+            new object[]
+            {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithOneNullMember",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: options =>
@@ -93,6 +109,20 @@ public static class TestCases
                     {
                         options.Count = 1;
                         options.PropertiesCount = 1;
+                        options.MethodsCount = 1;
+                        options.Nullables = false;
+                    }
+                )
+            },
+            new object[]
+            {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneInterfaceWithOneExpressionBodiedMember",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    interfaceOptionsAction: options =>
+                    {
+                        options.Count = 1;
+                        options.PropertiesCount = 1;
+                        options.ExpressionBodiedMembers = true;
                         options.MethodsCount = 1;
                         options.Nullables = false;
                     }

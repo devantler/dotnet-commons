@@ -9,4 +9,5 @@ public class CSharpClassOptions : OptionsBase
     public bool Nullables { get; set; }
     public bool IncludeImplementation { get; set; }
     public bool IncludeBaseClass { get; set; }
+    public bool ExpressionBodiedMembers { get; set; }
 }

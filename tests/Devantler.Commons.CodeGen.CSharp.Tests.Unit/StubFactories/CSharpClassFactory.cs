@@ -81,6 +81,9 @@ public static class CSharpClassFactory
                 .AddStatement("""Console.WriteLine("Hello World!");""")
                 .AddStatement("""return "Hello World!";""");
 
+            if (options.IncludeBaseClass)
+                _ = method.SetIsOverride(true);
+
             if (options.IncludeDocumentation)
             {
                 _ = method.SetDocBlock(

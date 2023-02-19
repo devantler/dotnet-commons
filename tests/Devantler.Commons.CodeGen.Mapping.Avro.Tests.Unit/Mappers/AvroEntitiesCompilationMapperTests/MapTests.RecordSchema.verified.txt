@@ -3,16 +3,16 @@
     {
       Properties: [
         {
-          Type: Id,
-          Name: Guid,
+          Type: Guid,
+          Name: Id,
           IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: The unique identifier for this entity.
           }
         },
         {
-          Type: IntField,
-          Name: int,
+          Type: int,
+          Name: IntField,
           Value: 0,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -20,8 +20,8 @@
           }
         },
         {
-          Type: StringField,
-          Name: string,
+          Type: string,
+          Name: StringField,
           Value: string,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -29,8 +29,8 @@
           }
         },
         {
-          Type: BooleanField,
-          Name: bool,
+          Type: bool,
+          Name: BooleanField,
           Value: False,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -38,8 +38,8 @@
           }
         },
         {
-          Type: DoubleField,
-          Name: double,
+          Type: double,
+          Name: DoubleField,
           Value: 1.5,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -47,8 +47,8 @@
           }
         },
         {
-          Type: FloatField,
-          Name: float,
+          Type: float,
+          Name: FloatField,
           Value: 1.5,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -56,8 +56,8 @@
           }
         },
         {
-          Type: LongField,
-          Name: long,
+          Type: long,
+          Name: LongField,
           Value: 10,
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -65,16 +65,16 @@
           }
         },
         {
-          Type: NullField,
-          Name: object?,
+          Type: object?,
+          Name: NullField,
           IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation
           }
         },
         {
-          Type: BytesField,
-          Name: byte[],
+          Type: byte[],
+          Name: BytesField,
           Value: System.Byte[],
           IsExpressionBodiedMember: false,
           DocBlock: {
@@ -82,8 +82,8 @@
           }
         },
         {
-          Type: StringArrayField,
-          Name: List<string>,
+          Type: List<string>,
+          Name: StringArrayField,
           IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation

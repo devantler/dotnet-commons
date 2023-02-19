@@ -27,6 +27,8 @@ public class CSharpProperty : IFluentProperty<CSharpProperty>
     /// <inheritdoc/>
     public string? Value { get; set; }
     /// <inheritdoc/>
+    public bool IsExpressionBodiedMember { get; set; }
+    /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
     public CSharpProperty SetVisibility(Visibility visibility)
@@ -49,6 +51,17 @@ public class CSharpProperty : IFluentProperty<CSharpProperty>
     }
 
     /// <summary>
+    /// Sets whether the property should use expression-bodied members or not.
+    /// </summary>
+    /// <param name="isExpressionBodiedMember"></param>
+    /// <returns></returns>
+    public CSharpProperty SetIsExpressionBodiedMember(bool isExpressionBodiedMember)
+    {
+        IsExpressionBodiedMember = isExpressionBodiedMember;
+        return this;
+    }
+
+    /// <summary>
     /// The template for a C# property.
     /// </summary>
     public static string Template =>
@@ -57,7 +70,7 @@ public class CSharpProperty : IFluentProperty<CSharpProperty>
         #nullable enable
         {{~ end ~}}
         {{~ if property.doc_block }}{{ include 'doc_block' property.doc_block }}{{ end ~}}
-        {{ property.visibility | string.downcase }} {{ property.type }} {{ property.name }} { get; set; }{{~ if property.value != null }} = {{ property.value }};{{ end ~}}
+        {{ property.visibility | string.downcase }} {{ property.type }} {{ property.name }}{{ if property.is_expression_bodied_member }} =>{{ else }} { get; set; } {{ if property.value != null }}={{ end }}{{ end }}{{ if property.value != null }} {{ property.value }};{{ end ~}}
         {{~ if property.type | string.ends_with "?" }}
         #nullable disable
         {{- end ~}}

@@ -1,0 +1,9 @@
+﻿using System;
+public interface InterfaceName0
+{
+    public string Property0 => "Hello World";
+    public string Method0(string parameterName)
+    {
+        Console.WriteLine("Hello World!");
+    }
+}

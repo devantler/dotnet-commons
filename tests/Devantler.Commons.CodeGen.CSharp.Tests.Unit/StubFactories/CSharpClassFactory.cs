@@ -69,6 +69,9 @@ public static class CSharpClassFactory
             if (options.IncludeDocumentation)
                 _ = property.SetDocBlock(new CSharpDocBlock($"Property documentation block {i}"));
 
+            if (options.ExpressionBodiedMembers)
+                _ = property.SetIsExpressionBodiedMember(true);
+
             _ = @class.AddProperty(property);
         }
 

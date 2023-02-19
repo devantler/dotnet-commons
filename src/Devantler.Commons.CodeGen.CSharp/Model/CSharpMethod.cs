@@ -25,7 +25,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <inheritdoc/>
     public string ReturnType { get; set; }
     /// <inheritdoc/>
-    public string? Body { get; set; }
+    public List<string> Statements { get; set; } = new();
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
@@ -37,9 +37,9 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         return this;
     }
     /// <inheritdoc/>
-    public CSharpMethod SetBody(string body)
+    public CSharpMethod AddStatement(string statement)
     {
-        Body = body;
+        Statements.Add(statement);
         return this;
     }
     /// <inheritdoc/>
@@ -58,7 +58,9 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
         {{ $1.visibility | string.downcase }} {{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
-        {{~ }}    {{ $1.body }}
+            {{ for statement in $1.statements ~}}
+            {{~ statement ~}}
+            {{~ end }}
         }
         """;
 }

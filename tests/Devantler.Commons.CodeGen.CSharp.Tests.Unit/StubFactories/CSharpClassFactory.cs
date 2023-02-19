@@ -78,7 +78,7 @@ public static class CSharpClassFactory
         for (int i = 0; i < options.MethodsCount; i++)
         {
             var method = new CSharpMethod("string", $"Method{i}")
-                .SetBody("Console.WriteLine(\"Hello World!\");");
+                .AddStatement("Console.WriteLine(\"Hello World!\");");
 
             if (options.IncludeDocumentation)
             {

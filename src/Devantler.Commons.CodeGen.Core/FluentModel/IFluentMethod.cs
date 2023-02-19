@@ -14,10 +14,13 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     public T AddParameter(IParameter parameter);
 
     /// <summary>
-    /// Sets the body of the method.
+    /// Adds a statement to the body of the method.
     /// </summary>
-    /// <param name="body"></param>
-    public T SetBody(string body);
+    /// <remarks>
+    /// The order of the statements is preserved. E.g. the first statement added will be the first statement in the body.
+    /// </remarks>
+    /// <param name="statement"></param>
+    public T AddStatement(string statement);
 
     /// <summary>
     /// Sets the documentation block of the method.

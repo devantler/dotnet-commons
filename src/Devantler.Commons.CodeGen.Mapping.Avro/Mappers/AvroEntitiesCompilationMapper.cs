@@ -33,7 +33,7 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
             var @class = new CSharpClass($"{recordSchema.Name}Entity")
                 .SetNamespace(recordSchema.Namespace)
                 .AddProperty(
-                    new CSharpProperty("Id", "Guid")
+                    new CSharpProperty("Guid", "Id")
                         .SetDocBlock(new CSharpDocBlock("The unique identifier for this entity."))
                 );
 
@@ -45,7 +45,7 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
                 if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var property = new CSharpProperty(field.Name, AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Entity));
+                var property = new CSharpProperty(AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Entity), field.Name);
 
                 string? propertyValue = field.Default?.ToObject<object>()?.ToString();
                 if (!string.IsNullOrEmpty(propertyValue))

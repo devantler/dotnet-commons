@@ -58,9 +58,9 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
         {{ $1.visibility | string.downcase }} {{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
-            {{ for statement in $1.statements ~}}
-            {{~ statement ~}}
-            {{~ end }}
+            {{~ for statement in $1.statements ~}}
+            {{ statement }}
+            {{~ end ~}}
         }
         """;
 }

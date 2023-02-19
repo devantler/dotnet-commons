@@ -109,6 +109,7 @@ public class ClassName0
     public string Method0(string parameterName)
     {
         Console.WriteLine("Hello World!");
+        return "Hello World!";
     }
     /// <summary>
     /// Method documentation block 1
@@ -117,6 +118,7 @@ public class ClassName0
     public string Method1(string parameterName)
     {
         Console.WriteLine("Hello World!");
+        return "Hello World!";
     }
 }
 
@@ -167,6 +169,7 @@ public class ClassName1
     public string Method0(string parameterName)
     {
         Console.WriteLine("Hello World!");
+        return "Hello World!";
     }
     /// <summary>
     /// Method documentation block 1
@@ -175,6 +178,7 @@ public class ClassName1
     public string Method1(string parameterName)
     {
         Console.WriteLine("Hello World!");
+        return "Hello World!";
     }
 }
 

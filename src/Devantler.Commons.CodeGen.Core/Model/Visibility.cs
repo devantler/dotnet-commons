@@ -11,7 +11,12 @@ public enum Visibility
     Public = 0,
 
     /// <summary>
+    /// A unit that is visible to the declaring type and its descendants.
+    /// </summary>
+    Protected = 1,
+
+    /// <summary>
     ///     A unit that is only visible to the declaring type.
     /// </summary>
-    Private = 1
+    Private = 2
 }

@@ -31,7 +31,7 @@ public static class CSharpInterfaceFactory
         for (int i = 0; i < options.MethodsCount; i++)
         {
             var method = new CSharpMethod("string", $"Method{i}")
-                .SetBody("Console.WriteLine(\"Hello World!\");")
+                .AddStatement("Console.WriteLine(\"Hello World!\");")
                 .AddParameter(new CSharpParameter("string", "parameterName"));
 
             if (options.IncludeDocumentation)

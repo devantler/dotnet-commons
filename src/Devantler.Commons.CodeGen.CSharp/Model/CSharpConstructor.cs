@@ -50,7 +50,7 @@ public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
         {{- $1.visibility | string.downcase }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }}){{ if $1.parameters | array.map 'is_base_parameter' | array.contains true }} : base({{ for parameter in $1.parameters }}{{ if parameter.is_base_parameter }}{{ parameter.name }}{{ if !for.last }}, {{ end }}{{ end }}{{ end }}){{ end }}
         {
-        {{~ }}    {{ $1.body }}
+            {{ $1.body }}
         }
         """;
 }

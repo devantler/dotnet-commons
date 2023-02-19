@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.AutoFixture.DataAttributes</PackageId>
-        <Version>0.1.24</Version>
+        <Version>0.1.25</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageDescription>Common AutoFixture data attributes for Xunit and NSubstitute.</PackageDescription>

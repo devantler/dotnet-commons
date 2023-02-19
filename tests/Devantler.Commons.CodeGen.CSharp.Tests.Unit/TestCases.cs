@@ -21,17 +21,6 @@ public static class TestCases
             },
             new object[]
             {
-                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyClassWithBaseClass",
-                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
-                    classOptionsAction: options => {
-                        options.Count = 1;
-                        options.IncludeBaseClass = true;
-                        options.ConstructorsCount = 1;
-                    }
-                )
-            },
-            new object[]
-            {
                 $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneEmptyInterface",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: options => options.Count = 1
@@ -56,6 +45,22 @@ public static class TestCases
                         options.PropertiesCount = 1;
                         options.MethodsCount = 1;
                         options.Nullables = false;
+                    }
+                )
+            },
+            new object[]
+            {
+                $"{nameof(CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub)}_OneClassWithBaseClass",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: options => {
+                        options.Count = 1;
+                        options.FieldsCount = 1;
+                        options.ConstructorsCount = 1;
+                        options.PropertiesCount = 1;
+                        options.MethodsCount = 1;
+                        options.Nullables = false;
+                        options.IncludeBaseClass = true;
+                        options.ConstructorsCount = 1;
                     }
                 )
             },

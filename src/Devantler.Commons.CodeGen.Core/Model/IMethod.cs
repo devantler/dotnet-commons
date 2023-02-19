@@ -21,6 +21,11 @@ public interface IMethod
     public string ReturnType { get; }
 
     /// <summary>
+    /// Whether a method should override a base method or not.
+    /// </summary> 
+    public bool IsOverride { get; }
+
+    /// <summary>
     /// The statements in the body of the method.
     /// </summary>
     public List<string> Statements { get; }

@@ -31,6 +31,8 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <inheritdoc/>
     public List<IParameter> Parameters { get; } = new();
     /// <inheritdoc/>
+    public bool IsOverride { get; set; }
+    /// <inheritdoc/>
     public CSharpMethod AddParameter(IParameter parameter)
     {
         Parameters.Add(parameter);
@@ -50,13 +52,20 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         return this;
     }
 
+    /// <inheritdoc/>
+    public CSharpMethod SetIsOverride(bool isOverride)
+    {
+        IsOverride = isOverride;
+        return this;
+    }
+
     /// <summary>
     /// The template for a C# method.
     /// </summary>
     public static string Template =>
         """
         {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
-        {{ $1.visibility | string.downcase }} {{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ $1.visibility | string.downcase }} {{ if $1.is_override }}override {{ end }}{{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}

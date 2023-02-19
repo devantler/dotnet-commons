@@ -27,4 +27,10 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     /// </summary>
     /// <param name="docBlock"></param>
     public T SetDocBlock(IDocBlock docBlock);
+
+    /// <summary>
+    /// Sets the override flag of the method.
+    /// </summary>
+    /// <param name="isOverride"></param>
+    public T SetIsOverride(bool isOverride);
 }

@@ -18,7 +18,7 @@ public interface IConstructor
     /// <summary>
     ///     The statements in the constructor.
     /// </summary>
-    public string? Body { get; }
+    public List<string> Statements { get; }
 
     /// <summary>
     ///     The documentation block describing the constructor.

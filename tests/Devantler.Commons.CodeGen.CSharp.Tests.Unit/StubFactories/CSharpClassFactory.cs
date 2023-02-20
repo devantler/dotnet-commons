@@ -42,7 +42,7 @@ public static class CSharpClassFactory
         for (int i = 0; i < options.ConstructorsCount; i++)
         {
             var constructor = new CSharpConstructor("ClassName")
-                .SetBody("Console.WriteLine(\"Hello World!\");");
+                .AddStatement("Console.WriteLine(\"Hello World!\");");
 
             if (options.IncludeDocumentation)
             {

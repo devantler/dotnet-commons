@@ -14,10 +14,10 @@ public interface IFluentConstructor<T> : IConstructor where T : IConstructor
     public T AddParameter(IConstructorParameter parameter);
 
     /// <summary>
-    /// Sets the body of the constructor.
+    /// Adds a statement to the constructor.
     /// </summary>
     /// <param name="body"></param>
-    public T SetBody(string body);
+    public T AddStatement(string statement);
 
     /// <summary>
     /// Sets the documentation block of the constructor.

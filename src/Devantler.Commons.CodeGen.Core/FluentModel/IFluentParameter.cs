@@ -8,4 +8,9 @@ namespace Devantler.Commons.CodeGen.Core.FluentModel;
 /// <typeparam name="T"></typeparam>
 public interface IFluentParameter<T> : IParameter where T : IParameter
 {
+    /// <summary>
+    /// Sets if the parameter is nullable or not.
+    /// </summary>
+    /// <param name="isNullable"></param>
+    public T SetIsNullable(bool isNullable);
 }

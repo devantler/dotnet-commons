@@ -14,4 +14,9 @@ public interface IParameter
     ///     The name of the parameter.
     /// </summary>
     public string Name { get; }
+
+    /// <summary>
+    /// If the parameter is nullable or not.
+    /// </summary>
+    public bool IsNullable { get; set; }
 }

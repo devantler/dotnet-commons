@@ -16,7 +16,7 @@ public interface IFluentConstructor<T> : IConstructor where T : IConstructor
     /// <summary>
     /// Adds a statement to the constructor.
     /// </summary>
-    /// <param name="body"></param>
+    /// <param name="statement"></param>
     public T AddStatement(string statement);
 
     /// <summary>

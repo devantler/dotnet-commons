@@ -25,5 +25,4 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     /// The template for a C# parameter.
     /// </summary>
     public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
-
 }

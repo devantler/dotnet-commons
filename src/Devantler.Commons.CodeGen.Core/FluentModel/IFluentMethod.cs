@@ -51,5 +51,4 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     /// </summary>
     /// <param name="returnType"></param>
     public T SetReturnType(string returnType);
-
 }

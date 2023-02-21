@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
-        <Version>0.1.32</Version>
+        <Version>0.1.33</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageDescription>Core files used to build code generators and code collection mappers.</PackageDescription>

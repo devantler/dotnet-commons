@@ -114,6 +114,12 @@ public static class CSharpClassFactory
             if (options.MethodOptions.IsPartial)
                 _ = method.SetIsPartial(true);
 
+            if (options.MethodOptions.IsStatic)
+                _ = method.SetIsStatic(true);
+
+            if (options.MethodOptions.IsExtensionMethod)
+                _ = method.SetIsExtensionMethod(true);
+
             if (options.IncludeBaseClass)
                 _ = method.SetIsOverride(true);
 

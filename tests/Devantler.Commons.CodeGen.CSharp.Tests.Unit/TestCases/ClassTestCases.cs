@@ -311,6 +311,29 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithStaticMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.IsStatic = true;
+                    }
+                )
+            },
+            new object[]
+            {
+                "ClassWithExtensionMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.ParameterOptions.Count = 2;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.IsExtensionMethod = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithMethodAndNonDefaultVisibility",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {

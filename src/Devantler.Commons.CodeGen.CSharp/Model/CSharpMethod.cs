@@ -102,6 +102,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <param name="isExtension"></param>
     public CSharpMethod SetIsExtensionMethod(bool isExtension)
     {
+        IsStatic = true;
         IsExtensionMethod = isExtension;
         return this;
     }

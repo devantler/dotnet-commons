@@ -11,19 +11,14 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <summary>
     /// Creates a new C# method.
     /// </summary>
-    /// <param name="type"></param>
     /// <param name="name"></param>
-    public CSharpMethod(string type, string name)
-    {
-        ReturnType = type;
-        Name = name;
-    }
+    public CSharpMethod(string name) => Name = name;
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
-    public string ReturnType { get; set; }
+    public string ReturnType { get; set; } = "void";
     /// <inheritdoc/>
     public List<string> Statements { get; set; } = new();
     /// <inheritdoc/>
@@ -48,6 +43,13 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     public CSharpMethod AddStatement(string statement)
     {
         Statements.Add(statement);
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpMethod SetReturnType(string returnType)
+    {
+        ReturnType = returnType;
         return this;
     }
 
@@ -98,7 +100,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{ if $1.doc_block
         include 'doc_block' $1.doc_block
         end ~}}
-        {{ $1.visibility != private ? ($1.visibility | string.downcase) + " " : "" }}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ !($1.return_type | string.empty) ? $1.return_type + " " : "void " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ $1.visibility != private ? ($1.visibility | string.downcase) + " " : "" }}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}

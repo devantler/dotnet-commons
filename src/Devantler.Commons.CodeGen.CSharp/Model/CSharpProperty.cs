@@ -54,7 +54,6 @@ public class CSharpProperty : IFluentProperty<CSharpProperty>
     /// Sets whether the property should use expression-bodied members or not.
     /// </summary>
     /// <param name="isExpressionBodiedMember"></param>
-    /// <returns></returns>
     public CSharpProperty SetIsExpressionBodiedMember(bool isExpressionBodiedMember)
     {
         IsExpressionBodiedMember = isExpressionBodiedMember;

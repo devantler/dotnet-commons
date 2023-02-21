@@ -77,7 +77,8 @@ public static class CSharpClassFactory
 
         for (int i = 0; i < options.MethodsCount; i++)
         {
-            var method = new CSharpMethod("string", $"Method{i}")
+            var method = new CSharpMethod($"Method{i}")
+                .SetReturnType("string")
                 .AddStatement("""Console.WriteLine("Hello World!");""")
                 .AddStatement("""return "Hello World!";""");
 

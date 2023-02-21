@@ -22,8 +22,13 @@ public interface IMethod
 
     /// <summary>
     /// Whether a method should override a base method or not.
-    /// </summary> 
+    /// </summary>
     public bool IsOverride { get; }
+
+    /// <summary>
+    /// Whether a method is static or not.
+    /// </summary>
+    public bool IsStatic { get; }
 
     /// <summary>
     /// The statements in the body of the method.

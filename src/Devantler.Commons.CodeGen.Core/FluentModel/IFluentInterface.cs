@@ -18,4 +18,10 @@ public interface IFluentInterface<T> : IInterface, IFluentType<T> where T : IInt
     /// </summary>
     /// <param name="method"></param>
     public T AddMethod(IMethod method);
+
+    /// <summary>
+    /// Adds an implementation to the interface.
+    /// </summary>
+    /// <param name="implementation"></param>
+    public T AddImplementation(IInterface implementation);
 }

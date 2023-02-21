@@ -14,4 +14,9 @@ public interface IInterface : IType
     ///     The methods provided by the interface.
     /// </summary>
     public List<IMethod> Methods { get; }
+
+    /// <summary>
+    ///    The interfaces implemented by the interface.
+    /// </summary>
+    public List<IInterface> Implementations { get; }
 }

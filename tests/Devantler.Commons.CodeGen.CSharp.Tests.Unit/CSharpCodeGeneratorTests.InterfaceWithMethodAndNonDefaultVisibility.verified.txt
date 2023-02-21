@@ -1,0 +1,6 @@
+﻿public interface Interface0
+{
+    string Method0()
+    {
+    }
+}

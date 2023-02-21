@@ -23,4 +23,9 @@ public interface IFluentEnumValue<T> : IEnumValue where T : IEnumValue
     /// </summary>
     /// <param name="value"></param>
     public T SetValue(Enum value);
+    /// <summary>
+    /// Sets the documentation block of the enum value.
+    /// </summary>
+    /// <param name="docBlock"></param>
+    public T SetDocBlock(IDocBlock docBlock);
 }

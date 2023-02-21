@@ -28,7 +28,11 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
+    public List<IInterface> Implementations { get; } = new();
+    /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
+    /// <inheritdoc/>
+    public bool IsPartial { get; set; }
     /// <inheritdoc/>
     public CSharpInterface AddImport(IImport import)
     {
@@ -48,6 +52,12 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
         return this;
     }
     /// <inheritdoc/>
+    public CSharpInterface AddImplementation(IInterface implementation)
+    {
+        Implementations.Add(implementation);
+        return this;
+    }
+    /// <inheritdoc/>
     public CSharpInterface SetVisibility(Visibility visibility)
     {
         Visibility = visibility;
@@ -63,6 +73,15 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
     public CSharpInterface SetNamespace(string? @namespace)
     {
         Namespace = @namespace;
+        return this;
+    }
+    /// <summary>
+    /// Sets whether the interface is partial or not.
+    /// </summary>
+    /// <param name="isPartial"></param>
+    public object SetIsPartial(bool isPartial)
+    {
+        IsPartial = isPartial;
         return this;
     }
 
@@ -95,7 +114,7 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public interface {{ name }}
+        {{ visibility != "Private" ? (visibility | string.downcase) + " " : ""}}{{ is_partial ? "partial " : "" }}interface {{ name }}{{ if implementations | array.size > 0 }} : {{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
         {{~ for property in properties ~}}
             {{ include 'property' property }}

@@ -1,4 +1,5 @@
 using Devantler.Commons.CodeGen.CSharp.Model;
+using Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories.Options;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 

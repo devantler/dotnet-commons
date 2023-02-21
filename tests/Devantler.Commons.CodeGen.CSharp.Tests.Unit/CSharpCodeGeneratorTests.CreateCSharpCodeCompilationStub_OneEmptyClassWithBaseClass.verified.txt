@@ -1,9 +1,0 @@
-﻿using BaseClassNamespace;
-using System;
-public class ClassName0 : BaseClass
-{
-    public ClassName(string parameterName) : base(parameterName)
-    {
-        Console.WriteLine("Hello World!");
-    }
-}

@@ -85,7 +85,7 @@ public class CSharpEnum : IFluentEnum<CSharpEnum>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public enum {{ name }}
+        {{ visibility != "Private" ? (visibility | string.downcase) + " " : ""}}enum {{ name }}
         {
         {{~ for value in values ~}}
             {{ include 'enum_symbol' value }}{{ if !for.last }},{{ end }}

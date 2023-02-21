@@ -114,7 +114,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{ if $1.doc_block
         include 'doc_block' $1.doc_block
         end ~}}
-        {{ $1.visibility != private ? ($1.visibility | string.downcase) + " " : "" }}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ $1.visibility != "Private" ? ($1.visibility | string.downcase) + " " : ""}}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}

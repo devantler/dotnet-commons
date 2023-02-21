@@ -1,0 +1,7 @@
+﻿using BaseClassNamespace;
+public class Class0 : BaseClass
+{
+    public override string Method0()
+    {
+    }
+}

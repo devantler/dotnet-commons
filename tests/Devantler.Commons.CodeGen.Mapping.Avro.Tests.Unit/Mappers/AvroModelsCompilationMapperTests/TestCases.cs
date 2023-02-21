@@ -9,7 +9,10 @@ public static class TestCases
     {
         get
         {
-            var enumSchema = new EnumSchema("TestEnum", new List<string> { "Test1", "Test2", "Test3" });
+            var enumSchema = new EnumSchema("TestEnum", new List<string> { "Test1", "Test2", "Test3" })
+            {
+                Documentation = "Test documentation"
+            };
             var recordSchema = GetRecordSchema("RecordSchema");
             return new List<object[]>{
                 new object[]{ recordSchema, Language.CSharp },

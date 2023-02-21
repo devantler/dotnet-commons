@@ -133,7 +133,10 @@
           Value: 2
         }
       ],
-      Name: TestEnum
+      Name: TestEnum,
+      DocBlock: {
+        Summary: Test documentation
+      }
     }
   ]
 }

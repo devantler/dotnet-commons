@@ -289,6 +289,18 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithConstructorAndNullableParameter",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.ConstructorOptions.Count = 1;
+                        classOptions.ConstructorOptions.ParameterOptions.Count = 1;
+                        classOptions.ConstructorOptions.ParameterOptions.Nullables = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithConstructorAndBaseParameter",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
@@ -397,7 +409,19 @@ public static class ClassTestCases
                         classOptions.MethodOptions.ParameterOptions.Count = 1;
                     }
                 )
-            }
+            },
+            new object[]
+            {
+                "ClassWithMethodAndNullableParameter",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.ParameterOptions.Count = 1;
+                        classOptions.MethodOptions.ParameterOptions.Nullables = true;
+                    }
+                )
+            },
         };
 
     public static IEnumerable<object[]> InvalidCases =>

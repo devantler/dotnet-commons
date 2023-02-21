@@ -73,6 +73,9 @@ public static class CSharpClassFactory
             {
                 var parameter = new CSharpConstructorParameter("string", $"param{j}");
 
+                if (options.ConstructorOptions.ParameterOptions.Nullables)
+                    _ = parameter.SetIsNullable(true);
+
                 if (options.IncludeBaseClass)
                     _ = parameter.SetIsBaseParameter(true);
 
@@ -134,6 +137,9 @@ public static class CSharpClassFactory
             for (int j = 0; j < options.MethodOptions.ParameterOptions.Count; j++)
             {
                 var parameter = new CSharpParameter("string", $"param{j}");
+
+                if (options.MethodOptions.ParameterOptions.Nullables)
+                    _ = parameter.SetIsNullable(true);
                 _ = method.AddParameter(parameter);
             }
 

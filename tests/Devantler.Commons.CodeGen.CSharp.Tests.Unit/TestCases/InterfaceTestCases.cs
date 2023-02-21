@@ -214,7 +214,19 @@ public static class InterfaceTestCases
                         interfaceOptions.MethodOptions.ParameterOptions.Count = 1;
                     }
                 )
-            }
+            },
+            new object[]
+            {
+                "InterfaceWithMethodAndNullableParameter",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    interfaceOptionsAction: interfaceOptions => {
+                        interfaceOptions.Count = 1;
+                        interfaceOptions.MethodOptions.Count = 1;
+                        interfaceOptions.MethodOptions.ParameterOptions.Count = 1;
+                        interfaceOptions.MethodOptions.ParameterOptions.Nullables = true;
+                    }
+                )
+            },
         };
 
     public static IEnumerable<object[]> InvalidCases =>

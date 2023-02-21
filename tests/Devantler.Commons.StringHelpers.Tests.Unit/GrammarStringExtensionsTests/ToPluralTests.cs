@@ -10,8 +10,10 @@ public class ToPluralTests
         string actual = word.ToPlural();
 
         //Assert
-        _ = word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
-            ? actual.Should().EndWith("es")
-            : actual.Should().EndWith("s");
+        _ = word.EndsWith("es", StringComparison.OrdinalIgnoreCase)
+            ? actual.Should().Be(word)
+            : word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
+                ? actual.Should().EndWith("es")
+                : actual.Should().EndWith("s");
     }
 }

@@ -1,0 +1,6 @@
+﻿/// <summary>
+/// Enum documentation block
+/// </summary>
+public enum Enum0
+{
+}

@@ -1,0 +1,4 @@
+﻿namespace Namespace;
+public enum Enum0
+{
+}

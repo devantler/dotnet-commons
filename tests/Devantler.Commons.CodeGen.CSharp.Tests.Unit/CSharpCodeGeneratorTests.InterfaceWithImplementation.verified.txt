@@ -1,0 +1,3 @@
+﻿public interface Interface0 : ImplementedInterface0
+{
+}

@@ -1,0 +1,4 @@
+﻿public enum Enum0
+{
+    Value0 = 0
+}

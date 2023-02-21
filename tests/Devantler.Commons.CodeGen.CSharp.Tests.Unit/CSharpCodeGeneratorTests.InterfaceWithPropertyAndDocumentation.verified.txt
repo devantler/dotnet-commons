@@ -1,0 +1,7 @@
+﻿public interface Interface0
+{
+    /// <summary>
+    /// Property documentation block 0
+    /// </summary>
+    public string Property0 { get; set; }
+}

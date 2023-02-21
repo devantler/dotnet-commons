@@ -1,0 +1,7 @@
+﻿public class Class0
+{
+    public Class0()
+    {
+        Console.WriteLine("Hello World");
+    }
+}

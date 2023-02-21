@@ -1,4 +1,0 @@
-﻿using System;
-public class ClassName0 : IInterface
-{
-}

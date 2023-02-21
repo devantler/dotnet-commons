@@ -1,0 +1,4 @@
+﻿public interface Interface0
+{
+    string Property0 { get; set; }
+}

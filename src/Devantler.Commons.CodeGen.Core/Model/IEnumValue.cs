@@ -14,4 +14,9 @@ public interface IEnumValue
     ///     The value of the enum.
     /// </summary>
     public string? Value { get; }
+
+    /// <summary>
+    /// The documentation block of the enum value.
+    /// </summary>
+    public IDocBlock? DocBlock { get; }
 }

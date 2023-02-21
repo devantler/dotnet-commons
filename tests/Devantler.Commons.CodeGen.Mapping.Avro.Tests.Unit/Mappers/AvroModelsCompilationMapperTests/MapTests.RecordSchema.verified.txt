@@ -86,7 +86,10 @@
       Name: RecordSchema,
       DocBlock: {
         Summary: Test documentation
-      }
+      },
+      IsPartial: false,
+      IsAbstract: false,
+      IsStatic: false
     }
   ]
 }

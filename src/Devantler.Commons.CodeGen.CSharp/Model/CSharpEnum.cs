@@ -26,9 +26,17 @@ public class CSharpEnum : IFluentEnum<CSharpEnum>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
+    public Visibility Visibility { get; set; } = Visibility.Public;
+    /// <inheritdoc/>
     public CSharpEnum AddValue(IEnumValue value)
     {
         Values.Add(value);
+        return this;
+    }
+    /// <inheritdoc/>
+    public CSharpEnum SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
         return this;
     }
     /// <inheritdoc/>
@@ -77,7 +85,7 @@ public class CSharpEnum : IFluentEnum<CSharpEnum>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public enum {{ name }}
+        {{ visibility != "Private" ? (visibility | string.downcase) + " " : ""}}enum {{ name }}
         {
         {{~ for value in values ~}}
             {{ include 'enum_symbol' value }}{{ if !for.last }},{{ end }}

@@ -28,13 +28,58 @@ public class CSharpClass : IFluentClass<CSharpClass>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
-    public CSharpClass? BaseClass { get; set; }
+    public IClass? BaseClass { get; set; }
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
     public string? Namespace { get; set; }
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
+    /// <inheritdoc/>
+    public Visibility Visibility { get; set; } = Visibility.Public;
+
+    /// <summary>
+    /// Whether the class is a partial class or not.
+    /// </summary>
+    public bool IsPartial { get; set; }
+
+    /// <inheritdoc/>
+    public bool IsAbstract { get; set; }
+
+    /// <inheritdoc/>
+    public bool IsStatic { get; set; }
+
+    /// <summary>
+    /// Sets whether the class is a partial class or not.
+    /// </summary>
+    /// <param name="isPartial"></param>
+    public CSharpClass SetIsPartial(bool isPartial)
+    {
+        IsPartial = isPartial;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetIsAbstract(bool isAbstract)
+    {
+        IsAbstract = isAbstract;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetIsStatic(bool isStatic)
+    {
+        IsStatic = isStatic;
+        return this;
+    }
+
     /// <inheritdoc/>
     public CSharpClass SetBaseClass(CSharpClass? @class)
     {
@@ -120,7 +165,7 @@ public class CSharpClass : IFluentClass<CSharpClass>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ if base_class }}{{ base_class.name }}{{ if implementations | array.size > 0 }}, {{ end }}{{ end }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
+        {{ visibility != "Private" ? (visibility | string.downcase) + " " : ""}}{{ is_static ? "static " : "" }}{{ is_abstract ? "abstract " : "" }}{{ is_partial ? "partial " : "" }}class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ base_class ? base_class.name : "" }}{{ end }}{{ if implementations | array.size > 0 }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
             {{~ for field in fields ~}}
             {{ include 'field' field }}

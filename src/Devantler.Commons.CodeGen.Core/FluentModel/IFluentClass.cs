@@ -8,16 +8,23 @@ namespace Devantler.Commons.CodeGen.Core.FluentModel;
 public interface IFluentClass<T> : IClass, IFluentType<T> where T : IClass
 {
     /// <summary>
-    /// The base class implemented by the class.
-    /// </summary>
-    public T? BaseClass { get; set; }
-
-    /// <summary>
     /// Sets the base class of the class.
     /// </summary>
     /// <param name="class"></param>
     /// <returns></returns>
     public T SetBaseClass(T? @class);
+
+    /// <summary>
+    /// Sets whether the class is a static class or not.
+    /// </summary>
+    /// <param name="isStatic"></param>
+    public T SetIsStatic(bool isStatic);
+
+    /// <summary>
+    /// Sets whether the class is an abstract class or not.
+    /// </summary>
+    /// <param name="isAbstract"></param>
+    public T SetIsAbstract(bool isAbstract);
 
     /// <summary>
     /// Adds an implementation to the class.

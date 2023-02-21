@@ -1,0 +1,8 @@
+﻿public class Class0
+{
+    public string Method0()
+    {
+        Console.WriteLine("Hello World!");
+        return "Hello World!";
+    }
+}

@@ -23,4 +23,10 @@ public interface IFluentType<T> : IType
     /// </summary>
     /// <param name="import"></param>
     public T AddImport(IImport import);
+
+    /// <summary>
+    /// Sets the visibility of the type.
+    /// </summary>
+    /// <param name="visibility"></param>
+    public T SetVisibility(Visibility visibility);
 }

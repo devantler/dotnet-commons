@@ -1,0 +1,6 @@
+﻿/// <summary>
+/// Documentation
+/// </summary>
+public interface Interface0
+{
+}

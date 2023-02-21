@@ -1,0 +1,7 @@
+﻿public enum Enum0
+{
+    /// <summary>
+    /// Enum symbol documentation block 0
+    /// </summary>
+    Value0
+}

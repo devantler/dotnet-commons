@@ -1,0 +1,6 @@
+﻿public interface Interface0
+{
+    #nullable enable
+    public string? Property0 { get; set; }
+    #nullable disable
+}

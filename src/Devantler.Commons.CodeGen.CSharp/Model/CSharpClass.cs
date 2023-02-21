@@ -35,6 +35,8 @@ public class CSharpClass : IFluentClass<CSharpClass>
     public string? Namespace { get; set; }
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
+    /// <inheritdoc/>
+    public Visibility Visibility { get; set; } = Visibility.Public;
 
     /// <summary>
     /// Whether the class is a partial class or not.
@@ -54,6 +56,13 @@ public class CSharpClass : IFluentClass<CSharpClass>
     public CSharpClass SetIsPartial(bool isPartial)
     {
         IsPartial = isPartial;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
         return this;
     }
 
@@ -156,7 +165,7 @@ public class CSharpClass : IFluentClass<CSharpClass>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        public class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ if base_class }}{{ base_class.name }}{{ if implementations | array.size > 0 }}, {{ end }}{{ end }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
+        public class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ base_class ? base_class.name : "" }}{{ if implementations | array.size > 0 }}, {{ end }}{{ end }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
             {{~ for field in fields ~}}
             {{ include 'field' field }}

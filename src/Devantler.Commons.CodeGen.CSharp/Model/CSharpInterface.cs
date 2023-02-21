@@ -28,6 +28,8 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
+    public Visibility Visibility { get; set; } = Visibility.Public;
+    /// <inheritdoc/>
     public CSharpInterface AddImport(IImport import)
     {
         Imports.Add(import);
@@ -43,6 +45,12 @@ public class CSharpInterface : IFluentInterface<CSharpInterface>
     public CSharpInterface AddProperty(IProperty property)
     {
         Properties.Add(property);
+        return this;
+    }
+    /// <inheritdoc/>
+    public CSharpInterface SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
         return this;
     }
     /// <inheritdoc/>

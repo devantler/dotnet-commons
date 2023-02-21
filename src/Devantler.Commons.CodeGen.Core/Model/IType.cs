@@ -26,6 +26,11 @@ public interface IType
     public List<IImport> Imports { get; }
 
     /// <summary>
+    /// The visibility of the type.
+    /// </summary>
+    public Visibility Visibility { get; set; }
+
+    /// <summary>
     /// Compiles the type.
     /// </summary>
     public string Compile();

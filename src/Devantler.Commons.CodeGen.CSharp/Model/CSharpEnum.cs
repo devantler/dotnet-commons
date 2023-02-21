@@ -26,9 +26,17 @@ public class CSharpEnum : IFluentEnum<CSharpEnum>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
+    public Visibility Visibility { get; set; } = Visibility.Public;
+    /// <inheritdoc/>
     public CSharpEnum AddValue(IEnumValue value)
     {
         Values.Add(value);
+        return this;
+    }
+    /// <inheritdoc/>
+    public CSharpEnum SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
         return this;
     }
     /// <inheritdoc/>

@@ -44,4 +44,43 @@ public class CSharpClassTests
         _ = sut.Properties.Should().HaveCount(1);
         _ = sut.Properties[0].Name.Should().Be("TestProperty");
     }
+
+    [Fact]
+    public void SetIsPartial_GivenBoolean_SetsIsPartial()
+    {
+        // Arrange
+        var sut = new CSharpClass("TestClass");
+
+        // Act
+        _ = sut.SetIsPartial(true);
+
+        // Assert
+        _ = sut.IsPartial.Should().BeTrue();
+    }
+
+    [Fact]
+    public void SetIsAbstract_GivenBoolean_SetsIsAbstract()
+    {
+        // Arrange
+        var sut = new CSharpClass("TestClass");
+
+        // Act
+        _ = sut.SetIsAbstract(true);
+
+        // Assert
+        _ = sut.IsAbstract.Should().BeTrue();
+    }
+
+    [Fact]
+    public void SetIsStatic_GivenBoolean_SetsIsStatic()
+    {
+        // Arrange
+        var sut = new CSharpClass("TestClass");
+
+        // Act
+        _ = sut.SetIsStatic(true);
+
+        // Assert
+        _ = sut.IsStatic.Should().BeTrue();
+    }
 }

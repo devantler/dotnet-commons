@@ -9,6 +9,12 @@ public static class GrammarStringExtensions
     /// Converts a word to plural.
     /// </summary>
     /// <param name="word"></param>
-    public static string ToPlural(this string word) =>
-        word.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? word + "es" : word + "s";
+    public static string ToPlural(this string word)
+    {
+        return word.EndsWith("es", StringComparison.OrdinalIgnoreCase)
+            ? word
+            : word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
+                ? word + "es"
+                : word + "s";
+    }
 }

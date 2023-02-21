@@ -17,4 +17,17 @@ public class CSharpClassTests
         _ = sut.BaseClass.Should().NotBeNull();
         _ = sut.BaseClass!.Name.Should().Be("BaseClass");
     }
+
+    [Fact]
+    public void SetNamespace_GivenString_SetsNamespace()
+    {
+        // Arrange
+        var sut = new CSharpClass("TestClass");
+
+        // Act
+        _ = sut.SetNamespace("TestNamespace");
+
+        // Assert
+        _ = sut.Namespace.Should().Be("TestNamespace");
+    }
 }

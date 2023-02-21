@@ -73,6 +73,10 @@ public static class CSharpInterfaceFactory
             for (int j = 0; j < options.MethodOptions.ParameterOptions.Count; j++)
             {
                 var parameter = new CSharpParameter("string", $"param{j}");
+
+                if (options.MethodOptions.ParameterOptions.Nullables)
+                    _ = parameter.SetIsNullable(true);
+
                 _ = method.AddParameter(parameter);
             }
 

@@ -21,8 +21,17 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     public string Type { get; set; }
     /// <inheritdoc/>
     public string Name { get; set; }
+    /// <inheritdoc/>
+    public bool IsNullable { get; set; }
+    /// <inheritdoc/>
+    public CSharpParameter SetIsNullable(bool isNullable)
+    {
+        IsNullable = isNullable;
+        return this;
+    }
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>
-    public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
+    public static string Template => """{{ parameter.type }}{{ parameter.is_nullable ? "?" : "" }} {{ parameter.name }}""";
+
 }

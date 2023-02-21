@@ -11,8 +11,10 @@ public static class GrammarStringExtensions
     /// <param name="word"></param>
     public static string ToPlural(this string word)
     {
-        if (word.EndsWith("es", StringComparison.OrdinalIgnoreCase))
-            return word;
-        return word.EndsWith("s", StringComparison.OrdinalIgnoreCase) ? word + "es" : word + "s";
+        return word.EndsWith("es", StringComparison.OrdinalIgnoreCase)
+            ? word
+            : word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
+                ? word + "es"
+                : word + "s";
     }
 }

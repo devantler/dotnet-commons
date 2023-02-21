@@ -1,6 +1,7 @@
+using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Model;
 
-namespace Devantler.Commons.CodeGen.Core.Mapping.Core;
+namespace Devantler.Commons.CodeGen.Mapping.Core;
 
 /// <summary>
 /// An interface for mapping an object to code compilation.

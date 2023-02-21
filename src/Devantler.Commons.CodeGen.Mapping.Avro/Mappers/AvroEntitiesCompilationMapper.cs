@@ -1,9 +1,9 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Core.Mapping.Core;
 using Devantler.Commons.CodeGen.Core.Model;
 using Devantler.Commons.CodeGen.CSharp.Model;
 using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
+using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 

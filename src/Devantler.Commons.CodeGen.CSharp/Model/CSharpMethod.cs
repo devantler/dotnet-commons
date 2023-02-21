@@ -11,19 +11,14 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <summary>
     /// Creates a new C# method.
     /// </summary>
-    /// <param name="type"></param>
     /// <param name="name"></param>
-    public CSharpMethod(string type, string name)
-    {
-        ReturnType = type;
-        Name = name;
-    }
+    public CSharpMethod(string name) => Name = name;
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
-    public string ReturnType { get; set; }
+    public string ReturnType { get; set; } = "void";
     /// <inheritdoc/>
     public List<string> Statements { get; set; } = new();
     /// <inheritdoc/>
@@ -32,6 +27,12 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     public List<IParameter> Parameters { get; } = new();
     /// <inheritdoc/>
     public bool IsOverride { get; set; }
+    /// <inheritdoc/>
+    public bool IsStatic { get; set; }
+    /// <summary>
+    /// Whether the method is a partial method or not.
+    /// </summary>
+    public bool IsPartial { get; set; }
     /// <inheritdoc/>
     public CSharpMethod AddParameter(IParameter parameter)
     {
@@ -46,11 +47,36 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     }
 
     /// <inheritdoc/>
+    public CSharpMethod SetReturnType(string returnType)
+    {
+        ReturnType = returnType;
+        return this;
+    }
+
+    /// <inheritdoc/>
     public CSharpMethod SetVisibility(Visibility visibility)
     {
         Visibility = visibility;
         return this;
     }
+
+    /// <inheritdoc/>
+    public CSharpMethod SetIsStatic(bool isStatic)
+    {
+        IsStatic = isStatic;
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the partial modifier.
+    /// </summary>
+    /// <param name="isPartial"></param>
+    public CSharpMethod SetIsPartial(bool isPartial)
+    {
+        IsPartial = isPartial;
+        return this;
+    }
+
     /// <inheritdoc/>
     public CSharpMethod SetDocBlock(IDocBlock docBlock)
     {
@@ -71,8 +97,10 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// </summary>
     public static string Template =>
         """
-        {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
-        {{ $1.visibility | string.downcase }} {{ if $1.is_override }}override {{ end }}{{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ if $1.doc_block
+        include 'doc_block' $1.doc_block
+        end ~}}
+        {{ $1.visibility != private ? ($1.visibility | string.downcase) + " " : "" }}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}

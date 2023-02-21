@@ -39,4 +39,16 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     /// </summary>
     /// <param name="isOverride"></param>
     public T SetIsOverride(bool isOverride);
+
+    /// <summary>
+    /// Sets the static flag of the method.
+    /// </summary>
+    /// <param name="isStatic"></param>
+    public T SetIsStatic(bool isStatic);
+
+    /// <summary>
+    /// Sets the return type of the method.
+    /// </summary>
+    /// <param name="returnType"></param>
+    public T SetReturnType(string returnType);
 }

@@ -21,11 +21,8 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     public string Type { get; set; }
     /// <inheritdoc/>
     public string Name { get; set; }
-    /// <inheritdoc/>
-    public bool IsBaseParameter { get; set; }
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>
     public static string Template => """{{ parameter.type }} {{ parameter.name }}""";
-
 }

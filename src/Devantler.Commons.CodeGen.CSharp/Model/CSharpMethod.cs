@@ -33,6 +33,12 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <inheritdoc/>
     public bool IsOverride { get; set; }
     /// <inheritdoc/>
+    public bool IsStatic { get; set; }
+    /// <summary>
+    /// Whether the method is a partial method or not.
+    /// </summary>
+    public bool IsPartial { get; set; }
+    /// <inheritdoc/>
     public CSharpMethod AddParameter(IParameter parameter)
     {
         Parameters.Add(parameter);
@@ -51,6 +57,24 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         Visibility = visibility;
         return this;
     }
+
+    /// <inheritdoc/>
+    public CSharpMethod SetIsStatic(bool isStatic)
+    {
+        IsStatic = isStatic;
+        return this;
+    }
+
+    /// <summary>
+    /// Sets the partial modifier.
+    /// </summary>
+    /// <param name="isPartial"></param>
+    public CSharpMethod SetIsPartial(bool isPartial)
+    {
+        IsPartial = isPartial;
+        return this;
+    }
+
     /// <inheritdoc/>
     public CSharpMethod SetDocBlock(IDocBlock docBlock)
     {
@@ -71,8 +95,10 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// </summary>
     public static string Template =>
         """
-        {{ if $1.doc_block }}{{ include 'doc_block' $1.doc_block }}{{ end ~}}
-        {{ $1.visibility | string.downcase }} {{ if $1.is_override }}override {{ end }}{{ $1.return_type }} {{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ if $1.doc_block
+        include 'doc_block' $1.doc_block
+        end ~}}
+        {{ $1.visibility != private ? ($1.visibility | string.downcase) + " " : "" }}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ !($1.return_type | string.empty) ? $1.return_type + " " : "void " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}

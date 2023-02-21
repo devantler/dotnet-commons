@@ -111,6 +111,9 @@ public static class CSharpClassFactory
                     .AddStatement("""return "Hello World!";""");
             }
 
+            if (options.MethodOptions.IsPartial)
+                _ = method.SetIsPartial(true);
+
             if (options.IncludeBaseClass)
                 _ = method.SetIsOverride(true);
 

@@ -11,4 +11,5 @@ public class CSharpMethodOptions
     public bool IncludeDocumentation { get; set; }
     public bool IncludeParameter { get; set; }
     public CSharpParameterOptions ParameterOptions { get; set; } = new();
+    public bool IsPartial { get; internal set; }
 }

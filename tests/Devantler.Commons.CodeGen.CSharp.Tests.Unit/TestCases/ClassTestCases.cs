@@ -53,6 +53,18 @@ public static class ClassTestCases
                     }
                 )
             },
+            new object[]
+            {
+                "PartialClassWithPartialMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.IsPartial = true;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.IsPartial = true;
+                    }
+                )
+            },
             new object[]{
                 "AbstractClass",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(

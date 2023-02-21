@@ -73,7 +73,7 @@ public static class ClassTestCases
             },
             new object[]
             {
-                "DocumentedClass",
+                "ClassWithDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
                         classOptions.Count = 1;
@@ -136,7 +136,7 @@ public static class ClassTestCases
             },
             new object[]
             {
-                "ClassWithDocumentedField",
+                "ClassWithFieldAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
                         classOptions.Count = 1;
@@ -179,7 +179,7 @@ public static class ClassTestCases
             },
             new object[]
             {
-                "ClassWithDocumentedProperty",
+                "ClassWithPropertyAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
                         classOptions.Count = 1;
@@ -255,7 +255,7 @@ public static class ClassTestCases
             },
             new object[]
             {
-                "ClassWithDocumentedConstructor",
+                "ClassWithConstructorAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
                         classOptions.Count = 1;
@@ -321,7 +321,7 @@ public static class ClassTestCases
             },
             new object[]
             {
-                "ClassWithDocumentedMethod",
+                "ClassWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {
                         classOptions.Count = 1;

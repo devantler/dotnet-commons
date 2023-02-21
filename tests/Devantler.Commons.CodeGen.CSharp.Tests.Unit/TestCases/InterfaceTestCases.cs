@@ -45,7 +45,7 @@ public static class InterfaceTestCases
             },
             new object[]
             {
-                "DocumentedInterface",
+                "InterfaceWithDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {
                         interfaceOptions.Count = 1;
@@ -120,7 +120,7 @@ public static class InterfaceTestCases
             },
             new object[]
             {
-                "InterfaceWithDocumentedProperty",
+                "InterfaceWithPropertyAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {
                         interfaceOptions.Count = 1;
@@ -184,7 +184,7 @@ public static class InterfaceTestCases
             },
             new object[]
             {
-                "InterfaceWithDocumentedMethod",
+                "InterfaceWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {
                         interfaceOptions.Count = 1;

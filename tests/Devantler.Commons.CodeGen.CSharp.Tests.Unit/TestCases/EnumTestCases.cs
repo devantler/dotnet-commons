@@ -67,7 +67,7 @@ public static class EnumTestCases
             },
             new object[]
             {
-                "EnumWithDocumentedSymbol",
+                "EnumWithSymbolAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     enumOptionsAction: options => {
                         options.Count = 1;

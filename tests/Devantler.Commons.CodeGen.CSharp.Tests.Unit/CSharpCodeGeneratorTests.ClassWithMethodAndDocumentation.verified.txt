@@ -1,0 +1,10 @@
+﻿public class Class0
+{
+    /// <summary>
+    /// Method documentation block 0
+    /// </summary>
+    /// <param name="param">a parameter</param>
+    public string Method0()
+    {
+    }
+}

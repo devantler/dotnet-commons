@@ -6,6 +6,10 @@ namespace Devantler.Commons.CodeGen.Core.Model;
 public interface IClass : IType
 {
     /// <summary>
+    /// The base class implemented by the class.
+    /// </summary>
+    public IClass? BaseClass { get; set; }
+    /// <summary>
     /// The implemented interfaces.
     /// </summary>
     public List<IInterface> Implementations { get; }

@@ -28,13 +28,49 @@ public class CSharpClass : IFluentClass<CSharpClass>
     /// <inheritdoc/>
     public List<IImport> Imports { get; } = new();
     /// <inheritdoc/>
-    public CSharpClass? BaseClass { get; set; }
+    public IClass? BaseClass { get; set; }
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
     public string? Namespace { get; set; }
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
+
+    /// <summary>
+    /// Whether the class is a partial class or not.
+    /// </summary>
+    public bool IsPartial { get; set; }
+
+    /// <inheritdoc/>
+    public bool IsAbstract { get; set; }
+
+    /// <inheritdoc/>
+    public bool IsStatic { get; set; }
+
+    /// <summary>
+    /// Sets whether the class is a partial class or not.
+    /// </summary>
+    /// <param name="isPartial"></param>
+    public CSharpClass SetIsPartial(bool isPartial)
+    {
+        IsPartial = isPartial;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetIsAbstract(bool isAbstract)
+    {
+        IsAbstract = isAbstract;
+        return this;
+    }
+
+    /// <inheritdoc/>
+    public CSharpClass SetIsStatic(bool isStatic)
+    {
+        IsStatic = isStatic;
+        return this;
+    }
+
     /// <inheritdoc/>
     public CSharpClass SetBaseClass(CSharpClass? @class)
     {

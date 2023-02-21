@@ -86,7 +86,10 @@
       Name: UnionRecordSchema1,
       DocBlock: {
         Summary: Test documentation
-      }
+      },
+      IsPartial: false,
+      IsAbstract: false,
+      IsStatic: false
     },
     {
       Properties: [
@@ -110,7 +113,10 @@
       Name: UnionRecordSchema2,
       DocBlock: {
         Summary: Test documentation
-      }
+      },
+      IsPartial: false,
+      IsAbstract: false,
+      IsStatic: false
     },
     {
       Values: [

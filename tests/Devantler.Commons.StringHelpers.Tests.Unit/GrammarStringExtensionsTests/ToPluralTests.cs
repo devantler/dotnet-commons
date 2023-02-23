@@ -3,7 +3,10 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.GrammarStringExtensionsTest
 public class ToPluralTests
 {
     [Theory]
-    [AutoData]
+    [InlineData("address")]
+    [InlineData("addresses")]
+    [InlineData("map")]
+    [InlineData("maps")]
     public void ToPlural_GivenSingleWord_ReturnsPlural(string word)
     {
         //Act

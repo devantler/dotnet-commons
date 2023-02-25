@@ -422,6 +422,18 @@ public static class ClassTestCases
                     }
                 )
             },
+            new object[]
+            {
+                "ClassWithMethodAndParameterWithDefaultValue",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.ParameterOptions.Count = 1;
+                        classOptions.MethodOptions.ParameterOptions.HasDefaultValue = true;
+                    }
+                )
+            }
         };
 
     public static IEnumerable<object[]> InvalidCases =>

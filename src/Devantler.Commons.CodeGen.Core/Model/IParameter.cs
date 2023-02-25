@@ -16,6 +16,11 @@ public interface IParameter
     public string Name { get; }
 
     /// <summary>
+    /// The default value of the parameter.
+    /// </summary>
+    public string DefaultValue { get; }
+
+    /// <summary>
     /// If the parameter is nullable or not.
     /// </summary>
     public bool IsNullable { get; set; }

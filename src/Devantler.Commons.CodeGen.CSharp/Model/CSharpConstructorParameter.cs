@@ -26,6 +26,8 @@ public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpCons
     /// <inheritdoc/>
     public bool IsNullable { get; set; }
     /// <inheritdoc/>
+    public string DefaultValue { get; set; }
+    /// <inheritdoc/>
     public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter)
     {
         IsBaseParameter = isBaseParameter;
@@ -37,9 +39,15 @@ public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpCons
         IsNullable = isNullable;
         return this;
     }
+    /// <inheritdoc/>
+    public CSharpConstructorParameter SetDefaultValue(string value)
+    {
+        DefaultValue = value;
+        return this;
+    }
+
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>
     public static string Template => """{{ parameter.type }}{{ parameter.is_nullable ? "?" : "" }} {{ parameter.name }}""";
-
 }

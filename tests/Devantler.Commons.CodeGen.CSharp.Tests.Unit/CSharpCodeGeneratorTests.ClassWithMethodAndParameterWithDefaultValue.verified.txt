@@ -1,0 +1,6 @@
+﻿public class Class0
+{
+    public string Method0(string param0 = "Hello World")
+    {
+    }
+}

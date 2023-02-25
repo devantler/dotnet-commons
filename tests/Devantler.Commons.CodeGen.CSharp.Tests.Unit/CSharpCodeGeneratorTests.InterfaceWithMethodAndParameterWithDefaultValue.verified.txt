@@ -1,0 +1,6 @@
+﻿public interface Interface0
+{
+    public string Method0(string param0 = "Hello World")
+    {
+    }
+}

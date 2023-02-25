@@ -24,14 +24,22 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     /// <inheritdoc/>
     public bool IsNullable { get; set; }
     /// <inheritdoc/>
+    public string DefaultValue { get; set; }
+    /// <inheritdoc/>
     public CSharpParameter SetIsNullable(bool isNullable)
     {
         IsNullable = isNullable;
         return this;
     }
+    /// <inheritdoc/>
+    public CSharpParameter SetDefaultValue(string value)
+    {
+        DefaultValue = value;
+        return this;
+    }
+
     /// <summary>
     /// The template for a C# parameter.
     /// </summary>
-    public static string Template => """{{ parameter.type }}{{ parameter.is_nullable ? "?" : "" }} {{ parameter.name }}""";
-
+    public static string Template => """{{ parameter.type }}{{ parameter.is_nullable ? "?" : "" }} {{ parameter.name }}{{ parameter.default_value ? " = " + parameter.default_value : ""}}""";
 }

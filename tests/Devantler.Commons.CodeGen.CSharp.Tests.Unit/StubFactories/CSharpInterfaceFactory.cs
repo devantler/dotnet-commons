@@ -77,6 +77,9 @@ public static class CSharpInterfaceFactory
                 if (options.MethodOptions.ParameterOptions.Nullables)
                     _ = parameter.SetIsNullable(true);
 
+                if (options.MethodOptions.ParameterOptions.HasDefaultValue)
+                    _ = parameter.SetDefaultValue("\"Hello World\"");
+
                 _ = method.AddParameter(parameter);
             }
 

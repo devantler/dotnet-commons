@@ -25,6 +25,10 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
     public List<IParameter> Parameters { get; } = new();
+    /// <summary>
+    /// The attributes on the method.
+    /// </summary>
+    public List<string> Attributes { get; } = new();
     /// <inheritdoc/>
     public bool IsOverride { get; set; }
     /// <inheritdoc/>
@@ -37,10 +41,33 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// Whether the method is an extension method or not.
     /// </summary>
     public bool IsExtensionMethod { get; set; }
+    /// <summary>
+    /// Whether the method is an expression-bodied method or not.
+    /// </summary>
+    public bool IsExpressionBodiedMethod { get; set; }
+    /// <summary>
+    /// Sets whether the method is a an expression-bodied method or not.
+    /// </summary>
+    /// <param name="isExpressionBodiedMethod"></param>
+    public CSharpMethod SetIsExpressionBodiedMethod(bool isExpressionBodiedMethod)
+    {
+        IsExpressionBodiedMethod = isExpressionBodiedMethod;
+        return this;
+    }
     /// <inheritdoc/>
     public CSharpMethod AddParameter(IParameter parameter)
     {
         Parameters.Add(parameter);
+        return this;
+    }
+    /// <summary>
+    /// Adds an attribute to the method.
+    /// </summary>
+    /// <param name="attribute"></param>
+    /// <returns></returns>
+    public CSharpMethod AddAttribute(string attribute)
+    {
+        Attributes.Add(attribute);
         return this;
     }
     /// <inheritdoc/>
@@ -115,6 +142,9 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{ if $1.doc_block
         include 'doc_block' $1.doc_block
         end ~}}
+        {{~ for attribute in $1.attributes ~}}
+        [{{ attribute }}]
+        {{~ end ~}}
         {{ $1.visibility != "Private" ? ($1.visibility | string.downcase) + " " : ""}}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {
             {{~ for statement in $1.statements ~}}

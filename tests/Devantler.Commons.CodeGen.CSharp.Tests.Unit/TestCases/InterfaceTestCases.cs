@@ -173,6 +173,17 @@ public static class InterfaceTestCases
             },
             new object[]
             {
+                "InterfaceWithMethodAndAttribute",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    interfaceOptionsAction: interfaceOptions => {
+                        interfaceOptions.Count = 1;
+                        interfaceOptions.MethodOptions.Count = 1;
+                        interfaceOptions.MethodOptions.IncludeAttribute = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "InterfaceWithMethodAndStatement",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {

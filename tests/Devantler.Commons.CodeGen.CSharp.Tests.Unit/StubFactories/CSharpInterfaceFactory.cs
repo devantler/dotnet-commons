@@ -62,6 +62,9 @@ public static class CSharpInterfaceFactory
                     .AddStatement("""return "Hello World!";""");
             }
 
+            if (options.MethodOptions.IncludeAttribute)
+                _ = method.AddAttribute("TestAttribute");
+
             if (options.MethodOptions.IncludeDocumentation)
             {
                 _ = method.SetDocBlock(

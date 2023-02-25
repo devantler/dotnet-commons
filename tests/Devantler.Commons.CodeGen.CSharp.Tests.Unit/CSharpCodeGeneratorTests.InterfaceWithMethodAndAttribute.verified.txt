@@ -1,0 +1,7 @@
+﻿public interface Interface0
+{
+    [TestAttribute]
+    public string Method0()
+    {
+    }
+}

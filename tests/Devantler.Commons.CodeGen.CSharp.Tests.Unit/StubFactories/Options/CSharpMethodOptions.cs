@@ -16,4 +16,5 @@ public class CSharpMethodOptions
     public bool IsStatic { get; set; }
     public bool IncludeAttribute { get; set; }
     public bool IsExpressionBodied { get; set; }
+    public bool IsAsynchronous { get; set; }
 }

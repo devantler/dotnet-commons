@@ -45,6 +45,8 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// Whether the method is an expression-bodied method or not.
     /// </summary>
     public bool IsExpressionBodied { get; set; }
+    /// <inheritdoc/>
+    public bool IsAsynchronous { get; set; }
     /// <summary>
     /// Sets whether the method is a an expression-bodied method or not.
     /// </summary>
@@ -134,6 +136,13 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         return this;
     }
 
+    /// <inheritdoc/>
+    public CSharpMethod SetIsAsynchronous(bool isAsynchronous)
+    {
+        IsAsynchronous = isAsynchronous;
+        return this;
+    }
+
     /// <summary>
     /// The template for a C# method.
     /// </summary>
@@ -145,7 +154,7 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         {{~ for attribute in $1.attributes ~}}
         [{{ attribute }}]
         {{~ end ~}}
-        {{ $1.visibility != "Private" ? ($1.visibility | string.downcase) + " " : ""}}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{ $1.visibility != "Private" ? ($1.visibility | string.downcase) + " " : ""}}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial ? "partial " : "" }}{{ $1.is_asynchronous ? "async " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
         {{~ if $1.is_expression_bodied && ($1.statements | array.size == 1) ~}}
             => {{ $1.statements[0] }}
         {{~ else ~}}

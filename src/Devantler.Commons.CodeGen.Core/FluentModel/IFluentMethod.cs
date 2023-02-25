@@ -47,6 +47,12 @@ public interface IFluentMethod<T> : IMethod where T : IMethod
     public T SetIsStatic(bool isStatic);
 
     /// <summary>
+    /// Seths the async flag of the method.
+    /// </summary>
+    /// <param name="isAsynchronous"></param>
+    public T SetIsAsynchronous(bool isAsynchronous);
+
+    /// <summary>
     /// Sets the return type of the method.
     /// </summary>
     /// <param name="returnType"></param>

@@ -111,6 +111,9 @@ public static class CSharpClassFactory
             if (options.MethodOptions.IncludeAttribute)
                 _ = method.AddAttribute("TestAttribute");
 
+            if (options.MethodOptions.IsAsynchronous)
+                _ = method.SetIsAsynchronous(true);
+
             if (options.MethodOptions.IncludeStatement)
             {
                 if (options.MethodOptions.IsExpressionBodied)

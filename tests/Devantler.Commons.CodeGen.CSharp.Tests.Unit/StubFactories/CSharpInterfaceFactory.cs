@@ -56,6 +56,9 @@ public static class CSharpInterfaceFactory
                 .SetVisibility(options.MethodOptions.Visibility)
                 .SetReturnType(options.MethodOptions.ReturnType);
 
+            if (options.MethodOptions.IsAsynchronous)
+                _ = method.SetIsAsynchronous(true);
+
             if (options.MethodOptions.IncludeStatement)
             {
                 if (options.MethodOptions.IsExpressionBodied)

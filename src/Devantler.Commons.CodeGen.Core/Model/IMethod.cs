@@ -31,6 +31,11 @@ public interface IMethod
     public bool IsStatic { get; }
 
     /// <summary>
+    /// Whether a method is asynchronous or not.
+    /// </summary>
+    public bool IsAsynchronous { get; }
+
+    /// <summary>
     /// The statements in the body of the method.
     /// </summary>
     public List<string> Statements { get; }

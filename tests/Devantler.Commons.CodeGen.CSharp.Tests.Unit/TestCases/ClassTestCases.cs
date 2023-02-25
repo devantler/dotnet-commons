@@ -391,6 +391,17 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithAsynchronousMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.IsAsynchronous = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {

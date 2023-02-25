@@ -195,6 +195,18 @@ public static class InterfaceTestCases
             },
             new object[]
             {
+                "InterfaceWithExpressionBodiedMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    interfaceOptionsAction: interfaceOptionsAction => {
+                        interfaceOptionsAction.Count = 1;
+                        interfaceOptionsAction.MethodOptions.Count = 1;
+                        interfaceOptionsAction.MethodOptions.IncludeStatement = true;
+                        interfaceOptionsAction.MethodOptions.IsExpressionBodied = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "InterfaceWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {

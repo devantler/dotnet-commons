@@ -58,8 +58,16 @@ public static class CSharpInterfaceFactory
 
             if (options.MethodOptions.IncludeStatement)
             {
-                _ = method.AddStatement("""Console.WriteLine("Hello World!");""")
-                    .AddStatement("""return "Hello World!";""");
+                if (options.MethodOptions.IsExpressionBodied)
+                {
+                    _ = method.SetIsExpressionBodied(true);
+                    _ = method.AddStatement("""Console.WriteLine("Hello World!");""");
+                }
+                else
+                {
+                    _ = method.AddStatement("""Console.WriteLine("Hello World!");""")
+                        .AddStatement("""return "Hello World!";""");
+                }
             }
 
             if (options.MethodOptions.IncludeAttribute)

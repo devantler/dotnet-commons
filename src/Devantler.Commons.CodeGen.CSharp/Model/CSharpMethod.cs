@@ -44,14 +44,14 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
     /// <summary>
     /// Whether the method is an expression-bodied method or not.
     /// </summary>
-    public bool IsExpressionBodiedMethod { get; set; }
+    public bool IsExpressionBodied { get; set; }
     /// <summary>
     /// Sets whether the method is a an expression-bodied method or not.
     /// </summary>
-    /// <param name="isExpressionBodiedMethod"></param>
-    public CSharpMethod SetIsExpressionBodiedMethod(bool isExpressionBodiedMethod)
+    /// <param name="isExpressionBodied"></param>
+    public CSharpMethod SetIsExpressionBodied(bool isExpressionBodied)
     {
-        IsExpressionBodiedMethod = isExpressionBodiedMethod;
+        IsExpressionBodied = isExpressionBodied;
         return this;
     }
     /// <inheritdoc/>
@@ -146,10 +146,14 @@ public class CSharpMethod : IFluentMethod<CSharpMethod>
         [{{ attribute }}]
         {{~ end ~}}
         {{ $1.visibility != "Private" ? ($1.visibility | string.downcase) + " " : ""}}{{ if $1.is_static }}static {{ else }}{{ $1.is_override == true ? "override " : "" }}{{ end }}{{ $1.is_partial == true ? "partial " : "" }}{{ $1.return_type + " " }}{{ $1.name }}({{ for parameter in $1.parameters }}{{ if for.first && $1.is_extension_method }}this {{ end }}{{ include 'parameter' parameter }}{{ if !for.last }}, {{ end }}{{ end }})
+        {{~ if $1.is_expression_bodied && ($1.statements | array.size == 1) ~}}
+            => {{ $1.statements[0] }}
+        {{~ else ~}}
         {
             {{~ for statement in $1.statements ~}}
             {{ statement }}
             {{~ end ~}}
         }
+        {{- end ~}}
         """;
 }

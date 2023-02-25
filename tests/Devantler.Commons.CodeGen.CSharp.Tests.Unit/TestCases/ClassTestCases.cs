@@ -379,6 +379,18 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithExpressionBodiedMethodAndStatement",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.MethodOptions.Count = 1;
+                        classOptions.MethodOptions.IncludeStatement = true;
+                        classOptions.MethodOptions.IsExpressionBodied = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {

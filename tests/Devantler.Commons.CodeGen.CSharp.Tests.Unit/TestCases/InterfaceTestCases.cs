@@ -207,6 +207,17 @@ public static class InterfaceTestCases
             },
             new object[]
             {
+                "InterfaceWithAsynchronousMethod",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: interfaceOptionsAction => {
+                        interfaceOptionsAction.Count = 1;
+                        interfaceOptionsAction.MethodOptions.Count = 1;
+                        interfaceOptionsAction.MethodOptions.IsAsynchronous = true;
+                    }
+                )
+            },
+            new object[]
+            {
                 "InterfaceWithMethodAndDocumentation",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     interfaceOptionsAction: interfaceOptions => {

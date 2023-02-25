@@ -14,4 +14,5 @@ public class CSharpMethodOptions
     public bool IsPartial { get; set; }
     public bool IsExtensionMethod { get; set; }
     public bool IsStatic { get; set; }
+    public bool IncludeAttribute { get; set; }
 }

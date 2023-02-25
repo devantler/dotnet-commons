@@ -108,6 +108,9 @@ public static class CSharpClassFactory
                 .SetVisibility(options.MethodOptions.Visibility)
                 .SetReturnType(options.MethodOptions.ReturnType);
 
+            if (options.MethodOptions.IncludeAttribute)
+                _ = method.AddAttribute("TestAttribute");
+
             if (options.MethodOptions.IncludeStatement)
             {
                 _ = method.AddStatement("""Console.WriteLine("Hello World!");""")

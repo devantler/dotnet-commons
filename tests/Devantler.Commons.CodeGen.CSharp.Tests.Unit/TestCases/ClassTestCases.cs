@@ -256,6 +256,17 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithConstructorAndNonDefaultVisibility",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.ConstructorOptions.Count = 1;
+                        classOptions.ConstructorOptions.Visibility = Visibility.Protected;
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithConstructorAndStatement",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {

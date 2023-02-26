@@ -26,7 +26,7 @@ public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpCons
     /// <inheritdoc/>
     public bool IsNullable { get; set; }
     /// <inheritdoc/>
-    public string DefaultValue { get; set; }
+    public string? DefaultValue { get; set; }
     /// <inheritdoc/>
     public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter)
     {

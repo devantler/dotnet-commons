@@ -57,7 +57,8 @@ public static class CSharpClassFactory
 
         for (int i = 0; i < options.ConstructorOptions.Count; i++)
         {
-            var constructor = new CSharpConstructor($"Class{index}");
+            var constructor = new CSharpConstructor($"Class{index}")
+                .SetVisibility(options.ConstructorOptions.Visibility);
 
             if (options.ConstructorOptions.IncludeStatement)
                 _ = constructor.AddStatement("Console.WriteLine(\"Hello World\");");

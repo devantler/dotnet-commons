@@ -14,7 +14,7 @@ public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
     /// <param name="name"></param>
     public CSharpConstructor(string name) => Name = name;
     /// <inheritdoc/>
-    public Visibility Visibility => Visibility.Public;
+    public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
     public string Name { get; set; }
     /// <inheritdoc/>
@@ -42,6 +42,14 @@ public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
             DocBlock = docBlock;
         return this;
     }
+
+    /// <inheritdoc/>
+    public CSharpConstructor SetVisibility(Visibility visibility)
+    {
+        Visibility = visibility;
+        return this;
+    }
+
     /// <summary>
     /// The template for a C# constructor.
     /// </summary>

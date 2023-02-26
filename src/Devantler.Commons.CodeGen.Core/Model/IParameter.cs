@@ -18,7 +18,7 @@ public interface IParameter
     /// <summary>
     /// The default value of the parameter.
     /// </summary>
-    public string DefaultValue { get; }
+    public string? DefaultValue { get; }
 
     /// <summary>
     /// If the parameter is nullable or not.

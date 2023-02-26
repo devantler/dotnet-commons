@@ -24,7 +24,7 @@ public class CSharpParameter : IFluentParameter<CSharpParameter>
     /// <inheritdoc/>
     public bool IsNullable { get; set; }
     /// <inheritdoc/>
-    public string DefaultValue { get; set; }
+    public string? DefaultValue { get; set; }
     /// <inheritdoc/>
     public CSharpParameter SetIsNullable(bool isNullable)
     {

@@ -24,4 +24,10 @@ public interface IFluentConstructor<T> : IConstructor where T : IConstructor
     /// </summary>
     /// <param name="docBlock"></param>
     public T SetDocBlock(IDocBlock docBlock);
+
+    /// <summary>
+    /// Sets the visibility of the constructor.
+    /// </summary>
+    /// <param name="visibility"></param>
+    public T SetVisibility(Visibility visibility);
 }

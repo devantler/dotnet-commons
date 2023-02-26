@@ -11,5 +11,6 @@ public interface IFluentConstructorParameter<T> : IConstructorParameter, IFluent
     /// Sets whether the parameter is a base parameter.
     /// </summary>
     /// <param name="isBaseParameter"></param>
-    public T SetIsBaseParameter(bool isBaseParameter);
+    /// <param name="baseParameterName"></param>
+    public T SetIsBaseParameter(bool isBaseParameter, string baseParameterName = "");
 }

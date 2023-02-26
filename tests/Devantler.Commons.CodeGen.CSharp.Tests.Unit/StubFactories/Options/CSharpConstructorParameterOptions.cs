@@ -4,4 +4,5 @@ public class CSharpConstructorParameterOptions
 {
     public int Count { get; set; }
     public bool Nullables { get; set; }
+    public string? BaseParameterName { get; set; }
 }

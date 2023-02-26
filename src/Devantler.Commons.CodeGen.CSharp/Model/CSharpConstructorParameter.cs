@@ -27,10 +27,18 @@ public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpCons
     public bool IsNullable { get; set; }
     /// <inheritdoc/>
     public string? DefaultValue { get; set; }
+    /// <summary>
+    /// The name of the base parameter.
+    /// </summary>
+    public string? BaseParameterName { get; set; }
     /// <inheritdoc/>
-    public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter)
+    public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter, string baseParameterName = "")
     {
         IsBaseParameter = isBaseParameter;
+        if (!string.IsNullOrEmpty(baseParameterName))
+            BaseParameterName = baseParameterName;
+        else
+            BaseParameterName = Name;
         return this;
     }
     /// <inheritdoc/>

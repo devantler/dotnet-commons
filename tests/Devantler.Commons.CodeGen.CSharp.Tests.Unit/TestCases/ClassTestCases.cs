@@ -324,6 +324,19 @@ public static class ClassTestCases
             },
             new object[]
             {
+                "ClassWithConstructorAndBaseParameterWithCustomName",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.IncludeBaseClass = true;
+                        classOptions.ConstructorOptions.Count = 1;
+                        classOptions.ConstructorOptions.ParameterOptions.Count = 1;
+                        classOptions.ConstructorOptions.ParameterOptions.BaseParameterName = "baseParameter";
+                    }
+                )
+            },
+            new object[]
+            {
                 "ClassWithMethod",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
                     classOptionsAction: classOptions => {

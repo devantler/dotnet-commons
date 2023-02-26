@@ -78,7 +78,7 @@ public static class CSharpClassFactory
                     _ = parameter.SetIsNullable(true);
 
                 if (options.IncludeBaseClass)
-                    _ = parameter.SetIsBaseParameter(true);
+                    _ = parameter.SetIsBaseParameter(true, options.ConstructorOptions.ParameterOptions.BaseParameterName ?? "");
 
                 _ = constructor.AddParameter(parameter);
             }

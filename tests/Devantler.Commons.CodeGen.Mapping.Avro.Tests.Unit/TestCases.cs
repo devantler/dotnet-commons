@@ -27,8 +27,9 @@ public static class TestCases
             new object[] { new RecordField("EnumField", new EnumSchema("TestEnum")), Language.CSharp, Target.Entity, "TestEnum"},
             new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, Target.Model, "TestRecord"},
             new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, Target.Entity, "TestRecordEntity"},
-            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, Target.Model, "List<string>"},
-            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, Target.Entity, "List<string>"},
+            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, Target.Model, "IEnumerable<string>"},
+            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, Target.Entity, "IEnumerable<string>"},
+            new object[] { new RecordField("StringMapField", new MapSchema(new StringSchema())), Language.CSharp, Target.Model, "IDictionary<string, string>"},
         };
 
     public static IEnumerable<object[]> InvalidCases =>

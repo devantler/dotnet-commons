@@ -75,7 +75,12 @@ public static class AvroSchemaTypeParser
             },
             ArraySchema => language switch
             {
-                Language.CSharp => $"List<{Parse(field, ((ArraySchema)field.Type).Item, language, target)}>",
+                Language.CSharp => $"IEnumerable<{Parse(field, ((ArraySchema)field.Type).Item, language, target)}>",
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
+            MapSchema => language switch
+            {
+                Language.CSharp => $"IDictionary<string, {Parse(field, ((MapSchema)field.Type).Value, language, target)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             _ => throw new NotSupportedException($"Schema type {schemaType.GetType().Name} is not supported."),

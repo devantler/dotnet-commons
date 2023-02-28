@@ -35,10 +35,7 @@ public class CSharpConstructorParameter : IFluentConstructorParameter<CSharpCons
     public CSharpConstructorParameter SetIsBaseParameter(bool isBaseParameter, string baseParameterName = "")
     {
         IsBaseParameter = isBaseParameter;
-        if (!string.IsNullOrEmpty(baseParameterName))
-            BaseParameterName = baseParameterName;
-        else
-            BaseParameterName = Name;
+        BaseParameterName = !string.IsNullOrEmpty(baseParameterName) ? baseParameterName : Name;
         return this;
     }
     /// <inheritdoc/>

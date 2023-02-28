@@ -41,6 +41,7 @@ public static class TestCases
                 new RecordField("NullField", new NullSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<object>(null!, new NullSchema()) },
                 new RecordField("BytesField", new BytesSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<byte[]>(new byte[1], new BytesSchema()) },
                 new RecordField("StringArrayField", new ArraySchema(new StringSchema())) { Documentation = "Test documentation" },
+                new RecordField("StringMapField", new MapSchema(new StringSchema())) { Documentation = "Test documentation" }
             })
         { Documentation = "Test documentation" };
     }

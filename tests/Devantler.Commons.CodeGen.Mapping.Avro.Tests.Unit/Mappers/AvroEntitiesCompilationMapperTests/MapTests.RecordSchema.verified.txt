@@ -82,8 +82,16 @@
           }
         },
         {
-          Type: List<string>,
+          Type: IEnumerable<string>,
           Name: StringArrayField,
+          IsExpressionBodiedMember: false,
+          DocBlock: {
+            Summary: Test documentation
+          }
+        },
+        {
+          Type: IDictionary<string, string>,
+          Name: StringMapField,
           IsExpressionBodiedMember: false,
           DocBlock: {
             Summary: Test documentation

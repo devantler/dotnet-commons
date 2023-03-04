@@ -17,34 +17,36 @@ public static class SchemaExtensions
         {
             List<Schema> schemas = new();
 
-            if (schema is RecordSchema recordSchema)
+            switch (schema)
             {
-                schemas.Add(recordSchema);
-                foreach (var field in recordSchema.Fields)
-                {
-                    schemas.AddRange(Flatten(field.Type));
-                }
-            }
-            else if (schema is EnumSchema enumSchema)
-            {
-                schemas.Add(enumSchema);
-            }
-            else if (schema is ArraySchema arraySchema)
-            {
-                schemas.AddRange(Flatten(arraySchema.Item));
-            }
-            else if (schema is MapSchema mapSchema)
-            {
-                schemas.AddRange(Flatten(mapSchema.Value));
-            }
-            else if (schema is UnionSchema unionSchema)
-            {
-                schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(Flatten));
+                case RecordSchema recordSchema:
+                    {
+                        schemas.Add(recordSchema);
+                        foreach (var field in recordSchema.Fields)
+                        {
+                            schemas.AddRange(Flatten(field.Type));
+                        }
+
+                        break;
+                    }
+
+                case EnumSchema enumSchema:
+                    schemas.Add(enumSchema);
+                    break;
+                case ArraySchema arraySchema:
+                    schemas.AddRange(Flatten(arraySchema.Item));
+                    break;
+                case MapSchema mapSchema:
+                    schemas.AddRange(Flatten(mapSchema.Value));
+                    break;
+                case UnionSchema unionSchema:
+                    schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(Flatten));
+                    break;
             }
 
             return schemas;
         }
 
-        return Flatten(rootSchema);
+        return Flatten(rootSchema).Distinct().ToList();
     }
 }

@@ -19,7 +19,7 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
         {
             UnionSchema => language switch
             {
-                Language.CSharp => ((UnionSchema)@object).Schemas.OfType<NullSchema>().Any() ? string.Join("", ((UnionSchema)@object).Schemas.Select(x => Parse(x, language))) : throw new NotSupportedException($"Union schema {@object} is not supported."),
+                Language.CSharp => ((UnionSchema)@object).Schemas.OfType<NullSchema>().Any() ? string.Join("", ((UnionSchema)@object).Schemas.Select(x => Parse(x, language, action))) : throw new NotSupportedException($"Union schema {@object} is not supported."),
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             IntSchema => language switch
@@ -74,12 +74,12 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
             },
             ArraySchema => language switch
             {
-                Language.CSharp => $"IEnumerable<{Parse(((ArraySchema)@object).Item, language)}>",
+                Language.CSharp => $"IEnumerable<{Parse(((ArraySchema)@object).Item, language, action)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             MapSchema => language switch
             {
-                Language.CSharp => $"IDictionary<string, {Parse(((MapSchema)@object).Value, language)}>",
+                Language.CSharp => $"IDictionary<string, {Parse(((MapSchema)@object).Value, language, action)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             _ => throw new NotSupportedException($"Schema type {@object.GetType().Name} is not supported."),

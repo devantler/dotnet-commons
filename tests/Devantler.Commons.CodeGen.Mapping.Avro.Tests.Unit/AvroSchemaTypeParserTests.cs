@@ -1,6 +1,5 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 

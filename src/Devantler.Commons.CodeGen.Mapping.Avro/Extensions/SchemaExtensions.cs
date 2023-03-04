@@ -13,9 +13,12 @@ public static class SchemaExtensions
     /// <param name="rootSchema"></param>
     public static List<Schema> Flatten(this Schema rootSchema)
     {
-        static List<Schema> Flatten(Schema schema)
+        static List<Schema> Flatten(Schema schema, List<Schema> schemas)
         {
-            List<Schema> schemas = new();
+            if (schemas.Contains(schema))
+            {
+                return schemas;
+            }
 
             switch (schema)
             {
@@ -24,7 +27,7 @@ public static class SchemaExtensions
                         schemas.Add(recordSchema);
                         foreach (var field in recordSchema.Fields)
                         {
-                            schemas.AddRange(Flatten(field.Type));
+                            schemas = Flatten(field.Type, schemas);
                         }
 
                         break;
@@ -34,19 +37,19 @@ public static class SchemaExtensions
                     schemas.Add(enumSchema);
                     break;
                 case ArraySchema arraySchema:
-                    schemas.AddRange(Flatten(arraySchema.Item));
+                    schemas = Flatten(arraySchema.Item, schemas);
                     break;
                 case MapSchema mapSchema:
-                    schemas.AddRange(Flatten(mapSchema.Value));
+                    schemas = Flatten(mapSchema.Value, schemas);
                     break;
                 case UnionSchema unionSchema:
-                    schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(Flatten));
+                    schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(s => Flatten(s, schemas)));
                     break;
             }
 
             return schemas;
         }
 
-        return Flatten(rootSchema).Distinct().ToList();
+        return Flatten(rootSchema, new List<Schema>()).Distinct().ToList();
     }
 }

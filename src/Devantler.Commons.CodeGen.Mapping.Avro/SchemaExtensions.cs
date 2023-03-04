@@ -1,6 +1,6 @@
 using Chr.Avro.Abstract;
 
-namespace Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
+namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
 /// <summary>
 /// A static class containing extension methods for the <see cref="Schema"/> type.
@@ -15,7 +15,7 @@ public static class SchemaExtensions
     {
         static List<Schema> Flatten(Schema schema)
         {
-            List<Schema> schemas = new List<Schema>();
+            var schemas = new List<Schema>();
 
             switch (schema)
             {
@@ -26,7 +26,8 @@ public static class SchemaExtensions
                             schemas.Add(recordSchema);
                             foreach (var field in recordSchema.Fields)
                             {
-                                schemas.AddRange(Flatten(field.Type));
+                                if (!schemas.Contains(field.Type))
+                                    schemas.AddRange(Flatten(field.Type));
                             }
                         }
 
@@ -35,25 +36,19 @@ public static class SchemaExtensions
 
                 case EnumSchema enumSchema:
                     if (!schemas.Contains(enumSchema))
-                    {
                         schemas.Add(enumSchema);
-                    }
 
                     break;
 
                 case ArraySchema arraySchema:
                     if (!schemas.Contains(arraySchema.Item))
-                    {
                         schemas.AddRange(Flatten(arraySchema.Item));
-                    }
 
                     break;
 
                 case MapSchema mapSchema:
                     if (!schemas.Contains(mapSchema.Value))
-                    {
                         schemas.AddRange(Flatten(mapSchema.Value));
-                    }
 
                     break;
 

@@ -2,7 +2,6 @@ using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Model;
 using Devantler.Commons.CodeGen.CSharp.Model;
-using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 using Devantler.Commons.CodeGen.Mapping.Core;
 using Devantler.Commons.StringHelpers;
 
@@ -13,6 +12,9 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 /// </summary>
 public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
 {
+
+    private readonly AvroSchemaParser _parser = new();
+
     /// <inheritdoc />
     public ICompilation Map(Schema rootSchema, Language language)
     {
@@ -47,7 +49,7 @@ public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
                             continue;
 
                         var property = new CSharpProperty(
-                            AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Model), field.Name.ToPascalCase()
+                            _parser.Parse(field.Type, Language.CSharp), field.Name.ToPascalCase()
                         );
 
                         if (field.Documentation != null)

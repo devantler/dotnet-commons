@@ -59,7 +59,7 @@
           }
         },
         {
-          Type: object?,
+          Type: string?,
           Name: NullField,
           IsExpressionBodiedMember: false,
           DocBlock: {

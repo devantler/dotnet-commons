@@ -38,7 +38,7 @@ public static class TestCases
                 new RecordField("DoubleField", new DoubleSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<double>(1.5, new DoubleSchema()) },
                 new RecordField("FloatField", new FloatSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<float>(1.5f, new FloatSchema()) },
                 new RecordField("LongField", new LongSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<long>(10L, new LongSchema()) },
-                new RecordField("NullField", new NullSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<object>(null!, new NullSchema()) },
+                new RecordField("NullField", new UnionSchema(new List<Schema>(){new StringSchema(), new NullSchema()})) { Documentation = "Test documentation", Default = new ObjectDefaultValue<object>(null!, new NullSchema()) },
                 new RecordField("BytesField", new BytesSchema()) { Documentation = "Test documentation", Default = new ObjectDefaultValue<byte[]>(new byte[1], new BytesSchema()) },
                 new RecordField("StringArrayField", new ArraySchema(new StringSchema())) { Documentation = "Test documentation" },
                 new RecordField("StringMapField", new MapSchema(new StringSchema())) { Documentation = "Test documentation" }

@@ -6,19 +6,18 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro;
 /// <summary>
 /// A class containing methods for parsing <see cref="Schema"/> types to strings.
 /// </summary>
-public static class AvroSchemaTypeParser
+public class AvroSchemaParser : IParser<Schema>
 {
-    /// <summary>
-    /// Parses the given <see cref="RecordField"/> to a string representation.
-    /// </summary>
-    /// <param name="field"></param>
-    /// <param name="schemaType"></param>
-    /// <param name="language"></param>
-    /// <param name="target"></param>
-    public static string Parse(RecordField field, Schema schemaType, Language language, Target target)
+    /// <inheritdoc />
+    public string Parse(Schema @object, Language language)
     {
-        return schemaType switch
+        return @object switch
         {
+            UnionSchema => language switch
+            {
+                Language.CSharp => ((UnionSchema)@object).Schemas.OfType<NullSchema>().Any() ? string.Join("", ((UnionSchema)@object).Schemas.Select(x => Parse(x, language))) : throw new NotSupportedException($"Union schema {@object} is not supported."),
+                _ => throw new NotSupportedException($"Language {language} is not supported.")
+            },
             IntSchema => language switch
             {
                 Language.CSharp => "int",
@@ -46,7 +45,7 @@ public static class AvroSchemaTypeParser
             },
             NullSchema => language switch
             {
-                Language.CSharp => "object?",
+                Language.CSharp => "?",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             BytesSchema => language switch
@@ -61,29 +60,25 @@ public static class AvroSchemaTypeParser
             },
             EnumSchema => language switch
             {
-                Language.CSharp => ((EnumSchema)schemaType).Name,
+                Language.CSharp => ((EnumSchema)@object).Name,
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             RecordSchema => language switch
             {
-                Language.CSharp => target switch
-                {
-                    Target.Model => ((RecordSchema)schemaType).Name,
-                    _ => $"{((RecordSchema)schemaType).Name}{target}",
-                },
+                Language.CSharp => ((RecordSchema)@object).Name,
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             ArraySchema => language switch
             {
-                Language.CSharp => $"IEnumerable<{Parse(field, ((ArraySchema)field.Type).Item, language, target)}>",
+                Language.CSharp => $"IEnumerable<{Parse(((ArraySchema)@object).Item, language)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             MapSchema => language switch
             {
-                Language.CSharp => $"IDictionary<string, {Parse(field, ((MapSchema)field.Type).Value, language, target)}>",
+                Language.CSharp => $"IDictionary<string, {Parse(((MapSchema)@object).Value, language)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
-            _ => throw new NotSupportedException($"Schema type {schemaType.GetType().Name} is not supported."),
+            _ => throw new NotSupportedException($"Schema type {@object.GetType().Name} is not supported."),
         };
     }
 }

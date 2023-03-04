@@ -2,7 +2,6 @@ using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Model;
 using Devantler.Commons.CodeGen.CSharp.Model;
-using Devantler.Commons.CodeGen.Mapping.Avro.Extensions;
 using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
@@ -12,6 +11,9 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 /// </summary>
 public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
 {
+
+    private readonly AvroSchemaParser _parser = new();
+
     /// <inheritdoc />
     public ICompilation Map(Schema rootSchema, Language language)
     {
@@ -45,7 +47,7 @@ public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
                 if (string.Equals(field.Name, "id", StringComparison.OrdinalIgnoreCase))
                     continue;
 
-                var property = new CSharpProperty(AvroSchemaTypeParser.Parse(field, field.Type, Language.CSharp, Target.Entity), field.Name);
+                var property = new CSharpProperty(_parser.Parse(field.Type, Language.CSharp), field.Name);
 
                 string? propertyValue = field.Default?.ToObject<object>()?.ToString();
                 if (!string.IsNullOrEmpty(propertyValue))

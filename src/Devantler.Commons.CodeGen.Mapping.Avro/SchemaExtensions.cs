@@ -13,21 +13,19 @@ public static class SchemaExtensions
     /// <param name="rootSchema"></param>
     public static List<Schema> Flatten(this Schema rootSchema)
     {
-        static List<Schema> Flatten(Schema schema)
+        static List<Schema> Flatten(Schema schema, List<Schema> schemas, Dictionary<string, Schema> seenSchemas)
         {
-            var schemas = new List<Schema>();
-
             switch (schema)
             {
                 case RecordSchema recordSchema:
                     {
-                        if (!schemas.Contains(recordSchema))
+                        if (!seenSchemas.ContainsKey(recordSchema.Name))
                         {
+                            seenSchemas.Add(recordSchema.Name, recordSchema);
                             schemas.Add(recordSchema);
                             foreach (var field in recordSchema.Fields)
                             {
-                                if (!schemas.Contains(field.Type))
-                                    schemas.AddRange(Flatten(field.Type));
+                                Flatten(field.Type, schemas, seenSchemas);
                             }
                         }
 
@@ -35,25 +33,29 @@ public static class SchemaExtensions
                     }
 
                 case EnumSchema enumSchema:
-                    if (!schemas.Contains(enumSchema))
+                    if (!seenSchemas.ContainsKey(enumSchema.Name))
+                    {
+                        seenSchemas.Add(enumSchema.Name, enumSchema);
                         schemas.Add(enumSchema);
+                    }
 
                     break;
 
                 case ArraySchema arraySchema:
-                    if (!schemas.Contains(arraySchema.Item))
-                        schemas.AddRange(Flatten(arraySchema.Item));
+                    Flatten(arraySchema.Item, schemas, seenSchemas);
 
                     break;
 
                 case MapSchema mapSchema:
-                    if (!schemas.Contains(mapSchema.Value))
-                        schemas.AddRange(Flatten(mapSchema.Value));
+                    Flatten(mapSchema.Value, schemas, seenSchemas);
 
                     break;
 
                 case UnionSchema unionSchema:
-                    schemas.AddRange(unionSchema.Schemas.ToList().SelectMany(Flatten));
+                    foreach (var schemaItem in unionSchema.Schemas)
+                    {
+                        Flatten(schemaItem, schemas, seenSchemas);
+                    }
 
                     break;
             }
@@ -61,6 +63,6 @@ public static class SchemaExtensions
             return schemas;
         }
 
-        return Flatten(rootSchema);
+        return Flatten(rootSchema, new List<Schema>(), new Dictionary<string, Schema>());
     }
 }

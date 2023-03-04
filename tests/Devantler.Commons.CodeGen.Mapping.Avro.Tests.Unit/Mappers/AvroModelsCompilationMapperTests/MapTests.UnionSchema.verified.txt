@@ -145,26 +145,6 @@
       DocBlock: {
         Summary: Test documentation
       }
-    },
-    {
-      Values: [
-        {
-          Name: Test1,
-          Value: 0
-        },
-        {
-          Name: Test2,
-          Value: 1
-        },
-        {
-          Name: Test3,
-          Value: 2
-        }
-      ],
-      Name: TestEnum,
-      DocBlock: {
-        Summary: Test documentation
-      }
     }
   ]
 }

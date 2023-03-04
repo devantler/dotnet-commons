@@ -13,6 +13,15 @@ public class SchemaExtensionTests
                 {
                     new RecordField("First", new StringSchema()),
                     new RecordField("Last",  new StringSchema())
+                })),
+                new RecordField("Person", new RecordSchema("Person", new List<RecordField>
+                {
+                    new RecordField("Name", new RecordSchema("Name", new List<RecordField>
+                    {
+                        new RecordField("First", new StringSchema()),
+                        new RecordField("Last",  new StringSchema())
+                    })),
+                    new RecordField("Age", new IntSchema())
                 }))
             }
         );
@@ -45,6 +54,7 @@ public class SchemaExtensionTests
         var result = rootSchema.Flatten();
 
         // Assert
-        Assert.All(result, schema => Assert.True(schema is RecordSchema || schema is EnumSchema));
+        result.Should().HaveCount(5);
+        result.Should().AllSatisfy(schema => (schema is RecordSchema || schema is EnumSchema).Should().BeTrue());
     }
 }

@@ -26,6 +26,7 @@ public static class TestCases
             new object[] { new RecordField("EnumField", new EnumSchema("TestEnum")), Language.CSharp, "TestEnum"},
             new object[] { new RecordField("EnumField", new EnumSchema("TestEnum")), Language.CSharp, "TestEnum"},
             new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, "TestRecord"},
+            new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, "TestRecordSuffix", new AvroSchemaParserOptions { RecordSuffix = "Suffix" }},
             new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "IEnumerable<string>"},
             new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "IEnumerable<string>"},
             new object[] { new RecordField("StringMapField", new MapSchema(new StringSchema())), Language.CSharp, "IDictionary<string, string>"},

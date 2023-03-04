@@ -1,16 +1,20 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
+using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
 /// <summary>
 /// A class containing methods for parsing <see cref="Schema"/> types to strings.
 /// </summary>
-public class AvroSchemaParser : IParser<Schema>
+public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
 {
     /// <inheritdoc />
-    public string Parse(Schema @object, Language language)
+    public string Parse(Schema @object, Language language, Action<AvroSchemaParserOptions>? action = default)
     {
+        var options = new AvroSchemaParserOptions();
+        action?.Invoke(options);
+
         return @object switch
         {
             UnionSchema => language switch
@@ -65,7 +69,7 @@ public class AvroSchemaParser : IParser<Schema>
             },
             RecordSchema => language switch
             {
-                Language.CSharp => ((RecordSchema)@object).Name,
+                Language.CSharp => $"{((RecordSchema)@object).Name}{options.RecordSuffix}",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             ArraySchema => language switch

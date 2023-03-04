@@ -1,18 +1,19 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
+using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 
 public class AvroSchemaTypeParserTests
 {
     [Theory, MemberData(nameof(TestCases.ValidCases), MemberType = typeof(TestCases))]
-    public void Parse_GivenValidFieldAndLanguage_ReturnsParsedValue(RecordField field, Language language, string expected)
+    public void Parse_GivenValidFieldAndLanguage_ReturnsParsedValue(RecordField field, Language language, string expected, AvroSchemaParserOptions? options = default)
     {
         // Arrange
         var parser = new AvroSchemaParser();
 
         // Act
-        string actual = parser.Parse(field.Type, language);
+        string actual = parser.Parse(field.Type, language, x => x.RecordSuffix = options?.RecordSuffix?? string.Empty);
 
         // Assert
         _ = actual.Should().Be(expected);

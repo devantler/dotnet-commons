@@ -66,6 +66,6 @@ public static class SchemaExtensions
             return schemas;
         }
 
-        return Flatten(rootSchema).Distinct().ToList();
+        return Flatten(rootSchema);
     }
 }

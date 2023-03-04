@@ -9,7 +9,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <PackageId>Devantler.Commons.CodeGen.Mapping.Core</PackageId>
-    <Version>0.1.48</Version>
+    <Version>0.1.49</Version>
     <Authors>devantler</Authors>
     <Company>Devantler Software</Company>
     <PackageDescription>Core files used to map Schemas to a compilation that can be generated.</PackageDescription>

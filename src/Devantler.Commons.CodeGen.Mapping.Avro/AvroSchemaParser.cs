@@ -14,12 +14,11 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
     {
         var options = new AvroSchemaParserOptions();
         action?.Invoke(options);
-
         return @object switch
         {
-            UnionSchema => language switch
+            UnionSchema unionSchema => language switch
             {
-                Language.CSharp => ((UnionSchema)@object).Schemas.OfType<NullSchema>().Any() ? string.Join("", ((UnionSchema)@object).Schemas.Select(x => Parse(x, language, action))) : throw new NotSupportedException($"Union schema {@object} is not supported."),
+                Language.CSharp => ParseUnionSchema(unionSchema, language),
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             IntSchema => language switch
@@ -84,5 +83,21 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
             },
             _ => throw new NotSupportedException($"Schema type {@object.GetType().Name} is not supported."),
         };
+    }
+
+    private string ParseUnionSchema(UnionSchema unionSchema, Language language)
+    {
+        switch (language)
+        {
+            case Language.CSharp:
+                if (unionSchema.Schemas.Count != 2 && !unionSchema.Schemas.Any(s => s is NullSchema))
+                {
+                    throw new NotSupportedException("Union types are not supported in C#.");
+                }
+                var nonNullSchema = unionSchema.Schemas.First(s => !(s is NullSchema));
+                return Parse(nonNullSchema, Language.CSharp) + "?";
+            default:
+                throw new NotSupportedException($"Language {language} is not supported.");
+        }
     }
 }

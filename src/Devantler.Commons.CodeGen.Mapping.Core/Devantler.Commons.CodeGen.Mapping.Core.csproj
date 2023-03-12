@@ -9,15 +9,20 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <PackageId>Devantler.Commons.CodeGen.Mapping.Core</PackageId>
-    <Version>0.1.56</Version>
+    <Version>0.1.57</Version>
     <Authors>devantler</Authors>
     <Company>Devantler Software</Company>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageDescription>Core files used to map Schemas to a compilation that can be generated.</PackageDescription>
     <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Devantler.Commons.CodeGen.Core\Devantler.Commons.CodeGen.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 </Project>

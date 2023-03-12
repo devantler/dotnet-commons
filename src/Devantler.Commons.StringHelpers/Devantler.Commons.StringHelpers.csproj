@@ -9,12 +9,16 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.StringHelpers</PackageId>
-        <Version>0.1.56</Version>
+        <Version>0.1.57</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>A collection of classes, extensions, and methods for working with strings.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="/" />
+    </ItemGroup>
 </Project>

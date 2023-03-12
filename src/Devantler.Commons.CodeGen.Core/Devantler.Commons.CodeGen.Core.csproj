@@ -9,16 +9,20 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
-        <Version>0.1.56</Version>
+        <Version>0.1.57</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>Core files used to build code generators and code collection mappers.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Scriban" Version="5.7.0"/>
+        <PackageReference Include="Scriban" Version="5.7.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="/" />
+    </ItemGroup>
 </Project>

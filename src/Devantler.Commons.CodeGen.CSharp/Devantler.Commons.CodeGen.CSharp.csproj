@@ -9,12 +9,13 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.CSharp</PackageId>
-        <Version>0.1.56</Version>
+        <Version>0.1.57</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>A code generator that can generate CSharp code.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -27,7 +28,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="templates/**" CopyToOutputDirectory="PreserveNewest" Pack="true" PackageCopyToOutput="true" />
+        <None Include="README.md" Pack="true" PackagePath="/" />
     </ItemGroup>
-
 </Project>

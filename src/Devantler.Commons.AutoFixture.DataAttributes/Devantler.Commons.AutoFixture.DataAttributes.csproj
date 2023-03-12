@@ -9,12 +9,13 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.AutoFixture.DataAttributes</PackageId>
-        <Version>0.1.56</Version>
+        <Version>0.1.57</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>Common AutoFixture data attributes for Xunit and NSubstitute.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,5 +23,9 @@
         <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
         <PackageReference Include="AutoFixture" Version="4.18.0" />
         <PackageReference Include="NSubstitute" Version="5.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="/" />
     </ItemGroup>
 </Project>

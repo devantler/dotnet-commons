@@ -12,7 +12,7 @@ public class AvroSchemaTypeParserTests
         var parser = new AvroSchemaParser();
 
         // Act
-        string actual = parser.Parse(field.Type, language, x => x.RecordSuffix = options?.RecordSuffix?? string.Empty);
+        string actual = parser.Parse(field.Type, language, x => x.RecordSuffix = options?.RecordSuffix ?? string.Empty);
 
         // Assert
         _ = actual.Should().Be(expected);

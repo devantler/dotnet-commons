@@ -13,7 +13,7 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
 {
 
-    private readonly AvroSchemaParser _parser = new();
+    readonly AvroSchemaParser _parser = new();
 
     /// <inheritdoc />
     public ICompilation Map(Schema rootSchema, Language language)

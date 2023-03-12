@@ -1,9 +1,8 @@
-namespace Devantler.Commons.CodeGen.Mapping.Core
+namespace Devantler.Commons.CodeGen.Mapping.Core;
+
+/// <summary>
+/// Marker interface for mapper options.
+/// </summary>
+public interface IMapperOptions
 {
-    /// <summary>
-    /// Marker interface for mapper options.
-    /// </summary>
-    public interface IMapperOptions
-    {
-    }
 }

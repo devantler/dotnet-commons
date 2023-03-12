@@ -25,7 +25,7 @@ public static class SchemaExtensions
                             schemas.Add(recordSchema);
                             foreach (var field in recordSchema.Fields)
                             {
-                                Flatten(field.Type, schemas, seenSchemas);
+                                _ = Flatten(field.Type, schemas, seenSchemas);
                             }
                         }
 
@@ -42,21 +42,23 @@ public static class SchemaExtensions
                     break;
 
                 case ArraySchema arraySchema:
-                    Flatten(arraySchema.Item, schemas, seenSchemas);
+                    _ = Flatten(arraySchema.Item, schemas, seenSchemas);
 
                     break;
 
                 case MapSchema mapSchema:
-                    Flatten(mapSchema.Value, schemas, seenSchemas);
+                    _ = Flatten(mapSchema.Value, schemas, seenSchemas);
 
                     break;
 
                 case UnionSchema unionSchema:
                     foreach (var schemaItem in unionSchema.Schemas)
                     {
-                        Flatten(schemaItem, schemas, seenSchemas);
+                        _ = Flatten(schemaItem, schemas, seenSchemas);
                     }
 
+                    break;
+                default:
                     break;
             }
 

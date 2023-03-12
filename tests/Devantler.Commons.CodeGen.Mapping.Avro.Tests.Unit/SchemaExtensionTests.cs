@@ -1,5 +1,6 @@
 using Chr.Avro.Abstract;
-using Devantler.Commons.CodeGen.Mapping.Avro;
+
+namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 
 public class SchemaExtensionTests
 {
@@ -54,7 +55,7 @@ public class SchemaExtensionTests
         var result = rootSchema.Flatten();
 
         // Assert
-        result.Should().HaveCount(5);
-        result.Should().AllSatisfy(schema => (schema is RecordSchema || schema is EnumSchema).Should().BeTrue());
+        _ = result.Should().HaveCount(5);
+        _ = result.Should().AllSatisfy(schema => (schema is RecordSchema || schema is EnumSchema).Should().BeTrue());
     }
 }

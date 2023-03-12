@@ -1,6 +1,5 @@
 using Chr.Avro.Abstract;
 using Devantler.Commons.CodeGen.Core;
-using Devantler.Commons.CodeGen.Mapping.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro;
 
@@ -90,7 +89,7 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
         };
     }
 
-    private string ParseUnionSchema(UnionSchema unionSchema, Language language)
+    string ParseUnionSchema(UnionSchema unionSchema, Language language)
     {
         switch (language)
         {
@@ -99,7 +98,7 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
                 {
                     throw new NotSupportedException("Union types are not supported in C#.");
                 }
-                var nonNullSchema = unionSchema.Schemas.First(s => !(s is NullSchema));
+                var nonNullSchema = unionSchema.Schemas.First(s => s is not NullSchema);
                 return Parse(nonNullSchema, Language.CSharp) + "?";
             default:
                 throw new NotSupportedException($"Language {language} is not supported.");

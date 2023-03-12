@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-dotnet@v3.0.3
         with:
           dotnet-version: 7.0.x
-      - name: Add NuGet Source
+      - name: Add GitHub Packages as NuGet Source
         run: dotnet nuget add source --username $NUGET_USER --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "${{ env.NUGET_FEED }}"
       - name: Pack
         run: dotnet pack --configuration Release

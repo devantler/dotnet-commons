@@ -9,9 +9,10 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Mapping.Avro</PackageId>
-        <Version>0.1.55</Version>
+        <Version>0.1.56</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>A mapper to map Avro Schemas to a compilation that can be generated.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
     </PropertyGroup>

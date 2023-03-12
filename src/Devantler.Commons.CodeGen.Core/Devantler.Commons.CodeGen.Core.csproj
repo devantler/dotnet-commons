@@ -9,9 +9,10 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
-        <Version>0.1.55</Version>
+        <Version>0.1.56</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageDescription>Core files used to build code generators and code collection mappers.</PackageDescription>
         <RepositoryUrl>https://github.com/devantler/dotnet-commons</RepositoryUrl>
     </PropertyGroup>

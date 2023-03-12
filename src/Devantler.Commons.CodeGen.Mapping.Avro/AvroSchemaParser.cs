@@ -43,7 +43,12 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
             },
             StringSchema => language switch
             {
-                Language.CSharp => "string",
+                Language.CSharp => @object.LogicalType switch
+                {
+                    DateLogicalType => "DateTime",
+                    UuidLogicalType => "Guid",
+                    _ => "string"
+                },
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             NullSchema => language switch

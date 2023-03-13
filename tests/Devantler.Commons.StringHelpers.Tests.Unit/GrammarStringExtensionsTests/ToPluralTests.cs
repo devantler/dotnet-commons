@@ -3,12 +3,6 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.GrammarStringExtensionsTest
 public class ToPluralTests
 {
     [Theory]
-    [InlineData("addresses")]
-    [InlineData("map")]
-    [InlineData("maps")]
-    [InlineData("child")]
-    [InlineData("index")]
-    [InlineData("Bay")]
     [InlineData(null, null)]
     [InlineData("", "")]
     [InlineData("word", "words")]

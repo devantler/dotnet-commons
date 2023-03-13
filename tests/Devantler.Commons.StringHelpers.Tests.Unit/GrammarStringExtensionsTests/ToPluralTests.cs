@@ -3,20 +3,31 @@ namespace Devantler.Commons.StringHelpers.Tests.Unit.GrammarStringExtensionsTest
 public class ToPluralTests
 {
     [Theory]
-    [InlineData("address")]
     [InlineData("addresses")]
     [InlineData("map")]
     [InlineData("maps")]
-    public void ToPlural_GivenSingleWord_ReturnsPlural(string word)
+    [InlineData("child")]
+    [InlineData("index")]
+    [InlineData("Bay")]
+    [InlineData(null, null)]
+    [InlineData("", "")]
+    [InlineData("word", "words")]
+    [InlineData("buzz", "buzzes")]
+    [InlineData("fox", "foxes")]
+    [InlineData("baby", "babies")]
+    [InlineData("day", "days")]
+    [InlineData("toy", "toys")]
+    [InlineData("potato", "potatoes")]
+    [InlineData("hero", "heroes")]
+    [InlineData("woman", "women")]
+    [InlineData("man", "men")]
+    [InlineData("child", "children")]
+    [InlineData("deer", "deer")]
+    [InlineData("species", "species")]
+    [InlineData("address", "addresses")]
+    [InlineData("addresses", "addresses")]
+    public void ToPlural_GivenSingleWord_ReturnsPlural(string input, string expected)
     {
-        //Act
-        string actual = word.ToPlural();
-
-        //Assert
-        _ = word.EndsWith("es", StringComparison.OrdinalIgnoreCase)
-            ? actual.Should().Be(word)
-            : word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
-                ? actual.Should().EndWith("es")
-                : actual.Should().EndWith("s");
+        Assert.Equal(expectedOutput, input.ToPlural());
     }
 }

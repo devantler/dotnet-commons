@@ -28,6 +28,6 @@ public class ToPluralTests
     [InlineData("addresses", "addresses")]
     public void ToPlural_GivenSingleWord_ReturnsPlural(string input, string expected)
     {
-        Assert.Equal(expectedOutput, input.ToPlural());
+        Assert.Equal(expected, input.ToPlural());
     }
 }

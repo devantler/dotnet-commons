@@ -22,6 +22,10 @@ public class ToPluralTests
     [InlineData("addresses", "addresses")]
     public void ToPlural_GivenSingleWord_ReturnsPlural(string input, string expected)
     {
-        Assert.Equal(expected, input.ToPlural());
+        // Act
+        string actual = input.ToPlural();
+
+        // Assert
+        _ = actual.Should().Be(expected);
     }
 }

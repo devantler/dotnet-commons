@@ -22,7 +22,8 @@ public static class GrammarStringExtensions
         {
             {"child", "children"},
             {"woman", "women"},
-            {"man", "men"}
+            {"man", "men"},
+            {"deer", "deer"}
             // add more as needed
         };
 

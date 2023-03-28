@@ -77,7 +77,7 @@ public class AvroSchemaParser : IParser<Schema, AvroSchemaParserOptions>
             },
             ArraySchema => language switch
             {
-                Language.CSharp => $"IEnumerable<{Parse(((ArraySchema)@object).Item, language, action)}>",
+                Language.CSharp => $"List<{Parse(((ArraySchema)@object).Item, language, action)}>",
                 _ => throw new NotSupportedException($"Language {language} is not supported.")
             },
             MapSchema => language switch

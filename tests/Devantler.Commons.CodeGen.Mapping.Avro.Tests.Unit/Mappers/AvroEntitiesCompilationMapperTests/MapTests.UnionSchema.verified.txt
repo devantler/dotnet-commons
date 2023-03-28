@@ -82,7 +82,7 @@
           }
         },
         {
-          Type: IEnumerable<string>,
+          Type: List<string>,
           Name: StringArrayField,
           IsExpressionBodiedMember: false,
           DocBlock: {

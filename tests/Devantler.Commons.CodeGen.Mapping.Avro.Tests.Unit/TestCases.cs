@@ -17,7 +17,7 @@ public static class TestCases
             new object[] { new RecordField("NullField", new UnionSchema(new List<Schema>(){new StringSchema(), new NullSchema()})), Language.CSharp, "string?"},
             new object[] { new RecordField("RecordField", new RecordSchema("TestRecord")), Language.CSharp, "TestRecord"},
             new object[] { new RecordField("RecordFieldWithSuffix", new RecordSchema("TestRecord")), Language.CSharp, "TestRecordSuffix", new AvroSchemaParserOptions { RecordSuffix = "Suffix" }},
-            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "IEnumerable<string>"},
+            new object[] { new RecordField("StringArrayField", new ArraySchema(new StringSchema())), Language.CSharp, "List<string>"},
             new object[] { new RecordField("StringDateField", new StringSchema{ LogicalType = new DateLogicalType()}), Language.CSharp, "DateTime"},
             new object[] { new RecordField("StringField", new StringSchema()), Language.CSharp, "string"},
             new object[] { new RecordField("StringMapField", new MapSchema(new StringSchema())), Language.CSharp, "IDictionary<string, string>"},

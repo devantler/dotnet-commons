@@ -33,8 +33,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Devantler.Commons.CodeGen",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devantler.Commons.CodeGen.Mapping.Core", "src\Devantler.Commons.CodeGen.Mapping.Core\Devantler.Commons.CodeGen.Mapping.Core.csproj", "{9F7BB153-F643-4A10-B287-75F58BF4B0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devantler.Commons.EntityFramework.Extensions", "src\Devantler.Commons.EntityFramework.Extensions\Devantler.Commons.EntityFramework.Extensions.csproj", "{2F9638F4-A998-4ADC-9E05-70DDB82594C6}"
-EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,7 +51,6 @@ Global
 		{F5EF2730-3866-4B7E-942B-081C8F205AAB} = {A9435505-9972-4D9C-BEE4-DCC8DCAB290F}
 		{DC29E51D-304F-441E-B96C-7EC91E4B7E70} = {72326D0F-9CD1-4424-A12B-D3B5DCC0649D}
 		{9F7BB153-F643-4A10-B287-75F58BF4B0D2} = {A9435505-9972-4D9C-BEE4-DCC8DCAB290F}
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6} = {A9435505-9972-4D9C-BEE4-DCC8DCAB290F}
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -196,17 +193,5 @@ Global
 		{9F7BB153-F643-4A10-B287-75F58BF4B0D2}.Release|x64.Build.0 = Release|Any CPU
 		{9F7BB153-F643-4A10-B287-75F58BF4B0D2}.Release|x86.ActiveCfg = Release|Any CPU
 		{9F7BB153-F643-4A10-B287-75F58BF4B0D2}.Release|x86.Build.0 = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|x64.Build.0 = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Debug|x86.Build.0 = Debug|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|x64.ActiveCfg = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|x64.Build.0 = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|x86.ActiveCfg = Release|Any CPU
-		{2F9638F4-A998-4ADC-9E05-70DDB82594C6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

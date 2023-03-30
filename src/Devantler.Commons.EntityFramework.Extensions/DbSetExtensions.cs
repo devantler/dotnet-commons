@@ -15,20 +15,22 @@ public static class DbSetExtensions
     /// state such that they will be inserted into the database when Microsoft.EntityFrameworkCore.DbContext.SaveChanges
     /// is called.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TKey"></typeparam>
     /// <param name="dbSet"></param>
     /// <param name="entities"></param>
     /// <param name="insertIfNotExists"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public static async Task AddRangeAsync<T>(this DbSet<T> dbSet, IEnumerable<T> entities, bool insertIfNotExists = false, CancellationToken cancellationToken = default) where T : class
+    public static async Task AddRangeAsync<TEntity, TKey>(this DbSet<TEntity> dbSet, IEnumerable<TEntity> entities, bool insertIfNotExists = false, CancellationToken cancellationToken = default)
+        where TEntity : class, IEntity<TKey>
     {
-        var entitiesToInsert = new List<T>();
+        var entitiesToInsert = new List<TEntity>();
         if (insertIfNotExists)
         {
             foreach (var entity in entities)
             {
-                if (await dbSet.FindAsync(entity, cancellationToken) == null)
+                if (await dbSet.FindAsync(entity.Id, cancellationToken) == null)
                 {
                     entitiesToInsert.Add(entity);
                 }

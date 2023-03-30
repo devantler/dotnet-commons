@@ -9,7 +9,7 @@
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <PackageId>Devantler.Commons.CodeGen.Core</PackageId>
-        <Version>0.1.61</Version>
+        <Version>0.1.62</Version>
         <Authors>devantler</Authors>
         <Company>Devantler Software</Company>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

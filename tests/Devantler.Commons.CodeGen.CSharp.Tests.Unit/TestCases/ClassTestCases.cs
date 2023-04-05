@@ -35,6 +35,17 @@ public static class ClassTestCases
                     }
                 )
             },
+            new object[]
+            {
+                "ClassWithBaseClassAndImplementation",
+                CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(
+                    classOptionsAction: classOptions => {
+                        classOptions.Count = 1;
+                        classOptions.IncludeBaseClass = true;
+                        classOptions.ImplementationOptions.Count = 1;
+                    }
+                )
+            },
             new object[]{
                 "ClassWithNonDefaultVisibility",
                 CSharpCodeCompilationFactory.CreateCSharpCodeCompilationStub(

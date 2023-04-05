@@ -165,7 +165,7 @@ public class CSharpClass : IFluentClass<CSharpClass>
         {{~ if doc_block ~}}
         {{ include 'doc_block' doc_block }}
         {{- end ~}}
-        {{ visibility != "Private" ? (visibility | string.downcase) + " " : ""}}{{ is_static ? "static " : "" }}{{ is_abstract ? "abstract " : "" }}{{ is_partial ? "partial " : "" }}class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ base_class ? base_class.name : "" }}{{ end }}{{ if implementations | array.size > 0 }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
+        {{ visibility != "Private" ? (visibility | string.downcase) + " " : "" }}{{ is_static ? "static " : "" }}{{ is_abstract ? "abstract " : "" }}{{ is_partial ? "partial " : "" }}class {{ name }}{{ if base_class || (implementations | array.size > 0) }} : {{ end }}{{ base_class ? base_class.name : "" }}{{ if implementations | array.size > 0 }}{{ base_class ? ", " : "" }}{{ for implementation in implementations }}{{ implementation.name }}{{ if !for.last }}, {{ end }}{{~ end ~}}{{~ end }}
         {
             {{~ for field in fields ~}}
             {{ include 'field' field }}

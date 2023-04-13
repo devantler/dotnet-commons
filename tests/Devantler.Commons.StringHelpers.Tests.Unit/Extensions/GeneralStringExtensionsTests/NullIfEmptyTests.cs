@@ -1,4 +1,6 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.GeneralStringExtensionsTests;
+using Devantler.Commons.StringHelpers.Extensions;
+
+namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GeneralStringExtensionsTests;
 
 public class GeneralStringExtensionsTests
 {

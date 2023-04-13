@@ -1,4 +1,6 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.CasingStringExtensionsTests;
+using Devantler.Commons.StringHelpers.Extensions;
+
+namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
 
 public class ToPascalCaseTests
 {

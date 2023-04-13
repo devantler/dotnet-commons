@@ -11,7 +11,6 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 /// </summary>
 public class AvroEntitiesCompilationMapper : ICompilationMapper<Schema>
 {
-
     readonly AvroSchemaParser _parser = new();
 
     /// <inheritdoc />

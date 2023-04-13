@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.CasingStringExtensionsTests;
+namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
 
 public static class TestCases
 {

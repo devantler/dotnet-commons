@@ -3,7 +3,7 @@ using Devantler.Commons.CodeGen.Core;
 using Devantler.Commons.CodeGen.Core.Model;
 using Devantler.Commons.CodeGen.CSharp.Model;
 using Devantler.Commons.CodeGen.Mapping.Core;
-using Devantler.Commons.StringHelpers;
+using Devantler.Commons.StringHelpers.Extensions;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 
@@ -12,7 +12,6 @@ namespace Devantler.Commons.CodeGen.Mapping.Avro.Mappers;
 /// </summary>
 public class AvroModelsCompilationMapper : ICompilationMapper<Schema>
 {
-
     readonly AvroSchemaParser _parser = new();
 
     /// <inheritdoc />

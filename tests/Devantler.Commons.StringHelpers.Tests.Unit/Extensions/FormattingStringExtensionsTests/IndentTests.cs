@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using Devantler.Commons.StringHelpers.Extensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.FormattingStringExtensionsTests;
+namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.FormattingStringExtensionsTests;
 
 public class IndentTests
 {

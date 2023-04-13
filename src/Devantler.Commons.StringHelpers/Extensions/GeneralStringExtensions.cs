@@ -9,6 +9,6 @@ public static class GeneralStringExtensions
     /// Returns null if the string is null or empty.
     /// </summary>
     /// <param name="text"></param>
-    public static string? NullIfEmpty(this string? text)
+    public static string? NullIfEmpty(this string text)
         => string.IsNullOrEmpty(text) ? null : text;
 }

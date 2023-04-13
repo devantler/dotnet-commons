@@ -1,4 +1,6 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.GrammarStringExtensionsTests;
+using Devantler.Commons.StringHelpers.Extensions;
+
+namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GrammarStringExtensionsTests;
 
 public class ToPluralTests
 {

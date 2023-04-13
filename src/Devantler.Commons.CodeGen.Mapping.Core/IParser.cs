@@ -1,5 +1,7 @@
 using Devantler.Commons.CodeGen.Core;
 
+namespace Devantler.Commons.CodeGen.Mapping.Core;
+
 /// <summary>
 /// A parser that parses an object into a string.
 /// </summary>

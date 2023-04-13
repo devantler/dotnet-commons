@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers;
+namespace Devantler.Commons.StringHelpers.Extensions;
 
 /// <summary>
 /// General purpose string extensions.
@@ -8,6 +8,7 @@ public static class GeneralStringExtensions
     /// <summary>
     /// Returns null if the string is null or empty.
     /// </summary>
-    public static string? NullIfEmpty(this string text)
+    /// <param name="text"></param>
+    public static string? NullIfEmpty(this string? text)
         => string.IsNullOrEmpty(text) ? null : text;
 }

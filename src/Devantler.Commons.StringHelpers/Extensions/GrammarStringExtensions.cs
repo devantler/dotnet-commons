@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers;
+namespace Devantler.Commons.StringHelpers.Extensions;
 
 /// <summary>
 /// Provides extension methods for <see cref="string" /> that help with grammar.

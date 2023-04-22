@@ -15,7 +15,7 @@ public class AvroSchemaTypeParserTests
         string actual = parser.Parse(field.Type, language, x => x.RecordSuffix = options?.RecordSuffix ?? string.Empty);
 
         // Assert
-        _ = actual.Should().Be(expected);
+        Assert.Equal(expected, actual);
     }
 
     [Theory, MemberData(nameof(TestCases.InvalidCases), MemberType = typeof(TestCases))]
@@ -25,9 +25,9 @@ public class AvroSchemaTypeParserTests
         var parser = new AvroSchemaParser();
 
         // Act
-        Action actual = () => parser.Parse(field.Type, language);
+        void actual() => parser.Parse(field.Type, language);
 
         // Assert
-        _ = actual.Should().Throw<NotSupportedException>();
+        _ = Assert.Throws<NotSupportedException>(actual);
     }
 }

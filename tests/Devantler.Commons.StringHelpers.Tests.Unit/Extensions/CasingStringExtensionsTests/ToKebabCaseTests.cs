@@ -13,6 +13,6 @@ public class ToKebabCaseTests
         string actual = text.ToKebabCase();
 
         //Assert
-        _ = RegexLibrary.KebabCaseRegex.IsMatch(actual).Should().BeTrue();
+        Assert.Matches(RegexLibrary.KebabCaseRegex, actual);
     }
 }

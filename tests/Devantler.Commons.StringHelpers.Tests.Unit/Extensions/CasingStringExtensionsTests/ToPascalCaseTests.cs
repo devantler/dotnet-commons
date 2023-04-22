@@ -13,6 +13,6 @@ public class ToPascalCaseTests
         string actual = text.ToPascalCase();
 
         //Assert
-        _ = RegexLibrary.PascalCaseWithDigitsRegex.IsMatch(actual).Should().BeTrue();
+        Assert.Matches(RegexLibrary.PascalCaseWithDigitsRegex, actual);
     }
 }

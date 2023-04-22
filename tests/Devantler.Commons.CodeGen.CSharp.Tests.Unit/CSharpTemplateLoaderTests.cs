@@ -17,6 +17,6 @@ public class CSharpTemplateLoaderTests
         string template = await sut.LoadAsync(context, sourceSpan, typeof(CSharpClass).FullName ?? string.Empty);
 
         // Assert
-        _ = template.Should().NotBeEmpty();
+        Assert.NotEmpty(template);
     }
 }

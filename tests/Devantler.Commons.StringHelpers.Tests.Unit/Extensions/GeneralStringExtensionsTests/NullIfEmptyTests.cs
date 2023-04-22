@@ -13,7 +13,7 @@ public class GeneralStringExtensionsTests
         string? actual = input.NullIfEmpty();
 
         // Assert
-        _ = actual.Should().BeNull();
+        Assert.Null(actual);
     }
 
     [Theory]
@@ -26,6 +26,6 @@ public class GeneralStringExtensionsTests
         string? actual = input.NullIfEmpty();
 
         // Assert
-        _ = actual.Should().Be(input);
+        Assert.Equal(input, actual);
     }
 }

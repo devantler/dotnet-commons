@@ -33,6 +33,6 @@ public class MapTests
         var action = () => mapper.Map(schemaBuilder.BuildSchema<RecordSchema>(), language);
 
         // Assert
-        _ = action.Should().Throw<NotSupportedException>();
+        _ = Assert.Throws<NotSupportedException>(action);
     }
 }

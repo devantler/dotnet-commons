@@ -11,7 +11,7 @@ public class AutoNSubstituteDataAttributeTests
         var fixture = sut.Fixture;
 
         // Assert
-        _ = fixture.Customizations.Should().NotBeEmpty();
+        Assert.NotEmpty(fixture.Customizations);
     }
 
     [Fact]
@@ -24,6 +24,6 @@ public class AutoNSubstituteDataAttributeTests
         var fixture = sut.Fixture;
 
         // Assert
-        _ = fixture.Customizations.Should().NotBeEmpty();
+        Assert.NotEmpty(fixture.Customizations);
     }
 }

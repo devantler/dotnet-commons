@@ -13,7 +13,7 @@ public class IndentTests
         string actual = text.Indent(indentSize);
 
         //Assert
-        _ = actual.Should().StartWith(new string(' ', indentSize));
+        Assert.StartsWith(new string(' ', indentSize), actual);
     }
 
     [Fact]
@@ -29,8 +29,9 @@ public class IndentTests
         string actual = multiLineText.Indent(4, true);
 
         //Assert
-        _ = actual.Should().StartWith("first line");
-        _ = actual.Should().EndWith("    second line");
+        Assert.StartsWith("first line", actual);
+        Assert.EndsWith("    second line", actual);
+
     }
 
     [Theory]
@@ -46,8 +47,7 @@ public class IndentTests
         string actual = multiLineText.Indent(indentSize);
 
         //Assert
-        _ = actual.Split(Environment.NewLine).Should()
-            .OnlyContain(line => line.StartsWith(new string(' ', indentSize)));
+        Assert.All(actual.Split(Environment.NewLine), line => Assert.StartsWith(new string(' ', indentSize), line));
     }
 
     [Theory]
@@ -55,9 +55,9 @@ public class IndentTests
     public void GivenSingleLineTextAndNegativeIndentSize_Throws([Range(-100, -1)] int indentSize)
     {
         //Act
-        Action action = () => "this is a test".Indent(indentSize);
+        void action() => "this is a test".Indent(indentSize);
 
         //Assert
-        _ = action.Should().Throw<ArgumentOutOfRangeException>();
+        _ = Assert.Throws<ArgumentOutOfRangeException>(action);
     }
 }

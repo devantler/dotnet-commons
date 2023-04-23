@@ -14,7 +14,6 @@
       <Using Include="AutoFixture.AutoNSubstitute" />
       <Using Include="AutoFixture.Xunit2" />
       <Using Include="AutoFixture" />
-      <Using Include="FluentAssertions" />
       <Using Include="NSubstitute" />
       <Using Include="Xunit" />
   </ItemGroup>
@@ -24,23 +23,18 @@
       <PackageReference Include="AutoFixture.Xunit2" Version="4.18.0" />
       <PackageReference Include="AutoFixture" Version="4.18.0" />
       <PackageReference Include="coverlet.collector" Version="3.2.0" PrivateAssets="all" />
-      <PackageReference Include="FluentAssertions.Analyzers" Version="0.17.2" />
-      <PackageReference Include="FluentAssertions" Version="6.11.0" />
       <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="3.3.4" PrivateAssets="all" />
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
       <PackageReference Include="NSubstitute" Version="5.0.0" />
       <PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.16" />
       <PackageReference Include="Verify.XUnit" Version="19.12.3" />
+      <PackageReference Include="xunit.analyzers" Version="1.1.0" />
       <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
       <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
 
   <ItemGroup>
       <ProjectReference Include="..\..\src\Devantler.Commons.CodeGen.Mapping.Avro\Devantler.Commons.CodeGen.Mapping.Avro.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-      <AdditionalFiles Include="BannedSymbols.txt" />
   </ItemGroup>
 
 </Project>

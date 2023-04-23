@@ -14,7 +14,7 @@ public class CSharpEnumSymbolTests
         _ = sut.SetValue(TestValue.TestMember);
 
         // Assert
-        _ = sut.Value.Should().Be("TestMember");
+        Assert.Equal("TestMember", sut.Value);
     }
 
     public enum TestValue

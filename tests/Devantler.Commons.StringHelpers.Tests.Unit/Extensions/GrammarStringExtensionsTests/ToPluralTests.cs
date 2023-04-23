@@ -28,6 +28,6 @@ public class ToPluralTests
         string actual = input.ToPlural();
 
         // Assert
-        _ = actual.Should().Be(expected);
+        Assert.Equal(expected, actual);
     }
 }

@@ -13,6 +13,6 @@ public class ToCamelCaseTests
         string actual = text.ToCamelCase();
 
         //Assert
-        _ = RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(actual).Should().BeTrue();
+        Assert.Matches(RegexLibrary.CamelCaseWithDigitsRegex, actual);
     }
 }

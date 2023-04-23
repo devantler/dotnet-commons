@@ -17,7 +17,7 @@ public class FileTemplateLoaderTests
         string result = sut.GetPath(context, sourceSpan, "test-template.sbn");
 
         // Assert
-        _ = result.Should().Be($"{Directory.GetCurrentDirectory()}/templates/test-template.sbn");
+        Assert.Equal($"{Directory.GetCurrentDirectory()}/templates/test-template.sbn", result);
     }
 
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
@@ -31,7 +31,7 @@ public class FileTemplateLoaderTests
         string result = sut.Load(context, sourceSpan, path);
 
         // Assert
-        _ = result.Should().Be("This is a test template.");
+        Assert.Equal("This is a test template.", result);
     }
 
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
@@ -42,10 +42,10 @@ public class FileTemplateLoaderTests
         string path = $"{Directory.GetCurrentDirectory()}/templates/invalid-template.sbn";
 
         // Act
-        Action action = () => sut.Load(context, sourceSpan, path);
+        void action() => sut.Load(context, sourceSpan, path);
 
         // Assert
-        _ = action.Should().Throw<FileNotFoundException>();
+        _ = Assert.Throws<FileNotFoundException>(action);
     }
 
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
@@ -59,7 +59,7 @@ public class FileTemplateLoaderTests
         string result = await sut.LoadAsync(context, sourceSpan, path);
 
         // Assert
-        _ = result.Should().Be("This is a test template.");
+        Assert.Equal("This is a test template.", result);
     }
 
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
@@ -70,9 +70,9 @@ public class FileTemplateLoaderTests
         string path = $"{Directory.GetCurrentDirectory()}/templates/invalid-template.sbn";
 
         // Act
-        Func<Task> action = async () => await sut.LoadAsync(context, sourceSpan, path);
+        async Task action() => await sut.LoadAsync(context, sourceSpan, path);
 
         // Assert
-        _ = action.Should().ThrowAsync<FileNotFoundException>();
+        _ = Assert.ThrowsAsync<FileNotFoundException>(action);
     }
 }

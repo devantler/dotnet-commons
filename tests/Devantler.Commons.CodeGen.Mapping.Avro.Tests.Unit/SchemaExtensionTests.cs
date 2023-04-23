@@ -55,7 +55,7 @@ public class SchemaExtensionTests
         var result = rootSchema.Flatten();
 
         // Assert
-        _ = result.Should().HaveCount(5);
-        _ = result.Should().AllSatisfy(schema => (schema is RecordSchema || schema is EnumSchema).Should().BeTrue());
+        Assert.Equal(5, result.Count);
+        Assert.True(result.All(schema => schema is RecordSchema or EnumSchema));
     }
 }

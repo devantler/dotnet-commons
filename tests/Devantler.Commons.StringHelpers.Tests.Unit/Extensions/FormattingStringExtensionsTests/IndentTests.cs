@@ -31,7 +31,6 @@ public class IndentTests
         //Assert
         Assert.StartsWith("first line", actual);
         Assert.EndsWith("    second line", actual);
-
     }
 
     [Theory]

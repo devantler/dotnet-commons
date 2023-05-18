@@ -1,4 +1,4 @@
-# .NET Commons
+# .NET Commons 📦
 
 [![codecov](https://codecov.io/gh/devantler/dotnet-commons/branch/main/graph/badge.svg?token=ZFNJRQWYAA)](https://codecov.io/gh/devantler/dotnet-commons)
 

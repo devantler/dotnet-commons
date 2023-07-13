@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Chr.Avro" Version="9.5.1" />
+        <PackageReference Include="Chr.Avro" Version="9.6.0" />
     </ItemGroup>
 
     <ItemGroup>

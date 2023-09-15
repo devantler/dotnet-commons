@@ -26,4 +26,5 @@ jobs:
         with:
           files: tests/**/TestResults/**/coverage.cobertura.xml
           fail_ci_if_error: true
+          version: v0.2.0
           token: ${{ secrets.CODECOV_TOKEN }}

@@ -22,9 +22,8 @@ jobs:
       - name: Test
         run: dotnet test --collect:"XPlat Code Coverage" --configuration Release --no-build
       - name: Upload Code Coverage to CodeCov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v4.0.0-beta.2
         with:
           files: tests/**/TestResults/**/coverage.cobertura.xml
           fail_ci_if_error: true
-          version: v0.2.0
           token: ${{ secrets.CODECOV_TOKEN }}

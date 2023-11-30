@@ -6,24 +6,19 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# property.
 /// </summary>
-public class CSharpProperty : IFluentProperty<CSharpProperty>
+/// <remarks>
+/// Creates a new C# property.
+/// </remarks>
+/// <param name="type"></param>
+/// <param name="name"></param>
+public class CSharpProperty(string type, string name) : IFluentProperty<CSharpProperty>
 {
-    /// <summary>
-    /// Creates a new C# property.
-    /// </summary>
-    /// <param name="type"></param>
-    /// <param name="name"></param>
-    public CSharpProperty(string type, string name)
-    {
-        Name = name;
-        Type = type;
-    }
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
-    public string Type { get; set; }
+    public string Type { get; set; } = type;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Value { get; set; }
     /// <inheritdoc/>

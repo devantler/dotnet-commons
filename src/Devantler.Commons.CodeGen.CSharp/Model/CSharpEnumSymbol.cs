@@ -6,15 +6,14 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 /// A model representing a C# enum value.
 /// </summary>
-public class CSharpEnumSymbol : IFluentEnumValue<CSharpEnumSymbol>
+/// <remarks>
+/// Creates a new C# enum value.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpEnumSymbol(string name) : IFluentEnumValue<CSharpEnumSymbol>
 {
-    /// <summary>
-    /// Creates a new C# enum value.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpEnumSymbol(string name) => Name = name;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Value { get; set; }
     /// <inheritdoc/>

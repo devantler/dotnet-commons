@@ -5,15 +5,14 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# using.
 /// </summary>
-public class CSharpUsing : IImport
+/// <remarks>
+/// Creates a new C# using.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpUsing(string name) : IImport
 {
-    /// <summary>
-    /// Creates a new C# using.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpUsing(string name) => Name = name;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Alias { get; set; }
     /// <summary>

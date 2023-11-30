@@ -8,29 +8,28 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 /// A model representing a C# class.
 /// </summary>
-public class CSharpClass : IFluentClass<CSharpClass>
+/// <remarks>
+/// Creates a new C# class.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpClass(string name) : IFluentClass<CSharpClass>
 {
-    /// <summary>
-    /// Creates a new C# class.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpClass(string name) => Name = name;
     /// <inheritdoc/>
-    public List<IInterface> Implementations { get; } = new();
+    public List<IInterface> Implementations { get; } = [];
     /// <inheritdoc/>
-    public List<IField> Fields { get; } = new();
+    public List<IField> Fields { get; } = [];
     /// <inheritdoc/>
-    public List<IProperty> Properties { get; } = new();
+    public List<IProperty> Properties { get; } = [];
     /// <inheritdoc/>
-    public List<IConstructor> Constructors { get; } = new();
+    public List<IConstructor> Constructors { get; } = [];
     /// <inheritdoc/>
-    public List<IMethod> Methods { get; } = new();
+    public List<IMethod> Methods { get; } = [];
     /// <inheritdoc/>
-    public List<IImport> Imports { get; } = new();
+    public List<IImport> Imports { get; } = [];
     /// <inheritdoc/>
     public IClass? BaseClass { get; set; }
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Namespace { get; set; }
     /// <inheritdoc/>

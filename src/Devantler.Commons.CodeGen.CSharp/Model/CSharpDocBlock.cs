@@ -6,17 +6,16 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# documentation block.
 /// </summary>
-public class CSharpDocBlock : IFluentDocBlock<CSharpDocBlock>
+/// <remarks>
+/// Creates a new C# documentation block.
+/// </remarks>
+/// <param name="summary"></param>
+public class CSharpDocBlock(string summary) : IFluentDocBlock<CSharpDocBlock>
 {
-    /// <summary>
-    /// Creates a new C# documentation block.
-    /// </summary>
-    /// <param name="summary"></param>
-    public CSharpDocBlock(string summary) => Summary = summary;
     /// <inheritdoc/>
-    public string Summary { get; set; }
+    public string Summary { get; set; } = summary;
     /// <inheritdoc/>
-    public List<IDocBlockParameter> Parameters { get; set; } = new();
+    public List<IDocBlockParameter> Parameters { get; set; } = [];
     /// <inheritdoc/>
     public CSharpDocBlock AddParameter(IDocBlockParameter parameter)
     {

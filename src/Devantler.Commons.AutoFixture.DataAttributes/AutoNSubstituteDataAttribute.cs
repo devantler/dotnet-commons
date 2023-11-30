@@ -7,14 +7,12 @@ namespace Devantler.Commons.AutoFixture.DataAttributes;
 /// <summary>
 /// A data attribute that uses AutoFixture and NSubstitute to generate data and create mocks for tests.
 /// </summary>
-public class AutoNSubstituteDataAttribute : AutoDataAttribute
-{
-    /// <summary>
-    /// Creates a new instance of the <see cref="AutoNSubstituteDataAttribute"/> class.
-    /// </summary>
-    /// <param name="customizations"></param>
-    public AutoNSubstituteDataAttribute(params Type[] customizations) : base(
-        () => new Fixture()
+/// <remarks>
+/// Creates a new instance of the <see cref="AutoNSubstituteDataAttribute"/> class.
+/// </remarks>
+/// <param name="customizations"></param>
+public class AutoNSubstituteDataAttribute(params Type[] customizations) : AutoDataAttribute(
+    () => new Fixture()
             .Customize(new AutoNSubstituteCustomization())
             .Customize(
                 new CompositeCustomization(
@@ -22,6 +20,5 @@ public class AutoNSubstituteDataAttribute : AutoDataAttribute
                 )
             )
     )
-    {
-    }
+{
 }

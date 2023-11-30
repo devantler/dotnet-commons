@@ -8,23 +8,22 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# enum.
 /// </summary>
-public class CSharpEnum : IFluentEnum<CSharpEnum>
+/// <remarks>
+/// Creates a new C# enum.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpEnum(string name) : IFluentEnum<CSharpEnum>
 {
-    /// <summary>
-    /// Creates a new C# enum.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpEnum(string name) => Name = name;
     /// <inheritdoc/>
-    public List<IEnumValue> Values { get; } = new();
+    public List<IEnumValue> Values { get; } = [];
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Namespace { get; set; }
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
-    public List<IImport> Imports { get; } = new();
+    public List<IImport> Imports { get; } = [];
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>

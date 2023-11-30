@@ -8,27 +8,26 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# interface.
 /// </summary>
-public class CSharpInterface : IFluentInterface<CSharpInterface>
+/// <remarks>
+/// Creates a new C# interface.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpInterface(string name) : IFluentInterface<CSharpInterface>
 {
-    /// <summary>
-    /// Creates a new C# interface.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpInterface(string name) => Name = name;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Namespace { get; set; }
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
-    public List<IProperty> Properties { get; } = new();
+    public List<IProperty> Properties { get; } = [];
     /// <inheritdoc/>
-    public List<IMethod> Methods { get; } = new();
+    public List<IMethod> Methods { get; } = [];
     /// <inheritdoc/>
-    public List<IImport> Imports { get; } = new();
+    public List<IImport> Imports { get; } = [];
     /// <inheritdoc/>
-    public List<IInterface> Implementations { get; } = new();
+    public List<IInterface> Implementations { get; } = [];
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>

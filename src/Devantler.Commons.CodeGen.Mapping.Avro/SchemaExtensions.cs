@@ -65,6 +65,6 @@ public static class SchemaExtensions
             return schemas;
         }
 
-        return Flatten(rootSchema, new List<Schema>(), new Dictionary<string, Schema>());
+        return Flatten(rootSchema, [], []);
     }
 }

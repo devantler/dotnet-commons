@@ -2,8 +2,14 @@ using Chr.Avro.Abstract;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 
+/// <summary>
+/// Tests for schema extensions.
+/// </summary>
 public class SchemaExtensionTests
 {
+    /// <summary>
+    /// Tests the <see cref="SchemaExtensions.Flatten"/> method.
+    /// </summary>
     [Fact]
     public void Flatten_ReturnsOnlyRecordAndEnumSchemas()
     {

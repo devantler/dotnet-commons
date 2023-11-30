@@ -3,8 +3,14 @@ using Devantler.Commons.CodeGen.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit.Mappers.AvroEntitiesCompilationMapperTests;
 
+/// <summary>
+/// Test cases for Avro entities compilation mapper.
+/// </summary>
 public static class TestCases
 {
+    /// <summary>
+    /// Valid test cases.
+    /// </summary>
     public static IEnumerable<object[]> ValidCases
     {
         get

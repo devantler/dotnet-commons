@@ -5,8 +5,17 @@ using Scriban.Parsing;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit;
 
+/// <summary>
+/// C# template loader tests.
+/// </summary>
 public class CSharpTemplateLoaderTests
 {
+    /// <summary>
+    /// Tests the <see cref="CSharpTemplateLoader.Load"/> method.
+    /// </summary>
+    /// <param name="context"></param>
+    /// <param name="sourceSpan"></param>
+    /// <returns></returns>
     [Theory, AutoNSubstituteData(typeof(SupportMutableValueTypesCustomization))]
     public async Task LoadAsync_GivenValidTemplateObjectPath_LoadsATemplateAsync(TemplateContext context, SourceSpan sourceSpan)
     {

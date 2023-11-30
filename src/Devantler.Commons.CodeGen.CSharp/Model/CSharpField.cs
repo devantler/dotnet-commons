@@ -6,24 +6,19 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# field.
 /// </summary>
-public class CSharpField : IFluentField<CSharpField>
+/// <remarks>
+/// Creates a new C# field.
+/// </remarks>
+/// <param name="type"></param>
+/// <param name="name"></param>
+public class CSharpField(string type, string name) : IFluentField<CSharpField>
 {
-    /// <summary>
-    /// Creates a new C# field.
-    /// </summary>
-    /// <param name="type"></param>
-    /// <param name="name"></param>
-    public CSharpField(string type, string name)
-    {
-        Type = type;
-        Name = name;
-    }
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
-    public string Type { get; set; }
+    public string Type { get; set; } = type;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Value { get; set; }
     /// <inheritdoc/>

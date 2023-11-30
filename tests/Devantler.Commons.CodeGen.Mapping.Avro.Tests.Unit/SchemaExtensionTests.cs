@@ -10,19 +10,19 @@ public class SchemaExtensionTests
         // Arrange
         var recordSchema = new RecordSchema("Person", new List<RecordField>
             {
-                new RecordField("Name", new RecordSchema("Name", new List<RecordField>
+                new("Name", new RecordSchema("Name", new List<RecordField>
                 {
-                    new RecordField("First", new StringSchema()),
-                    new RecordField("Last",  new StringSchema())
+                    new("First", new StringSchema()),
+                    new("Last",  new StringSchema())
                 })),
-                new RecordField("Person", new RecordSchema("Person", new List<RecordField>
+                new("Person", new RecordSchema("Person", new List<RecordField>
                 {
-                    new RecordField("Name", new RecordSchema("Name", new List<RecordField>
+                    new("Name", new RecordSchema("Name", new List<RecordField>
                     {
-                        new RecordField("First", new StringSchema()),
-                        new RecordField("Last",  new StringSchema())
+                        new("First", new StringSchema()),
+                        new("Last",  new StringSchema())
                     })),
-                    new RecordField("Age", new IntSchema())
+                    new("Age", new IntSchema())
                 }))
             }
         );
@@ -44,11 +44,11 @@ public class SchemaExtensionTests
 
         var rootSchema = new RecordSchema("Root", new List<RecordField>
             {
-                new RecordField("Person", recordSchema),
-                new RecordField("Color", enumSchema),
-                new RecordField("Flags", arraySchema),
-                new RecordField("Sizes", mapSchema),
-                new RecordField("Numbers", unionSchema)
+                new("Person", recordSchema),
+                new("Color", enumSchema),
+                new("Flags", arraySchema),
+                new("Sizes", mapSchema),
+                new("Numbers", unionSchema)
             });
 
         // Act

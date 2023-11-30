@@ -6,29 +6,28 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# method.
 /// </summary>
-public class CSharpMethod : IFluentMethod<CSharpMethod>
+/// <remarks>
+/// Creates a new C# method.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpMethod(string name) : IFluentMethod<CSharpMethod>
 {
-    /// <summary>
-    /// Creates a new C# method.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpMethod(string name) => Name = name;
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string ReturnType { get; set; } = "void";
     /// <inheritdoc/>
-    public List<string> Statements { get; set; } = new();
+    public List<string> Statements { get; set; } = [];
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
-    public List<IParameter> Parameters { get; } = new();
+    public List<IParameter> Parameters { get; } = [];
     /// <summary>
     /// The attributes on the method.
     /// </summary>
-    public List<string> Attributes { get; } = new();
+    public List<string> Attributes { get; } = [];
     /// <inheritdoc/>
     public bool IsOverride { get; set; }
     /// <inheritdoc/>

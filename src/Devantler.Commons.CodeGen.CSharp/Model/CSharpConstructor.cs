@@ -6,23 +6,22 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# constructor.
 /// </summary>
-public class CSharpConstructor : IFluentConstructor<CSharpConstructor>
+/// <remarks>
+/// Creates a new C# constructor.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpConstructor(string name) : IFluentConstructor<CSharpConstructor>
 {
-    /// <summary>
-    /// Creates a new C# constructor.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpConstructor(string name) => Name = name;
     /// <inheritdoc/>
     public Visibility Visibility { get; set; } = Visibility.Public;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public IDocBlock? DocBlock { get; set; }
     /// <inheritdoc/>
-    public List<string> Statements { get; set; } = new();
+    public List<string> Statements { get; set; } = [];
     /// <inheritdoc/>
-    public List<IConstructorParameter> Parameters { get; } = new();
+    public List<IConstructorParameter> Parameters { get; } = [];
     /// <inheritdoc/>
     public CSharpConstructor AddParameter(IConstructorParameter parameter)
     {

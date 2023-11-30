@@ -10,7 +10,7 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 public class CSharpCompilation : IFluentCompilation<CSharpCompilation>
 {
     /// <inheritdoc/>
-    public List<IType> Types { get; } = new();
+    public List<IType> Types { get; } = [];
 
     /// <inheritdoc/>
     public CSharpCompilation AddType(IType type)

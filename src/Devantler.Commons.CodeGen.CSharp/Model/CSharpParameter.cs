@@ -5,22 +5,17 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# parameter.
 /// </summary>
-public class CSharpParameter : IFluentParameter<CSharpParameter>
+/// <remarks>
+/// Creates a new C# parameter.
+/// </remarks>
+/// <param name="type"></param>
+/// <param name="name"></param>
+public class CSharpParameter(string type, string name) : IFluentParameter<CSharpParameter>
 {
-    /// <summary>
-    /// Creates a new C# parameter.
-    /// </summary>
-    /// <param name="type"></param>
-    /// <param name="name"></param>
-    public CSharpParameter(string type, string name)
-    {
-        Name = name;
-        Type = type;
-    }
     /// <inheritdoc/>
-    public string Type { get; set; }
+    public string Type { get; set; } = type;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public bool IsNullable { get; set; }
     /// <inheritdoc/>

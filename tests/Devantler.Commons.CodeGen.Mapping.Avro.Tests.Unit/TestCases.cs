@@ -3,8 +3,14 @@ using Devantler.Commons.CodeGen.Core;
 
 namespace Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit;
 
+/// <summary>
+/// Test cases for Avro schema parsing.
+/// </summary>
 public static class TestCases
 {
+    /// <summary>
+    /// Valid test cases.
+    /// </summary>
     public static IEnumerable<object[]> ValidCases =>
         new List<object[]> {
             new object[] { new RecordField("BooleanField", new BooleanSchema()), Language.CSharp, "bool"},
@@ -24,6 +30,9 @@ public static class TestCases
             new object[] { new RecordField("StringUuidField", new StringSchema{ LogicalType = new UuidLogicalType()}), Language.CSharp, "Guid"}
         };
 
+    /// <summary>
+    /// Invalid test cases.
+    /// </summary>
     public static IEnumerable<object[]> InvalidCases =>
         new List<object[]>
         {

@@ -3,8 +3,14 @@ using Devantler.Commons.CodeGen.CSharp.Tests.Unit.StubFactories;
 
 namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.TestCases;
 
+/// <summary>
+/// Test cases for C# enum generation.
+/// </summary>
 public static class EnumTestCases
 {
+    /// <summary>
+    /// Valid test cases.
+    /// </summary>
     public static IEnumerable<object[]> ValidCases =>
         new List<object[]>
         {

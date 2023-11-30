@@ -5,15 +5,14 @@ namespace Devantler.Commons.CodeGen.CSharp.Model;
 /// <summary>
 ///     A model representing a C# documentation block parameter.
 /// </summary>
-public class CSharpDocBlockParameter : IDocBlockParameter
+/// <remarks>
+/// Creates a new C# documentation block parameter.
+/// </remarks>
+/// <param name="name"></param>
+public class CSharpDocBlockParameter(string name) : IDocBlockParameter
 {
-    /// <summary>
-    /// Creates a new C# documentation block parameter.
-    /// </summary>
-    /// <param name="name"></param>
-    public CSharpDocBlockParameter(string name) => Name = name;
     /// <inheritdoc/>
-    public string Name { get; set; }
+    public string Name { get; set; } = name;
     /// <inheritdoc/>
     public string? Description { get; set; }
     /// <inheritdoc/>

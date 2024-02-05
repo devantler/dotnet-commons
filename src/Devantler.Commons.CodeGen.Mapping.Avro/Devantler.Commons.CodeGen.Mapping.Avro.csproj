@@ -19,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Chr.Avro" Version="10.2.1" />
+        <PackageReference Include="Chr.Avro" Version="10.2.2" />
     </ItemGroup>
 
     <ItemGroup>

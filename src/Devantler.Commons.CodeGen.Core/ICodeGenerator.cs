@@ -13,5 +13,5 @@ public interface ICodeGenerator
     /// <param name="compilation"></param>
     /// <param name="options"></param>
     /// <returns>Dictionary&lt;fileName, code&gt;</returns>
-    public Dictionary<string, string> Generate(ICompilation compilation, Action<CodeGenerationOptions>? options = null);
+    public Dictionary<string, string> Generate(ICompilation compilation, Action<CodeGenerationOptions>? action = null);
 }

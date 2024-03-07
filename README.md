@@ -50,6 +50,13 @@ This repository contains a collection of .NET libraries that can be used for eve
 ```
 <!-- readme-tree end -->
 
+<details>
+  <summary>Show/Hide codebase visualization</summary>
+
+![Visualization of the codebase](./diagram.svg)
+
+</details>
+
 ## Libraries
 
 - Devantler.Commons.StringHelpers - A collection of classes, extensions, and methods for working with strings.

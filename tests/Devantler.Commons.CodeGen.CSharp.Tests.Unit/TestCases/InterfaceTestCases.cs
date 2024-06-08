@@ -8,12 +8,12 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.TestCases;
 /// </summary>
 public static class InterfaceTestCases
 {
-    /// <summary>
-    /// Valid test cases.
-    /// </summary>
-    public static IEnumerable<object[]> ValidCases =>
-        new List<object[]>
-        {
+  /// <summary>
+  /// Valid test cases.
+  /// </summary>
+  public static IEnumerable<object[]> ValidCases =>
+      new List<object[]>
+      {
              new object[]
             {
                 "EmptyInterface",
@@ -279,11 +279,11 @@ public static class InterfaceTestCases
                     }
                 )
             }
-        };
+      };
 
-    /// <summary>
-    /// Invalid test cases.
-    /// </summary>
-    public static IEnumerable<object[]> InvalidCases =>
-        new List<object[]>();
+  /// <summary>
+  /// Invalid test cases.
+  /// </summary>
+  public static IEnumerable<object[]> InvalidCases =>
+      new List<object[]>();
 }

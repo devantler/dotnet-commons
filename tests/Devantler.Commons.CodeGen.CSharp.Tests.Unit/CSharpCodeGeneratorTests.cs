@@ -6,7 +6,6 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit;
 /// <summary>
 /// Tests for <see cref="CSharpCodeGenerator"/>.
 /// </summary>
-[UsesVerify]
 public class CSharpCodeGeneratorTests
 {
     /// <summary>

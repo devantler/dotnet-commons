@@ -8,12 +8,12 @@ namespace Devantler.Commons.CodeGen.CSharp.Tests.Unit.TestCases;
 /// </summary>
 public static class EnumTestCases
 {
-    /// <summary>
-    /// Valid test cases.
-    /// </summary>
-    public static IEnumerable<object[]> ValidCases =>
-        new List<object[]>
-        {
+  /// <summary>
+  /// Valid test cases.
+  /// </summary>
+  public static IEnumerable<object[]> ValidCases =>
+      new List<object[]>
+      {
             new object[]
             {
                 "EmptyEnum",
@@ -93,5 +93,5 @@ public static class EnumTestCases
                     }
                 )
             }
-        };
+      };
 }

@@ -5,8 +5,8 @@ namespace Devantler.Commons.CodeGen.Core;
 /// </summary>
 public class CodeGenerationOptions
 {
-    /// <summary>
-    /// Override the namespace used for code in the compilation.
-    /// </summary>
-    public string NamespaceToUse { get; set; } = string.Empty;
+  /// <summary>
+  /// Override the namespace used for code in the compilation.
+  /// </summary>
+  public string NamespaceToUse { get; set; } = string.Empty;
 }

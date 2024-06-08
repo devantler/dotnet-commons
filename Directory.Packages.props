@@ -1,20 +1,39 @@
 <!-- This file configures Central Package Management for the .NET Sln: https://devblogs.microsoft.com/nuget/introducing-central-package-management/ -->
 <Project>
   <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+    <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="roslynator.analyzers" Version="4.12.3">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="roslynator.formatting.analyzers" Version="4.12.3">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageVersion Include="AsyncFixer" Version="1.6.0" />
+    <PackageVersion Include="AutoFixture.AutoNSubstitute" Version="4.18.1" />
+    <PackageVersion Include="AutoFixture.Xunit2" Version="4.18.1" />
+    <PackageVersion Include="AutoFixture" Version="4.18.1" />
+    <PackageVersion Include="Chr.Avro" Version="10.3.1" />
+    <PackageVersion Include="CliWrap" Version="3.6.6" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.2" />
+    <PackageVersion Include="Docker.DotNet" Version="3.125.15" />
+    <PackageVersion Include="KubernetesClient" Version="14.0.2" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageVersion Include="NSubstitute.Analyzers.CSharp" Version="1.0.17" />
+    <PackageVersion Include="NSubstitute" Version="5.1.0" />
+    <PackageVersion Include="roslynator.analyzers" Version="4.12.3" />
+    <PackageVersion Include="roslynator.analyzers" Version="4.12.4" />
+    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.3" />
+    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.4" />
+    <PackageVersion Include="Scriban" Version="5.10.0" />
+    <PackageVersion Include="Verify.Xunit" Version="25.0.1" />
+    <PackageVersion Include="xunit.analyzers" Version="1.14.0" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.1" />
+    <PackageVersion Include="xunit" Version="2.8.1" />
+    <PackageVersion Include="YamlDotNet" Version="15.1.6" />
   </ItemGroup>
 </Project>

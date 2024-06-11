@@ -7,55 +7,55 @@ namespace Devantler.Commons.StringHelpers.Extensions;
 /// </summary>
 public static class CasingStringExtensions
 {
-    /// <summary>
-    ///     Converts a string to PascalCase.
-    /// </summary>
-    /// <param name="text"></param>
-    public static string ToPascalCase(this string text)
-    {
-        if (RegexLibrary.PascalCaseWithDigitsRegex.IsMatch(text))
-            return text;
-        if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
-            return text[..1].ToUpper() + text[1..];
+  /// <summary>
+  ///     Converts a string to PascalCase.
+  /// </summary>
+  /// <param name="text"></param>
+  public static string ToPascalCase(this string text)
+  {
+    if (RegexLibrary.PascalCaseWithDigitsRegex.IsMatch(text))
+      return text;
+    if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
+      return text[..1].ToUpper() + text[1..];
 
-        text = RegexLibrary.WordsRegex
-            .Replace(text, m => m.Value[..1].ToUpper() + m.Value[1..].ToLower());
+    text = RegexLibrary.WordsRegex
+        .Replace(text, m => m.Value[..1].ToUpper() + m.Value[1..].ToLower());
 
-        text = RegexLibrary.NonAlphanumericRegex.Replace(text, string.Empty);
+    text = RegexLibrary.NonAlphanumericRegex.Replace(text, string.Empty);
 
-        text = RegexLibrary.WhitespaceRegex.Replace(text, string.Empty);
+    text = RegexLibrary.WhitespaceRegex.Replace(text, string.Empty);
 
-        return text;
-    }
+    return text;
+  }
 
-    /// <summary>
-    ///     Converts a string to camelCase.
-    /// </summary>
-    /// <param name="text"></param>
-    public static string ToCamelCase(this string text)
-    {
-        if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
-            return text;
+  /// <summary>
+  ///     Converts a string to camelCase.
+  /// </summary>
+  /// <param name="text"></param>
+  public static string ToCamelCase(this string text)
+  {
+    if (RegexLibrary.CamelCaseWithDigitsRegex.IsMatch(text))
+      return text;
 
-        text = text.ToPascalCase();
+    text = text.ToPascalCase();
 
-        return text[..1].ToLower() + text[1..];
-    }
+    return text[..1].ToLower() + text[1..];
+  }
 
-    /// <summary>
-    ///     Converts a string to kebab-case.
-    /// </summary>
-    /// <param name="text"></param>
-    public static string ToKebabCase(this string text)
-    {
-        if (RegexLibrary.KebabCaseRegex.IsMatch(text))
-            return text;
+  /// <summary>
+  ///     Converts a string to kebab-case.
+  /// </summary>
+  /// <param name="text"></param>
+  public static string ToKebabCase(this string text)
+  {
+    if (RegexLibrary.KebabCaseRegex.IsMatch(text))
+      return text;
 
-        text = text.ToPascalCase();
+    text = text.ToPascalCase();
 
-        return RegexLibrary.WordsRegex.Matches(text)
-            .Select(m => m.Value)
-            .Aggregate(new StringBuilder(), (sb, s) => sb.Append(s.ToLower()).Append('-'))
-            .ToString()[..^1];
-    }
+    return RegexLibrary.WordsRegex.Matches(text)
+        .Select(m => m.Value)
+        .Aggregate(new StringBuilder(), (sb, s) => sb.Append(s.ToLower()).Append('-'))
+        .ToString()[..^1];
+  }
 }

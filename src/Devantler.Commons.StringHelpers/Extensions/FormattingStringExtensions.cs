@@ -7,29 +7,29 @@ namespace Devantler.Commons.StringHelpers.Extensions;
 /// </summary>
 public static class FormattingStringExtensions
 {
-    /// <summary>
-    ///     Indents a string by the specified number of spaces. Or four spaces if no argument is provided.
-    /// </summary>
-    /// <param name="text"></param>
-    /// <param name="spaces"></param>
-    /// <param name="ignoreFirstLine"></param>
-    public static string Indent(this string text, int spaces = 4, bool ignoreFirstLine = false)
+  /// <summary>
+  ///     Indents a string by the specified number of spaces. Or four spaces if no argument is provided.
+  /// </summary>
+  /// <param name="text"></param>
+  /// <param name="spaces"></param>
+  /// <param name="ignoreFirstLine"></param>
+  public static string Indent(this string text, int spaces = 4, bool ignoreFirstLine = false)
+  {
+    StringBuilder builder = new();
+    string[] lines = text.Split(Environment.NewLine.ToCharArray());
+    for (int i = 0; i < text.Split(Environment.NewLine.ToCharArray()).Length; i++)
     {
-        StringBuilder builder = new();
-        string[] lines = text.Split(Environment.NewLine.ToCharArray());
-        for (int i = 0; i < text.Split(Environment.NewLine.ToCharArray()).Length; i++)
-        {
-            if (i == 0 && ignoreFirstLine)
-            {
-                _ = builder.AppendLine(lines[i]);
-                continue;
-            }
+      if (i == 0 && ignoreFirstLine)
+      {
+        _ = builder.AppendLine(lines[i]);
+        continue;
+      }
 
-            _ = i < lines.Length - 1
-                ? builder.Append(new string(' ', spaces)).AppendLine(lines[i])
-                : builder.Append(new string(' ', spaces)).Append(lines[i]);
-        }
-
-        return builder.ToString();
+      _ = i < lines.Length - 1
+          ? builder.Append(new string(' ', spaces)).AppendLine(lines[i])
+          : builder.Append(new string(' ', spaces)).Append(lines[i]);
     }
+
+    return builder.ToString();
+  }
 }

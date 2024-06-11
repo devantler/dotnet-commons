@@ -1,16 +1,16 @@
 <!-- This file configures Central Package Management for the .NET Sln: https://devblogs.microsoft.com/nuget/introducing-central-package-management/ -->
 <Project>
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <AnalysisLevel>latest-Recommended</AnalysisLevel>
+    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
-    <AnalysisLevel>latest-Recommended</AnalysisLevel>
     <NoWarn>$(NoWarn);NU1507</NoWarn>
+    <Nullable>enable</Nullable>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="AsyncFixer" Version="1.6.0" />

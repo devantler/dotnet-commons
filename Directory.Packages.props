@@ -27,8 +27,8 @@
     <PackageVersion Include="NSubstitute" Version="5.1.0" />
     <PackageVersion Include="roslynator.analyzers" Version="4.12.6" />
     <PackageVersion Include="roslynator.analyzers" Version="4.12.6" />
-    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.6" />
-    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.6" />
+    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.7" />
+    <PackageVersion Include="roslynator.formatting.analyzers" Version="4.12.7" />
     <PackageVersion Include="Scriban" Version="5.10.0" />
     <PackageVersion Include="Verify.Xunit" Version="26.6.0" />
     <PackageVersion Include="xunit.analyzers" Version="1.16.0" />

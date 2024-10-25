@@ -18,7 +18,7 @@
     <PackageVersion Include="AutoFixture.Xunit2" Version="4.18.1" />
     <PackageVersion Include="AutoFixture" Version="4.18.1" />
     <PackageVersion Include="Chr.Avro" Version="10.4.0" />
-    <PackageVersion Include="CliWrap" Version="3.6.6" />
+    <PackageVersion Include="CliWrap" Version="3.6.7" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="Docker.DotNet" Version="3.125.15" />
     <PackageVersion Include="KubernetesClient" Version="15.0.1" />

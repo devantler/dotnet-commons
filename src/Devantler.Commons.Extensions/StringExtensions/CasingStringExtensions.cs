@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Devantler.Commons.StringHelpers.Extensions;
+namespace Devantler.Commons.Extensions.StringExtensions;
 
 /// <summary>
 /// A class with extension methods for <see cref="string"/> that can convert strings to different casing styles.

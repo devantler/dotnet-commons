@@ -1,6 +1,7 @@
+using AutoFixture;
 using AutoFixture.Kernel;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Setup.SpecimenBuilders;
+namespace Devantler.Commons.Extensions.Tests.Unit.Setup.SpecimenBuilders;
 
 /// <summary>
 /// A specimen builder for negative integers.

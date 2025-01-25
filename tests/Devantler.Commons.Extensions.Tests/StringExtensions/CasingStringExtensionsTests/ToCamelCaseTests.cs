@@ -1,4 +1,6 @@
-using Devantler.Commons.StringHelpers.Extensions;
+using AutoFixture.Xunit2;
+using Devantler.Commons.Extensions;
+using Devantler.Commons.Extensions.StringExtensions;
 
 namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
 

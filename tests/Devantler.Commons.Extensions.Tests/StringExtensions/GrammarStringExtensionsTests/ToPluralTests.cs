@@ -1,4 +1,4 @@
-using Devantler.Commons.StringHelpers.Extensions;
+using Devantler.Commons.Extensions.StringExtensions;
 
 namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GrammarStringExtensionsTests;
 
@@ -22,10 +22,10 @@ public class ToPluralTests
   [InlineData("species", "species")]
   [InlineData("address", "addresses")]
   [InlineData("addresses", "addresses")]
-  public void ToPlural_GivenSingleWord_ReturnsPlural(string input, string expected)
+  public void ToPlural_GivenSingleWord_ReturnsPlural(string? input, string? expected)
   {
     // Act
-    string actual = input.ToPlural();
+    string? actual = input?.ToPlural();
 
     // Assert
     Assert.Equal(expected, actual);

@@ -1,4 +1,4 @@
-using Devantler.Commons.StringHelpers.Extensions;
+using Devantler.Commons.Extensions.StringExtensions;
 
 namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GeneralStringExtensionsTests;
 
@@ -7,10 +7,10 @@ public class GeneralStringExtensionsTests
   [Theory]
   [InlineData(null)]
   [InlineData("")]
-  public void NullIfEmpty_ReturnsNull_ForNullAndEmptyStrings(string input)
+  public void NullIfEmpty_ReturnsNull_ForNullAndEmptyStrings(string? input)
   {
     // Act
-    string? actual = input.NullIfEmpty();
+    string? actual = input?.NullIfEmpty();
 
     // Assert
     Assert.Null(actual);

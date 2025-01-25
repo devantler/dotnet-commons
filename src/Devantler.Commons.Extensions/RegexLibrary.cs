@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace Devantler.Commons.StringHelpers;
+namespace Devantler.Commons.Extensions;
 
 /// <summary>
 ///     Static class that functions as a library of regular expressions.

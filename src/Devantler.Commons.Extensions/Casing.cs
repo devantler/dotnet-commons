@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers;
+namespace Devantler.Commons.Extensions;
 
 /// <summary>
 /// Different casing styles.

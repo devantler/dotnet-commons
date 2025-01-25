@@ -1,7 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using Devantler.Commons.StringHelpers.Extensions;
+using AutoFixture.Xunit2;
+using Devantler.Commons.Extensions.StringExtensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.FormattingStringExtensionsTests;
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.FormattingStringExtensionsTests;
 
 /// <summary>
 /// Test cases for <see cref="FormattingStringExtensions"/>.

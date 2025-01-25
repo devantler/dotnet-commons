@@ -1,5 +1,3 @@
-using Devantler.Commons.StringHelpers.Extensions;
-
 namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
 
 /// <summary>

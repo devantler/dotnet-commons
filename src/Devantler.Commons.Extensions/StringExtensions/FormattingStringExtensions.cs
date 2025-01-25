@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Devantler.Commons.StringHelpers.Extensions;
+namespace Devantler.Commons.Extensions.StringExtensions;
 
 /// <summary>
 /// Provides extension methods for <see cref="string" /> that help with formatting strings.

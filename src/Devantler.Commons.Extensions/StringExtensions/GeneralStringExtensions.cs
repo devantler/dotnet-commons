@@ -1,4 +1,4 @@
-namespace Devantler.Commons.StringHelpers.Extensions;
+namespace Devantler.Commons.Extensions.StringExtensions;
 
 /// <summary>
 /// General purpose string extensions.

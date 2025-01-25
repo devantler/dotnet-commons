@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace Devantler.Commons.StringHelpers.Extensions;
+namespace Devantler.Commons.Extensions.StringExtensions;
 
 /// <summary>
 /// Provides extension methods for <see cref="string" /> that help with grammar.
@@ -40,15 +40,15 @@ public static class GrammarStringExtensions
       return word;
     }
     else if (
-        word.EndsWith("x", StringComparison.OrdinalIgnoreCase)
-        || word.EndsWith("s", StringComparison.OrdinalIgnoreCase)
-        || word.EndsWith("z", StringComparison.OrdinalIgnoreCase)
+        word.EndsWith('x')
+        || word.EndsWith('s')
+        || word.EndsWith('z')
     )
     {
       return word + "es";
     }
     else if (
-        word.EndsWith("y", StringComparison.OrdinalIgnoreCase)
+        word.EndsWith('y')
         && !word.EndsWith("ay", StringComparison.OrdinalIgnoreCase)
         && !word.EndsWith("ey", StringComparison.OrdinalIgnoreCase)
         && !word.EndsWith("iy", StringComparison.OrdinalIgnoreCase)
@@ -61,7 +61,7 @@ public static class GrammarStringExtensions
     }
     else
     {
-      return word.EndsWith("o", StringComparison.OrdinalIgnoreCase) ? word + "es" : word + "s";
+      return word.EndsWith('o') ? word + "es" : word + "s";
     }
   }
 }

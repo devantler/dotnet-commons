@@ -41,5 +41,9 @@ A collection of libraries for .NET that provides common utilities.
 To get started, you can install the packages from NuGet.
 
 ```bash
-dotnet add package Devantler.Commons.StringHelpers
+# Extensions for common classes and functionality for string, enum, list, etc.
+dotnet add package Devantler.Commons.Extensions
+
+# Automatic input for AutoFixture and xUnit
+dotnet add package Devantler.Commons.AutoFixture.DataAttributes
 ```

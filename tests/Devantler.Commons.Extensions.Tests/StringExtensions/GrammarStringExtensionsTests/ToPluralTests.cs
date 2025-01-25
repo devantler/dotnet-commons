@@ -1,9 +1,17 @@
 using Devantler.Commons.Extensions.StringExtensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GrammarStringExtensionsTests;
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.GrammarStringExtensionsTests;
 
+/// <summary>
+/// Test for <see cref="GrammarStringExtensions.ToPlural"/>.
+/// </summary>
 public class ToPluralTests
 {
+  /// <summary>
+  /// Test cases for <see cref="GrammarStringExtensions.ToPlural"/>.
+  /// </summary>
+  /// <param name="input"></param>
+  /// <param name="expected"></param>
   [Theory]
   [InlineData(null, null)]
   [InlineData("", "")]

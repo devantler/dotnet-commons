@@ -1,14 +1,17 @@
 using AutoFixture.Xunit2;
-using Devantler.Commons.Extensions;
 using Devantler.Commons.Extensions.StringExtensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.CasingStringExtensionsTests;
 
 /// <summary>
 /// Test for <see cref="CasingStringExtensions.ToPascalCase"/>.
 /// </summary>
 public class ToPascalCaseTests
 {
+  /// <summary>
+  /// Tests that the method returns a string in Pascal case.
+  /// </summary>
+  /// <param name="text"></param>
   [Theory]
   [AutoData]
   [MemberData(nameof(TestCases.CasingTests), MemberType = typeof(TestCases))]

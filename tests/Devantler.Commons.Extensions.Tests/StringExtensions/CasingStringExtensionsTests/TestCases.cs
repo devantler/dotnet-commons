@@ -1,4 +1,6 @@
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
+using Devantler.Commons.Extensions.StringExtensions;
+
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.CasingStringExtensionsTests;
 
 /// <summary>
 /// Test cases for <see cref="CasingStringExtensions"/>.

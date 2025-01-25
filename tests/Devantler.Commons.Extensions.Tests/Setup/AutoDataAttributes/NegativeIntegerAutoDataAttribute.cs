@@ -1,8 +1,8 @@
 using AutoFixture;
 using AutoFixture.Xunit2;
-using Devantler.Commons.Extensions.Tests.Unit.Setup.SpecimenBuilders;
+using Devantler.Commons.Extensions.Tests.Setup.SpecimenBuilders;
 
-namespace Devantler.Commons.Extensions.Tests.Unit.Setup.AutoDataAttributes;
+namespace Devantler.Commons.Extensions.Tests.Setup.AutoDataAttributes;
 
 /// <summary>
 /// An auto data attribute that generates negative integers.

@@ -1,9 +1,16 @@
 using Devantler.Commons.Extensions.StringExtensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.GeneralStringExtensionsTests;
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.GeneralStringExtensionsTests;
 
+/// <summary>
+/// Tests for <see cref="GeneralStringExtensions"/>.
+/// </summary>
 public class GeneralStringExtensionsTests
 {
+  /// <summary>
+  /// Test that <see cref="GeneralStringExtensions.NullIfEmpty"/> returns null for null and empty strings.
+  /// </summary>
+  /// <param name="input"></param>
   [Theory]
   [InlineData(null)]
   [InlineData("")]
@@ -16,6 +23,10 @@ public class GeneralStringExtensionsTests
     Assert.Null(actual);
   }
 
+  /// <summary>
+  /// Test that <see cref="GeneralStringExtensions.NullIfEmpty"/> returns the original string for non-empty strings.
+  /// </summary>
+  /// <param name="input"></param>
   [Theory]
   [InlineData("hello")]
   [InlineData("a")]

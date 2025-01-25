@@ -1,8 +1,7 @@
 using AutoFixture.Xunit2;
-using Devantler.Commons.Extensions;
 using Devantler.Commons.Extensions.StringExtensions;
 
-namespace Devantler.Commons.StringHelpers.Tests.Unit.Extensions.CasingStringExtensionsTests;
+namespace Devantler.Commons.Extensions.Tests.StringExtensions.CasingStringExtensionsTests;
 
 /// <summary>
 /// Test for <see cref="CasingStringExtensions.ToCamelCase"/>.

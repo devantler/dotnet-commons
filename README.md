@@ -11,24 +11,27 @@
 ```
 .
 ├── .github
-│   ├── scripts
 │   └── workflows
-├── Devantler.SOPSCLI
-│   └── runtimes
-│       ├── linux-arm64
-│       │   └── native
-│       ├── linux-x64
-│       │   └── native
-│       ├── osx-arm64
-│       │   └── native
-│       ├── osx-x64
-│       │   └── native
-│       └── win-x64
-│           └── native
-└── Devantler.SOPSCLI.Tests
-    └── SOPSTests
+├── .vscode
+├── src
+│   ├── Devantler.Commons.AutoFixture.DataAttributes
+│   └── Devantler.Commons.Extensions
+│       └── StringExtensions
+└── tests
+    ├── Devantler.Commons.AutoFixture.DataAttributes.Tests.Unit
+    └── Devantler.Commons.Extensions.Tests
+        ├── EnumExtensionsTests
+        ├── ListExtensionsTests
+        ├── Setup
+        │   ├── AutoDataAttributes
+        │   └── SpecimenBuilders
+        └── StringExtensions
+            ├── CasingStringExtensionsTests
+            ├── FormattingStringExtensionsTests
+            ├── GeneralStringExtensionsTests
+            └── GrammarStringExtensionsTests
 
-18 directories
+21 directories
 ```
 <!-- readme-tree end -->
 

@@ -14,6 +14,8 @@ public static class ListExtensions
   public static void AddIfNotNull(this List<string> arguments, string format, params object?[] values)
   {
     if (values.All(value => value != null))
+    {
       arguments.Add(string.Format(format, values));
+    }
   }
 }

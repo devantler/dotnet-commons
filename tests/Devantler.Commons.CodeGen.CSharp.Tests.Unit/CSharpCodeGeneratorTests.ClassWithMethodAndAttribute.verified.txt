@@ -1,7 +1,0 @@
-﻿public class Class0
-{
-    [TestAttribute]
-    public string Method0()
-    {
-    }
-}

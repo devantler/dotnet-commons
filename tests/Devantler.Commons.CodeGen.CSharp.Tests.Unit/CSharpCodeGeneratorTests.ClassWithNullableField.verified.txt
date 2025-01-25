@@ -1,6 +1,0 @@
-﻿public class Class0
-{
-    #nullable enable
-    public string? fieldName0;
-    #nullable disable
-}

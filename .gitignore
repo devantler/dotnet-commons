@@ -1,12 +1,11 @@
 # MacOS
 .DS_Store
 
-# Jetbrains Rider
-.idea/
-
 # .NET
-bin/
-obj/
-
-# coverlet
+bin
+obj
+*.received.*
 **/TestResults/
+
+# Temporary files
+*.tmp*

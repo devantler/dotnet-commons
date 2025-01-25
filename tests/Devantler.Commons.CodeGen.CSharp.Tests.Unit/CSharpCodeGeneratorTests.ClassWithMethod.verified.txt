@@ -1,6 +1,0 @@
-﻿public class Class0
-{
-    public string Method0()
-    {
-    }
-}

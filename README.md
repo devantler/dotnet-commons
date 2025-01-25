@@ -1,64 +1,45 @@
-# .NET Commons 📦
+# 🪛 .NET Commons
 
-[![codecov](https://codecov.io/gh/devantler/dotnet-commons/branch/main/graph/badge.svg?token=ZFNJRQWYAA)](https://codecov.io/gh/devantler/dotnet-commons)
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Test](https://github.com/devantler/dotnet-commons/actions/workflows/test.yaml/badge.svg)](https://github.com/devantler/dotnet-commons/actions/workflows/test.yaml)
+[![codecov](https://codecov.io/gh/devantler/dotnet-commons/graph/badge.svg?token=RhQPb4fE7z)](https://codecov.io/gh/devantler/dotnet-commons)
 
-This repository contains a collection of .NET libraries that can be used for everyday tasks in .NET applications.
+<details>
+  <summary>Show/hide folder structure</summary>
 
 <!-- readme-tree start -->
 ```
 .
 ├── .github
+│   ├── scripts
 │   └── workflows
-├── .vscode
-├── src
-│   ├── Devantler.Commons.AutoFixture.DataAttributes
-│   ├── Devantler.Commons.CodeGen.CSharp
-│   │   └── Model
-│   ├── Devantler.Commons.CodeGen.Core
-│   │   ├── FluentModel
-│   │   ├── Model
-│   │   └── TemplateLoaders
-│   ├── Devantler.Commons.CodeGen.Mapping.Avro
-│   │   └── Mappers
-│   ├── Devantler.Commons.CodeGen.Mapping.Core
-│   └── Devantler.Commons.StringHelpers
-│       └── Extensions
-└── tests
-    ├── Devantler.Commons.AutoFixture.DataAttributes.Tests.Unit
-    ├── Devantler.Commons.CodeGen.CSharp.Tests.Unit
-    │   ├── Model
-    │   ├── StubFactories
-    │   │   └── Options
-    │   └── TestCases
-    ├── Devantler.Commons.CodeGen.Core.Tests.Unit
-    │   └── templates
-    ├── Devantler.Commons.CodeGen.Mapping.Avro.Tests.Unit
-    │   └── Mappers
-    │       ├── AvroEntitiesCompilationMapperTests
-    │       └── AvroModelsCompilationMapperTests
-    └── Devantler.Commons.StringHelpers.Tests.Unit
-        ├── Extensions
-        │   ├── CasingStringExtensionsTests
-        │   ├── FormattingStringExtensionsTests
-        │   ├── GeneralStringExtensionsTests
-        │   └── GrammarStringExtensionsTests
-        └── Setup
-            ├── AutoDataAttributes
-            └── SpecimenBuilders
+├── Devantler.SOPSCLI
+│   └── runtimes
+│       ├── linux-arm64
+│       │   └── native
+│       ├── linux-x64
+│       │   └── native
+│       ├── osx-arm64
+│       │   └── native
+│       ├── osx-x64
+│       │   └── native
+│       └── win-x64
+│           └── native
+└── Devantler.SOPSCLI.Tests
+    └── SOPSTests
 
-38 directories
+18 directories
 ```
 <!-- readme-tree end -->
 
-<details>
-  <summary>Show/Hide codebase visualization</summary>
-
-![Visualization of the codebase](./diagram.svg)
-
 </details>
 
-## Libraries
+A collection of libraries for .NET that provides common utilities.
 
-- Devantler.Commons.StringHelpers - A collection of classes, extensions, and methods for working with strings.
-- Devantler.Commons.CodeGen.* - A set of code generators to generate code to, e.g. C#. It also packs a set of mappers to map different file formats to the compilation model used by the generators.
-- Devantler.Commons.AutoFixture.DataAttributes - A set of data attributes for AutoFixture and NSubstitute to support common use cases.
+## 🚀 Getting Started
+
+To get started, you can install the packages from NuGet.
+
+```bash
+dotnet add package Devantler.Commons.StringHelpers
+```

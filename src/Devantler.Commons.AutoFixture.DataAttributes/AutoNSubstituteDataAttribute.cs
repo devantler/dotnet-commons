@@ -12,13 +12,13 @@ namespace Devantler.Commons.AutoFixture.DataAttributes;
 /// </remarks>
 /// <param name="customizations"></param>
 public class AutoNSubstituteDataAttribute(params Type[] customizations) : AutoDataAttribute(
-    () => new Fixture()
-            .Customize(new AutoNSubstituteCustomization())
-            .Customize(
-                new CompositeCustomization(
-                    customizations.Select(customization => Activator.CreateInstance(customization) as ICustomization)
-                )
-            )
+  () => new Fixture()
+    .Customize(new AutoNSubstituteCustomization())
+    .Customize(
+      new CompositeCustomization(
+          customizations.Select(customization => Activator.CreateInstance(customization) as ICustomization)
+      )
     )
+  )
 {
 }

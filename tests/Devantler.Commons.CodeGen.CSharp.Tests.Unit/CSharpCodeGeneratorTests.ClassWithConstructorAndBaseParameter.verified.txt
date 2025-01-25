@@ -1,7 +1,0 @@
-﻿using BaseClassNamespace;
-public class Class0 : BaseClass
-{
-    public Class0(string param0) : base(param0)
-    {
-    }
-}

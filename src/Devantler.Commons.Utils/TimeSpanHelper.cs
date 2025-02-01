@@ -28,9 +28,9 @@ public static class TimeSpanHelper
   public static TimeSpan ParseDuration(string format)
   {
     var result = _timeSpanInfos
-        .Where(timeSpanInfo => format.Contains(timeSpanInfo.Abbreviation, StringComparison.Ordinal))
-        .Select(timeSpanInfo => timeSpanInfo.InitialTimeSpan * int.Parse(new Regex(@$"(\d+){timeSpanInfo.Abbreviation}").Match(format).Groups[1].Value, CultureInfo.InvariantCulture))
-        .Aggregate((accumulator, timeSpan) => accumulator + timeSpan);
+      .Where(timeSpanInfo => format.Contains(timeSpanInfo.Abbreviation, StringComparison.Ordinal))
+      .Select(timeSpanInfo => timeSpanInfo.InitialTimeSpan * int.Parse(new Regex(@$"(\d+){timeSpanInfo.Abbreviation}").Match(format).Groups[1].Value, CultureInfo.InvariantCulture))
+      .Aggregate((accumulator, timeSpan) => accumulator + timeSpan);
     return result;
   }
 }

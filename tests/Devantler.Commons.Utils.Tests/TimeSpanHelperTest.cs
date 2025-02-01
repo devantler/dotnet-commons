@@ -42,6 +42,5 @@ public class TimeSpanHelperTest
   [InlineData("")]
   [InlineData("1x")]
   public void ParseDuration_InvalidFormat_ThrowsException(string format) =>
-    // Act & Assert
     Assert.ThrowsAny<Exception>(() => TimeSpanHelper.ParseDuration(format));
 }

@@ -51,4 +51,7 @@ dotnet add package Devantler.Commons.Extensions
 
 # Automatic input for AutoFixture and xUnit
 dotnet add package Devantler.Commons.AutoFixture.DataAttributes
+
+# Utilities for various common purposes
+dotnet add package Devantler.Commons.Utils
 ```

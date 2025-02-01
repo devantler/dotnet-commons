@@ -15,23 +15,25 @@
 ├── .vscode
 ├── src
 │   ├── Devantler.Commons.AutoFixture.DataAttributes
-│   └── Devantler.Commons.Extensions
-│       └── StringExtensions
+│   ├── Devantler.Commons.Extensions
+│   │   └── StringExtensions
+│   └── Devantler.Commons.Utils
 └── tests
     ├── Devantler.Commons.AutoFixture.DataAttributes.Tests.Unit
-    └── Devantler.Commons.Extensions.Tests
-        ├── EnumExtensionsTests
-        ├── ListExtensionsTests
-        ├── Setup
-        │   ├── AutoDataAttributes
-        │   └── SpecimenBuilders
-        └── StringExtensions
-            ├── CasingStringExtensionsTests
-            ├── FormattingStringExtensionsTests
-            ├── GeneralStringExtensionsTests
-            └── GrammarStringExtensionsTests
+    ├── Devantler.Commons.Extensions.Tests
+    │   ├── EnumExtensionsTests
+    │   ├── ListExtensionsTests
+    │   ├── Setup
+    │   │   ├── AutoDataAttributes
+    │   │   └── SpecimenBuilders
+    │   └── StringExtensions
+    │       ├── CasingStringExtensionsTests
+    │       ├── FormattingStringExtensionsTests
+    │       ├── GeneralStringExtensionsTests
+    │       └── GrammarStringExtensionsTests
+    └── Devantler.Commons.Utils.Tests
 
-21 directories
+23 directories
 ```
 <!-- readme-tree end -->
 
